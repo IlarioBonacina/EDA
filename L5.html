@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>EDA - Data Structures and Algorithmics</title>
+<title>EDA - L5: Exhaustive algorithms I</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -110,7 +110,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Course Info</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./L5.html">Exhaustive search</a></li><li class="breadcrumb-item"><a href="./L5.html">L5: Jutge</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -137,7 +137,7 @@ window.Quarto = {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Course Info</span></a>
   </div>
 </li>
@@ -212,16 +212,16 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
  <span class="menu-text">Exhaustive search</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./L5.html" class="sidebar-item-text sidebar-link">
+  <a href="./L5.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">L5: Jutge</span></a>
   </div>
 </li>
@@ -243,19 +243,17 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#contacts" id="toc-contacts" class="nav-link active" data-scroll-target="#contacts">Contacts</a></li>
-  <li><a href="#dynamics-of-lab-classes" id="toc-dynamics-of-lab-classes" class="nav-link" data-scroll-target="#dynamics-of-lab-classes">Dynamics of lab classes</a></li>
-  <li><a href="#schedule-for-the-groups" id="toc-schedule-for-the-groups" class="nav-link" data-scroll-target="#schedule-for-the-groups">Schedule for the groups L13 and L43</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  <li><a href="#possible-workflow-for-solving-the-exercises" id="toc-possible-workflow-for-solving-the-exercises" class="nav-link active" data-scroll-target="#possible-workflow-for-solving-the-exercises">Possible workflow for solving the exercises</a></li>
+  <li><a href="#exercises-on" id="toc-exercises-on" class="nav-link" data-scroll-target="#exercises-on">Exercises on Exhaustive search and generation</a></li>
   </ul>
 <div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="https://en.cppreference.com/w/"><i class="bi bi-code-slash"></i>cppreference.com</a></li><li><a href="https://jutge.org"><i class="bi bi-link-45deg"></i>Jutge.org</a></li><li><a href="https://www.cs.upc.edu/eda/"><i class="bi bi-link-45deg"></i>EDA Main Page</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./L5.html">Exhaustive search</a></li><li class="breadcrumb-item"><a href="./L5.html">L5: Jutge</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Data Structures and Algorithmics</h1>
+<h1 class="title">L5: Exhaustive algorithms I</h1>
 </div>
 
 
@@ -272,87 +270,185 @@ window.Quarto = {
 </header>
 
 
-<p>Welcome to <strong>Data Structures and Algorithmics (EDA)</strong>! This is the page for the lab classes of the groups L13 and L43.</p>
-<p>Please refer to the <a href="https://www.cs.upc.edu/eda/">main webpage of EDA</a> for news, course material, etc. Or to the official UPC page for the <a href="https://www.fib.upc.edu/es/estudios/grados/grado-en-ingenieria-informatica/plan-de-estudios/asignaturas/EDA">course syllabus</a>.</p>
-<section id="contacts" class="level2">
-<h2 class="anchored" data-anchor-id="contacts">Contacts</h2>
-<p><strong>Ilario Bonacina</strong> is the instructor for the groups L13 and L43.</p>
-<p><em>Student hours</em><br> Wednesdays, 12:00 - 13:00<br> room <strong>Omega 223</strong> <br></p>
-<p><a href="mailto:ilario.bonacina+EDA@upc.edu">ilario.bonacina+EDA@upc.edu</a> <br> <em>Please write an email before dopping by my office.</em> <br> The last possible day to ask questions by email is <strong>Wednesday May 29, 2024</strong>.</p>
-<p>The person in charge of the whole course is <strong>Albert Oliveras Llunell</strong>. For administrative questions please ask him directly. For instance by <a href="mailto:oliveras@cs.upc.edu">email</a>.</p>
-</section>
-<section id="dynamics-of-lab-classes" class="level2">
-<h2 class="anchored" data-anchor-id="dynamics-of-lab-classes">Dynamics of lab classes</h2>
-<p>Every <strong>lab class</strong> follows the same structure. In every session there will be some set of exercises from <a href="https://jutge.org">Jutge.org</a> to solve using the programming language C++.</p>
-</section>
-<section id="schedule-for-the-groups" class="level2">
-<h2 class="anchored" data-anchor-id="schedule-for-the-groups">Schedule for the groups L13 and L43</h2>
-<p>The meeting times are the following:</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This page will be updated closer to the class</p>
+</div>
+</div>
+<p>In this section we consider the problems from <a href="https://www.jutge.org">Jutge.org</a> <span class="math inline">\(\rightarrow\)</span> EDA <span class="math inline">\(\rightarrow\)</span> <strong>Exhaustive search and generation</strong>. We solve together (at least) the problems highlighted below.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>To make the most out of this lab it is <strong>strongly</strong> suggested that you try the exercises ideally before this class (or right afterwards). Remember that for any doubt on the exercises you can ask me by <a href="{{< meta _myEDA.email>}}">email</a> too.</p>
+</div>
+</div>
+<p><span class="emoji" data-emoji="exclamation">❗</span> denotes problems that might be harder than the rest.</p>
+<section id="possible-workflow-for-solving-the-exercises" class="level2">
+<h2 class="anchored" data-anchor-id="possible-workflow-for-solving-the-exercises">Possible workflow for solving the exercises</h2>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Step 1: Getting everything in place
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Choose a problem from <a href="https://www.jutge.org">Jutge.org</a> to solve.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Common error(s)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>The html statement of the problem might not be rendered properly</strong>.<br>
+The official statement of the problem is in the .pdf file.</p>
+</div>
+</div>
+<p>Download the .zip archive <img src="img/zip.png" class="img-fluid" width="20" alt="zip"> of the problem and <code>unzip</code> it.<br>
+In the obtained folder there are:</p>
 <ul>
-<li><p>group L13: Wednesdays 8:00 – 10:00 room <strong>C6 S308</strong></p></li>
-<li><p>group L43: Wednesdays 18:00 – 20:00 room <strong>C6 S303</strong></p></li>
+<li>a file .pdf with the <strong>official</strong> problem statement</li>
+<li>one or more text files with examples of input <code>sample.inp</code></li>
+<li>the corresponding correct outputs <code>sample.cor</code></li>
 </ul>
-<table class="table">
-<thead>
-<tr class="header">
-<th>Day</th>
-<th>Topic</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p>02/14/2024</p></td>
-<td><a href="./L1.html">L1: Use of STL data structures</a></td>
-</tr>
-<tr class="even">
-<td><p>03/13/2024</p></td>
-<td><a href="./L2.html">L2: Divide and Conquer</a></td>
-</tr>
-<tr class="odd">
-<td><p>04/17/2024</p></td>
-<td><a href="./L3.html">L3: Graph algorithms I</a></td>
-</tr>
-<tr class="even">
-<td><p>04/24/2024</p></td>
-<td><a href="./L4.html">L4: Graph algorithms II</a></td>
-</tr>
-<tr class="odd">
-<td><p>05/15/2024</p></td>
-<td><a href="./L5.html">L5: Exhaustive algorithms I</a></td>
-</tr>
-<tr class="even">
-<td><p>05/22/2024</p></td>
-<td><a href="./L6.html">L6: Exhaustive algorithms II</a></td>
-</tr>
-<tr class="odd">
-<td><strong>05/06/2024</strong></td>
-<td><strong>Final lab exam</strong><br>For the accepted style of C++ writing see <a href="https://www.cs.upc.edu/eda/data/uploads/normes-prog.pdf">Normes de Programació (in catalan)</a>: <strong>this is used as a reference for correcting the lab exam.</strong></td>
-</tr>
-</tbody>
-</table>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Step 2: Getting the C++ code to compile
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>After creating a C++ source file to solve the problem, compile it with <code>g++ -std=c++11</code>.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Common error(s)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Not using the flag <code>-std=c++11</code>.</p>
+</div>
+</div>
+<p>Possible useful flags are <code>-Wall -Wextra -Wno-overflow -Wpedantic -Werror -D_GLIBCXX_DEBUG</code></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Step 3: Testing testing testing
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Test the executable file obtained on the given example(s), for instance with <code>./a.out &lt; sample.inp &gt; output</code>.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Common error(s)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Writing the input by hand.<br>
+Not checking the exact formatting of the output.</p>
+</div>
+</div>
+<p>To see whether the <code>output</code> is the same as <code>sample.cor</code> a way is to use <code>diff output sample.cor</code></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Step 4: Submitting the solution to the Jutge
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Once the code compiles and on the given samples it gives the correct output submit it to the Jutge for automatic evaluation.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Common error(s)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Sending to the Jutge code that was not even compiled locally.<br>
+Not checking if the output was correct on the given inputs.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
 </section>
-<section id="references" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="references">References</h2>
-<ul>
-<li><dl>
-<dt><a href="https://en.cppreference.com/w/">cppreference.com</a></dt>
-<dd>
-and its offline version <a href="https://jutge.org/doc/cppreference/en/">C++ reference</a>. This last version is available to consult during the lab exam, therefore it is convenient to look at it to see what is not needed to memorize.
-</dd>
-</dl></li>
-<li><dl>
-<dt><a href="https://www.cs.upc.edu/eda/">EDA Main Page</a><span class="math inline">\(\rightarrow\)</span> Material Docent</dt>
-<dd>
-<ul>
-<li><a href="https://www.cs.upc.edu/eda/data/uploads/eda-codis.pdf">Algorismes en C++</a></li>
-<li><a href="https://www.cs.upc.edu/eda/data/uploads/normes-prog.pdf">Normes de Programació (in catalan)</a><br> This file describes the accepted style of C++ writing. <br> <strong>It is used as a reference for correcting the lab exam.</strong></li>
-<li><a href="https://www.cs.upc.edu/eda/data/uploads/tools.pdf">Eines de Suport a la Programació (in catalan)</a><br> A list of possibly useful software (source code editors, debuggers, git, …)</li>
-</ul>
-</dd>
-</dl></li>
-</ul>
-<p><img src="img/C++.jpg" class="img-fluid" width="100" alt="C++"> <br> <em>The C++ Programming Language</em><br>
-Bjarne Stroustrup. Addison-Wesley, (4th ed.) 2013</p>
+<section id="exercises-on" class="level2">
+<h2 class="anchored" data-anchor-id="exercises-on">Exercises on Exhaustive search and generation</h2>
+<p>P12828 <a href="https://jutge.org/problems/P12828_en">Zeros and ones (1)</a></p>
+<p>P45965 <a href="https://jutge.org/problems/P45965_en">Zeros and ones (2)</a></p>
+<p>P69348 <a href="https://jutge.org/problems/P69348_en">From one to en (1)</a></p>
+<p>P24674 <a href="https://jutge.org/problems/P24674_en">Permutations of words</a></p>
+<p>P16415 <a href="https://jutge.org/problems/P16415_en">Queens (1)</a></p>
+<p>P17921 <a href="https://jutge.org/problems/P17921_en">Queens (2)</a></p>
+<p>P38211 <a href="https://jutge.org/problems/P38211_en">Queens (3)</a></p>
+<p>P49889 <a href="https://jutge.org/problems/P49889_en">Consonants and vowels</a></p>
+<p>P62113 <a href="https://jutge.org/problems/P62113_en">Two coins of each kind (1)</a></p>
+<p>X92609 <a href="https://jutge.org/problems/X92609_en">Two coins of each kind (3)</a></p>
+<p>P62138 <a href="https://jutge.org/problems/P62138_en">Topological orderings</a></p>
+<p>P37197 <a href="https://jutge.org/problems/P37197_en">Incompatible species</a></p>
+<p>P76807 <a href="https://jutge.org/problems/P76807_en">Sudoku</a></p>
+<p>P70756 <a href="https://jutge.org/problems/P70756_en">Partitions</a></p>
+<p>P40685 <a href="https://jutge.org/problems/P40685_en">Equal sums (1)</a></p>
+<p>P82660 <a href="https://jutge.org/problems/P82660_en">Equal sums (2)</a></p>
+<p>P11655 <a href="https://jutge.org/problems/P11655_en">Equal sums (3)</a></p>
+<p>P93741 <a href="https://jutge.org/problems/P11655_en">Satisfiability</a></p>
 
 
 </section>
