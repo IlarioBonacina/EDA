@@ -1,13 +1,317 @@
 [
   {
-    "objectID": "self_assesment.html",
-    "href": "self_assesment.html",
+    "objectID": "jutge_workflow.html",
+    "href": "jutge_workflow.html",
+    "title": "**EDA**",
+    "section": "",
+    "text": "Step 1: Getting everything in place\n\n\n\n\n\nChoose a problem from Jutge.org to solve.\n\n\n\n\n\n\nCommon error(s)\n\n\n\nThe html statement of the problem might not be rendered properly.\nThe official statement of the problem is in the .pdf file.\n\n\nDownload the .zip archive of the problem and unzip it.\nIn the obtained folder there are:\n\na file .pdf with the official problem statement\none or more text files with examples of input sample.inp\nthe corresponding correct outputs sample.cor\n\n\n\n\n\n\n\n\n\n\nStep 2: Getting the C++ code to compile\n\n\n\n\n\nAfter creating a C++ source file to solve the problem, compile it with g++ -std=c++11.\n\n\n\n\n\n\nCommon error(s)\n\n\n\nNot using the flag -std=c++11.\n\n\nPossible useful flags are -Wall -Wextra -Wno-overflow -Wpedantic -Werror -D_GLIBCXX_DEBUG\n\n\n\n\n\n\n\n\n\nStep 3: Testing testing testing\n\n\n\n\n\nTest the executable file obtained on the given example(s), for instance with ./a.out &lt; sample.inp &gt; output.\n\n\n\n\n\n\nCommon error(s)\n\n\n\nWriting the input by hand.\nNot checking the exact formatting of the output.\n\n\nTo see whether the output is the same as sample.cor a way is to use diff output sample.cor\n\n\n\n\n\n\n\n\n\nStep 4: Submitting the solution to the Jutge\n\n\n\n\n\nOnce the code compiles and on the given samples it gives the correct output submit it to the Jutge for automatic evaluation.\n\n\n\n\n\n\nCommon error(s)\n\n\n\nSending to the Jutge code that was not even compiled locally.\nNot checking if the output was correct on the given inputs."
+  },
+  {
+    "objectID": "L6/L6.html",
+    "href": "L6/L6.html",
+    "title": "L6: Exhaustive algorithms II",
+    "section": "",
+    "text": "Important\n\n\n\nThis page will be updated closer to the class\nIn this section we consider the problems from Jutge.org \\(\\rightarrow\\) EDA \\(\\rightarrow\\) Exhaustive search and generation. We solve together (at least) the problems highlighted below.\n❗ denotes problems that might be harder than the rest.",
+    "crumbs": [
+      "Exhaustive search",
+      "L6: Jutge"
+    ]
+  },
+  {
+    "objectID": "L6/L6.html#possible-workflow-for-solving-the-exercises",
+    "href": "L6/L6.html#possible-workflow-for-solving-the-exercises",
+    "title": "L6: Exhaustive algorithms II",
+    "section": "Possible workflow for solving the exercises",
+    "text": "Possible workflow for solving the exercises\n\n\n\n\n\n\nStep 1: Getting everything in place\n\n\n\n\n\nChoose a problem from Jutge.org to solve.\n\n\n\n\n\n\nCommon error(s)\n\n\n\nThe html statement of the problem might not be rendered properly.\nThe official statement of the problem is in the .pdf file.\n\n\nDownload the .zip archive of the problem and unzip it.\nIn the obtained folder there are:\n\na file .pdf with the official problem statement\none or more text files with examples of input sample.inp\nthe corresponding correct outputs sample.cor\n\n\n\n\n\n\n\n\n\n\nStep 2: Getting the C++ code to compile\n\n\n\n\n\nAfter creating a C++ source file to solve the problem, compile it with g++ -std=c++11.\n\n\n\n\n\n\nCommon error(s)\n\n\n\nNot using the flag -std=c++11.\n\n\nPossible useful flags are -Wall -Wextra -Wno-overflow -Wpedantic -Werror -D_GLIBCXX_DEBUG\n\n\n\n\n\n\n\n\n\nStep 3: Testing testing testing\n\n\n\n\n\nTest the executable file obtained on the given example(s), for instance with ./a.out &lt; sample.inp &gt; output.\n\n\n\n\n\n\nCommon error(s)\n\n\n\nWriting the input by hand.\nNot checking the exact formatting of the output.\n\n\nTo see whether the output is the same as sample.cor a way is to use diff output sample.cor\n\n\n\n\n\n\n\n\n\nStep 4: Submitting the solution to the Jutge\n\n\n\n\n\nOnce the code compiles and on the given samples it gives the correct output submit it to the Jutge for automatic evaluation.\n\n\n\n\n\n\nCommon error(s)\n\n\n\nSending to the Jutge code that was not even compiled locally.\nNot checking if the output was correct on the given inputs.",
+    "crumbs": [
+      "Exhaustive search",
+      "L6: Jutge"
+    ]
+  },
+  {
+    "objectID": "L6/L6.html#exercises-on",
+    "href": "L6/L6.html#exercises-on",
+    "title": "L6: Exhaustive algorithms II",
+    "section": "Exercises on Exhaustive search and generation",
+    "text": "Exercises on Exhaustive search and generation\nP12828 Zeros and ones (1)\nP45965 Zeros and ones (2)\nP69348 From one to en (1)\nP24674 Permutations of words\nP16415 Queens (1)\nP17921 Queens (2)\nP38211 Queens (3)\nP49889 Consonants and vowels\nP62113 Two coins of each kind (1)\nX92609 Two coins of each kind (3)\n\n\n\n\n\n\nP62138 Topological orderings\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nP37197 Incompatible species\n\n\n\n\n\n\n\n\n\nP76807 Sudoku\n\n\n\n\n\n\nP70756 Partitions\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nP40685 Equal sums (1)\n\n\n\n\n\n\n\n\n\nP82660 Equal sums (2)\nP11655 Equal sums (3)\nP93741 Satisfiability ❗❗",
+    "crumbs": [
+      "Exhaustive search",
+      "L6: Jutge"
+    ]
+  },
+  {
+    "objectID": "L4/L4.html",
+    "href": "L4/L4.html",
+    "title": "L4: Graph algorithms II",
+    "section": "",
+    "text": "In this section we consider the problems from Jutge.org \\(\\rightarrow\\) EDA \\(\\rightarrow\\) Graph Algorithms. We solve together (at least) the problems highlighted below.\n❗ denotes problems that might be harder than the rest.",
+    "crumbs": [
+      "Graph Algorithms",
+      "L4: Jutge - Dijkstra"
+    ]
+  },
+  {
+    "objectID": "L4/L4.html#possible-workflow-for-solving-the-exercises",
+    "href": "L4/L4.html#possible-workflow-for-solving-the-exercises",
+    "title": "L4: Graph algorithms II",
+    "section": "Possible workflow for solving the exercises",
+    "text": "Possible workflow for solving the exercises\n\n\n\n\n\n\nStep 1: Getting everything in place\n\n\n\n\n\nChoose a problem from Jutge.org to solve.\n\n\n\n\n\n\nCommon error(s)\n\n\n\nThe html statement of the problem might not be rendered properly.\nThe official statement of the problem is in the .pdf file.\n\n\nDownload the .zip archive of the problem and unzip it.\nIn the obtained folder there are:\n\na file .pdf with the official problem statement\none or more text files with examples of input sample.inp\nthe corresponding correct outputs sample.cor\n\n\n\n\n\n\n\n\n\n\nStep 2: Getting the C++ code to compile\n\n\n\n\n\nAfter creating a C++ source file to solve the problem, compile it with g++ -std=c++11.\n\n\n\n\n\n\nCommon error(s)\n\n\n\nNot using the flag -std=c++11.\n\n\nPossible useful flags are -Wall -Wextra -Wno-overflow -Wpedantic -Werror -D_GLIBCXX_DEBUG\n\n\n\n\n\n\n\n\n\nStep 3: Testing testing testing\n\n\n\n\n\nTest the executable file obtained on the given example(s), for instance with ./a.out &lt; sample.inp &gt; output.\n\n\n\n\n\n\nCommon error(s)\n\n\n\nWriting the input by hand.\nNot checking the exact formatting of the output.\n\n\nTo see whether the output is the same as sample.cor a way is to use diff output sample.cor\n\n\n\n\n\n\n\n\n\nStep 4: Submitting the solution to the Jutge\n\n\n\n\n\nOnce the code compiles and on the given samples it gives the correct output submit it to the Jutge for automatic evaluation.\n\n\n\n\n\n\nCommon error(s)\n\n\n\nSending to the Jutge code that was not even compiled locally.\nNot checking if the output was correct on the given inputs.",
+    "crumbs": [
+      "Graph Algorithms",
+      "L4: Jutge - Dijkstra"
+    ]
+  },
+  {
+    "objectID": "L4/L4.html#exercises-on",
+    "href": "L4/L4.html#exercises-on",
+    "title": "L4: Graph algorithms II",
+    "section": "Exercises on Graph Algorithms",
+    "text": "Exercises on Graph Algorithms\n\nDijkstra’s Algorithm\n\n\n\n\n\n\nP43859 Weighted shortest path (1)\n\n\n\n\n\nThe following is some possible starting point.\n\n\n\n\n\n\nPossible code to start the problem\n\n\n\n\n\n//Weighted Shortest path - 1\n// Basic Dijkstra\n#include&lt;iostream&gt;\n#include&lt;vector&gt;\n#include&lt;queue&gt;\n#include&lt;limits.h&gt;\n\nusing namespace std;\n\nstruct Edge {\n    int v, c;\n    Edge(int vv, int cc) : v(vv), c(cc) {}\n};\n\nusing P = pair&lt;int,int&gt;; //distance, vertex\nusing VVP = vector&lt;vector&lt;Edge&gt;&gt;;\n\nvector&lt;int&gt; dijkstra(const VVP& g, int s){\n // here goes dijkstra\n} \n\nint main(){\n    int n, m;\n    while(cin &gt;&gt; n &gt;&gt; m){\n        VVP g(n);\n        for (int k = 0; k &lt; m; ++k){\n            int u, v, c;\n            cin &gt;&gt; u &gt;&gt; v &gt;&gt; c;\n            g[u].push_back(Edge(v,c));\n        }\n        int x, y;\n        cin &gt;&gt; x &gt;&gt; y;\n        vector&lt;int&gt; d = dijkstra(g, x);\n        if (d[y] == INT_MAX) cout &lt;&lt; \"no path from \" &lt;&lt; x &lt;&lt; \" to \" &lt;&lt; y &lt;&lt; endl;\n        else cout &lt;&lt; d[y] &lt;&lt; endl;\n    }\n}\n\n\n\n\n\n\n\n\n\n\nPossible solution\n\n\n\n\n\n//Weighted Shortest path - 1\n// Basic Dijkstra\n#include&lt;iostream&gt;\n#include&lt;vector&gt;\n#include&lt;queue&gt;\n#include&lt;limits.h&gt;\n\nusing namespace std;\n\nstruct Edge {\n    int v, c;\n    Edge(int vv, int cc) : v(vv), c(cc) {}\n};\n\nusing P = pair&lt;int,int&gt;; //distance, vertex\nusing VVP = vector&lt;vector&lt;Edge&gt;&gt;;\n\nvector&lt;int&gt; dijkstra(const VVP& g, int s){\n    int n = g.size();\n    vector&lt;int&gt; d(n, INT_MAX);\n    vector&lt;bool&gt; marked(n,false);\n    priority_queue&lt;P, vector&lt;P&gt;, greater&lt;P&gt;&gt; pq;\n    d[s] = 0;\n    pq.push({d[s],s});\n    while (not pq.empty()){\n        int u = pq.top().second;\n        pq.pop();\n        if (not marked[u]){\n            marked[u] = true;\n            for (int i = 0; i &lt; g[u].size(); ++i){\n                int v = g[u][i].v;\n                int c = g[u][i].c;\n                if (d[v] &gt; d[u] + c){\n                    d[v] = d[u] + c;\n                    pq.push(P({d[v],v}));\n                }\n            }\n        }\n    }\n    return d;\n} \n\nint main(){\n    int n, m;\n    while(cin &gt;&gt; n &gt;&gt; m){\n        VVP g(n);\n        for (int k = 0; k &lt; m; ++k){\n            int u, v, c;\n            cin &gt;&gt; u &gt;&gt; v &gt;&gt; c;\n            g[u].push_back(Edge(v,c));\n        }\n        int x, y;\n        cin &gt;&gt; x &gt;&gt; y;\n        vector&lt;int&gt; d = dijkstra(g, x);\n        if (d[y] == INT_MAX) cout &lt;&lt; \"no path from \" &lt;&lt; x &lt;&lt; \" to \" &lt;&lt; y &lt;&lt; endl;\n        else cout &lt;&lt; d[y] &lt;&lt; endl;\n    }\n}\n\n\n\n\n\n\nP13994 Weighted shortest path (2)\nP25235 Weighted shortest path (3)\nP39586 Weighted shortest path (4) ❗\n\n\nMinimum Spanning Trees\nP12887 Minimum spanning trees",
+    "crumbs": [
+      "Graph Algorithms",
+      "L4: Jutge - Dijkstra"
+    ]
+  },
+  {
+    "objectID": "L2/L2.html",
+    "href": "L2/L2.html",
+    "title": "L2: Divide and Conquer",
+    "section": "",
+    "text": "In this section we consider the problems from Jutge.org \\(\\rightarrow\\) EDA \\(\\rightarrow\\) Divide and Conquer. We solve together (at least) the problems highlighted below.\n❗ denotes problems that might be harder than the rest.",
+    "crumbs": [
+      "Divide and Conquer",
+      "L2: Jutge"
+    ]
+  },
+  {
+    "objectID": "L2/L2.html#possible-workflow-for-solving-the-exercises",
+    "href": "L2/L2.html#possible-workflow-for-solving-the-exercises",
+    "title": "L2: Divide and Conquer",
+    "section": "Possible workflow for solving the exercises",
+    "text": "Possible workflow for solving the exercises\n\n\n\n\n\n\nStep 1: Getting everything in place\n\n\n\n\n\nChoose a problem from Jutge.org to solve.\n\n\n\n\n\n\nCommon error(s)\n\n\n\nThe html statement of the problem might not be rendered properly.\nThe official statement of the problem is in the .pdf file.\n\n\nDownload the .zip archive of the problem and unzip it.\nIn the obtained folder there are:\n\na file .pdf with the official problem statement\none or more text files with examples of input sample.inp\nthe corresponding correct outputs sample.cor\n\n\n\n\n\n\n\n\n\n\nStep 2: Getting the C++ code to compile\n\n\n\n\n\nAfter creating a C++ source file to solve the problem, compile it with g++ -std=c++11.\n\n\n\n\n\n\nCommon error(s)\n\n\n\nNot using the flag -std=c++11.\n\n\nPossible useful flags are -Wall -Wextra -Wno-overflow -Wpedantic -Werror -D_GLIBCXX_DEBUG\n\n\n\n\n\n\n\n\n\nStep 3: Testing testing testing\n\n\n\n\n\nTest the executable file obtained on the given example(s), for instance with ./a.out &lt; sample.inp &gt; output.\n\n\n\n\n\n\nCommon error(s)\n\n\n\nWriting the input by hand.\nNot checking the exact formatting of the output.\n\n\nTo see whether the output is the same as sample.cor a way is to use diff output sample.cor\n\n\n\n\n\n\n\n\n\nStep 4: Submitting the solution to the Jutge\n\n\n\n\n\nOnce the code compiles and on the given samples it gives the correct output submit it to the Jutge for automatic evaluation.\n\n\n\n\n\n\nCommon error(s)\n\n\n\nSending to the Jutge code that was not even compiled locally.\nNot checking if the output was correct on the given inputs.",
+    "crumbs": [
+      "Divide and Conquer",
+      "L2: Jutge"
+    ]
+  },
+  {
+    "objectID": "L2/L2.html#exercises-on",
+    "href": "L2/L2.html#exercises-on",
+    "title": "L2: Divide and Conquer",
+    "section": "Exercises on Divide and Conquer",
+    "text": "Exercises on Divide and Conquer\nP81966 Dichotomic search\nP84219 First occurrence\n\n\n\n\n\n\nP29212 Modular exponentiation\n\n\n\n\n\n\n\n\n\n\n\nPossible code to start the problem\n\n\n\n\n\n{{&lt; include L2/P29212-tip.cc &gt;}}\n\n\n\n\n\n\n\n\n\nPossible solution\n\n\n\n\n\n{{&lt; include L2/P29212-sol.cc &gt;}}\n\n\n\n\n\n\nP33412 Resistant dichotomic search (~ Problem 2.12 seen in Problem class P3)\n\n\n\n\n\n\nP34682 Fixed points ❗\n\n\n\n\n\n\n\n\n\n\n\nPossible code to start the problem\n\n\n\n\n\n{{&lt; include L2/P34682-tip.cc &gt;}}\n\n\n\n\n\n\n\n\n\nPossible solution\n\n\n\n\n\n{{&lt; include L2/P34682-sol.cc &gt;}}\n\n\n\n\n\n\n\n\n\n\n\n\nP61833 Powers of a matrix\n\n\n\n\n\n\n\n\n\n\n\nPossible code to start the problem\n\n\n\n\n\n{{&lt; include L2/P61833-tip.cc &gt;}}\n\n\n\n\n\n\n\n\n\nPossible solution\n\n\n\n\n\n{{&lt; include L2/P61833-sol.cc &gt;}}\n\n\n\n\n\n\nP74219 Fibonacci numbers (2)\nP80595 How many inversions? (~ Problem 2.11 seen in Problem class P3)\nP58512 Interest rates ❗\nX39049 Powers of permutations\nX82938 Search in a unimodal vector (~ Problem 2.9 seen in Problem class P3)",
+    "crumbs": [
+      "Divide and Conquer",
+      "L2: Jutge"
+    ]
+  },
+  {
+    "objectID": "L1/STL.html",
+    "href": "L1/STL.html",
+    "title": "La Llibreria STL",
+    "section": "",
+    "text": "Important\n\n\n\nThis page is under construction. It needs to be ported to english and re-formatted.\nEl contenido de esta seccion es el mismo de Página principal de EDA \\(\\rightarrow\\) Material Docent \\(\\rightarrow\\) STL\nLa llibreria STL (Standard Template Library) és una col·lecció de plantilles per a diversos contenidors (vectors, piles, cues, etc.) que ja no caldrà que implementem. La STL està pensada per oferir una interfície el més uniforme possible. En particular, hi ha diversos mètodes que són comuns:\nA continuació es fa un descripció breu. Podeu trobar més informació a la web cppreference.com i al Jutge, secció “Documentation -&gt; Cheat sheets”, on hi ha els documents C++ reference i “Xuleta EDA”. Aquest ultim material estarà disponible el dia de l’examen.\nTots els costos que donarem (a no ser que es digui el contrari) són en el cas pitjor.\nA continuació veurem les següents classes:\npair&lt;T1,T2&gt; (parells)\npriority_queue&lt;T&gt; (cua de prioritats)\nset&lt;T&gt; (conjunt)\nmap&lt;K,V&gt; (diccionari)",
+    "crumbs": [
+      "Getting Started",
+      "The C++ Standard Library"
+    ]
+  },
+  {
+    "objectID": "L1/STL.html#pair",
+    "href": "L1/STL.html#pair",
+    "title": "La Llibreria STL",
+    "section": "pair",
+    "text": "pair\nEls pairs permeten formar parells amb un valor de tipus T1 i un valor de tipus T2.\npair&lt;T1,T2&gt; és equivalent a\nstruct pair {\n  T1 first;\n  T2 second;\n};\nS’accedeix als valors amb els camps first i second.\nEls pairs són útils perquè algunes funcions de la STL necessiten retornar 2 valors, i en aquest cas s’utilitzen pairs per fer-ho. A més, també van bé perquè tenen alguns operadors ja definits:\n\noperador d’igualtat == (component a component)\noperadors de comparació (lexicogràficament)\n\nExemplo\n  pair&lt;double, char&gt; a(2.5, 'A');\n  pair&lt;double, char&gt; b;\n  b.first = 3.5;\n  b.second = 'B';\n  cout &lt;&lt; (a == make_pair(2.5, 'A')) &lt;&lt; endl;  // --&gt; 1\n  cout &lt;&lt; (a &lt; b) &lt;&lt; endl;                     // --&gt; 1",
+    "crumbs": [
+      "Getting Started",
+      "The C++ Standard Library"
+    ]
+  },
+  {
+    "objectID": "L1/STL.html#priority_queue",
+    "href": "L1/STL.html#priority_queue",
+    "title": "La Llibreria STL",
+    "section": "priority_queue",
+    "text": "priority_queue\nUna priority_queue&lt;T&gt; és una cua de prioritats de T. L’element més gran guardat a la cua de prioritats és el primer que surt.\nCal fer: #include &lt;queue&gt;{:.language-cpp}\n\nvoid push(const T& x)\n\nafegeix x\nCost: \\(\\Theta(\\log n)\\)\n\nvoid pop()\n\nelimina l’element més gran\nCost: \\(\\Theta(\\log n)\\)\n\nconst T& top() const\n\nretorna l’element més gran\nCost: \\(\\Theta(1)\\)\n\n\nExemplo (Heapsort) llegeix una seqüència d’enters i l’escriu ordenada de forma decreixent\n#include &lt;queue&gt;\n\nint main() {\n  priority_queue&lt;int&gt; pq;\n  int x;\n  while (cin &gt;&gt; x) pq.push(x);\n  while (not pq.empty()) {\n    cout &lt;&lt; pq.top() &lt;&lt; endl;\n    pq.pop();\n  }\n}",
+    "crumbs": [
+      "Getting Started",
+      "The C++ Standard Library"
+    ]
+  },
+  {
+    "objectID": "L1/STL.html#set",
+    "href": "L1/STL.html#set",
+    "title": "La Llibreria STL",
+    "section": "set",
+    "text": "set\nUn set&lt;T&gt; és un conjunt de T. Els elements del conjunt es guarden ordenats de menor a major. (internament estan implementats amb arbres binaris de cerca balancejats)\nCal fer: #include &lt;set&gt;{: .language-cpp}\nAssumim que iterator és sinònim de set&lt;T&gt;::iterator.\nUn iterator it es mou cap endavant amb ++it i cap endarrera amb --it\nPer accedir a l’element apuntat per un iterator it: *it\n\npair&lt;iterator,bool&gt; insert ( const T& x );\n\nAfegeix x al conjunt. Si no hi era, retorna un iterador que apunta on s’ha ficat x, i true. Sinó retorna un iterador que apunta on ja hi havia x, i false.\nCost: \\(\\Theta(\\log n)\\)\n\niterator begin()\n\nretorna l’iterador a l’element més petit\nCost: \\(\\Theta(1)\\)\n\niterator end()\n\nretorna l’iterador al següent de l’element més gran\nCost: \\(\\Theta(1)\\)\n\niterator find(const T& x) const\n\nBusca l’element x al conjunt. Si el troba, retorna un iterador que hi apunta. Sinó retorna end().\nCost \\(\\Theta(\\log n)\\)\n\nvoid erase(iterator it)\n\nElimina l’element apuntat per it.\nCost: \\(\\Theta(1)\\) amortit\n\nint erase(const T& x)\n\nSi x pertany al conjunt, l’elimina i retorna 1. Sinó retorna 0.\nCost: \\(\\Theta(\\log n)\\)\n\n\nExemplo llegeix dues seqüències d’enters acabades en zero i escriu seva intersecció\n#include &lt;set&gt;\n\nint main() {\n  set&lt;int&gt; s1, s2;\n  int x;\n  while (cin &gt;&gt; x and x != 0) s1.insert(x);\n  while (cin &gt;&gt; x and x != 0) s2.insert(x);\n\n  for (set&lt;int&gt;::iterator it = s1.begin(); it != s1.end(); ++it)\n    if (s2.find(*it) != s2.end())\n      cout &lt;&lt; *it &lt;&lt; endl;\n}",
+    "crumbs": [
+      "Getting Started",
+      "The C++ Standard Library"
+    ]
+  },
+  {
+    "objectID": "L1/STL.html#map",
+    "href": "L1/STL.html#map",
+    "title": "La Llibreria STL",
+    "section": "map",
+    "text": "map\nUn map&lt;K,V&gt; és un diccionari de claus K i valors V. Es comporta de manera semblant a un conjunt de parells (clau, valor) (és a dir, set&lt;pair&lt;K,V&gt;&gt;) on no es poden repetir claus.\nEls parells estan ordenats per clau de menor a major.\n(internament estan implementats amb arbres binaris de cerca balancejats)\nCal fer: #include &lt;map&gt;{: .language-cpp}\nAssumim que iterator és sinònim de map&lt;K,V&gt;::iterator.\nUn iterator it es mou cap endavant amb ++it i cap endarrera amb --it\nPer accedir al parell apuntat per it: *it\nPer accedir a la clau apuntada per it: (*it).first o it-&gt;first\nPer accedir al valor apuntat per it: (*it).second o it-&gt;second\n\npair&lt;iterator,bool&gt; insert(const pair&lt;K,V&gt;& p);\n\nAfegeix el parell p. Si no hi havia cap parell amb aquesta clau, retorna un iterador que apunta on s’ha ficat p, i true. Sinó retorna l’iterador que apunta al parell que ja hi havia amb la mateixa clau, i false.\nCost: \\(\\Theta(\\log n)\\)\n\niterator begin()\n\nretorna l’iterador al parell amb clau més petita\nCost: \\(\\Theta(1)\\)\n\niterator end()\n\nretorna l’iterador al següent al parell amb clau més gran\nCost: \\(\\Theta(1)\\)\n\niterator find(const K& k) const\n\nBusca un parell amb clau k. Si el troba, retorna un iterador que hi apunta. Sinó retorna end().\nCost \\(\\Theta(\\log n)\\)\n\nvoid erase(iterator it)\n\nElimina el parell apuntat per it.\nCost: \\(\\Theta(1)\\) amortit\n\nint erase ( const K& k )\n\nSi hi ha un parell amb clau k, l’elimina i retorna 1. Sinó retorna 0.\nCost: \\(\\Theta(\\log n)\\)\n\n\nExemplo.\n#include &lt;map&gt;\n\ntypedef pair&lt;char,int&gt; P;\ntypedef map&lt;char,int&gt; M;\n\nint main(){\n\n  M m;\n\n  m.insert( P('a', 10) );\n  m.insert( make_pair('c', 30) );\n  m['d'] = 40;\n\n  //    L'operador [ ] admet com a argument una clau k. Llavors:\n  //\n  //    Si ja hi havia un parell amb la clau, es retorna una referència al\n  //    camp second (valor) del parell que ja existia amb aquesta clau.\n  //\n  //    Sino, s'inserta un parell amb aquesta clau i el constructor per\n  //    defecte del tipus V (per ex., per a tipus bàsics de C++\n  //    numèrics, assigna a 0). Llavors es retorna una referència al\n  //    camp second (valor) d'aquest parell.\n\n  m.erase('c');\n\n  for (M::iterator it = m.begin(); it != m.end(); ++it) \n    cout &lt;&lt; it-&gt;first &lt;&lt; \" \" &lt;&lt; it-&gt;second &lt;&lt; endl;\n}\nté sortida\na 10\nd 40",
+    "crumbs": [
+      "Getting Started",
+      "The C++ Standard Library"
+    ]
+  },
+  {
+    "objectID": "L1/STL.html#novetats-c11",
+    "href": "L1/STL.html#novetats-c11",
+    "title": "La Llibreria STL",
+    "section": "“NOVETATS” C++11",
+    "text": "“NOVETATS” C++11\n\nCal compilar amb g++ -std=c++11\nSi el compilador pot inferir el tipus d’una variable a la declaració, en lloc de posar el tipus de la variable, es pot escriure auto.\n\n  map&lt;string, int&gt; m;\n  auto it = m.find(\"hello\");\n\nEls bucles for s’han modificat per poder iterar fàcilment sobre col·leccions.\nExemplo\n\n  set&lt;int&gt; s;\n  ...\n  for(int x : s) cout &lt;&lt; x &lt;&lt; endl;\n  cout &lt;&lt; endl;\n\nJa no cal posar un espai entre els &gt;&gt; dels templates.\nExemplo.\n\n  vector&lt;vector&lt;int&gt;&gt; matrix;\n\nEs poden donar llistes d’inicialitzacions a contenidors de la STL.\nExemplo.\n\n  vector&lt;int&gt;   v = {0, 1, 2};\n  set&lt;set&lt;int&gt;&gt; s = { {2,3}, {5,1,5}, {}, {3} };",
+    "crumbs": [
+      "Getting Started",
+      "The C++ Standard Library"
+    ]
+  },
+  {
+    "objectID": "L1/STL.html#unordered_set",
+    "href": "L1/STL.html#unordered_set",
+    "title": "La Llibreria STL",
+    "section": "unordered_set",
+    "text": "unordered_set\nCom el set, però no es garanteix que recórrer el set des de begin() fins a end() respecti l’ordre dels elements.\ninsert, find, erase funcionen en temps \\(\\Theta(n)\\) en el cas pitjor, però temps \\(\\Theta(1)\\) en mitjana.\n(internament estan implementats amb taules de hash)\nExemplo.\n#include &lt;iostream&gt;\n#include &lt;unordered_set&gt;\n\nusing namespace std;\n\nint main() {\n\n  unordered_set&lt;int&gt; s1, s2;\n  int x;\n\n  while (cin &gt;&gt; x and x != 0)\n    s1.insert(x);\n  \n  while (cin &gt;&gt; x and x != 0)\n    s2.insert(x);\n\n  for (auto y : s1) \n    if (s2.find(y) != s2.end()) \n      cout &lt;&lt; y &lt;&lt; endl;\n}",
+    "crumbs": [
+      "Getting Started",
+      "The C++ Standard Library"
+    ]
+  },
+  {
+    "objectID": "L1/STL.html#unordered_map",
+    "href": "L1/STL.html#unordered_map",
+    "title": "La Llibreria STL",
+    "section": "unordered_map",
+    "text": "unordered_map\nCom el map, però no es garanteix que recórrer el map des de begin() fins a end() respecti l’ordre de les claus.\ninsert, find, erase funcionen en temps \\(\\Theta(n)\\) en el cas pitjor, però en temps \\(\\Theta(1)\\) en mitjana.\n(internament estan implementats amb taules de hash)\nExemplo.\n#include &lt;unordered_map&gt;\n#include &lt;iostream&gt;\n\nusing namespace std;\n\nint main() {\n  unordered_map&lt;string, int&gt; m;\n  string x;\n  while (cin &gt;&gt; x) ++m[x];\n  for(auto p : m)\n    cout &lt;&lt; p.first &lt;&lt; \" \" &lt;&lt; p.second &lt;&lt; endl;\n}",
+    "crumbs": [
+      "Getting Started",
+      "The C++ Standard Library"
+    ]
+  },
+  {
+    "objectID": "L1/STL.html#ejemplos",
+    "href": "L1/STL.html#ejemplos",
+    "title": "La Llibreria STL",
+    "section": "Ejemplos",
+    "text": "Ejemplos\nPágina principal de EDA \\(\\rightarrow\\) Material Docent \\(\\rightarrow\\) Algorismes en C++ \\(\\rightarrow\\) Chapter 1: STL Usage Examples",
+    "crumbs": [
+      "Getting Started",
+      "The C++ Standard Library"
+    ]
+  },
+  {
+    "objectID": "L1/L1.html",
+    "href": "L1/L1.html",
+    "title": "L1: Use of STL data structures",
+    "section": "",
+    "text": "In this section we consider the problems from Jutge.org \\(\\rightarrow\\) EDA \\(\\rightarrow\\) Use of STL data structures. We solve together (at least) the problems highlighted below.\n❗ denotes problems that might be harder than the rest.",
+    "crumbs": [
+      "Getting Started",
+      "L1: Jutge - STL"
+    ]
+  },
+  {
+    "objectID": "L1/L1.html#possible-workflow-for-solving-the-exercises",
+    "href": "L1/L1.html#possible-workflow-for-solving-the-exercises",
+    "title": "L1: Use of STL data structures",
+    "section": "Possible workflow for solving the exercises",
+    "text": "Possible workflow for solving the exercises\n\n\n\n\n\n\nStep 1: Getting everything in place\n\n\n\n\n\nChoose a problem from Jutge.org to solve.\n\n\n\n\n\n\nCommon error(s)\n\n\n\nThe html statement of the problem might not be rendered properly.\nThe official statement of the problem is in the .pdf file.\n\n\nDownload the .zip archive of the problem and unzip it.\nIn the obtained folder there are:\n\na file .pdf with the official problem statement\none or more text files with examples of input sample.inp\nthe corresponding correct outputs sample.cor\n\n\n\n\n\n\n\n\n\n\nStep 2: Getting the C++ code to compile\n\n\n\n\n\nAfter creating a C++ source file to solve the problem, compile it with g++ -std=c++11.\n\n\n\n\n\n\nCommon error(s)\n\n\n\nNot using the flag -std=c++11.\n\n\nPossible useful flags are -Wall -Wextra -Wno-overflow -Wpedantic -Werror -D_GLIBCXX_DEBUG\n\n\n\n\n\n\n\n\n\nStep 3: Testing testing testing\n\n\n\n\n\nTest the executable file obtained on the given example(s), for instance with ./a.out &lt; sample.inp &gt; output.\n\n\n\n\n\n\nCommon error(s)\n\n\n\nWriting the input by hand.\nNot checking the exact formatting of the output.\n\n\nTo see whether the output is the same as sample.cor a way is to use diff output sample.cor\n\n\n\n\n\n\n\n\n\nStep 4: Submitting the solution to the Jutge\n\n\n\n\n\nOnce the code compiles and on the given samples it gives the correct output submit it to the Jutge for automatic evaluation.\n\n\n\n\n\n\nCommon error(s)\n\n\n\nSending to the Jutge code that was not even compiled locally.\nNot checking if the output was correct on the given inputs.",
+    "crumbs": [
+      "Getting Started",
+      "L1: Jutge - STL"
+    ]
+  },
+  {
+    "objectID": "L1/L1.html#exercises-on",
+    "href": "L1/L1.html#exercises-on",
+    "title": "L1: Use of STL data structures",
+    "section": "Exercises on Use of STL data structures",
+    "text": "Exercises on Use of STL data structures\nP50709 Collection of numbers\nP40902 Casino\nP69781 Collatz pseudo-sequences (2) ❗\nP84415 Bag of words\nP37064 Dynamic median ❗\n\n\n\n\n\n\nP59282 Statistical measures\n\n\n\n\n\n\n\n\n\n\n\nPossible code to start the problem\n\n\n\n\n\n{{&lt; include L1/P59282-tip.cc &gt;}}\n\n\n\n\n\n\n\n\n\nPossible solution\n\n\n\n\n\n{{&lt; include L1/P59282-sol.cc &gt;}}\n\n\n\n\n\n\nP69932 The longest sequence ❗\n\n\n\n\n\n\nP60296 Role Classification\n\n\n\n\n\n\n\n\n\n\n\nPossible code to start the problem\n\n\n\n\n\n{{&lt; include L1/P60296-tip.cc &gt;}}\n\n\n\n\n\n\n\n\n\nPossible solution\n\n\n\n\n\n{{&lt; include L1/P60296-sol.cc &gt;}}\n\n\n\n\n\n\nP60219 Easy game?\nP62653 Ticket distribution\nP63584 K-th element (~ Problem 4.11 you will see in the problem class P5)",
+    "crumbs": [
+      "Getting Started",
+      "L1: Jutge - STL"
+    ]
+  },
+  {
+    "objectID": "L1/self_assesment.html",
+    "href": "L1/self_assesment.html",
     "title": "Initial Self-Assesment Test",
     "section": "",
     "text": "Please dedicate the next 15 minutes to the following self assesment text. This test is the html version of this pdf.\n\n\n\n\n\n\nQuestion\n\n\n\nIf I want to run a single-file program program.cc, do I need to first compile and generate the object program.o with g++ -c program.cc, and then link to produce the executable with g++ program.o?\n\n\n\n\n\n\n\n\nAnswer\n\n\n\n\n\nOne could do that, but in this case it can all be done in a single line: g++ program.cc.\n\n\n\n\n\n\n\n\n\nQuestion\n\n\n\nIf I want to use any of the features of the C++ 2011 standard in my program program.cc, how should I compile it with g++?\n\n\n\n\n\n\n\n\nAnswer\n\n\n\n\n\ng++ -std=c++11 program.cc\nNote that std stands for standard.\n\n\n\n\n\n\n\n\n\nQuestion\n\n\n\nHow can I tell g++ to warn me against everything that is found suspicious during compilation?\n\n\n\n\n\n\n\n\nAnswer\n\n\n\n\n\ng++ -Wall program.cc\nNote that Wall stands for Warning all. It is wise to always use the -Wall flag.\n\n\n\n\n\n\n\n\n\nQuestion\n\n\n\nHow can I tell g++ to optimize the generated code?\n\n\n\n\n\n\n\n\nAnswer\n\n\n\n\n\nFor instance, with\ng++ -O2 program.cc\nnearly all supported optimizations not involving a space-speed tradeoff are performed. Note that O stands for Optimization.\n\n\n\n\n\n\n\n\n\nQuestion\n\n\n\nI have an executable a.out and want to read data from a file sample.inp rather than from the keyboard, and write the output on a new file sample.out instead of to the screen. How can I do that?\n\n\n\n\n\n\n\n\nAnswer\n\n\n\n\n\n./a.out &lt; sample.inp &gt; sample.out\n\n\n\n\n\n\n\n\n\nQuestion\n\n\n\nHow can I find the differences between two files sample.out and sample.cor?\n\n\n\n\n\n\n\n\nAnswer\n\n\n\n\n\nFor example:\ndiff sample.out sample.cor\n\n\n\n\n\n\n\n\n\nQuestion\n\n\n\nIn C++, how can I create a bidimensional matrix matrix of ints with n rows and m columns, all of them initialized to 1?\n\n\n\n\n\n\n\n\nAnswer\n\n\n\n\n\nThe standard library of C++ does not have a built-in type “matrix”. A way to create the matrix is by creating a vector of n rows, each of which is a vector of m integers initialized to 1. By using the standard template class vector&lt;T&gt; and the constructor vector&lt;T&gt;(size, init) (which creates a vector of size copies of init):\nvector&lt;int&gt; row(m, 1); \nvector&lt;vector&lt;int&gt;&gt; matrix(n, row);\nEquivalently (and better) in a single line:\nvector&lt;vector&lt;int&gt;&gt; matrix(n, vector&lt;int&gt;(m, 1));\n\n\n\n\n\n\n\n\n\nQuestion\n\n\n\nI have to sort a vector v of ints increasingly. Should I write my own sorting procedure?\n\n\n\n\n\n\n\n\nAnswer\n\n\n\n\n\nNo (unless there is another reason for doing so). Use the sort procedure of the standard C++ library:\n#include &lt;algorithm&gt; \n\n//...\n\nsort(v.begin(), v.end());\n\n\n\n\n\n\n\n\n\nQuestion\n\n\n\nAnd what if I have to sort decreasingly?\n\n\n\n\n\n\n\n\nAnswer\n\n\n\n\n\nThe sort procedure admits a third parameter: the sorting criterion. It is a function or a function object that takes as parameters two objects of the container (in this case, two ints) and returns true when the first argument should come before the second one. For instance, in this case:\n#include &lt;algorithm&gt; \n\nbool before(int a, int b) { return a &gt; b;} \n\n// ...\n\nsort(v.begin(), v.end(), before);\nFunction objects of class greater&lt;int&gt;, available in the standard library, behave essentially the same as the aforementioned function before, and give an elegant solution:\n#include &lt;algorithm&gt; \n\n// ...\n\nsort(v.begin(), v.end(), greater&lt;int&gt;());\nAnother example of function before, now defined over structs:\n// first small surnames, in case of tie big names, in case of tie the younger one \nbool before(const Info& a, const Info& b) {\n  if (a.surname != b.surname) \n    return a.surname &lt; b.surname; \n  if (a.name  != b.name) \n    return a.name &gt; b.name;\nreturn a.age &lt; b.age; \n}\n\n\n\n\n\n\n\n\n\nQuestion\n\n\n\nLet s be a stack&lt;pair&lt;int,int&gt;. Can the following code be written more compactly? (assuming that aux is not used any more)\npair&lt;int,int&gt; aux; \naux.first = 1; \naux.second = 2;\ns.push(aux);\n\n\n\n\n\n\n\n\nAnswer\n\n\n\n\n\nOne can make the compiler generate the adequate temporary object by calling a constructor of pair&lt;int,int&gt;. For example, any of the following would do:\ns.push(pair&lt;int,int&gt;(1, 2)); \ns.push(make pair(1, 2));\ns.push({1, 2}); // This is C++11 \n\n\n\n\n\n\n\n\n\nQuestion\n\n\n\nWhen I compile my program program.cc I get the output below. Where is the error?\nuser@machine:$ g++ program.cc\n   program.cc: In function ‘int main()’:\n   program.cc:10:8: error: no match for ‘operator&lt;&lt;’ (operand types are ‘std::ostream\n   {aka std::basic_ostream&lt;char&gt;}’ and ‘std::vector&lt;int&gt;’)\n      cout &lt;&lt; v &lt;&lt; endl;\n           ^\n   In file included from /usr/include/c++/5/iostream:39:0,\n                    from program.cc:1:\n   /usr/include/c++/5/ostream:108:7: note: candidate: std::basic_ostream&lt;_CharT,\n   _Traits&gt;::__ostream_type& std::basic_ostream&lt;_CharT, _Traits&gt;::operator&lt;&lt;(std::basic_ostream&lt;_\n   _Traits&gt;::__ostream_type& (*)(std::basic_ostream&lt;_CharT, _Traits&gt;::__ostream_type&))\n   [with _CharT = char; _Traits = std::char_traits&lt;char&gt;; std::basic_ostream&lt;_CharT,\n   _Traits&gt;::__ostream_type = std::basic_ostream&lt;char&gt;]\n          operator&lt;&lt;(__ostream_type& (*__pf)(__ostream_type&))\n          ^\n   /usr/include/c++/5/ostream:108:7: note:   no known conversion for argument\n   1 from ‘std::vector&lt;int&gt;’ to ‘std::basic_ostream&lt;char&gt;::__ostream_type&\n   (*)(std::basic_ostream&lt;char&gt;::__ostream_type&) {aka std::basic_ostream&lt;char&gt;&\n   (*)(std::basic_ostream&lt;char&gt;&)}’\n   /usr/include/c++/5/ostream:117:7: note: candidate: std::basic_ostream&lt;_CharT,\n   _Traits&gt;::__ostream_type& std::basic_ostream&lt;_CharT, _Traits&gt;::operator&lt;&lt;(std::basic_ostream&lt;_\n   _Traits&gt;::__ios_type& (*)(std::basic_ostream&lt;_CharT, _Traits&gt;::__ios_type&))\n   [with _CharT = char; _Traits = std::char_traits&lt;char&gt;; std::basic_ostream&lt;_CharT,\n   _Traits&gt;::__ostream_type = std::basic_ostream&lt;char&gt;; std::basic_ostream&lt;_CharT,\n   _Traits&gt;::__ios_type = std::basic_ios&lt;char&gt;]\n          operator&lt;&lt;(__ios_type& (*__pf)(__ios_type&))\n          ^\n   /usr/include/c++/5/ostream:117:7: note:   no known conversion for argument\n   1 from ‘std::vector&lt;int&gt;’ to ‘std::basic_ostream&lt;char&gt;::__ios_type& (*)(std::basic_ostream&lt;cha\n   {aka std::basic_ios&lt;char&gt;& (*)(std::basic_ios&lt;char&gt;&)}’\n   /usr/include/c++/5/ostream:127:7: note: candidate: std::basic_ostream&lt;_CharT,\n   _Traits&gt;::__ostream_type& std::basic_ostream&lt;_CharT, _Traits&gt;::operator&lt;&lt;(std::ios_base&\n   (*)(std::ios_base&)) [with _CharT = char; _Traits = std::char_traits&lt;char&gt;;\n   std::basic_ostream&lt;_CharT, _Traits&gt;::__ostream_type = std::basic_ostream&lt;char&gt;]\n          operator&lt;&lt;(ios_base& (*__pf) (ios_base&))\n  ...\n\n\n\n\n\n\n\n\nAnswer\n\n\n\n\n\nDo not get overwhelmed by lengthy error reports. Focus on the (very) first lines. Here\nprogram.cc:10:8: error: no match for ‘operator&lt;&lt;’ (operand types are ‘std::ostream\n{aka std::basic_ostream&lt;char&gt;}’ and ‘std::vector&lt;int&gt;’)\n   cout &lt;&lt; v &lt;&lt; endl;\nis telling us that at line 10, column 8, the operator &lt;&lt; is misused.",
     "crumbs": [
       "Getting Started",
       "Self Assessment Test"
+    ]
+  },
+  {
+    "objectID": "L3/L3.html",
+    "href": "L3/L3.html",
+    "title": "L3: Graph algorithms I",
+    "section": "",
+    "text": "In this section we consider the problems from Jutge.org \\(\\rightarrow\\) EDA \\(\\rightarrow\\) Graph Algorithms. We solve together (at least) the problems highlighted below.\n❗ denotes problems that might be harder than the rest.",
+    "crumbs": [
+      "Graph Algorithms",
+      "L3: Jutge - BFS/DFS"
+    ]
+  },
+  {
+    "objectID": "L3/L3.html#possible-workflow-for-solving-the-exercises",
+    "href": "L3/L3.html#possible-workflow-for-solving-the-exercises",
+    "title": "L3: Graph algorithms I",
+    "section": "Possible workflow for solving the exercises",
+    "text": "Possible workflow for solving the exercises\n\n\n\n\n\n\nStep 1: Getting everything in place\n\n\n\n\n\nChoose a problem from Jutge.org to solve.\n\n\n\n\n\n\nCommon error(s)\n\n\n\nThe html statement of the problem might not be rendered properly.\nThe official statement of the problem is in the .pdf file.\n\n\nDownload the .zip archive of the problem and unzip it.\nIn the obtained folder there are:\n\na file .pdf with the official problem statement\none or more text files with examples of input sample.inp\nthe corresponding correct outputs sample.cor\n\n\n\n\n\n\n\n\n\n\nStep 2: Getting the C++ code to compile\n\n\n\n\n\nAfter creating a C++ source file to solve the problem, compile it with g++ -std=c++11.\n\n\n\n\n\n\nCommon error(s)\n\n\n\nNot using the flag -std=c++11.\n\n\nPossible useful flags are -Wall -Wextra -Wno-overflow -Wpedantic -Werror -D_GLIBCXX_DEBUG\n\n\n\n\n\n\n\n\n\nStep 3: Testing testing testing\n\n\n\n\n\nTest the executable file obtained on the given example(s), for instance with ./a.out &lt; sample.inp &gt; output.\n\n\n\n\n\n\nCommon error(s)\n\n\n\nWriting the input by hand.\nNot checking the exact formatting of the output.\n\n\nTo see whether the output is the same as sample.cor a way is to use diff output sample.cor\n\n\n\n\n\n\n\n\n\nStep 4: Submitting the solution to the Jutge\n\n\n\n\n\nOnce the code compiles and on the given samples it gives the correct output submit it to the Jutge for automatic evaluation.\n\n\n\n\n\n\nCommon error(s)\n\n\n\nSending to the Jutge code that was not even compiled locally.\nNot checking if the output was correct on the given inputs.",
+    "crumbs": [
+      "Graph Algorithms",
+      "L3: Jutge - BFS/DFS"
+    ]
+  },
+  {
+    "objectID": "L3/L3.html#exercises-on",
+    "href": "L3/L3.html#exercises-on",
+    "title": "L3: Graph algorithms I",
+    "section": "Exercises on Graph Algorithms",
+    "text": "Exercises on Graph Algorithms\n\nDepth-First Search\n\n\n\n\n\n\nP70690 Treasures in a map (1)\n\n\n\n\n\nThe following are two possible starting points. One to implement it recursively and one to implement it iteratively.\n\n\n\n\n\n\nPossible code to start the problem (recursively)\n\n\n\n\n\n{{&lt; include L3/P70690-recursive-tip.cc &gt;}}\n\n\n\n\n\n\n\n\n\nPossible code to start the problem (iteratively)\n\n\n\n\n\n{{&lt; include L3/P70690-iterative-tip.cc &gt;}}\n\n\n\n\n\n\n\n\n\nPossible solution (recursive)\n\n\n\n\n\n{{&lt; include L3/P70690-recursive-sol.cc &gt;}}\n\n\n\n\n\n\n\n\n\nPossible solution (iterative)\n\n\n\n\n\n{{&lt; include L3/P70690-iterative-sol.cc &gt;}}\n\n\n\n\n\n\nP90766 Treasures in a map (3)\n\n\n\n\n\n\nX41530 Forest (~ Problem 5.23 you will see in Problem Class P6)\n\n\n\n\n\nThe following is some possible starting point.\n\n\n\n\n\n\nPossible code to start the problem\n\n\n\n\n\n{{&lt; include L3/X41530-tip.cc &gt;}}\n\n\n\n\n\n\n\n\n\nPossible solution\n\n\n\n\n\n{{&lt; include L3/X41530-sol.cc &gt;}}\n\n\n\n\n\n\nP29033 Two colors\nP53547 Tiny bishops\nP40479 Painting a board\n\n\nTopological Sort\n\n\n\n\n\n\nP14952 Topological sort (~ Problem 5.12 you will see in Problem class P6)\n\n\n\n\n\nThe following is some possible starting point.\n\n\n\n\n\n\nPossible code to start the problem\n\n\n\n\n\n{{&lt; include L3/P14952-tip.cc &gt;}}\n\n\n\n\n\n\n\n\n\nPossible solution\n\n\n\n\n\n{{&lt; include L3/P14952-sol.cc &gt;}}\n\n\n\n\n\n\nP16249 Task ordering\nX21319 Circuit Value Problem ❗❗\n\n\nBreadth-First Search\n\n\n\n\n\n\nP60796 Treasures in a map (2)\n\n\n\n\n\nThe following is some possible starting point.\n\n\n\n\n\n\nPossible code to start the problem\n\n\n\n\n\n{{&lt; include L3/P60796-tip.cc &gt;}}\n\n\n\n\n\n\n\n\n\nPossible solution\n\n\n\n\n\n{{&lt; include L3/P60796-sol.cc &gt;}}\n\n\n\n\n\n\nP39846 Treasures in a map (4)\nP88760 Zamburguesas ❗",
+    "crumbs": [
+      "Graph Algorithms",
+      "L3: Jutge - BFS/DFS"
+    ]
+  },
+  {
+    "objectID": "L5/L5.html",
+    "href": "L5/L5.html",
+    "title": "L5: Exhaustive algorithms I",
+    "section": "",
+    "text": "In this section we consider the problems from Jutge.org \\(\\rightarrow\\) EDA \\(\\rightarrow\\) Exhaustive search and generation. We solve together (at least) the problems highlighted below.\n❗ denotes problems that might be harder than the rest.",
+    "crumbs": [
+      "Exhaustive search",
+      "L5: Jutge"
+    ]
+  },
+  {
+    "objectID": "L5/L5.html#possible-workflow-for-solving-the-exercises",
+    "href": "L5/L5.html#possible-workflow-for-solving-the-exercises",
+    "title": "L5: Exhaustive algorithms I",
+    "section": "Possible workflow for solving the exercises",
+    "text": "Possible workflow for solving the exercises\n\n\n\n\n\n\nStep 1: Getting everything in place\n\n\n\n\n\nChoose a problem from Jutge.org to solve.\n\n\n\n\n\n\nCommon error(s)\n\n\n\nThe html statement of the problem might not be rendered properly.\nThe official statement of the problem is in the .pdf file.\n\n\nDownload the .zip archive of the problem and unzip it.\nIn the obtained folder there are:\n\na file .pdf with the official problem statement\none or more text files with examples of input sample.inp\nthe corresponding correct outputs sample.cor\n\n\n\n\n\n\n\n\n\n\nStep 2: Getting the C++ code to compile\n\n\n\n\n\nAfter creating a C++ source file to solve the problem, compile it with g++ -std=c++11.\n\n\n\n\n\n\nCommon error(s)\n\n\n\nNot using the flag -std=c++11.\n\n\nPossible useful flags are -Wall -Wextra -Wno-overflow -Wpedantic -Werror -D_GLIBCXX_DEBUG\n\n\n\n\n\n\n\n\n\nStep 3: Testing testing testing\n\n\n\n\n\nTest the executable file obtained on the given example(s), for instance with ./a.out &lt; sample.inp &gt; output.\n\n\n\n\n\n\nCommon error(s)\n\n\n\nWriting the input by hand.\nNot checking the exact formatting of the output.\n\n\nTo see whether the output is the same as sample.cor a way is to use diff output sample.cor\n\n\n\n\n\n\n\n\n\nStep 4: Submitting the solution to the Jutge\n\n\n\n\n\nOnce the code compiles and on the given samples it gives the correct output submit it to the Jutge for automatic evaluation.\n\n\n\n\n\n\nCommon error(s)\n\n\n\nSending to the Jutge code that was not even compiled locally.\nNot checking if the output was correct on the given inputs.",
+    "crumbs": [
+      "Exhaustive search",
+      "L5: Jutge"
+    ]
+  },
+  {
+    "objectID": "L5/L5.html#exercises-on",
+    "href": "L5/L5.html#exercises-on",
+    "title": "L5: Exhaustive algorithms I",
+    "section": "Exercises on Exhaustive search and generation",
+    "text": "Exercises on Exhaustive search and generation\n\n\n\n\n\n\nP12828 Zeros and ones (1)\n\n\n\n\n\nThe following is some possible starting point.\n\n\n\n\n\n\nPossible code to start the problem\n\n\n\n\n\n// Zeros and ones (1)\n#include&lt;iostream&gt;\n#include&lt;vector&gt;\n\nusing namespace std;\n\nvoid write (const vector&lt;bool&gt; & v){\n    cout &lt;&lt; v[0];\n    for (int i = 1; i &lt; v.size(); ++i)\n        cout &lt;&lt; \" \" &lt;&lt; v[i];\n    cout &lt;&lt; endl;\n}\n\nvoid backtrack(vector&lt;bool&gt;& sol, int k){\n //basic backtracking\n}\n\nint main(){\n    int n;\n    cin &gt;&gt; n;\n    vector&lt;bool&gt; sol(n);\n    backtrack(sol, 0);\n}\n\n\n\n\n\n\nP45965 Zeros and ones (2)\nP69348 From one to en (1)\n\n\n\n\n\n\nP24674 Permutations of words\n\n\n\n\n\n\n\n\n\n\n\nPossible code to start the problem\n\n\n\n\n\n// Permutations of words\n#include&lt;iostream&gt;\n#include&lt;vector&gt;\n#include&lt;string&gt;\n\nusing namespace std;\n\nvoid write (const vector&lt;int&gt; & v, const vector&lt;string&gt;& words){\n    cout &lt;&lt; '(' &lt;&lt; words[v[0]];\n    for (int i = 1; i &lt; v.size(); ++i)\n        cout &lt;&lt; ',' &lt;&lt; words[v[i]];\n    cout &lt;&lt; ')' &lt;&lt; endl;\n}\n\nvoid perm(vector&lt;int&gt;& sol, int k, vector&lt;bool&gt; used, const vector&lt;string&gt;& words){\n //put code here\n}\n\nint main(){\n    int n;\n    cin &gt;&gt; n;\n    vector&lt;string&gt; words(n,\"\");\n    for (int i = 0;  i &lt; n; ++i)\n        cin &gt;&gt; words[i];\n    vector&lt;int&gt; sol(n,0);\n    vector&lt;bool&gt; used(n, false);\n    perm(sol, 0, used, words);\n}\n\n\n\n\n\n\nP16415 Queens (1)\nP17921 Queens (2)\nP38211 Queens (3)\n\n\n\n\n\n\nP49889 Consonants and vowels\n\n\n\n\n\n\n\n\n\n\n\nPossible code to start the problem\n\n\n\n\n\n// Consonants and vowels\n#include&lt;iostream&gt;\n#include&lt;vector&gt;\n#include&lt;string&gt;\n\nusing namespace std;\nusing VVB = vector&lt;vector&lt;bool&gt;&gt;;\nusing VB = vector&lt;bool&gt;;\n\nconst int CONSONANTS = 0;\nconst int VOWELS = 1;\n\nvoid backtrack(string& sol, int k, const vector&lt;string&gt;& letters, VVB& used){\n   // put code here\n}\n\nint main(){\n    int n;\n    cin &gt;&gt; n;\n    vector&lt;string&gt; letters(2); \n    cin &gt;&gt; letters[CONSONANTS] &gt;&gt; letters[VOWELS];\n    string sol = string(2*n, ' ');\n    VVB used(2, VB(n, false));\n    backtrack(sol, 0, letters, used);\n}\n\n\n\n\n\n\n\n\n\n\n\n\nP62113 Two coins of each kind (1)\n\n\n\n\n\n\n\n\n\n\n\nPossible code to start the problem\n\n\n\n\n\n// Two coins of each kind (1)\n#include&lt;iostream&gt;\n#include&lt;vector&gt;\n#include&lt;algorithm&gt;\n\nusing namespace std;\n\nusing VI = vector&lt;int&gt;;\n\nint x, n;\nVI coins;\n\nvoid write (const vector&lt;bool&gt; & v){\n    // format output\n}\n\nvoid backtrack(vector&lt;bool&gt;& sol, int k, int part_sum){\n // put code here\n}\n\nint main(){\n    while (cin &gt;&gt; x &gt;&gt; n){\n        coins = VI(2*n);\n        for (int i = 0; i &lt; 2*n; i +=2){\n            cin &gt;&gt; coins[i];\n            coins[i+1] = coins[i];\n        }\n        // do something here?\n        backtrack(sol, 0, 0);\n        cout &lt;&lt; \"----------\" &lt;&lt; endl;\n    }\n}\n\n\n\n\n\n\nX92609 Two coins of each kind (3)\nP62138 Topological orderings\nP37197 Incompatible species\nP76807 Sudoku\nP70756 Partitions\nP40685 Equal sums (1)\nP82660 Equal sums (2)\nP11655 Equal sums (3)\nP93741 Satisfiability ❗ ❗",
+    "crumbs": [
+      "Exhaustive search",
+      "L5: Jutge"
     ]
   },
   {
@@ -59,309 +363,5 @@
     "crumbs": [
       "Course Info"
     ]
-  },
-  {
-    "objectID": "L6.html",
-    "href": "L6.html",
-    "title": "L6: Exhaustive algorithms II",
-    "section": "",
-    "text": "Important\n\n\n\nThis page will be updated closer to the class\nIn this section we consider the problems from Jutge.org \\(\\rightarrow\\) EDA \\(\\rightarrow\\) Exhaustive search and generation. We solve together (at least) the problems highlighted below.\n❗ denotes problems that might be harder than the rest.",
-    "crumbs": [
-      "Exhaustive search",
-      "L6: Jutge"
-    ]
-  },
-  {
-    "objectID": "L6.html#possible-workflow-for-solving-the-exercises",
-    "href": "L6.html#possible-workflow-for-solving-the-exercises",
-    "title": "L6: Exhaustive algorithms II",
-    "section": "Possible workflow for solving the exercises",
-    "text": "Possible workflow for solving the exercises\n\n\n\n\n\n\nStep 1: Getting everything in place\n\n\n\n\n\nChoose a problem from Jutge.org to solve.\n\n\n\n\n\n\nCommon error(s)\n\n\n\nThe html statement of the problem might not be rendered properly.\nThe official statement of the problem is in the .pdf file.\n\n\nDownload the .zip archive  of the problem and unzip it.\nIn the obtained folder there are:\n\na file .pdf with the official problem statement\none or more text files with examples of input sample.inp\nthe corresponding correct outputs sample.cor\n\n\n\n\n\n\n\n\n\n\nStep 2: Getting the C++ code to compile\n\n\n\n\n\nAfter creating a C++ source file to solve the problem, compile it with g++ -std=c++11.\n\n\n\n\n\n\nCommon error(s)\n\n\n\nNot using the flag -std=c++11.\n\n\nPossible useful flags are -Wall -Wextra -Wno-overflow -Wpedantic -Werror -D_GLIBCXX_DEBUG\n\n\n\n\n\n\n\n\n\nStep 3: Testing testing testing\n\n\n\n\n\nTest the executable file obtained on the given example(s), for instance with ./a.out &lt; sample.inp &gt; output.\n\n\n\n\n\n\nCommon error(s)\n\n\n\nWriting the input by hand.\nNot checking the exact formatting of the output.\n\n\nTo see whether the output is the same as sample.cor a way is to use diff output sample.cor\n\n\n\n\n\n\n\n\n\nStep 4: Submitting the solution to the Jutge\n\n\n\n\n\nOnce the code compiles and on the given samples it gives the correct output submit it to the Jutge for automatic evaluation.\n\n\n\n\n\n\nCommon error(s)\n\n\n\nSending to the Jutge code that was not even compiled locally.\nNot checking if the output was correct on the given inputs.",
-    "crumbs": [
-      "Exhaustive search",
-      "L6: Jutge"
-    ]
-  },
-  {
-    "objectID": "L6.html#exercises-on",
-    "href": "L6.html#exercises-on",
-    "title": "L6: Exhaustive algorithms II",
-    "section": "Exercises on Exhaustive search and generation",
-    "text": "Exercises on Exhaustive search and generation\nP12828 Zeros and ones (1)\nP45965 Zeros and ones (2)\nP69348 From one to en (1)\nP24674 Permutations of words\nP16415 Queens (1)\nP17921 Queens (2)\nP38211 Queens (3)\nP49889 Consonants and vowels\nP62113 Two coins of each kind (1)\nX92609 Two coins of each kind (3)\nP62138 Topological orderings\nP37197 Incompatible species\nP76807 Sudoku\nP70756 Partitions\nP40685 Equal sums (1)\nP82660 Equal sums (2)\nP11655 Equal sums (3)\nP93741 Satisfiability",
-    "crumbs": [
-      "Exhaustive search",
-      "L6: Jutge"
-    ]
-  },
-  {
-    "objectID": "L4.html",
-    "href": "L4.html",
-    "title": "L4: Graph algorithms II",
-    "section": "",
-    "text": "In this section we consider the problems from Jutge.org \\(\\rightarrow\\) EDA \\(\\rightarrow\\) Graph Algorithms. We solve together (at least) the problems highlighted below.\n❗ denotes problems that might be harder than the rest.",
-    "crumbs": [
-      "Graph Algorithms",
-      "L4: Jutge - Dijkstra"
-    ]
-  },
-  {
-    "objectID": "L4.html#possible-workflow-for-solving-the-exercises",
-    "href": "L4.html#possible-workflow-for-solving-the-exercises",
-    "title": "L4: Graph algorithms II",
-    "section": "Possible workflow for solving the exercises",
-    "text": "Possible workflow for solving the exercises\n\n\n\n\n\n\nStep 1: Getting everything in place\n\n\n\n\n\nChoose a problem from Jutge.org to solve.\n\n\n\n\n\n\nCommon error(s)\n\n\n\nThe html statement of the problem might not be rendered properly.\nThe official statement of the problem is in the .pdf file.\n\n\nDownload the .zip archive  of the problem and unzip it.\nIn the obtained folder there are:\n\na file .pdf with the official problem statement\none or more text files with examples of input sample.inp\nthe corresponding correct outputs sample.cor\n\n\n\n\n\n\n\n\n\n\nStep 2: Getting the C++ code to compile\n\n\n\n\n\nAfter creating a C++ source file to solve the problem, compile it with g++ -std=c++11.\n\n\n\n\n\n\nCommon error(s)\n\n\n\nNot using the flag -std=c++11.\n\n\nPossible useful flags are -Wall -Wextra -Wno-overflow -Wpedantic -Werror -D_GLIBCXX_DEBUG\n\n\n\n\n\n\n\n\n\nStep 3: Testing testing testing\n\n\n\n\n\nTest the executable file obtained on the given example(s), for instance with ./a.out &lt; sample.inp &gt; output.\n\n\n\n\n\n\nCommon error(s)\n\n\n\nWriting the input by hand.\nNot checking the exact formatting of the output.\n\n\nTo see whether the output is the same as sample.cor a way is to use diff output sample.cor\n\n\n\n\n\n\n\n\n\nStep 4: Submitting the solution to the Jutge\n\n\n\n\n\nOnce the code compiles and on the given samples it gives the correct output submit it to the Jutge for automatic evaluation.\n\n\n\n\n\n\nCommon error(s)\n\n\n\nSending to the Jutge code that was not even compiled locally.\nNot checking if the output was correct on the given inputs.",
-    "crumbs": [
-      "Graph Algorithms",
-      "L4: Jutge - Dijkstra"
-    ]
-  },
-  {
-    "objectID": "L4.html#exercises-on",
-    "href": "L4.html#exercises-on",
-    "title": "L4: Graph algorithms II",
-    "section": "Exercises on Graph Algorithms",
-    "text": "Exercises on Graph Algorithms\n\nDijkstra’s Algorithm\n\n\n\n\n\n\nP43859 Weighted shortest path (1)\n\n\n\n\n\nThe following is some possible starting point.\n\n\n\n\n\n\nPossible code to start the problem\n\n\n\n\n\n//Weighted Shortest path - 1\n// Basic Dijkstra\n#include&lt;iostream&gt;\n#include&lt;vector&gt;\n#include&lt;queue&gt;\n#include&lt;limits.h&gt;\n\nusing namespace std;\n\nstruct Edge {\n    int v, c;\n    Edge(int vv, int cc) : v(vv), c(cc) {}\n};\n\nusing P = pair&lt;int,int&gt;; //distance, vertex\nusing VVP = vector&lt;vector&lt;Edge&gt;&gt;;\n\nvector&lt;int&gt; dijkstra(const VVP& g, int s){\n // here goes dijkstra\n} \n\nint main(){\n    int n, m;\n    while(cin &gt;&gt; n &gt;&gt; m){\n        VVP g(n);\n        for (int k = 0; k &lt; m; ++k){\n            int u, v, c;\n            cin &gt;&gt; u &gt;&gt; v &gt;&gt; c;\n            g[u].push_back(Edge(v,c));\n        }\n        int x, y;\n        cin &gt;&gt; x &gt;&gt; y;\n        vector&lt;int&gt; d = dijkstra(g, x);\n        if (d[y] == INT_MAX) cout &lt;&lt; \"no path from \" &lt;&lt; x &lt;&lt; \" to \" &lt;&lt; y &lt;&lt; endl;\n        else cout &lt;&lt; d[y] &lt;&lt; endl;\n    }\n}\n\n\n\n\n\n\n\n\n\n\nPossible solution\n\n\n\n\n\n//Weighted Shortest path - 1\n// Basic Dijkstra\n#include&lt;iostream&gt;\n#include&lt;vector&gt;\n#include&lt;queue&gt;\n#include&lt;limits.h&gt;\n\nusing namespace std;\n\nstruct Edge {\n    int v, c;\n    Edge(int vv, int cc) : v(vv), c(cc) {}\n};\n\nusing P = pair&lt;int,int&gt;; //distance, vertex\nusing VVP = vector&lt;vector&lt;Edge&gt;&gt;;\n\nvector&lt;int&gt; dijkstra(const VVP& g, int s){\n    int n = g.size();\n    vector&lt;int&gt; d(n, INT_MAX);\n    vector&lt;bool&gt; marked(n,false);\n    priority_queue&lt;P, vector&lt;P&gt;, greater&lt;P&gt;&gt; pq;\n    d[s] = 0;\n    pq.push({d[s],s});\n    while (not pq.empty()){\n        int u = pq.top().second;\n        pq.pop();\n        if (not marked[u]){\n            marked[u] = true;\n            for (int i = 0; i &lt; g[u].size(); ++i){\n                int v = g[u][i].v;\n                int c = g[u][i].c;\n                if (d[v] &gt; d[u] + c){\n                    d[v] = d[u] + c;\n                    pq.push(P({d[v],v}));\n                }\n            }\n        }\n    }\n    return d;\n} \n\nint main(){\n    int n, m;\n    while(cin &gt;&gt; n &gt;&gt; m){\n        VVP g(n);\n        for (int k = 0; k &lt; m; ++k){\n            int u, v, c;\n            cin &gt;&gt; u &gt;&gt; v &gt;&gt; c;\n            g[u].push_back(Edge(v,c));\n        }\n        int x, y;\n        cin &gt;&gt; x &gt;&gt; y;\n        vector&lt;int&gt; d = dijkstra(g, x);\n        if (d[y] == INT_MAX) cout &lt;&lt; \"no path from \" &lt;&lt; x &lt;&lt; \" to \" &lt;&lt; y &lt;&lt; endl;\n        else cout &lt;&lt; d[y] &lt;&lt; endl;\n    }\n}\n\n\n\n\n\n\nP13994 Weighted shortest path (2)\nP25235 Weighted shortest path (3)\nP39586 Weighted shortest path (4) ❗\n\n\nMinimum Spanning Trees\nP12887 Minimum spanning trees",
-    "crumbs": [
-      "Graph Algorithms",
-      "L4: Jutge - Dijkstra"
-    ]
-  },
-  {
-    "objectID": "L2.html",
-    "href": "L2.html",
-    "title": "L2: Divide and Conquer",
-    "section": "",
-    "text": "In this section we consider the problems from Jutge.org \\(\\rightarrow\\) EDA \\(\\rightarrow\\) Divide and Conquer. We solve together (at least) the problems highlighted below.\n❗ denotes problems that might be harder than the rest.",
-    "crumbs": [
-      "Divide and Conquer",
-      "L2: Jutge"
-    ]
-  },
-  {
-    "objectID": "L2.html#possible-workflow-for-solving-the-exercises",
-    "href": "L2.html#possible-workflow-for-solving-the-exercises",
-    "title": "L2: Divide and Conquer",
-    "section": "Possible workflow for solving the exercises",
-    "text": "Possible workflow for solving the exercises\n\n\n\n\n\n\nStep 1: Getting everything in place\n\n\n\n\n\nChoose a problem from Jutge.org to solve.\n\n\n\n\n\n\nCommon error(s)\n\n\n\nThe html statement of the problem might not be rendered properly.\nThe official statement of the problem is in the .pdf file.\n\n\nDownload the .zip archive  of the problem and unzip it.\nIn the obtained folder there are:\n\na file .pdf with the official problem statement\none or more text files with examples of input sample.inp\nthe corresponding correct outputs sample.cor\n\n\n\n\n\n\n\n\n\n\nStep 2: Getting the C++ code to compile\n\n\n\n\n\nAfter creating a C++ source file to solve the problem, compile it with g++ -std=c++11.\n\n\n\n\n\n\nCommon error(s)\n\n\n\nNot using the flag -std=c++11.\n\n\nPossible useful flags are -Wall -Wextra -Wno-overflow -Wpedantic -Werror -D_GLIBCXX_DEBUG\n\n\n\n\n\n\n\n\n\nStep 3: Testing testing testing\n\n\n\n\n\nTest the executable file obtained on the given example(s), for instance with ./a.out &lt; sample.inp &gt; output.\n\n\n\n\n\n\nCommon error(s)\n\n\n\nWriting the input by hand.\nNot checking the exact formatting of the output.\n\n\nTo see whether the output is the same as sample.cor a way is to use diff output sample.cor\n\n\n\n\n\n\n\n\n\nStep 4: Submitting the solution to the Jutge\n\n\n\n\n\nOnce the code compiles and on the given samples it gives the correct output submit it to the Jutge for automatic evaluation.\n\n\n\n\n\n\nCommon error(s)\n\n\n\nSending to the Jutge code that was not even compiled locally.\nNot checking if the output was correct on the given inputs.",
-    "crumbs": [
-      "Divide and Conquer",
-      "L2: Jutge"
-    ]
-  },
-  {
-    "objectID": "L2.html#exercises-on",
-    "href": "L2.html#exercises-on",
-    "title": "L2: Divide and Conquer",
-    "section": "Exercises on Divide and Conquer",
-    "text": "Exercises on Divide and Conquer\nP81966 Dichotomic search\nP84219 First occurrence\n\n\n\n\n\n\nP29212 Modular exponentiation\n\n\n\n\n\n\n\n\n\n\n\nPossible code to start the problem\n\n\n\n\n\n//Modular exponentiation\n#include&lt;iostream&gt;\n\nusing namespace std;\n\nint power(int n, int k, int m){\n    // do something here\n}\n\nint main(){\n    /*\n    const int M_MAX = 30000;\n    const int N_MAX = 30000;\n    */\n    int n, k, m;\n    while(cin &gt;&gt; n &gt;&gt; k &gt;&gt; m){\n        cout &lt;&lt; power(n, k, m) &lt;&lt; endl;\n    }\n}\n\n\n\n\n\n\n\n\n\nPossible solution\n\n\n\n\n\n//Modular exponentiation\n#include&lt;iostream&gt;\n\nusing namespace std;\n\nint power(int n, int k, int m){\n    if (k == 0) return 1;\n    int y = power(n, k/2, m);\n    int res = (y*y) % m;\n    if (k % 2 == 1) return (n*res) % m;// return (n*y*y) % m; is NOT OK!\n    else return res;\n}\n\nint main(){\n    /*\n    const int M_MAX = 30000;\n    const int N_MAX = 30000;\n    */\n    int n, k, m;\n    while(cin &gt;&gt; n &gt;&gt; k &gt;&gt; m){\n        cout &lt;&lt; power(n, k, m) &lt;&lt; endl;\n    }\n}\n\n\n\n\n\n\nP33412 Resistant dichotomic search (~ Problem 2.12 seen in Problem class P3)\n\n\n\n\n\n\nP34682 Fixed points ❗\n\n\n\n\n\n\n\n\n\n\n\nPossible code to start the problem\n\n\n\n\n\n//Fixed points\n#include&lt;iostream&gt;\n#include&lt;vector&gt;\n\nusing namespace std;\n\nint fixpoint(const vector&lt;int&gt; &v, int left, int right, int a){\n  // This procedure should return the smallest fixed point, \n  // i.e. the smallest i s.t. v[i] + a == i\n  // Would your divide and conquer approach work if v[1] &lt;= v[2] &lt;= v[3] ...?\n}\n\nint main(){\n    int cnt = 1;\n    int n;\n    while (cin &gt;&gt; n ){\n        vector&lt;int&gt; v(n+1);//Indices start at 1\n        for(int i = 1; i &lt;=n; ++i) \n            cin &gt;&gt; v[i];\n        int m;\n        cin &gt;&gt; m;\n        vector&lt;int&gt; a(m);\n        for (int i = 0; i &lt; m; ++i) \n            cin &gt;&gt; a[i];\n        cout &lt;&lt; \"Sequence #\" &lt;&lt; cnt &lt;&lt; endl;\n        for (int i = 0; i &lt; m; ++i){\n            // Call fixpoint(v, 1, n, a[i]); and do something\n         }\n        cout &lt;&lt; endl;\n        ++cnt;\n    }\n}\n\n\n\n\n\n\n\n\n\n\nPossible solution\n\n\n\n\n\n//Fixed Points\n#include&lt;iostream&gt;\n#include&lt;vector&gt;\n\nusing namespace std;\n\nint fixpoint(const vector&lt;int&gt; &v, int left, int right, int a){\n    if (left &gt; right) return -1;\n    if (left == right){\n        if (v[left] + a == left) return left;\n        else return -1;\n    }\n    int mid = (left+right)/2;\n    /*\n    Since the ordering on v is strict, for k&gt;0\n    v[x-k]&lt;=v[x]-k \n    therefore if v[x] + a &lt; x then\n    v[x-k] +a &lt;= v[x] - k +a &lt; x - k \n    hence, x-k cannot be a fixpoint\n    */\n    if (v[mid] + a &lt; mid) return fixpoint(v, mid+1, right, a);\n    else                  return fixpoint(v, left, mid, a);\n\n}\n\nint main(){\n    int cnt = 1;\n    int n;\n    while (cin &gt;&gt; n ){\n        vector&lt;int&gt; v(n+1);//Indices start at 1\n        for(int i = 1; i &lt;=n; ++i) \n            cin &gt;&gt; v[i];\n        int m;\n        cin &gt;&gt; m;\n        vector&lt;int&gt; a(m);\n        for (int i = 0; i &lt; m; ++i) \n            cin &gt;&gt; a[i];\n        cout &lt;&lt; \"Sequence #\" &lt;&lt; cnt &lt;&lt; endl;\n        for (int i = 0; i &lt; m; ++i){\n            int fp = fixpoint(v, 1, n, a[i]);\n            if (fp&gt;=0) cout &lt;&lt; \"fixed point for \"    &lt;&lt; a[i] &lt;&lt; \": \" &lt;&lt; fp &lt;&lt; endl;\n            else       cout &lt;&lt; \"no fixed point for \" &lt;&lt; a[i]               &lt;&lt; endl;\n         }\n        cout &lt;&lt; endl;\n        ++cnt;\n    }\n}\n\n\n\n\n\n\n\n\n\n\n\n\n\nP61833 Powers of a matrix\n\n\n\n\n\n\n\n\n\n\n\nPossible code to start the problem\n\n\n\n\n\n//Powers of a matrix\n#include&lt;iostream&gt;\n#include&lt;vector&gt;\n\nusing namespace std;\n\ntypedef vector&lt;vector&lt;int&gt;&gt; Matrix;\n\nint m;\n\nostream& operator &lt;&lt; (ostream& out, const Matrix& a){\n    // to format the output\n}\n\nMatrix operator*(const Matrix& a, const Matrix& b) {\n    // Matrix multiplication. The textbook algorithm is enough\n    // No need to implement Strassen here\n}\n\nMatrix operator%(const Matrix& a, int m){\n   // Modulo operator on a matrix is entrywise\n}\n\nMatrix identity(){\n    // For the identity matrix\n}\n\nMatrix power(const Matrix& a, int n, int m){\n    // Power of a matrix. Similar to P29212 Modular exponentiation\n}\n\nint main(){\n    Matrix a(2,vector&lt;int&gt;(2));\n    int n;\n    while(cin &gt;&gt; a[0][0] &gt;&gt; a[0][1] &gt;&gt; a[1][0] &gt;&gt;a[1][1] &gt;&gt; n &gt;&gt; m){\n        cout &lt;&lt; power(a,n,m) &lt;&lt; endl;\n    }\n}\n\n\n\n\n\n\n\n\n\n\nPossible solution\n\n\n\n\n\n//Powers of a matrix\n#include&lt;iostream&gt;\n#include&lt;vector&gt;\n\nusing namespace std;\n\ntypedef vector&lt;vector&lt;int&gt;&gt; Matrix;\n\nint m;\n\nostream& operator &lt;&lt; (ostream& out, const Matrix& a){\n    out &lt;&lt; a[0][0] &lt;&lt; \" \" &lt;&lt; a[0][1] &lt;&lt; endl;\n    out &lt;&lt; a[1][0] &lt;&lt; \" \" &lt;&lt; a[1][1] &lt;&lt; endl;\n    out &lt;&lt; \"----------\";\n    return out;\n}\n\nMatrix operator*(const Matrix& a, const Matrix& b) {\n    Matrix c(2, vector&lt;int&gt;(2, 0));\n    for (int i = 0; i &lt; 2; ++i)\n        for (int j = 0; j &lt; 2; ++j) \n            for (int k = 0; k &lt; 2; ++k){\n                c[i][j] += a[i][k] * b[k][j];\n            }\n    return c;\n}\n\nMatrix operator%(const Matrix& a, int m){\n    Matrix c(2,vector&lt;int&gt;(2,0));\n    for (int i = 0; i &lt; 2; ++i)\n        for (int j = 0; j &lt; 2; ++j) \n            c[i][j] = a[i][j] % m;\n    return c;\n}\n\nMatrix identity(){\n    Matrix id(2,vector&lt;int&gt;(2,0));\n    for (int i = 0; i &lt; 2; ++i)\n        id[i][i] = 1;\n    return id;\n}\n\nMatrix power(const Matrix& a, int n, int m){\n    if (n == 0) return identity();\n    Matrix c = power(a, n/2, m);\n    return (n%2==0) ? (c*c) % m : (a*c*c) % m;\n}\n\nint main(){\n    Matrix a(2,vector&lt;int&gt;(2));\n    int n;\n    while(cin &gt;&gt; a[0][0] &gt;&gt; a[0][1] &gt;&gt; a[1][0] &gt;&gt;a[1][1] &gt;&gt; n &gt;&gt; m){\n        cout &lt;&lt; power(a,n,m) &lt;&lt; endl;\n    }\n}\n\n\n\n\n\n\nP74219 Fibonacci numbers (2)\nP80595 How many inversions? (~ Problem 2.11 seen in Problem class P3)\nP58512 Interest rates ❗\nX39049 Powers of permutations\nX82938 Search in a unimodal vector (~ Problem 2.9 seen in Problem class P3)",
-    "crumbs": [
-      "Divide and Conquer",
-      "L2: Jutge"
-    ]
-  },
-  {
-    "objectID": "L1.html",
-    "href": "L1.html",
-    "title": "L1: Use of STL data structures",
-    "section": "",
-    "text": "In this section we consider the problems from Jutge.org \\(\\rightarrow\\) EDA \\(\\rightarrow\\) Use of STL data structures. We solve together (at least) the problems highlighted below.\n❗ denotes problems that might be harder than the rest.",
-    "crumbs": [
-      "Getting Started",
-      "L1: Jutge - STL"
-    ]
-  },
-  {
-    "objectID": "L1.html#possible-workflow-for-solving-the-exercises",
-    "href": "L1.html#possible-workflow-for-solving-the-exercises",
-    "title": "L1: Use of STL data structures",
-    "section": "Possible workflow for solving the exercises",
-    "text": "Possible workflow for solving the exercises\n\n\n\n\n\n\nStep 1: Getting everything in place\n\n\n\n\n\nChoose a problem from Jutge.org to solve.\n\n\n\n\n\n\nCommon error(s)\n\n\n\nThe html statement of the problem might not be rendered properly.\nThe official statement of the problem is in the .pdf file.\n\n\nDownload the .zip archive  of the problem and unzip it.\nIn the obtained folder there are:\n\na file .pdf with the official problem statement\none or more text files with examples of input sample.inp\nthe corresponding correct outputs sample.cor\n\n\n\n\n\n\n\n\n\n\nStep 2: Getting the C++ code to compile\n\n\n\n\n\nAfter creating a C++ source file to solve the problem, compile it with g++ -std=c++11.\n\n\n\n\n\n\nCommon error(s)\n\n\n\nNot using the flag -std=c++11.\n\n\nPossible useful flags are -Wall -Wextra -Wno-overflow -Wpedantic -Werror -D_GLIBCXX_DEBUG\n\n\n\n\n\n\n\n\n\nStep 3: Testing testing testing\n\n\n\n\n\nTest the executable file obtained on the given example(s), for instance with ./a.out &lt; sample.inp &gt; output.\n\n\n\n\n\n\nCommon error(s)\n\n\n\nWriting the input by hand.\nNot checking the exact formatting of the output.\n\n\nTo see whether the output is the same as sample.cor a way is to use diff output sample.cor\n\n\n\n\n\n\n\n\n\nStep 4: Submitting the solution to the Jutge\n\n\n\n\n\nOnce the code compiles and on the given samples it gives the correct output submit it to the Jutge for automatic evaluation.\n\n\n\n\n\n\nCommon error(s)\n\n\n\nSending to the Jutge code that was not even compiled locally.\nNot checking if the output was correct on the given inputs.",
-    "crumbs": [
-      "Getting Started",
-      "L1: Jutge - STL"
-    ]
-  },
-  {
-    "objectID": "L1.html#exercises-on",
-    "href": "L1.html#exercises-on",
-    "title": "L1: Use of STL data structures",
-    "section": "Exercises on Use of STL data structures",
-    "text": "Exercises on Use of STL data structures\nP50709 Collection of numbers\nP40902 Casino\nP69781 Collatz pseudo-sequences (2) ❗\nP84415 Bag of words\nP37064 Dynamic median ❗\n\n\n\n\n\n\nP59282 Statistical measures\n\n\n\n\n\n\n\n\n\n\n\nPossible code to start the problem\n\n\n\n\n\n//STL - Satistical measures\n#include&lt;iostream&gt;\n#include&lt;queue&gt;\n#include&lt;limits&gt;\n#include&lt;iomanip&gt;\n\nusing namespace std;\n\nconst auto MININFTY = numeric_limits&lt;int&gt;::lowest();\n\nint main(){\n    string op;\n    priority_queue&lt;int,vector&lt;int&gt;,greater&lt;int&gt;&gt; q;\n    int sum = 0;\n    int max = MININFTY;\n    while (cin &gt;&gt; op){\n        if (op == \"delete\"){ \n            // do something\n        }\n        else{// case of \"number\"\n            // do something \n        } \n        int sz = q.size();\n        if (sz == 0) cout &lt;&lt; \"no elements\" &lt;&lt; endl;\n        else{\n            // do something\n            // to output a double x with 4 digits of precision use \n            // cout &lt;&lt; fixed &lt;&lt; setprecision(4) &lt;&lt; x\n        }\n    }\n}\n\n\n\n\n\n\n\n\n\nPossible solution\n\n\n\n\n\n//STL - Satistical measures\n#include&lt;iostream&gt;\n#include&lt;queue&gt;\n#include&lt;limits&gt;\n#include&lt;iomanip&gt;\n\nusing namespace std;\n\nconst auto MININFTY = numeric_limits&lt;int&gt;::lowest();\n\nint main(){\n    string op;\n    priority_queue&lt;int,vector&lt;int&gt;,greater&lt;int&gt;&gt; q;\n    int sum = 0;\n    int max = MININFTY;\n    while (cin &gt;&gt; op){\n        if (op == \"delete\"){ \n            if (not q.empty()){\n                sum -=q.top();\n                q.pop();\n                if (q.empty()) max = MININFTY;\n            }\n        }\n        else{// case of \"number\"\n            int value;\n            cin &gt;&gt; value;\n            q.push(value);\n            sum +=value;\n            if (value &gt; max) max = value; \n        } \n        int sz = q.size();\n        if (sz == 0) cout &lt;&lt; \"no elements\" &lt;&lt; endl;\n        else{\n            double avg = double(sum) / sz;\n            cout &lt;&lt; \"minimum: \" &lt;&lt; q.top();\n            cout &lt;&lt; \", maximum: \" &lt;&lt; max;\n            cout &lt;&lt; \", average: \" &lt;&lt; fixed &lt;&lt; setprecision(4) &lt;&lt; avg &lt;&lt; endl;\n        }\n    }\n}\n\n\n\n\n\n\nP69932 The longest sequence ❗\n\n\n\n\n\n\nP60296 Role Classification\n\n\n\n\n\n\n\n\n\n\n\nPossible code to start the problem\n\n\n\n\n\n//STL - Role classification\n#include&lt;iostream&gt;\n#include&lt;set&gt;\n#include&lt;map&gt;\n#include&lt;algorithm&gt;\n\nusing namespace std;\n\nint main(){\n    set&lt;string&gt; logged;\n    map&lt;string,int&gt; elo;\n    string op;\n    while(cin &gt;&gt; op){\n        string player1;\n        cin &gt;&gt; player1;\n        if (op == \"LOGIN\"){\n            // do something\n        }\n        else if (op == \"LOGOUT\"){\n            // do something\n        }\n        else if (op == \"PLAY\"){\n            // do something\n        }\n        else{// op == GET_ELO\n            // do something\n        }\n    }\n    cout &lt;&lt; endl &lt;&lt; \"RANKING\" &lt;&lt; endl;\n            // do something\n\n}\n\n\n\n\n\n\n\n\n\nPossible solution\n\n\n\n\n\n//STL - Role classification\n#include&lt;iostream&gt;\n#include&lt;set&gt;\n#include&lt;map&gt;\n#include&lt;algorithm&gt;\n\nusing namespace std;\n\nint main(){\n    string cmd;\n    set&lt;string&gt; logged;\n    map&lt;string,int&gt; elo;\n\n    while(cin &gt;&gt; cmd){\n        string player1;\n        cin &gt;&gt; player1;\n        if (cmd == \"LOGIN\"){\n            logged.insert(player1);\n         if (not elo.count(player1)) elo[player1] = 1200;\n     }\n        else if (cmd == \"LOGOUT\") logged.erase(player1);\n        else if (cmd == \"GET_ELO\") cout &lt;&lt; player1 &lt;&lt; ' ' &lt;&lt; elo[player1] &lt;&lt; endl;\n        else{// case of PLAY\n            string player2;\n            cin &gt;&gt; player2;\n            if (not logged.count(player1) or not logged.count(player2)) cout &lt;&lt; \"player(s) not connected\" &lt;&lt; endl;\n            else{\n            elo[player1] +=10;\n                elo[player2] = max(elo[player2]-10,1200);\n            }\n        }\n    }\n    cout &lt;&lt; endl &lt;&lt; \"RANKING\" &lt;&lt; endl;\n    vector&lt;pair&lt;int,string&gt;&gt; v;\n    for (auto p : elo) v.emplace_back(-p.second,p.first);\n    sort(v.begin(),v.end());\n    for (auto p :v) cout &lt;&lt; p.second &lt;&lt; ' ' &lt;&lt; -p.first &lt;&lt; endl;\n}\n\n\n\n\n\n\nP60219 Easy game?\nP62653 Ticket distribution\nP63584 K-th element (~ Problem 4.11 you will see in the problem class P5)",
-    "crumbs": [
-      "Getting Started",
-      "L1: Jutge - STL"
-    ]
-  },
-  {
-    "objectID": "L3.html",
-    "href": "L3.html",
-    "title": "L3: Graph algorithms I",
-    "section": "",
-    "text": "In this section we consider the problems from Jutge.org \\(\\rightarrow\\) EDA \\(\\rightarrow\\) Graph Algorithms. We solve together (at least) the problems highlighted below.\n❗ denotes problems that might be harder than the rest.",
-    "crumbs": [
-      "Graph Algorithms",
-      "L3: Jutge - BFS/DFS"
-    ]
-  },
-  {
-    "objectID": "L3.html#possible-workflow-for-solving-the-exercises",
-    "href": "L3.html#possible-workflow-for-solving-the-exercises",
-    "title": "L3: Graph algorithms I",
-    "section": "Possible workflow for solving the exercises",
-    "text": "Possible workflow for solving the exercises\n\n\n\n\n\n\nStep 1: Getting everything in place\n\n\n\n\n\nChoose a problem from Jutge.org to solve.\n\n\n\n\n\n\nCommon error(s)\n\n\n\nThe html statement of the problem might not be rendered properly.\nThe official statement of the problem is in the .pdf file.\n\n\nDownload the .zip archive  of the problem and unzip it.\nIn the obtained folder there are:\n\na file .pdf with the official problem statement\none or more text files with examples of input sample.inp\nthe corresponding correct outputs sample.cor\n\n\n\n\n\n\n\n\n\n\nStep 2: Getting the C++ code to compile\n\n\n\n\n\nAfter creating a C++ source file to solve the problem, compile it with g++ -std=c++11.\n\n\n\n\n\n\nCommon error(s)\n\n\n\nNot using the flag -std=c++11.\n\n\nPossible useful flags are -Wall -Wextra -Wno-overflow -Wpedantic -Werror -D_GLIBCXX_DEBUG\n\n\n\n\n\n\n\n\n\nStep 3: Testing testing testing\n\n\n\n\n\nTest the executable file obtained on the given example(s), for instance with ./a.out &lt; sample.inp &gt; output.\n\n\n\n\n\n\nCommon error(s)\n\n\n\nWriting the input by hand.\nNot checking the exact formatting of the output.\n\n\nTo see whether the output is the same as sample.cor a way is to use diff output sample.cor\n\n\n\n\n\n\n\n\n\nStep 4: Submitting the solution to the Jutge\n\n\n\n\n\nOnce the code compiles and on the given samples it gives the correct output submit it to the Jutge for automatic evaluation.\n\n\n\n\n\n\nCommon error(s)\n\n\n\nSending to the Jutge code that was not even compiled locally.\nNot checking if the output was correct on the given inputs.",
-    "crumbs": [
-      "Graph Algorithms",
-      "L3: Jutge - BFS/DFS"
-    ]
-  },
-  {
-    "objectID": "L3.html#exercises-on",
-    "href": "L3.html#exercises-on",
-    "title": "L3: Graph algorithms I",
-    "section": "Exercises on Graph Algorithms",
-    "text": "Exercises on Graph Algorithms\n\nDepth-First Search\n\n\n\n\n\n\nP70690 Treasures in a map (1)\n\n\n\n\n\nThe following are two possible starting points. One to implement it recursively and one to implement it iteratively.\n\n\n\n\n\n\nPossible code to start the problem (recursively)\n\n\n\n\n\n//Treasures in a map (1)\n// can we reach a treasure? \n#include&lt;iostream&gt;\n#include&lt;vector&gt;\n\nusing namespace std;\n\nusing VVC =  vector&lt;vector&lt;char&gt;&gt;;\nusing VVB = vector&lt;vector&lt;bool&gt;&gt;;\n\nstruct Pos {\n    int i, j;\n    Pos (int ii = 0, int jj = 0) : i(ii), j(jj) {}\n};\n\n\nconst int N_DIRS = 4;\nconst Pos DIRS[N_DIRS] = { {1,0}, {-1,0}, {0,1}, {0,-1} };\n\nbool within_range(Pos p, int n, int m){\n    return 0&lt;=p.i and p.i &lt; n and 0 &lt;=p.j and p.j &lt; m;\n}\n\n\nbool dfs(const VVC& map, VVB& visited, Pos p){\n  // do it recursively\n}\n\nint main (){\n    int n, m;\n    cin &gt;&gt; n &gt;&gt; m;\n    VVC map(n, vector&lt;char&gt;(m));\n    for (int i = 0; i &lt; n; ++i)\n        for (int j = 0; j &lt; m; ++j)\n            cin &gt;&gt; map[i][j];\n    Pos p;\n    cin &gt;&gt; p.i &gt;&gt; p.j;\n\n    VVB visited(n, vector&lt;bool&gt;(m, false));\n    cout &lt;&lt; (dfs(map, visited, Pos(p.i-1, p.j-1)) ? \"yes\" : \"no\") &lt;&lt; endl; \n}\n\n\n\n\n\n\n\n\n\n\nPossible code to start the problem (iteratively)\n\n\n\n\n\n//Treasures in a map (1)\n// can we reach a treasure? \n#include&lt;iostream&gt;\n#include&lt;vector&gt;\n//#include&lt;stack&gt; or #include&lt;queue&gt;?\n\nusing namespace std;\n\nusing VVC =  vector&lt;vector&lt;char&gt;&gt;;\nusing VVB = vector&lt;vector&lt;bool&gt;&gt;;\nusing Pos = pair&lt;int,int&gt;;\n\nconst int N_DIRS = 4;\nconst pair&lt;int,int&gt; DIRS[N_DIRS] = { {1,0}, {-1,0}, {0,1}, {0,-1} };\n\nbool within_range(int i, int j, int n, int m){\n    return 0&lt;=i and i &lt; n and 0 &lt;=j and j &lt; m;\n}\n\n\nbool dfs(const VVC& map, int i0, int j0){\n    // do it iteratively\n    // stack or queue?\n}\n\nint main (){\n    int n, m;\n    cin &gt;&gt; n &gt;&gt; m;\n    VVC map(n, vector&lt;char&gt;(m));\n    for (int i = 0; i &lt; n; ++i)\n        for (int j = 0; j &lt; m; ++j)\n            cin &gt;&gt; map[i][j];\n    int r,c;\n    cin &gt;&gt; r &gt;&gt; c;\n\n    cout &lt;&lt; (dfs(map, r-1, c-1) ? \"yes\" : \"no\") &lt;&lt; endl; \n}\n\n\n\n\n\n\n\n\n\nPossible solution (recursive)\n\n\n\n\n\n//Treasures in a map (1)\n// can we reach a treasure? \n#include&lt;iostream&gt;\n#include&lt;vector&gt;\n\nusing namespace std;\n\nusing VVC =  vector&lt;vector&lt;char&gt;&gt;;\nusing VVB = vector&lt;vector&lt;bool&gt;&gt;;\n\nstruct Pos {\n    int i, j;\n    Pos (int ii = 0, int jj = 0) : i(ii), j(jj) {}\n};\n\n\nconst int N_DIRS = 4;\nconst Pos DIRS[N_DIRS] = { {1,0}, {-1,0}, {0,1}, {0,-1} };\n\nbool within_range(Pos p, int n, int m){\n    return 0&lt;=p.i and p.i &lt; n and 0 &lt;=p.j and p.j &lt; m;\n}\n\n\nbool dfs(const VVC& map, VVB& visited, Pos p){\n    int n = map.size();\n    int m = map[0].size();\n    visited[p.i][p.j] = true;\n    if (map[p.i][p.j] == 't') return true;\n    for (int k = 0 ; k &lt; N_DIRS; ++k){\n        Pos q(p.i+DIRS[k].i, p.j + DIRS[k].j);\n        if (within_range(q, n, m) and !visited[q.i][q.j] and map[q.i][q.j] != 'X') \n            if(dfs(map, visited, q)) return true;\n    }\n    return false;\n}\n\nint main (){\n    int n, m;\n    cin &gt;&gt; n &gt;&gt; m;\n    VVC map(n, vector&lt;char&gt;(m));\n    for (int i = 0; i &lt; n; ++i)\n        for (int j = 0; j &lt; m; ++j)\n            cin &gt;&gt; map[i][j];\n    Pos p;\n    cin &gt;&gt; p.i &gt;&gt; p.j;\n\n    VVB visited(n, vector&lt;bool&gt;(m, false));\n    cout &lt;&lt; (dfs(map, visited, Pos(p.i-1, p.j-1)) ? \"yes\" : \"no\") &lt;&lt; endl; \n}\n\n\n\n\n\n\n\n\n\n\nPossible solution (iterative)\n\n\n\n\n\n//Treasures in a map (1)\n// can we reach a treasure? \n#include&lt;iostream&gt;\n#include&lt;vector&gt;\n#include&lt;stack&gt;\n\nusing namespace std;\n\nusing VVC =  vector&lt;vector&lt;char&gt;&gt;;\nusing VVB = vector&lt;vector&lt;bool&gt;&gt;;\nusing Pos = pair&lt;int,int&gt;;\n\nconst int N_DIRS = 4;\nconst pair&lt;int,int&gt; DIRS[N_DIRS] = { {1,0}, {-1,0}, {0,1}, {0,-1} };\n\nbool within_range(int i, int j, int n, int m){\n    return 0&lt;=i and i &lt; n and 0 &lt;=j and j &lt; m;\n}\n\n\nbool dfs(const VVC& map, int i0, int j0){\n    int n = map.size();\n    int m = map[0].size();\n    VVB visited(n, vector&lt;bool&gt;(m, false));\n    stack&lt;Pos&gt; s;\n    s.push({i0,j0});\n    while(not s.empty()){\n        Pos p = s.top();\n        s.pop();\n        int i = p.first;\n        int j = p.second;\n        if (not visited[i][j]){\n            visited[i][j] = true;\n            if (map[i][j] == 't') return true;\n            for (int k = 0; k &lt; N_DIRS; ++k){\n                int ii = i + DIRS[k].first;\n                int jj = j + DIRS[k].second;\n                if(within_range(ii, jj, n, m) and map[ii][jj]!='X'){\n                s.push({ii,jj});\n                }\n            }\n        }\n    }\n    return false;\n}\n\nint main (){\n    int n, m;\n    cin &gt;&gt; n &gt;&gt; m;\n    VVC map(n, vector&lt;char&gt;(m));\n    for (int i = 0; i &lt; n; ++i)\n        for (int j = 0; j &lt; m; ++j)\n            cin &gt;&gt; map[i][j];\n    int r,c;\n    cin &gt;&gt; r &gt;&gt; c;\n\n    cout &lt;&lt; (dfs(map, r-1, c-1) ? \"yes\" : \"no\") &lt;&lt; endl; \n}\n\n\n\n\n\n\nP90766 Treasures in a map (3)\n\n\n\n\n\n\nX41530 Forest (~ Problem 5.23 you will see in Problem Class P6)\n\n\n\n\n\nThe following is some possible starting point.\n\n\n\n\n\n\nPossible code to start the problem\n\n\n\n\n\n// Forest\n#include&lt;iostream&gt;\n#include&lt;vector&gt;\n\nusing namespace std;\nusing VVI = vector&lt;vector&lt;int&gt;&gt;;\nusing VB = vector&lt;bool&gt;;\nusing VI = vector&lt;int&gt;;\n\nbool cyclic(const VVI& g, int v, VB& visited, VI& parent){\n  // similar dfs\n  // returns true iff the connected component containing v contains a cycle\n\n}\n\nint count_trees(const VVI& g){\n    // use the auxiliary function cyclic to count the number of trees\n\n}\n\nint main(){\n    int n, m;\n    while (cin &gt;&gt; n &gt;&gt; m){\n        VVI g(n);\n        for (int k = 0; k &lt; m; ++k){\n            int u,v;\n            cin &gt;&gt; u &gt;&gt; v;\n            g[u].push_back(v);\n            g[v].push_back(u);\n        }\n        int n_trees = count_trees(g); // -1 if g is not a tree\n        if (n_trees == -1 ) cout &lt;&lt; \"no\" &lt;&lt; endl;\n        else                cout &lt;&lt; n_trees &lt;&lt; endl;\n    }\n}\n\n\n\n\n\n\n\n\n\n\nPossible solution\n\n\n\n\n\n// Forest\n#include&lt;iostream&gt;\n#include&lt;vector&gt;\n\nusing namespace std;\nusing VVI = vector&lt;vector&lt;int&gt;&gt;;\nusing VB = vector&lt;bool&gt;;\nusing VI = vector&lt;int&gt;;\n\nbool cyclic(const VVI& g, int v, VB& visited, VI& parent){\n    if (visited[v]) return true;\n    visited[v] = true;\n    for (int u : g[v]){\n        if (parent[v] != u){\n            parent[u] = v;\n            if (cyclic(g, u, visited, parent)) return true;\n        }\n    }\n    return false;\n}\n\nint count_trees(const VVI& g){\n    int n = g.size();\n    int n_trees = 0;\n    VB visited(n, false);\n    VI parent(n, -1);\n    for (int v = 0; v &lt; n; ++v){\n        if (not visited[v]){\n            if (cyclic(g, v, visited,parent)) return -1;\n            else ++n_trees;\n        }\n    }\n    return n_trees;\n}\n\nint main(){\n    int n, m;\n    while (cin &gt;&gt; n &gt;&gt; m){\n        VVI g(n);\n        for (int k = 0; k &lt; m; ++k){\n            int u,v;\n            cin &gt;&gt; u &gt;&gt; v;\n            g[u].push_back(v);\n            g[v].push_back(u);\n        }\n        int n_trees = count_trees(g); // -1 if g is not a tree\n        if (n_trees == -1 ) cout &lt;&lt; \"no\" &lt;&lt; endl;\n        else                cout &lt;&lt; n_trees &lt;&lt; endl;\n    }\n}\n\n\n\n\n\n\n\nP29033 Two colors\nP53547 Tiny bishops\nP40479 Painting a board\n\n\nTopological Sort\n\n\n\n\n\n\nP14952 Topological sort (~ Problem 5.12 you will see in Problem class P6)\n\n\n\n\n\nThe following is some possible starting point.\n\n\n\n\n\n\nPossible code to start the problem\n\n\n\n\n\n// Topological sort\n#include&lt;iostream&gt;\n#include&lt;vector&gt;\n#include&lt;queue&gt;\n\nusing namespace std;\nusing graph = vector&lt;vector&lt;int&gt;&gt;;\nusing VI = vector&lt;int&gt;;\n\nVI compute_ordering(const graph& g, VI& indegree){\n   // suggestion: use a priority_queue\n}\n\nvoid write(const VI& v){\n    cout &lt;&lt; v[0];\n    for (int i = 1; i &lt; v.size(); ++i)\n        cout  &lt;&lt; ' ' &lt;&lt; v[i];\n    cout &lt;&lt; endl;\n}\n\nint main(){\n    int n, m;\n    while(cin &gt;&gt; n &gt;&gt; m){\n        graph g(n);\n        VI indegree(n, 0);\n        for (int i = 0; i &lt; m; ++i){\n            int u, v;\n            cin &gt;&gt; u &gt;&gt; v;\n            g[u].push_back(v);\n            ++indegree[v];\n        }\n    VI ord = compute_ordering(g,indegree);\n    write(ord);\n    }\n}\n\n\n\n\n\n\n\n\n\n\nPossible solution\n\n\n\n\n\n// Topological sort\n#include&lt;iostream&gt;\n#include&lt;vector&gt;\n#include&lt;queue&gt;\n\nusing namespace std;\nusing graph = vector&lt;vector&lt;int&gt;&gt;;\nusing VI = vector&lt;int&gt;;\n\nVI compute_ordering(const graph& g, VI& indegree){\n    int n = g.size();\n    priority_queue&lt;int, vector&lt;int&gt;, greater&lt;int&gt;&gt; pq;\n    for (int u =0; u &lt; n; ++u){\n        if (indegree[u]==0) pq.push(u);\n    }\n    VI ord;\n    while(not pq.empty()){\n        int u = pq.top();\n        pq.pop();\n        ord.push_back(u);\n        for (int k = 0; k &lt; g[u].size(); ++k){\n            int v = g[u][k];\n            --indegree[v];\n            if (indegree[v]==0) pq.push(v);\n        }\n    }\n    return ord;\n}\n\nvoid write(const VI& v){\n    cout &lt;&lt; v[0];\n    for (int i = 1; i &lt; v.size(); ++i)\n        cout  &lt;&lt; ' ' &lt;&lt; v[i];\n    cout &lt;&lt; endl;\n}\n\nint main(){\n    int n, m;\n    while(cin &gt;&gt; n &gt;&gt; m){\n        graph g(n);\n        VI indegree(n, 0);\n        for (int i = 0; i &lt; m; ++i){\n            int u, v;\n            cin &gt;&gt; u &gt;&gt; v;\n            g[u].push_back(v);\n            ++indegree[v];\n        }\n    VI ord = compute_ordering(g,indegree);\n    write(ord);\n    }\n}\n\n\n\n\n\n\n\nP16249 Task ordering\nX21319 Circuit Value Problem ❗❗\n\n\nBreadth-First Search\n\n\n\n\n\n\nP60796 Treasures in a map (2)\n\n\n\n\n\nThe following is some possible starting point.\n\n\n\n\n\n\nPossible code to start the problem\n\n\n\n\n\n// Treasures in a map (2)\n#include&lt;iostream&gt;\n#include&lt;vector&gt;\n#include&lt;queue&gt;\n\nusing namespace std;\nusing VVC = vector&lt;vector&lt;char&gt;&gt;; \nusing VVI = vector&lt;vector&lt;int&gt;&gt;;\nusing VI = vector&lt;int&gt;;\nusing P = pair&lt;int,int&gt;;\n\nconst int N_DIRS = 4;\nconst int UNDEF = -1;\nconst pair&lt;int,int&gt; DIRS[N_DIRS] = { {1,0}, {-1,0}, {0,1}, {0,-1} };\n\nbool within_range(int i, int j, int n, int m){\n    return 0&lt;=i and i &lt; n and 0 &lt;=j and j &lt; m;\n}\n\nint bfs(const VVC& map, int i0, int j0){\n    // similar as the dfs interative but use a queue\n    // and update the distance accordingly\n}\n\nint main(){\n    int n, m;\n    cin &gt;&gt; n &gt;&gt; m;\n    VVC map(n, vector&lt;char&gt;(m));\n    for (int i = 0; i &lt; n; ++i)\n        for (int j = 0; j &lt; m; ++j)\n            cin &gt;&gt; map[i][j];\n    int r,c;\n    cin &gt;&gt; r &gt;&gt; c;\n    int dist = bfs(map, r-1, c-1);\n    if (dist == UNDEF) cout &lt;&lt; \"no treasure can be reached\" &lt;&lt; endl;\n    else cout &lt;&lt; \"minimum distance: \" &lt;&lt; dist &lt;&lt; endl;\n}\n\n\n\n\n\n\n\n\n\n\nPossible solution\n\n\n\n\n\n// Treasures in a map (2)\n#include&lt;iostream&gt;\n#include&lt;vector&gt;\n#include&lt;queue&gt;\n\nusing namespace std;\nusing VVC = vector&lt;vector&lt;char&gt;&gt;; \nusing VVI = vector&lt;vector&lt;int&gt;&gt;;\nusing VI = vector&lt;int&gt;;\nusing P = pair&lt;int,int&gt;;\n\nconst int N_DIRS = 4;\nconst int UNDEF = -1;\nconst pair&lt;int,int&gt; DIRS[N_DIRS] = { {1,0}, {-1,0}, {0,1}, {0,-1} };\n\nbool within_range(int i, int j, int n, int m){\n    return 0&lt;=i and i &lt; n and 0 &lt;=j and j &lt; m;\n}\n\nint bfs(const VVC& map, int i0, int j0){\n    // similar as a dfs iterative but use a queue\n    // and update the distance accordingly \n    int n = map.size();\n    int m = map[0].size();\n    queue&lt;P&gt; q;\n    VVI dist(n, VI(m, UNDEF));\n    q.push({i0,j0});\n    dist[i0][j0] = 0;\n    while(not q.empty()){\n        P p = q.front();\n        q.pop();\n        int i = p.first;\n        int j = p.second;\n        if (map[i][j] == 't') return dist[i][j];\n            for (int k = 0; k &lt; N_DIRS; ++k){\n                int ii = i + DIRS[k].first;\n                int jj = j + DIRS[k].second;\n                if(within_range(ii, jj, n, m) and map[ii][jj]!='X' and dist[ii][jj]==UNDEF){\n                    q.push({ii,jj});\n                    dist[ii][jj] = 1 + dist[i][j];\n                }\n            }\n    }\n    return UNDEF;\n}\n\nint main(){\n    int n, m;\n    cin &gt;&gt; n &gt;&gt; m;\n    VVC map(n, vector&lt;char&gt;(m));\n    for (int i = 0; i &lt; n; ++i)\n        for (int j = 0; j &lt; m; ++j)\n            cin &gt;&gt; map[i][j];\n    int r,c;\n    cin &gt;&gt; r &gt;&gt; c;\n    int dist = bfs(map, r-1, c-1);\n    if (dist == UNDEF) cout &lt;&lt; \"no treasure can be reached\" &lt;&lt; endl;\n    else cout &lt;&lt; \"minimum distance: \" &lt;&lt; dist &lt;&lt; endl;\n}\n\n\n\n\n\n\n\nP39846 Treasures in a map (4)\nP88760 Zamburguesas ❗",
-    "crumbs": [
-      "Graph Algorithms",
-      "L3: Jutge - BFS/DFS"
-    ]
-  },
-  {
-    "objectID": "L5.html",
-    "href": "L5.html",
-    "title": "L5: Exhaustive algorithms I",
-    "section": "",
-    "text": "Important\n\n\n\nThis page will be updated closer to the class\nIn this section we consider the problems from Jutge.org \\(\\rightarrow\\) EDA \\(\\rightarrow\\) Exhaustive search and generation. We solve together (at least) the problems highlighted below.\n❗ denotes problems that might be harder than the rest.",
-    "crumbs": [
-      "Exhaustive search",
-      "L5: Jutge"
-    ]
-  },
-  {
-    "objectID": "L5.html#possible-workflow-for-solving-the-exercises",
-    "href": "L5.html#possible-workflow-for-solving-the-exercises",
-    "title": "L5: Exhaustive algorithms I",
-    "section": "Possible workflow for solving the exercises",
-    "text": "Possible workflow for solving the exercises\n\n\n\n\n\n\nStep 1: Getting everything in place\n\n\n\n\n\nChoose a problem from Jutge.org to solve.\n\n\n\n\n\n\nCommon error(s)\n\n\n\nThe html statement of the problem might not be rendered properly.\nThe official statement of the problem is in the .pdf file.\n\n\nDownload the .zip archive  of the problem and unzip it.\nIn the obtained folder there are:\n\na file .pdf with the official problem statement\none or more text files with examples of input sample.inp\nthe corresponding correct outputs sample.cor\n\n\n\n\n\n\n\n\n\n\nStep 2: Getting the C++ code to compile\n\n\n\n\n\nAfter creating a C++ source file to solve the problem, compile it with g++ -std=c++11.\n\n\n\n\n\n\nCommon error(s)\n\n\n\nNot using the flag -std=c++11.\n\n\nPossible useful flags are -Wall -Wextra -Wno-overflow -Wpedantic -Werror -D_GLIBCXX_DEBUG\n\n\n\n\n\n\n\n\n\nStep 3: Testing testing testing\n\n\n\n\n\nTest the executable file obtained on the given example(s), for instance with ./a.out &lt; sample.inp &gt; output.\n\n\n\n\n\n\nCommon error(s)\n\n\n\nWriting the input by hand.\nNot checking the exact formatting of the output.\n\n\nTo see whether the output is the same as sample.cor a way is to use diff output sample.cor\n\n\n\n\n\n\n\n\n\nStep 4: Submitting the solution to the Jutge\n\n\n\n\n\nOnce the code compiles and on the given samples it gives the correct output submit it to the Jutge for automatic evaluation.\n\n\n\n\n\n\nCommon error(s)\n\n\n\nSending to the Jutge code that was not even compiled locally.\nNot checking if the output was correct on the given inputs.",
-    "crumbs": [
-      "Exhaustive search",
-      "L5: Jutge"
-    ]
-  },
-  {
-    "objectID": "L5.html#exercises-on",
-    "href": "L5.html#exercises-on",
-    "title": "L5: Exhaustive algorithms I",
-    "section": "Exercises on Exhaustive search and generation",
-    "text": "Exercises on Exhaustive search and generation\nP12828 Zeros and ones (1)\nP45965 Zeros and ones (2)\nP69348 From one to en (1)\nP24674 Permutations of words\nP16415 Queens (1)\nP17921 Queens (2)\nP38211 Queens (3)\nP49889 Consonants and vowels\nP62113 Two coins of each kind (1)\nX92609 Two coins of each kind (3)\nP62138 Topological orderings\nP37197 Incompatible species\nP76807 Sudoku\nP70756 Partitions\nP40685 Equal sums (1)\nP82660 Equal sums (2)\nP11655 Equal sums (3)\nP93741 Satisfiability",
-    "crumbs": [
-      "Exhaustive search",
-      "L5: Jutge"
-    ]
-  },
-  {
-    "objectID": "STL.html",
-    "href": "STL.html",
-    "title": "La Llibreria STL",
-    "section": "",
-    "text": "Important\n\n\n\nThis page is under construction. It needs to be ported to english and re-formatted.\nEl contenido de esta seccion es el mismo de Página principal de EDA \\(\\rightarrow\\) Material Docent \\(\\rightarrow\\) STL\nLa llibreria STL (Standard Template Library) és una col·lecció de plantilles per a diversos contenidors (vectors, piles, cues, etc.) que ja no caldrà que implementem. La STL està pensada per oferir una interfície el més uniforme possible. En particular, hi ha diversos mètodes que són comuns:\nA continuació es fa un descripció breu. Podeu trobar més informació a la web cppreference.com i al Jutge, secció “Documentation -&gt; Cheat sheets”, on hi ha els documents C++ reference i “Xuleta EDA”. Aquest ultim material estarà disponible el dia de l’examen.\nTots els costos que donarem (a no ser que es digui el contrari) són en el cas pitjor.\nA continuació veurem les següents classes:\npair&lt;T1,T2&gt; (parells)\npriority_queue&lt;T&gt; (cua de prioritats)\nset&lt;T&gt; (conjunt)\nmap&lt;K,V&gt; (diccionari)",
-    "crumbs": [
-      "Getting Started",
-      "The C++ Standard Library"
-    ]
-  },
-  {
-    "objectID": "STL.html#pair",
-    "href": "STL.html#pair",
-    "title": "La Llibreria STL",
-    "section": "pair",
-    "text": "pair\nEls pairs permeten formar parells amb un valor de tipus T1 i un valor de tipus T2.\npair&lt;T1,T2&gt; és equivalent a\nstruct pair {\n  T1 first;\n  T2 second;\n};\nS’accedeix als valors amb els camps first i second.\nEls pairs són útils perquè algunes funcions de la STL necessiten retornar 2 valors, i en aquest cas s’utilitzen pairs per fer-ho. A més, també van bé perquè tenen alguns operadors ja definits:\n\noperador d’igualtat == (component a component)\noperadors de comparació (lexicogràficament)\n\nExemplo\n  pair&lt;double, char&gt; a(2.5, 'A');\n  pair&lt;double, char&gt; b;\n  b.first = 3.5;\n  b.second = 'B';\n  cout &lt;&lt; (a == make_pair(2.5, 'A')) &lt;&lt; endl;  // --&gt; 1\n  cout &lt;&lt; (a &lt; b) &lt;&lt; endl;                     // --&gt; 1",
-    "crumbs": [
-      "Getting Started",
-      "The C++ Standard Library"
-    ]
-  },
-  {
-    "objectID": "STL.html#priority_queue",
-    "href": "STL.html#priority_queue",
-    "title": "La Llibreria STL",
-    "section": "priority_queue",
-    "text": "priority_queue\nUna priority_queue&lt;T&gt; és una cua de prioritats de T. L’element més gran guardat a la cua de prioritats és el primer que surt.\nCal fer: #include &lt;queue&gt;{:.language-cpp}\n\nvoid push(const T& x)\n\nafegeix x\nCost: \\(\\Theta(\\log n)\\)\n\nvoid pop()\n\nelimina l’element més gran\nCost: \\(\\Theta(\\log n)\\)\n\nconst T& top() const\n\nretorna l’element més gran\nCost: \\(\\Theta(1)\\)\n\n\nExemplo (Heapsort) llegeix una seqüència d’enters i l’escriu ordenada de forma decreixent\n#include &lt;queue&gt;\n\nint main() {\n  priority_queue&lt;int&gt; pq;\n  int x;\n  while (cin &gt;&gt; x) pq.push(x);\n  while (not pq.empty()) {\n    cout &lt;&lt; pq.top() &lt;&lt; endl;\n    pq.pop();\n  }\n}",
-    "crumbs": [
-      "Getting Started",
-      "The C++ Standard Library"
-    ]
-  },
-  {
-    "objectID": "STL.html#set",
-    "href": "STL.html#set",
-    "title": "La Llibreria STL",
-    "section": "set",
-    "text": "set\nUn set&lt;T&gt; és un conjunt de T. Els elements del conjunt es guarden ordenats de menor a major. (internament estan implementats amb arbres binaris de cerca balancejats)\nCal fer: #include &lt;set&gt;{: .language-cpp}\nAssumim que iterator és sinònim de set&lt;T&gt;::iterator.\nUn iterator it es mou cap endavant amb ++it i cap endarrera amb --it\nPer accedir a l’element apuntat per un iterator it: *it\n\npair&lt;iterator,bool&gt; insert ( const T& x );\n\nAfegeix x al conjunt. Si no hi era, retorna un iterador que apunta on s’ha ficat x, i true. Sinó retorna un iterador que apunta on ja hi havia x, i false.\nCost: \\(\\Theta(\\log n)\\)\n\niterator begin()\n\nretorna l’iterador a l’element més petit\nCost: \\(\\Theta(1)\\)\n\niterator end()\n\nretorna l’iterador al següent de l’element més gran\nCost: \\(\\Theta(1)\\)\n\niterator find(const T& x) const\n\nBusca l’element x al conjunt. Si el troba, retorna un iterador que hi apunta. Sinó retorna end().\nCost \\(\\Theta(\\log n)\\)\n\nvoid erase(iterator it)\n\nElimina l’element apuntat per it.\nCost: \\(\\Theta(1)\\) amortit\n\nint erase(const T& x)\n\nSi x pertany al conjunt, l’elimina i retorna 1. Sinó retorna 0.\nCost: \\(\\Theta(\\log n)\\)\n\n\nExemplo llegeix dues seqüències d’enters acabades en zero i escriu seva intersecció\n#include &lt;set&gt;\n\nint main() {\n  set&lt;int&gt; s1, s2;\n  int x;\n  while (cin &gt;&gt; x and x != 0) s1.insert(x);\n  while (cin &gt;&gt; x and x != 0) s2.insert(x);\n\n  for (set&lt;int&gt;::iterator it = s1.begin(); it != s1.end(); ++it)\n    if (s2.find(*it) != s2.end())\n      cout &lt;&lt; *it &lt;&lt; endl;\n}",
-    "crumbs": [
-      "Getting Started",
-      "The C++ Standard Library"
-    ]
-  },
-  {
-    "objectID": "STL.html#map",
-    "href": "STL.html#map",
-    "title": "La Llibreria STL",
-    "section": "map",
-    "text": "map\nUn map&lt;K,V&gt; és un diccionari de claus K i valors V. Es comporta de manera semblant a un conjunt de parells (clau, valor) (és a dir, set&lt;pair&lt;K,V&gt;&gt;) on no es poden repetir claus.\nEls parells estan ordenats per clau de menor a major.\n(internament estan implementats amb arbres binaris de cerca balancejats)\nCal fer: #include &lt;map&gt;{: .language-cpp}\nAssumim que iterator és sinònim de map&lt;K,V&gt;::iterator.\nUn iterator it es mou cap endavant amb ++it i cap endarrera amb --it\nPer accedir al parell apuntat per it: *it\nPer accedir a la clau apuntada per it: (*it).first o it-&gt;first\nPer accedir al valor apuntat per it: (*it).second o it-&gt;second\n\npair&lt;iterator,bool&gt; insert(const pair&lt;K,V&gt;& p);\n\nAfegeix el parell p. Si no hi havia cap parell amb aquesta clau, retorna un iterador que apunta on s’ha ficat p, i true. Sinó retorna l’iterador que apunta al parell que ja hi havia amb la mateixa clau, i false.\nCost: \\(\\Theta(\\log n)\\)\n\niterator begin()\n\nretorna l’iterador al parell amb clau més petita\nCost: \\(\\Theta(1)\\)\n\niterator end()\n\nretorna l’iterador al següent al parell amb clau més gran\nCost: \\(\\Theta(1)\\)\n\niterator find(const K& k) const\n\nBusca un parell amb clau k. Si el troba, retorna un iterador que hi apunta. Sinó retorna end().\nCost \\(\\Theta(\\log n)\\)\n\nvoid erase(iterator it)\n\nElimina el parell apuntat per it.\nCost: \\(\\Theta(1)\\) amortit\n\nint erase ( const K& k )\n\nSi hi ha un parell amb clau k, l’elimina i retorna 1. Sinó retorna 0.\nCost: \\(\\Theta(\\log n)\\)\n\n\nExemplo.\n#include &lt;map&gt;\n\ntypedef pair&lt;char,int&gt; P;\ntypedef map&lt;char,int&gt; M;\n\nint main(){\n\n  M m;\n\n  m.insert( P('a', 10) );\n  m.insert( make_pair('c', 30) );\n  m['d'] = 40;\n\n  //    L'operador [ ] admet com a argument una clau k. Llavors:\n  //\n  //    Si ja hi havia un parell amb la clau, es retorna una referència al\n  //    camp second (valor) del parell que ja existia amb aquesta clau.\n  //\n  //    Sino, s'inserta un parell amb aquesta clau i el constructor per\n  //    defecte del tipus V (per ex., per a tipus bàsics de C++\n  //    numèrics, assigna a 0). Llavors es retorna una referència al\n  //    camp second (valor) d'aquest parell.\n\n  m.erase('c');\n\n  for (M::iterator it = m.begin(); it != m.end(); ++it) \n    cout &lt;&lt; it-&gt;first &lt;&lt; \" \" &lt;&lt; it-&gt;second &lt;&lt; endl;\n}\nté sortida\na 10\nd 40",
-    "crumbs": [
-      "Getting Started",
-      "The C++ Standard Library"
-    ]
-  },
-  {
-    "objectID": "STL.html#novetats-c11",
-    "href": "STL.html#novetats-c11",
-    "title": "La Llibreria STL",
-    "section": "“NOVETATS” C++11",
-    "text": "“NOVETATS” C++11\n\nCal compilar amb g++ -std=c++11\nSi el compilador pot inferir el tipus d’una variable a la declaració, en lloc de posar el tipus de la variable, es pot escriure auto.\n\n  map&lt;string, int&gt; m;\n  auto it = m.find(\"hello\");\n\nEls bucles for s’han modificat per poder iterar fàcilment sobre col·leccions.\nExemplo\n\n  set&lt;int&gt; s;\n  ...\n  for(int x : s) cout &lt;&lt; x &lt;&lt; endl;\n  cout &lt;&lt; endl;\n\nJa no cal posar un espai entre els &gt;&gt; dels templates.\nExemplo.\n\n  vector&lt;vector&lt;int&gt;&gt; matrix;\n\nEs poden donar llistes d’inicialitzacions a contenidors de la STL.\nExemplo.\n\n  vector&lt;int&gt;   v = {0, 1, 2};\n  set&lt;set&lt;int&gt;&gt; s = { {2,3}, {5,1,5}, {}, {3} };",
-    "crumbs": [
-      "Getting Started",
-      "The C++ Standard Library"
-    ]
-  },
-  {
-    "objectID": "STL.html#unordered_set",
-    "href": "STL.html#unordered_set",
-    "title": "La Llibreria STL",
-    "section": "unordered_set",
-    "text": "unordered_set\nCom el set, però no es garanteix que recórrer el set des de begin() fins a end() respecti l’ordre dels elements.\ninsert, find, erase funcionen en temps \\(\\Theta(n)\\) en el cas pitjor, però temps \\(\\Theta(1)\\) en mitjana.\n(internament estan implementats amb taules de hash)\nExemplo.\n#include &lt;iostream&gt;\n#include &lt;unordered_set&gt;\n\nusing namespace std;\n\nint main() {\n\n  unordered_set&lt;int&gt; s1, s2;\n  int x;\n\n  while (cin &gt;&gt; x and x != 0)\n    s1.insert(x);\n  \n  while (cin &gt;&gt; x and x != 0)\n    s2.insert(x);\n\n  for (auto y : s1) \n    if (s2.find(y) != s2.end()) \n      cout &lt;&lt; y &lt;&lt; endl;\n}",
-    "crumbs": [
-      "Getting Started",
-      "The C++ Standard Library"
-    ]
-  },
-  {
-    "objectID": "STL.html#unordered_map",
-    "href": "STL.html#unordered_map",
-    "title": "La Llibreria STL",
-    "section": "unordered_map",
-    "text": "unordered_map\nCom el map, però no es garanteix que recórrer el map des de begin() fins a end() respecti l’ordre de les claus.\ninsert, find, erase funcionen en temps \\(\\Theta(n)\\) en el cas pitjor, però en temps \\(\\Theta(1)\\) en mitjana.\n(internament estan implementats amb taules de hash)\nExemplo.\n#include &lt;unordered_map&gt;\n#include &lt;iostream&gt;\n\nusing namespace std;\n\nint main() {\n  unordered_map&lt;string, int&gt; m;\n  string x;\n  while (cin &gt;&gt; x) ++m[x];\n  for(auto p : m)\n    cout &lt;&lt; p.first &lt;&lt; \" \" &lt;&lt; p.second &lt;&lt; endl;\n}",
-    "crumbs": [
-      "Getting Started",
-      "The C++ Standard Library"
-    ]
-  },
-  {
-    "objectID": "STL.html#ejemplos",
-    "href": "STL.html#ejemplos",
-    "title": "La Llibreria STL",
-    "section": "Ejemplos",
-    "text": "Ejemplos\nPágina principal de EDA \\(\\rightarrow\\) Material Docent \\(\\rightarrow\\) Algorismes en C++ \\(\\rightarrow\\) Chapter 1: STL Usage Examples",
-    "crumbs": [
-      "Getting Started",
-      "The C++ Standard Library"
-    ]
-  },
-  {
-    "objectID": "jutge_workflow.html",
-    "href": "jutge_workflow.html",
-    "title": "**EDA**",
-    "section": "",
-    "text": "Step 1: Getting everything in place\n\n\n\n\n\nChoose a problem from Jutge.org to solve.\n\n\n\n\n\n\nCommon error(s)\n\n\n\nThe html statement of the problem might not be rendered properly.\nThe official statement of the problem is in the .pdf file.\n\n\nDownload the .zip archive  of the problem and unzip it.\nIn the obtained folder there are:\n\na file .pdf with the official problem statement\none or more text files with examples of input sample.inp\nthe corresponding correct outputs sample.cor\n\n\n\n\n\n\n\n\n\n\nStep 2: Getting the C++ code to compile\n\n\n\n\n\nAfter creating a C++ source file to solve the problem, compile it with g++ -std=c++11.\n\n\n\n\n\n\nCommon error(s)\n\n\n\nNot using the flag -std=c++11.\n\n\nPossible useful flags are -Wall -Wextra -Wno-overflow -Wpedantic -Werror -D_GLIBCXX_DEBUG\n\n\n\n\n\n\n\n\n\nStep 3: Testing testing testing\n\n\n\n\n\nTest the executable file obtained on the given example(s), for instance with ./a.out &lt; sample.inp &gt; output.\n\n\n\n\n\n\nCommon error(s)\n\n\n\nWriting the input by hand.\nNot checking the exact formatting of the output.\n\n\nTo see whether the output is the same as sample.cor a way is to use diff output sample.cor\n\n\n\n\n\n\n\n\n\nStep 4: Submitting the solution to the Jutge\n\n\n\n\n\nOnce the code compiles and on the given samples it gives the correct output submit it to the Jutge for automatic evaluation.\n\n\n\n\n\n\nCommon error(s)\n\n\n\nSending to the Jutge code that was not even compiled locally.\nNot checking if the output was correct on the given inputs."
   }
 ]
