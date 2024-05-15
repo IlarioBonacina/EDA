@@ -227,69 +227,6 @@
     ]
   },
   {
-    "objectID": "L1/STL.cat.html",
-    "href": "L1/STL.cat.html",
-    "title": "La Llibreria STL",
-    "section": "",
-    "text": "Important\n\n\n\nThis page is under construction. It needs to be ported to english and re-formatted.\nEl contenido de esta seccion es el mismo de Página principal de EDA \\(\\rightarrow\\) Material Docent \\(\\rightarrow\\) STL\nLa llibreria STL (Standard Template Library) és una col·lecció de plantilles per a diversos contenidors (vectors, piles, cues, etc.) que ja no caldrà que implementem. La STL està pensada per oferir una interfície el més uniforme possible. En particular, hi ha diversos mètodes que són comuns:\nA continuació es fa un descripció breu. Podeu trobar més informació a la web cppreference.com i al Jutge, secció “Documentation -&gt; Cheat sheets”, on hi ha els documents C++ reference i “Xuleta EDA”. Aquest ultim material estarà disponible el dia de l’examen.\nTots els costos que donarem (a no ser que es digui el contrari) són en el cas pitjor.\nA continuació veurem les següents classes:\npair&lt;T1,T2&gt; (parells)\npriority_queue&lt;T&gt; (cua de prioritats)\nset&lt;T&gt; (conjunt)\nmap&lt;K,V&gt; (diccionari)"
-  },
-  {
-    "objectID": "L1/STL.cat.html#pair",
-    "href": "L1/STL.cat.html#pair",
-    "title": "La Llibreria STL",
-    "section": "pair",
-    "text": "pair\nEls pairs permeten formar parells amb un valor de tipus T1 i un valor de tipus T2.\npair&lt;T1,T2&gt; és equivalent a\nstruct pair {\n  T1 first;\n  T2 second;\n};\nS’accedeix als valors amb els camps first i second.\nEls pairs són útils perquè algunes funcions de la STL necessiten retornar 2 valors, i en aquest cas s’utilitzen pairs per fer-ho. A més, també van bé perquè tenen alguns operadors ja definits:\n\noperador d’igualtat == (component a component)\noperadors de comparació (lexicogràficament)\n\nExemplo\n  pair&lt;double, char&gt; a(2.5, 'A');\n  pair&lt;double, char&gt; b;\n  b.first = 3.5;\n  b.second = 'B';\n  cout &lt;&lt; (a == make_pair(2.5, 'A')) &lt;&lt; endl;  // --&gt; 1\n  cout &lt;&lt; (a &lt; b) &lt;&lt; endl;                     // --&gt; 1"
-  },
-  {
-    "objectID": "L1/STL.cat.html#priority_queue",
-    "href": "L1/STL.cat.html#priority_queue",
-    "title": "La Llibreria STL",
-    "section": "priority_queue",
-    "text": "priority_queue\nUna priority_queue&lt;T&gt; és una cua de prioritats de T. L’element més gran guardat a la cua de prioritats és el primer que surt.\nCal fer: #include &lt;queue&gt;{:.language-cpp}\n\nvoid push(const T& x)\n\nafegeix x\nCost: \\(\\Theta(\\log n)\\)\n\nvoid pop()\n\nelimina l’element més gran\nCost: \\(\\Theta(\\log n)\\)\n\nconst T& top() const\n\nretorna l’element més gran\nCost: \\(\\Theta(1)\\)\n\n\nExemplo (Heapsort) llegeix una seqüència d’enters i l’escriu ordenada de forma decreixent\n#include &lt;queue&gt;\n\nint main() {\n  priority_queue&lt;int&gt; pq;\n  int x;\n  while (cin &gt;&gt; x) pq.push(x);\n  while (not pq.empty()) {\n    cout &lt;&lt; pq.top() &lt;&lt; endl;\n    pq.pop();\n  }\n}"
-  },
-  {
-    "objectID": "L1/STL.cat.html#set",
-    "href": "L1/STL.cat.html#set",
-    "title": "La Llibreria STL",
-    "section": "set",
-    "text": "set\nUn set&lt;T&gt; és un conjunt de T. Els elements del conjunt es guarden ordenats de menor a major. (internament estan implementats amb arbres binaris de cerca balancejats)\nCal fer: #include &lt;set&gt;{: .language-cpp}\nAssumim que iterator és sinònim de set&lt;T&gt;::iterator.\nUn iterator it es mou cap endavant amb ++it i cap endarrera amb --it\nPer accedir a l’element apuntat per un iterator it: *it\n\npair&lt;iterator,bool&gt; insert ( const T& x );\n\nAfegeix x al conjunt. Si no hi era, retorna un iterador que apunta on s’ha ficat x, i true. Sinó retorna un iterador que apunta on ja hi havia x, i false.\nCost: \\(\\Theta(\\log n)\\)\n\niterator begin()\n\nretorna l’iterador a l’element més petit\nCost: \\(\\Theta(1)\\)\n\niterator end()\n\nretorna l’iterador al següent de l’element més gran\nCost: \\(\\Theta(1)\\)\n\niterator find(const T& x) const\n\nBusca l’element x al conjunt. Si el troba, retorna un iterador que hi apunta. Sinó retorna end().\nCost \\(\\Theta(\\log n)\\)\n\nvoid erase(iterator it)\n\nElimina l’element apuntat per it.\nCost: \\(\\Theta(1)\\) amortit\n\nint erase(const T& x)\n\nSi x pertany al conjunt, l’elimina i retorna 1. Sinó retorna 0.\nCost: \\(\\Theta(\\log n)\\)\n\n\nExemplo llegeix dues seqüències d’enters acabades en zero i escriu seva intersecció\n#include &lt;set&gt;\n\nint main() {\n  set&lt;int&gt; s1, s2;\n  int x;\n  while (cin &gt;&gt; x and x != 0) s1.insert(x);\n  while (cin &gt;&gt; x and x != 0) s2.insert(x);\n\n  for (set&lt;int&gt;::iterator it = s1.begin(); it != s1.end(); ++it)\n    if (s2.find(*it) != s2.end())\n      cout &lt;&lt; *it &lt;&lt; endl;\n}"
-  },
-  {
-    "objectID": "L1/STL.cat.html#map",
-    "href": "L1/STL.cat.html#map",
-    "title": "La Llibreria STL",
-    "section": "map",
-    "text": "map\nUn map&lt;K,V&gt; és un diccionari de claus K i valors V. Es comporta de manera semblant a un conjunt de parells (clau, valor) (és a dir, set&lt;pair&lt;K,V&gt;&gt;) on no es poden repetir claus.\nEls parells estan ordenats per clau de menor a major.\n(internament estan implementats amb arbres binaris de cerca balancejats)\nCal fer: #include &lt;map&gt;{: .language-cpp}\nAssumim que iterator és sinònim de map&lt;K,V&gt;::iterator.\nUn iterator it es mou cap endavant amb ++it i cap endarrera amb --it\nPer accedir al parell apuntat per it: *it\nPer accedir a la clau apuntada per it: (*it).first o it-&gt;first\nPer accedir al valor apuntat per it: (*it).second o it-&gt;second\n\npair&lt;iterator,bool&gt; insert(const pair&lt;K,V&gt;& p);\n\nAfegeix el parell p. Si no hi havia cap parell amb aquesta clau, retorna un iterador que apunta on s’ha ficat p, i true. Sinó retorna l’iterador que apunta al parell que ja hi havia amb la mateixa clau, i false.\nCost: \\(\\Theta(\\log n)\\)\n\niterator begin()\n\nretorna l’iterador al parell amb clau més petita\nCost: \\(\\Theta(1)\\)\n\niterator end()\n\nretorna l’iterador al següent al parell amb clau més gran\nCost: \\(\\Theta(1)\\)\n\niterator find(const K& k) const\n\nBusca un parell amb clau k. Si el troba, retorna un iterador que hi apunta. Sinó retorna end().\nCost \\(\\Theta(\\log n)\\)\n\nvoid erase(iterator it)\n\nElimina el parell apuntat per it.\nCost: \\(\\Theta(1)\\) amortit\n\nint erase ( const K& k )\n\nSi hi ha un parell amb clau k, l’elimina i retorna 1. Sinó retorna 0.\nCost: \\(\\Theta(\\log n)\\)\n\n\nExemplo.\n#include &lt;map&gt;\n\ntypedef pair&lt;char,int&gt; P;\ntypedef map&lt;char,int&gt; M;\n\nint main(){\n\n  M m;\n\n  m.insert( P('a', 10) );\n  m.insert( make_pair('c', 30) );\n  m['d'] = 40;\n\n  //    L'operador [ ] admet com a argument una clau k. Llavors:\n  //\n  //    Si ja hi havia un parell amb la clau, es retorna una referència al\n  //    camp second (valor) del parell que ja existia amb aquesta clau.\n  //\n  //    Sino, s'inserta un parell amb aquesta clau i el constructor per\n  //    defecte del tipus V (per ex., per a tipus bàsics de C++\n  //    numèrics, assigna a 0). Llavors es retorna una referència al\n  //    camp second (valor) d'aquest parell.\n\n  m.erase('c');\n\n  for (M::iterator it = m.begin(); it != m.end(); ++it) \n    cout &lt;&lt; it-&gt;first &lt;&lt; \" \" &lt;&lt; it-&gt;second &lt;&lt; endl;\n}\nté sortida\na 10\nd 40"
-  },
-  {
-    "objectID": "L1/STL.cat.html#novetats-c11",
-    "href": "L1/STL.cat.html#novetats-c11",
-    "title": "La Llibreria STL",
-    "section": "“NOVETATS” C++11",
-    "text": "“NOVETATS” C++11\n\nCal compilar amb g++ -std=c++11\nSi el compilador pot inferir el tipus d’una variable a la declaració, en lloc de posar el tipus de la variable, es pot escriure auto.\n\n  map&lt;string, int&gt; m;\n  auto it = m.find(\"hello\");\n\nEls bucles for s’han modificat per poder iterar fàcilment sobre col·leccions.\nExemplo\n\n  set&lt;int&gt; s;\n  ...\n  for(int x : s) cout &lt;&lt; x &lt;&lt; endl;\n  cout &lt;&lt; endl;\n\nJa no cal posar un espai entre els &gt;&gt; dels templates.\nExemplo.\n\n  vector&lt;vector&lt;int&gt;&gt; matrix;\n\nEs poden donar llistes d’inicialitzacions a contenidors de la STL.\nExemplo.\n\n  vector&lt;int&gt;   v = {0, 1, 2};\n  set&lt;set&lt;int&gt;&gt; s = { {2,3}, {5,1,5}, {}, {3} };"
-  },
-  {
-    "objectID": "L1/STL.cat.html#unordered_set",
-    "href": "L1/STL.cat.html#unordered_set",
-    "title": "La Llibreria STL",
-    "section": "unordered_set",
-    "text": "unordered_set\nCom el set, però no es garanteix que recórrer el set des de begin() fins a end() respecti l’ordre dels elements.\ninsert, find, erase funcionen en temps \\(\\Theta(n)\\) en el cas pitjor, però temps \\(\\Theta(1)\\) en mitjana.\n(internament estan implementats amb taules de hash)\nExemplo.\n#include &lt;iostream&gt;\n#include &lt;unordered_set&gt;\n\nusing namespace std;\n\nint main() {\n\n  unordered_set&lt;int&gt; s1, s2;\n  int x;\n\n  while (cin &gt;&gt; x and x != 0)\n    s1.insert(x);\n  \n  while (cin &gt;&gt; x and x != 0)\n    s2.insert(x);\n\n  for (auto y : s1) \n    if (s2.find(y) != s2.end()) \n      cout &lt;&lt; y &lt;&lt; endl;\n}"
-  },
-  {
-    "objectID": "L1/STL.cat.html#unordered_map",
-    "href": "L1/STL.cat.html#unordered_map",
-    "title": "La Llibreria STL",
-    "section": "unordered_map",
-    "text": "unordered_map\nCom el map, però no es garanteix que recórrer el map des de begin() fins a end() respecti l’ordre de les claus.\ninsert, find, erase funcionen en temps \\(\\Theta(n)\\) en el cas pitjor, però en temps \\(\\Theta(1)\\) en mitjana.\n(internament estan implementats amb taules de hash)\nExemplo.\n#include &lt;unordered_map&gt;\n#include &lt;iostream&gt;\n\nusing namespace std;\n\nint main() {\n  unordered_map&lt;string, int&gt; m;\n  string x;\n  while (cin &gt;&gt; x) ++m[x];\n  for(auto p : m)\n    cout &lt;&lt; p.first &lt;&lt; \" \" &lt;&lt; p.second &lt;&lt; endl;\n}"
-  },
-  {
-    "objectID": "L1/STL.cat.html#ejemplos",
-    "href": "L1/STL.cat.html#ejemplos",
-    "title": "La Llibreria STL",
-    "section": "Ejemplos",
-    "text": "Ejemplos\nPágina principal de EDA \\(\\rightarrow\\) Material Docent \\(\\rightarrow\\) Algorismes en C++ \\(\\rightarrow\\) Chapter 1: STL Usage Examples"
-  },
-  {
     "objectID": "L1/self_assesment.html",
     "href": "L1/self_assesment.html",
     "title": "Initial Self-Assesment Test",
