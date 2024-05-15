@@ -573,6 +573,9 @@ P33412
 <!--
 P34682
 -->
+<p>Let <span class="math inline">\(S = x_1, \dots, x_n\)</span> be a sequence of integer numbers such that <span class="math inline">\(x_1\)</span> <span class="math inline">\(&lt;\)</span> <span class="math inline">\(\cdots\)</span> <span class="math inline">\(&lt;\)</span> <span class="math inline">\(x_n\)</span>. For every integer number <span class="math inline">\(a\)</span> and every index <span class="math inline">\(1 \leq i \leq n\)</span>, define <span class="math inline">\(f_a(i) = x_i + a\)</span>. Write a program that, given <span class="math inline">\(S\)</span> and <span class="math inline">\(a\)</span>, tells whether there is some <span class="math inline">\(i\)</span> such that <span class="math inline">\(f_a(i) = i\)</span>.</p>
+<p><strong>Input:</strong> Input consists of several cases. Every case begins with <span class="math inline">\(n\)</span>, followed by <span class="math inline">\(S\)</span>, followed by a number <span class="math inline">\(m\)</span>, followed by <span class="math inline">\(m\)</span> different integer numbers <span class="math inline">\(a_1, \dots, a_m\)</span>. <br> Assume <span class="math inline">\(1 \leq n \leq 10^6\)</span>.</p>
+<p><strong>Output:</strong> For every case, print its number starting at <span class="math inline">\(1\)</span>. Afterwards, for every <span class="math inline">\(a_j\)</span> print the position of its fixed point. If no fixed point exists, state so. If there is more than one fixed point, print the smallest one. Print a blank line after the output for every case.</p>
 <div class="callout callout-style-simple callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -690,6 +693,9 @@ A solution
 <!--
 P61833
 -->
+<p>Given a <span class="math inline">\(2 \times 2\)</span> matrix <span class="math inline">\(M\)</span> of natural numbers, a natural number <span class="math inline">\(n\)</span> and a natural number <span class="math inline">\(m\)</span>, compute <span class="math inline">\(M^n\)</span>. To avoid overflows, compute every element of <span class="math inline">\(M^n \pmod m\)</span>.</p>
+<p><strong>Input:</strong> Input consists of several cases, each with <span class="math inline">\(M_{1,1}\)</span>, <span class="math inline">\(M_{1,2}\)</span>, <span class="math inline">\(M_{2,1}\)</span> and <span class="math inline">\(M_{2,2}\)</span> in this order, followed by <span class="math inline">\(n\)</span> and <span class="math inline">\(m\)</span>. Assume that the elements of <span class="math inline">\(M\)</span> are not larger than <span class="math inline">\(500\)</span>, <span class="math inline">\(0 \leq n \leq 10^9\)</span>, and <span class="math inline">\(2 \leq m \leq 1000\)</span>.</p>
+<p><strong>Output:</strong> For every case, print the elements of <span class="math inline">\(M^n \pmod m\)</span> in two lines following the format of the sample. Print a line with <span class="math inline">\(10\)</span> dashes <code>-</code> after every matrix.</p>
 <div class="callout callout-style-simple callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
