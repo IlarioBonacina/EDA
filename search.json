@@ -110,7 +110,7 @@
     "href": "L1/STL.html",
     "title": "C++ Standard Template Library1",
     "section": "",
-    "text": "The C++ Standard Template Library (STL) is a collection of templates for several containers (vector, pair, stack, queue, set, etc) that there is no need to re-implement. In this page we will give a short description of some of the templates and methods. For more information see cppreference.com.\nTo use the STL containers and methods when compiling with `g++ it is necessary to use the flag -std=c++11.\nThe rationale behind the STL is to have an interface as uniform as possible. For instance, it is possible to give initialization lists to STL containes.\nIn the same spirit of uniformity, there are several common methods. For instance the followings.\nMoreover, since the C++11 standard, if the compiler can infer the type of a variable, instead of writing explicitly its type, it is possible to use auto.\nAlso for loops got an alternative (less error prone) syntax when used in collections such as set&lt;T&gt;.",
+    "text": "The C++ Standard Template Library (STL) is a collection of templates for several containers (vector, pair, stack, queue, set, etc) that there is no need to re-implement. In this page we will give a short description of some of the templates and methods. For more information see cppreference.com.\nTo use the STL containers and methods when compiling with `g++ it is necessary to use the flag -std=c++11.\nThe rationale behind the STL is to have an interface as uniform as possible. For instance, it is possible to give initialization lists to STL containers.\nIn the same spirit of uniformity, there are several common methods. For instance the followings.\nMoreover, since the C++11 standard, if the compiler can infer the type of a variable, instead of writing explicitly its type, it is possible to use auto.\nAlso for loops got an alternative (less error prone) syntax when used in collections such as set&lt;T&gt;.",
     "crumbs": [
       "Getting Started",
       "The C++ Standard Library"
@@ -165,18 +165,18 @@
     "href": "L1/STL.html#unordered_sett",
     "title": "C++ Standard Template Library1",
     "section": "unordered_set<T>",
-    "text": "unordered_set&lt;T&gt;\nThis is like a set but it does not guarantees an order on the elements.\ninsert, find, erase work in time \\(\\Theta(n)\\) (worst case), but in time \\(\\Theta(1)\\) on average.5\n\n\n\n\n\n\nExample\n\n\n\n#include &lt;iostream&gt;\n#include &lt;unordered_set&gt;\n\nusing namespace std;\n\nint main() {\n\n  unordered_set&lt;int&gt; s1, s2;\n  int x;\n\n  while (cin &gt;&gt; x and x != 0)\n    s1.insert(x);\n  \n  while (cin &gt;&gt; x and x != 0)\n    s2.insert(x);\n\n  for (auto y : s1) \n    if (s2.find(y) != s2.end()) \n      cout &lt;&lt; y &lt;&lt; endl;\n}",
+    "text": "unordered_set&lt;T&gt;\nAn unordered_set&lt;T&gt; is like a set but it does not guarantees an order on the elements.\ninsert, find, erase work in time \\(\\Theta(n)\\) (worst case), but in time \\(\\Theta(1)\\) on average.5\n\n\n\n\n\n\nExample\n\n\n\n#include &lt;iostream&gt;\n#include &lt;unordered_set&gt;\n\nusing namespace std;\n\nint main() {\n\n  unordered_set&lt;int&gt; s1, s2;\n  int x;\n\n  while (cin &gt;&gt; x and x != 0)\n    s1.insert(x);\n  \n  while (cin &gt;&gt; x and x != 0)\n    s2.insert(x);\n\n  for (auto y : s1) \n    if (s2.find(y) != s2.end()) \n      cout &lt;&lt; y &lt;&lt; endl;\n}",
     "crumbs": [
       "Getting Started",
       "The C++ Standard Library"
     ]
   },
   {
-    "objectID": "L1/STL.html#unordered_mapt",
-    "href": "L1/STL.html#unordered_mapt",
+    "objectID": "L1/STL.html#unordered_mapkv",
+    "href": "L1/STL.html#unordered_mapkv",
     "title": "C++ Standard Template Library1",
-    "section": "unordered_map<T>",
-    "text": "unordered_map&lt;T&gt;\nThis is like a map but it does not guarantee an order on the pairs.\ninsert, find, erase work in time \\(\\Theta(n)\\) (worst case), but in time \\(\\Theta(1)\\) on average.6\n\n\n\n\n\n\nExample\n\n\n\n#include &lt;unordered_map&gt;\n#include &lt;iostream&gt;\n\nusing namespace std;\n\nint main() {\n  unordered_map&lt;string, int&gt; m;\n  string x;\n  while (cin &gt;&gt; x) ++m[x];\n  for(auto p : m)\n    cout &lt;&lt; p.first &lt;&lt; \" \" &lt;&lt; p.second &lt;&lt; endl;\n}",
+    "section": "unordered_map<K,V>",
+    "text": "unordered_map&lt;K,V&gt;\nAn unordered_map&lt;K,V&gt; is like a map but it does not guarantee an order on the pairs.\ninsert, find, erase work in time \\(\\Theta(n)\\) (worst case), but in time \\(\\Theta(1)\\) on average.6\n\n\n\n\n\n\nExample\n\n\n\n#include &lt;unordered_map&gt;\n#include &lt;iostream&gt;\n\nusing namespace std;\n\nint main() {\n  unordered_map&lt;string, int&gt; m;\n  string x;\n  while (cin &gt;&gt; x) ++m[x];\n  for(auto p : m)\n    cout &lt;&lt; p.first &lt;&lt; \" \" &lt;&lt; p.second &lt;&lt; endl;\n}",
     "crumbs": [
       "Getting Started",
       "The C++ Standard Library"
@@ -319,7 +319,7 @@
     "href": "index.html",
     "title": "Data Structures and Algorithmics",
     "section": "",
-    "text": "Welcome to Data Structures and Algorithmics (EDA)! This is the page for the lab classes of the groups L13 and L43.\nPlease refer to the main webpage of EDA for news, course material, etc. Or to the official UPC page for the course syllabus.",
+    "text": "Welcome to Data Structures and Algorithmics (EDA)!\nI’m Ilario Bonacina and if you are a student of the groups L13 and L43 then I’m one of your instructors for this semester.  The person in charge of the whole course is Albert Oliveras Llunell. For administrative questions please ask him directly. For instance by email.\nPlease refer to the main webpage of EDA for news, course material, etc. Or to the official UPC page for the course syllabus.",
     "crumbs": [
       "Course Info"
     ]
@@ -329,7 +329,7 @@
     "href": "index.html#contacts",
     "title": "Data Structures and Algorithmics",
     "section": "Contacts",
-    "text": "Contacts\nIlario Bonacina is the instructor for the groups L13 and L43.\nStudent hours Wednesdays, 12:00 - 13:00 room Omega 223 \nilario.bonacina+EDA@upc.edu  Please write an email before dopping by my office.  The last possible day to ask questions by email is Wednesday May 29, 2024.\nThe person in charge of the whole course is Albert Oliveras Llunell. For administrative questions please ask him directly. For instance by email.",
+    "text": "Contacts\nStudent hours Wednesdays, 12:00 - 13:00 room Omega 223 \nilario.bonacina+EDA@upc.edu  Please write an email before dopping by my office.  The last possible day to ask questions by email is Wednesday May 29, 2024.",
     "crumbs": [
       "Course Info"
     ]

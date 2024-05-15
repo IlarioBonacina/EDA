@@ -288,7 +288,7 @@ window.Quarto = {
   <li><a href="#sett" id="toc-sett" class="nav-link" data-scroll-target="#sett"><code>set&lt;T&gt;</code></a></li>
   <li><a href="#mapkv" id="toc-mapkv" class="nav-link" data-scroll-target="#mapkv"><code>map&lt;K,V&gt;</code></a></li>
   <li><a href="#unordered_sett" id="toc-unordered_sett" class="nav-link" data-scroll-target="#unordered_sett"><code>unordered_set&lt;T&gt;</code></a></li>
-  <li><a href="#unordered_mapt" id="toc-unordered_mapt" class="nav-link" data-scroll-target="#unordered_mapt"><code>unordered_map&lt;T&gt;</code></a></li>
+  <li><a href="#unordered_mapkv" id="toc-unordered_mapkv" class="nav-link" data-scroll-target="#unordered_mapkv"><code>unordered_map&lt;K,V&gt;</code></a></li>
   </ul>
 <div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="https://en.cppreference.com/w/"><i class="bi bi-code-slash"></i>cppreference.com</a></li><li><a href="https://jutge.org"><i class="bi bi-link-45deg"></i>Jutge.org</a></li><li><a href="https://www.cs.upc.edu/eda/"><i class="bi bi-link-45deg"></i>EDA Main Page</a></li><li><a href="https://www.cs.upc.edu/eda/data/uploads/eda-codis.pdf"><i class="bi bi-link-45deg"></i>Algorithms in C++</a></li></ul></div></nav>
     </div>
@@ -316,7 +316,7 @@ window.Quarto = {
 
 <p>The <strong>C++ Standard Template Library</strong> (STL) is a collection of templates for several containers (vector, pair, stack, queue, set, etc) that there is no need to re-implement. In this page we will give a short description of some of the templates and methods. For more information see <a href="https://en.cppreference.com/w/">cppreference.com</a>.</p>
 <p>To use the STL containers and methods when compiling with `<code>g++</code> it is necessary to use the flag <code>-std=c++11</code>.</p>
-<p>The rationale behind the STL is to have an interface as uniform as possible. For instance, it is possible to give initialization lists to STL containes.</p>
+<p>The rationale behind the STL is to have an interface as uniform as possible. For instance, it is possible to give initialization lists to STL containers.</p>
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -677,7 +677,7 @@ Example
 </section>
 <section id="unordered_sett" class="level2">
 <h2 class="anchored" data-anchor-id="unordered_sett"><code>unordered_set&lt;T&gt;</code></h2>
-<p>This is like a <code>set</code> but it does not guarantees an order on the elements.</p>
+<p>An <code>unordered_set&lt;T&gt;</code> is like a <code>set</code> but it does not guarantees an order on the elements.</p>
 <p><code>insert</code>, <code>find</code>, <code>erase</code> work in time <span class="math inline">\(\Theta(n)\)</span> (worst case), but in time <span class="math inline">\(\Theta(1)\)</span> on average.<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a></p>
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -712,9 +712,9 @@ Example
 </div>
 </div>
 </section>
-<section id="unordered_mapt" class="level2">
-<h2 class="anchored" data-anchor-id="unordered_mapt"><code>unordered_map&lt;T&gt;</code></h2>
-<p>This is like a <code>map</code> but it does not guarantee an order on the pairs.</p>
+<section id="unordered_mapkv" class="level2">
+<h2 class="anchored" data-anchor-id="unordered_mapkv"><code>unordered_map&lt;K,V&gt;</code></h2>
+<p>An <code>unordered_map&lt;K,V&gt;</code> is like a <code>map</code> but it does not guarantee an order on the pairs.</p>
 <p><code>insert</code>, <code>find</code>, <code>erase</code> work in time <span class="math inline">\(\Theta(n)\)</span> (worst case), but in time <span class="math inline">\(\Theta(1)\)</span> on average.<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a></p>
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
