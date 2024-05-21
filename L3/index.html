@@ -6,6 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2024-04-17">
 
 <title>EDA - L3: Graph algorithms I</title>
 <style>
@@ -147,7 +148,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../L3/index.html">Graph Algorithms</a></li><li class="breadcrumb-item"><a href="../L3/index.html">L3: BFS/DFS</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../L3/index.html">Graph Algorithms</a></li><li class="breadcrumb-item"><a href="../L3/index.html">L3: Graph algorithms I</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -205,7 +206,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../L1/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">L1: STL</span></a>
+ <span class="menu-text">L1: Use of STL data structures</span></a>
   </div>
 </li>
       </ul>
@@ -239,13 +240,13 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../L3/index.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">L3: BFS/DFS</span></a>
+ <span class="menu-text">L3: Graph algorithms I</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../L4/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">L4: Dijkstra</span></a>
+ <span class="menu-text">L4: Graph algorithms II</span></a>
   </div>
 </li>
       </ul>
@@ -262,13 +263,13 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../L5/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">L5: Exhaustive search I</span></a>
+ <span class="menu-text">L5: Exhaustive algorithms I</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../L6/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">L6: Exhaustive search II</span></a>
+ <span class="menu-text">L6: Exhaustive algorithms II</span></a>
   </div>
 </li>
       </ul>
@@ -283,8 +284,8 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#possible-workflow-for-solving-the-exercises" id="toc-possible-workflow-for-solving-the-exercises" class="nav-link active" data-scroll-target="#possible-workflow-for-solving-the-exercises">Possible workflow for solving the exercises</a></li>
-  <li><a href="#exercises-on" id="toc-exercises-on" class="nav-link" data-scroll-target="#exercises-on">Exercises on Graph Algorithms</a>
+  <li><a href="#possible-workflow" id="toc-possible-workflow" class="nav-link active" data-scroll-target="#possible-workflow">Possible workflow</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a>
   <ul>
   <li><a href="#depth-first-search" id="toc-depth-first-search" class="nav-link" data-scroll-target="#depth-first-search"><em>Depth-First Search</em></a>
   <ul class="collapse">
@@ -314,7 +315,7 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../L3/index.html">Graph Algorithms</a></li><li class="breadcrumb-item"><a href="../L3/index.html">L3: BFS/DFS</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../L3/index.html">Graph Algorithms</a></li><li class="breadcrumb-item"><a href="../L3/index.html">L3: Graph algorithms I</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">L3: Graph algorithms I</h1>
 </div>
@@ -324,6 +325,12 @@ window.Quarto = {
 <div class="quarto-title-meta">
 
     
+    <div>
+    <div class="quarto-title-meta-heading">DATE</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">April 17, 2024</p>
+    </div>
+  </div>
   
     
   </div>
@@ -333,20 +340,8 @@ window.Quarto = {
 </header>
 
 
-<p>In this section we consider the problems from <a href="https://www.jutge.org">Jutge.org</a> <span class="math inline">\(\rightarrow\)</span> EDA <span class="math inline">\(\rightarrow\)</span> <strong>Graph Algorithms</strong>.</p>
-<p>We solve together (at least) the problems highlighted below with a <span class="emoji" data-emoji="large_orange_diamond">🔶</span>. <br> Problems that might be harder than the rest are marked with <span class="emoji" data-emoji="exclamation">❗</span>.</p>
-<div class="callout callout-style-simple callout-warning">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-body-container">
-<p>To make the most out of this lab it is <strong>strongly</strong> suggested that you try the exercises ideally before this class (or right afterwards). Remember that for any doubt on the exercises you can ask me by <a href="mailto:ilario.bonacina+EDA@upc.edu">email</a> too.</p>
-</div>
-</div>
-</div>
-<section id="possible-workflow-for-solving-the-exercises" class="level2">
-<h2 class="anchored" data-anchor-id="possible-workflow-for-solving-the-exercises">Possible workflow for solving the exercises</h2>
+<section id="possible-workflow" class="level2">
+<h2 class="anchored" data-anchor-id="possible-workflow">Possible workflow</h2>
 <div class="callout callout-style-simple callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -476,8 +471,20 @@ Not checking if the output was correct on the given inputs.</p>
 </div>
 </div>
 </section>
-<section id="exercises-on" class="level2">
-<h2 class="anchored" data-anchor-id="exercises-on">Exercises on Graph Algorithms</h2>
+<section id="exercises" class="level2">
+<h2 class="anchored" data-anchor-id="exercises">Exercises</h2>
+<p>Below there are links to the problems from <a href="https://www.jutge.org">Jutge.org</a>, section EDA <span class="math inline">\(\rightarrow\)</span> Graph Algorithms, we consider in this class.</p>
+<p><strong>We solve together (at least) the problems highlighted below with a <span class="emoji" data-emoji="large_orange_diamond">🔶</span>.</strong> <br> For each of those problems you’ll find a <strong>Hint</strong> on a possible way to start the problem. Few days after April 17, 2024 you should also be see a possible <strong>Solution</strong>. <br> <br> <strong>Problems that might be harder than the rest are marked with <span class="emoji" data-emoji="exclamation">❗</span>.</strong></p>
+<div class="callout callout-style-simple callout-warning">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>To make the most out of this lab it is <strong>strongly</strong> suggested that you try the exercises ideally before this class (or right afterwards). Remember that for any doubt on the exercises you can ask me by <a href="mailto:ilario.bonacina+EDA@upc.edu">email</a> too.</p>
+</div>
+</div>
+</div>
 <section id="depth-first-search" class="level3">
 <h3 class="anchored" data-anchor-id="depth-first-search"><em>Depth-First Search</em></h3>
 <section id="treasures-in-a-map-1" class="level4">
@@ -1749,8 +1756,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../L4/index.html" class="pagination-link" aria-label="L4: Dijkstra">
-        <span class="nav-page-text">L4: Dijkstra</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../L4/index.html" class="pagination-link" aria-label="L4: Graph algorithms II">
+        <span class="nav-page-text">L4: Graph algorithms II</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

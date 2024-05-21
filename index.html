@@ -31,6 +31,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./self_assessment/index.html" rel="next">
+<script src="site_libs/quarto-listing/list.min.js"></script>
+<script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -69,6 +71,35 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script>
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-schedule .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-date','listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
+      
+      searchColumns: ["listing-date","listing-title","listing-author"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-schedule'] = new List('listing-schedule', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
 <style>html{ scroll-behavior: smooth; }</style>
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
@@ -170,7 +201,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./L1/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">L1: STL</span></a>
+ <span class="menu-text">L1: Use of STL data structures</span></a>
   </div>
 </li>
       </ul>
@@ -204,13 +235,13 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./L3/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">L3: BFS/DFS</span></a>
+ <span class="menu-text">L3: Graph algorithms I</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./L4/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">L4: Dijkstra</span></a>
+ <span class="menu-text">L4: Graph algorithms II</span></a>
   </div>
 </li>
       </ul>
@@ -227,13 +258,13 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./L5/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">L5: Exhaustive search I</span></a>
+ <span class="menu-text">L5: Exhaustive algorithms I</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./L6/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">L6: Exhaustive search II</span></a>
+ <span class="menu-text">L6: Exhaustive algorithms II</span></a>
   </div>
 </li>
       </ul>
@@ -278,8 +309,8 @@ window.Quarto = {
 
 
 <p>Welcome to Data Structures and Algorithmics <strong>(EDA)</strong>!</p>
-<p>I’m <strong>Ilario Bonacina</strong> and if you are a student of the groups L13 and L43 then I’m one of your instructors for this semester. <br> The person in charge of the whole course is Albert Oliveras Llunell. For administrative questions please ask him directly. For instance by <a href="mailto:oliveras@cs.upc.edu">email</a>.</p>
-<p>Please refer to the <a href="https://www.cs.upc.edu/eda/">main webpage of EDA</a> for news, course material, etc. Or to the official UPC page for the <a href="https://www.fib.upc.edu/es/estudios/grados/grado-en-ingenieria-informatica/plan-de-estudios/asignaturas/EDA">course syllabus</a>.</p>
+<p>I’m <strong>Ilario Bonacina</strong> and if you are a student of the groups L13 and L43 then I’m one of your instructors for this semester. <br> The person in charge of the whole course is <strong>Albert Oliveras Llunell</strong>. For administrative questions please ask him directly. For instance by <a href="mailto:oliveras@cs.upc.edu">email</a>.</p>
+<p>Please refer to the <a href="https://www.cs.upc.edu/eda/">main webpage of EDA</a> for news, course material, etc and to the official UPC page for the <a href="https://www.fib.upc.edu/es/estudios/grados/grado-en-ingenieria-informatica/plan-de-estudios/asignaturas/EDA">course syllabus</a>.</p>
 <section id="contacts" class="level2">
 <h2 class="anchored" data-anchor-id="contacts">Contacts</h2>
 <p><em>Student hours</em><br> Wednesdays, 12:00 - 13:00<br> room Omega 223 <br></p>
@@ -292,48 +323,80 @@ window.Quarto = {
 <section id="schedule-for-the-groups" class="level2">
 <h2 class="anchored" data-anchor-id="schedule-for-the-groups">Schedule for the groups L13 and L43</h2>
 <p>The meeting times are the following:</p>
-<ul>
-<li><p>group L13: Wednesdays 8:00 – 10:00 room <strong>C6 S308</strong></p></li>
-<li><p>group L43: Wednesdays 18:00 – 20:00 room <strong>C6 S303</strong></p></li>
-</ul>
-<table class="table">
+<p><strong>group L13</strong><br>Wednesdays 8:00 – 10:00 <br>room <strong>C6 S308</strong><br><br> <strong>group L43</strong><br>Wednesdays 18:00 – 20:00<br>room <strong>C6 S303</strong></p>
+<div id="listing-schedule" class="quarto-listing quarto-listing-container-table">
+<table class="quarto-listing-table table">
 <thead>
-<tr class="header">
-<th>Day</th>
-<th>Topic</th>
+<tr>
+<th>
+Date
+</th>
+<th>
+Title
+</th>
 </tr>
 </thead>
-<tbody>
-<tr class="odd">
-<td><p>02/14/2024</p></td>
-<td><a href="./L1/index.html">L1: Use of STL data structures</a></td>
+<tbody class="list">
+<tr data-index="0" data-listing-date-sort="1707865200000" data-listing-file-modified-sort="1716280089202" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="472" data-listing-title-sort="{{< meta EDA.L1 >}}" data-listing-filename-sort="index.qmd">
+<td>
+<span class="listing-date">Feb 14, 2024</span>
+</td>
+<td>
+<a href="./L1/index.html" class="title listing-title">L1: Use of STL data structures</a>
+</td>
 </tr>
-<tr class="even">
-<td><p>03/13/2024</p></td>
-<td><a href="./L2/index.html">L2: Divide and Conquer</a></td>
+<tr data-index="1" data-listing-date-sort="1710284400000" data-listing-file-modified-sort="1716280113053" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="424" data-listing-title-sort="{{< meta EDA.L2 >}}" data-listing-filename-sort="index.qmd">
+<td>
+<span class="listing-date">Mar 13, 2024</span>
+</td>
+<td>
+<a href="./L2/index.html" class="title listing-title">L2: Divide and Conquer</a>
+</td>
 </tr>
-<tr class="odd">
-<td><p>04/17/2024</p></td>
-<td><a href="./L3/index.html">L3: Graph algorithms I</a></td>
+<tr data-index="2" data-listing-date-sort="1713304800000" data-listing-file-modified-sort="1716281612175" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="729" data-listing-title-sort="{{< meta EDA.L3 >}}" data-listing-filename-sort="index.qmd">
+<td>
+<span class="listing-date">Apr 17, 2024</span>
+</td>
+<td>
+<a href="./L3/index.html" class="title listing-title">L3: Graph algorithms I</a>
+</td>
 </tr>
-<tr class="even">
-<td><p>04/24/2024</p></td>
-<td><a href="./L4/index.html">L4: Graph algorithms II</a></td>
+<tr data-index="3" data-listing-date-sort="1713909600000" data-listing-file-modified-sort="1716280109347" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="218" data-listing-title-sort="{{< meta EDA.L4 >}}" data-listing-filename-sort="index.qmd">
+<td>
+<span class="listing-date">Apr 24, 2024</span>
+</td>
+<td>
+<a href="./L4/index.html" class="title listing-title">L4: Graph algorithms II</a>
+</td>
 </tr>
-<tr class="odd">
-<td><p>05/15/2024</p></td>
-<td><a href="./L5/index.html">L5: Exhaustive algorithms I</a></td>
+<tr data-index="4" data-listing-date-sort="1715724000000" data-listing-file-modified-sort="1716280120852" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="750" data-listing-title-sort="{{< meta EDA.L5 >}}" data-listing-filename-sort="index.qmd">
+<td>
+<span class="listing-date">May 15, 2024</span>
+</td>
+<td>
+<a href="./L5/index.html" class="title listing-title">L5: Exhaustive algorithms I</a>
+</td>
 </tr>
-<tr class="even">
-<td><p>05/22/2024</p></td>
-<td><a href="./L6/index.html">L6: Exhaustive algorithms II</a></td>
-</tr>
-<tr class="odd">
-<td><p>06/05/2024</p></td>
-<td><strong>Final lab exam</strong><br>For the accepted style of C++ writing see <a href="https://www.cs.upc.edu/eda/data/uploads/normes-prog.pdf">Normes de Programació (in catalan)</a>: <strong>this is used as a reference for correcting the lab exam.</strong></td>
+<tr data-index="5" data-listing-date-sort="1716328800000" data-listing-file-modified-sort="1716280132453" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="366" data-listing-title-sort="{{< meta EDA.L6 >}}" data-listing-filename-sort="index.qmd">
+<td>
+<span class="listing-date">May 22, 2024</span>
+</td>
+<td>
+<a href="./L6/index.html" class="title listing-title">L6: Exhaustive algorithms II</a>
+</td>
 </tr>
 </tbody>
 </table>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div>
+<dl>
+<dt><strong>Final lab exam</strong>: 06/05/2024</dt>
+<dd>
+For the accepted style of C++ writing see <a href="https://www.cs.upc.edu/eda/data/uploads/normes-prog.pdf">Normes de Programació (in catalan)</a>:<br><em>this is used as a reference for correcting the lab exam.</em>
+</dd>
+</dl>
 </section>
 <section id="references" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="references">References</h2>
@@ -357,6 +420,7 @@ window.Quarto = {
 </ul>
 <p><img src="img/C++.jpg" class="img-fluid" width="100" alt="C++"> <br> <em>The C++ Programming Language</em><br>
 Bjarne Stroustrup. Addison-Wesley, (4th ed.) 2013</p>
+
 
 
 </section>
