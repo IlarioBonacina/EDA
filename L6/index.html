@@ -284,7 +284,7 @@ window.Quarto = {
    
   <ul>
   <li><a href="#possible-workflow" id="toc-possible-workflow" class="nav-link active" data-scroll-target="#possible-workflow">Possible workflow</a></li>
-  <li><a href="#recall" id="toc-recall" class="nav-link" data-scroll-target="#recall">Recall</a></li>
+  <li><a href="#a-blueprint-for-backtracking" id="toc-a-blueprint-for-backtracking" class="nav-link" data-scroll-target="#a-blueprint-for-backtracking">A <em>blueprint</em> for backtracking</a></li>
   <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a>
   <ul>
   <li><a href="#topological-orderings" id="toc-topological-orderings" class="nav-link" data-scroll-target="#topological-orderings">Topological orderings<span class="emoji" data-emoji="large_orange_diamond">🔶</span></a></li>
@@ -458,9 +458,10 @@ Not checking if the output was correct on the given inputs.</p>
 </div>
 </div>
 </section>
-<section id="recall" class="level2">
-<h2 class="anchored" data-anchor-id="recall">Recall</h2>
-<p>In the backtracking paradigm there is <em>always</em> a parameter (say <span class="math inline">\(k\)</span>) which is used to keep track of the progress done in making <em>partial solutions</em> to the given problem to larger ones until we reach a <em>full solution</em>.</p>
+<section id="a-blueprint-for-backtracking" class="level2">
+<h2 class="anchored" data-anchor-id="a-blueprint-for-backtracking">A <em>blueprint</em> for backtracking</h2>
+<p><em>Backtracking</em> is a technique for solving problems by exploring all possible solutions. This is done extending <em>partial solutions</em> to the given problem to larger ones, trying all the possible alternatives, until we reach a <em>full solution</em>. If the current partial solution cannot be extended to reach a total solution, via the current possible extension, we need to <em>backtrack</em> and try to extend it trying the other possibilities. In the backtracking approach it is common to have a parameter (say <span class="math inline">\(k\)</span>) which is used to keep track of the progress done so far.</p>
+<p>A possible (very high level) template could be the following:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> backtracking<span class="op">(</span><span class="dt">int</span> k<span class="op">,</span> <span class="op">...</span>other parameters<span class="op">...){</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>k <span class="op">==</span> base_case<span class="op">){</span><span class="co">// base case of the recursion</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        <span class="co">/* </span></span>
@@ -489,7 +490,7 @@ Not checking if the output was correct on the given inputs.</p>
 <span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="co">            - Update the auxiliary structures         </span></span>
 <span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="co">            backtracking(k+1, ...other parameters updated...);</span></span>
 <span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="co">            - Undo the update on the auxiliary structures </span></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="co">              to allow trying other branches of execution</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="co">              to allow trying other branches of execution (backtracking)</span></span>
 <span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="co">        */</span></span>
 <span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -505,11 +506,11 @@ Common error(s)
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li><p>Trying to do more than one check in the if condition of the base case. This will likely result in some unwanted execution, for instance entering in the <code>else</code> for <code>k &gt; base case</code> and perhaps going out the range of a vector.</p></li>
+<li><p>Trying to do more than one check in the <code>if</code> condition of the base case. This will likely result in some unwanted execution, for instance entering in the <code>else</code> for <code>k &gt; base case</code> and perhaps going out the range of a vector.</p></li>
 <li><p>Assuming that the base case is <span class="math inline">\(k=0\)</span>. This is not. The base case of the recursion is when we have a full solution. <span class="math inline">\(k=0\)</span> is signaling the opposite, the partial solution is empty, we have not made yet any progress towards a full solution.</p></li>
 <li><p>In the inductive case (the <code>else</code>), trying to update <code>k</code> with <code>++k</code> or updating other quantities in the same way instead of calling <code>backtracking(k+1, ...)</code>.</p></li>
 <li><p>In the inductive case (the <code>else</code>), not assuming you already have a partial solution up to <code>k-1</code>, and therefore trying to compute it again, typically with some for loop.</p></li>
-<li><p>If the backtracking is used to enumerate all possible solutions to a problem, a common theme is to mark as used some objects <em>before</em> calling <code>backtracking(k+1, ...)</code> to disallow using them in the future. A common error is forgetting to <em>undo</em> the marking as used of the objects <em>after</em> the call to <code>backtracking(k+1, ...)</code>.</p></li>
+<li><p>If the backtracking is used to enumerate all possible solutions to a problem, a common theme is to mark as used some objects <em>before</em> calling <code>backtracking(k+1, ...)</code> to disallow using them in the future. A common error is forgetting to <em>undo</em> the marking as used of the objects <em>after</em> the call to <code>backtracking(k+1, ...)</code>. This will result in exploring only one possible branch (one way of extending partial solutions). This might lead or not to a full solution.</p></li>
 </ul>
 </div>
 </div>
