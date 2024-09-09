@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>EDA - Data Structures and Algorithmics</title>
+<title>EDA - Induction</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,24 +23,25 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -70,6 +71,35 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -80,7 +110,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">EDA</span>
     </a>
   </div>
@@ -91,22 +121,22 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./problems/index.html"> <i class="bi bi-body-text" role="img">
+    <a class="nav-link" href="../problems/index.html"> <i class="bi bi-body-text" role="img">
 </i> 
 <span class="menu-text">Problem Classes</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./labs/index.html"> <i class="bi bi-pc-display" role="img">
+    <a class="nav-link" href="../labs/index.html"> <i class="bi bi-pc-display" role="img">
 </i> 
 <span class="menu-text">Lab Classes</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./references/index.html"> <i class="bi bi-book" role="img">
+    <a class="nav-link" href="../references/index.html"> <i class="bi bi-book" role="img">
 </i> 
 <span class="menu-text">References</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> <i class="bi bi-info-circle-fill" role="img">
+    <a class="nav-link" href="../about.html"> <i class="bi bi-info-circle-fill" role="img">
 </i> 
 <span class="menu-text">Contacts</span></a>
   </li>  
@@ -130,7 +160,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Data Structures and Algorithmics</h1>
+<h1 class="title">Induction</h1>
 </div>
 
 
@@ -147,17 +177,109 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="hidden">
+<p>Suppose you have a matemathical sentence <span class="math inline">\(P(n)\)</span> depending on a parameter <span class="math inline">\(n\)</span> which is a natural number. To prove that for every <span class="math inline">\(n\in \mathbb{N}\)</span> the sentence <span class="math inline">\(P(n)\)</span> holds, one way is to use <em>Induction</em> on <span class="math inline">\(n\)</span>, that is prove the following two facts</p>
 <ul>
-<li>fix <span class="emoji" data-emoji="exclamation">❗</span> not rendered in titles</li>
-<li>add lightbox treatment for code</li>
-<li>add google module to schedule a meeting</li>
-<li>when course ends remember to make EDA/ private</li>
+<li><dl>
+<dt>Base case</dt>
+<dd>
+show that <span class="math inline">\(P(0)\)</span> is true. (Sometimes the base case is <span class="math inline">\(P(\ell)\)</span> for some natural number <span class="math inline">\(\ell\)</span>, then, in this case, the induction will prove <span class="math inline">\(P(n)\)</span> to be true for every <span class="math inline">\(n\geq \ell\)</span>.)
+</dd>
+</dl></li>
+<li><dl>
+<dt>Inductive Step</dt>
+<dd>
+show that for a generic <span class="math inline">\(k\in \mathbb{N}\)</span>, if <span class="math inline">\(P(k)\)</span> is true, then also <span class="math inline">\(P(k+1)\)</span> is true.
+</dd>
+</dl></li>
+</ul>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Induction is <em>always</em> on some parameter (some natural number, the depth of a tree, …).</li>
+<li>Usually proving the Base Case of the induction should be trivial, if this is not the case, perhaps induction is not the right approach.</li>
+<li>Induction is a technique to prove that something is true, but in general not a way to discover that something is true.</li>
 </ul>
 </div>
-<p>Welcome to Data Structures and Algorithmics (aka <strong>EDA</strong>)!</p>
-<p>I’m <strong>Ilario Bonacina</strong> and if you are a student of the groups P/L11 or P/L31 or L43 or L53 then I’m one of your instructors for this semester.</p>
-<p>Please refer to the <a href="https://www.cs.upc.edu/eda/">main webpage of EDA</a> for news, course material, etc and to the official UPC page for the <a href="https://www.fib.upc.edu/es/estudios/grados/grado-en-ingenieria-informatica/plan-de-estudios/asignaturas/EDA">course syllabus</a>.</p>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+An example <span class="math inline">\(\sum_{i=0}^n i = n(n+1)/2\)</span>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>There are a lot of different ways to prove that <span class="math inline">\(\sum_{i=0}^n i = n(n+1)/2\)</span>. For instance a visual “proof” could be based on the following picture:</p>
+<p><img src="sum-n-numbers.png" class="img-fluid" style="width:40.0%"></p>
+<p>By induction, the argument would be as follows.</p>
+<p>Let <span class="math inline">\(P(n)\)</span> be the sentence <span class="math inline">\(\sum_{i=0}^n i = n(n+1)/2\)</span>. To show that <span class="math inline">\(P(n)\)</span> is true for every <span class="math inline">\(n\in \mathbb N\)</span> by Induction on <span class="math inline">\(n\)</span> it suffices to show the <em>Base Case</em> and the <em>Inductive Step</em>.</p>
+<ul>
+<li><dl>
+<dt>Base Case</dt>
+<dd>
+<span class="math inline">\(P(0)\)</span> is the sentence <span class="math inline">\(\sum_{i=0}^0 i=0(0+1)/2\)</span> which is trivially true, since both sides of the equality are <span class="math inline">\(0\)</span>.
+</dd>
+</dl></li>
+<li><dl>
+<dt>Inductive Step</dt>
+<dd>
+assuming <span class="math inline">\(P(k)\)</span> to be true for a generic natural number <span class="math inline">\(k\)</span>, that is <span class="math inline">\(\sum_{i=0}^k i = k(k+1)/2\)</span>, we need to show that <span class="math inline">\(P(k+1)\)</span> is also true, that is <span class="math inline">\(\sum_{i=0}^{k+1} i = (k+1)(k+2)/2\)</span>: <span class="math display">\[
+\begin{align*}
+\sum_{i=0}^{k+1} i &amp;=
+\sum_{i=0}^k i + (k+1)
+\\
+&amp;\stackrel{I.H.}{=} \frac{k(k+1)}{2}+(k+1)
+\\
+&amp;=\frac{k(k+1)+2(k+1)}{2}
+\\
+&amp;=\frac{(k+1)(k+2)}{2}\ .
+\end{align*}
+\]</span>
+</dd>
+</dl></li>
+</ul>
+<p>In the equality marked with <span class="math inline">\(I.H.\)</span> we used the Inductive Hypothesis, i.e.&nbsp;the fact we are working under the assumption that <span class="math inline">\(P(k)\)</span> is true.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+What can we do if we didn’t remember that <span class="math inline">\(\sum_{i=0}^n i = n(n+1)/2\)</span>?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>If for whatever reason <strong>we suspect</strong> <span class="math inline">\(\sum_{i=0}^n i\)</span> to be a polynomial in <span class="math inline">\(n\)</span> of degree <span class="math inline">\(2\)</span>, say <span class="math inline">\(an^2+bn+c\)</span> then we can substitute values for <span class="math inline">\(n\)</span> and find candidates values for <span class="math inline">\(a,b,c\)</span>.</p>
+<p>For <span class="math inline">\(n=0\)</span>, <span class="math inline">\(\sum_{i=0}^0 i=0=a\cdot 0^2+b \cdot 0 +c\)</span>, that is <span class="math inline">\(c=0\)</span>.</p>
+<p>For <span class="math inline">\(n=1\)</span>, <span class="math inline">\(\sum_{i=0}^1 i=1=a\cdot 1^2+b\cdot 1\)</span> (we are already using <span class="math inline">\(c=0\)</span>).</p>
+<p>For <span class="math inline">\(n=2\)</span>, <span class="math inline">\(\sum_{i=0}^2 i=3 = a\cdot 2^2 +b\cdot 2\)</span>.</p>
+<p>That is we have that <span class="math display">\[
+\begin{matrix}
+a+b &amp;= 1\\
+4a+2b &amp;= 3
+\end{matrix}
+\]</span> which gives the solution <span class="math inline">\(a=b=\frac{1}{2}\)</span>. That is <strong>we suspect</strong> that <span class="math inline">\(\sum_{i=0}^n i = n(n+1)/2\)</span>, but the argument above is not a proof. We need to prove it formally in some way, by induction for instance.</p>
+</div>
+</div>
+</div>
+<p><a href="javascript:history.back()"><iconify-icon role="img" inline="" icon="twemoji:back-arrow" style="font-size: 2em;" aria-label="Icon back-arrow from twemoji Iconify.design set." title="Icon back-arrow from twemoji Iconify.design set."></iconify-icon></a></p>
 
 
 
@@ -720,5 +842,5 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>EDA - Data Structures and Algorithmics</title>
+<title>EDA - Lab Classes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,24 +23,26 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-listing/list.min.js"></script>
+<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -68,8 +70,66 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script>
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-exercises-L1 .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-title','listing-subtitle',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
+      
+      searchColumns: ["listing-title","listing-author"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-exercises-L1'] = new List('listing-exercises-L1', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
 <style>html{ scroll-behavior: smooth; }</style>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -80,7 +140,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">EDA</span>
     </a>
   </div>
@@ -91,22 +151,22 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./problems/index.html"> <i class="bi bi-body-text" role="img">
+    <a class="nav-link" href="../problems/index.html"> <i class="bi bi-body-text" role="img">
 </i> 
 <span class="menu-text">Problem Classes</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./labs/index.html"> <i class="bi bi-pc-display" role="img">
+    <a class="nav-link active" href="../labs/index.html" aria-current="page"> <i class="bi bi-pc-display" role="img">
 </i> 
 <span class="menu-text">Lab Classes</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./references/index.html"> <i class="bi bi-book" role="img">
+    <a class="nav-link" href="../references/index.html"> <i class="bi bi-book" role="img">
 </i> 
 <span class="menu-text">References</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> <i class="bi bi-info-circle-fill" role="img">
+    <a class="nav-link" href="../about.html"> <i class="bi bi-info-circle-fill" role="img">
 </i> 
 <span class="menu-text">Contacts</span></a>
   </li>  
@@ -123,14 +183,25 @@ ul.task-list li input[type="checkbox"] {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="https://en.cppreference.com/w/"><i class="bi bi-code-slash"></i>cppreference.com</a></li><li><a href="https://jutge.org"><i class="bi bi-link-45deg"></i>Jutge.org</a></li><li><a href="https://www.cs.upc.edu/eda/"><i class="bi bi-link-45deg"></i>EDA Main Page</a></li><li><a href="https://www.cs.upc.edu/eda-eng/data/uploads/eda-problem-set.eng.pdf"><i class="bi bi-book"></i>EDA Problem Set</a></li><li><a href="https://www.cs.upc.edu/~oliveras/examens.eng.pdf"><i class="bi bi-book"></i>Collection of Solved Exams</a></li><li><a href="https://www.cs.upc.edu/eda/data/uploads/eda-codis.pdf"><i class="bi bi-book"></i>Algorithms in C++</a></li></ul></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#section" id="toc-section" class="nav-link active" data-scroll-target="#section">L1: Use of STL data structures</a></li>
+  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1">L2: Divide and Conquer</a></li>
+  <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2">L3: Graph algorithms I</a></li>
+  <li><a href="#section-3" id="toc-section-3" class="nav-link" data-scroll-target="#section-3">L4: Graph algorithms II</a></li>
+  <li><a href="#section-4" id="toc-section-4" class="nav-link" data-scroll-target="#section-4">L5: Exhaustive algorithms I</a></li>
+  <li><a href="#section-5" id="toc-section-5" class="nav-link" data-scroll-target="#section-5">L6: Exhaustive algorithms II</a></li>
+  </ul>
+<div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="https://en.cppreference.com/w/"><i class="bi bi-code-slash"></i>cppreference.com</a></li><li><a href="https://jutge.org"><i class="bi bi-link-45deg"></i>Jutge.org</a></li><li><a href="https://www.cs.upc.edu/eda/"><i class="bi bi-link-45deg"></i>EDA Main Page</a></li><li><a href="https://www.cs.upc.edu/eda-eng/data/uploads/eda-problem-set.eng.pdf"><i class="bi bi-book"></i>EDA Problem Set</a></li><li><a href="https://www.cs.upc.edu/~oliveras/examens.eng.pdf"><i class="bi bi-book"></i>Collection of Solved Exams</a></li><li><a href="https://www.cs.upc.edu/eda/data/uploads/eda-codis.pdf"><i class="bi bi-book"></i>Algorithms in C++</a></li></ul></div></nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Data Structures and Algorithmics</h1>
+<h1 class="title">Lab Classes</h1>
 </div>
 
 
@@ -147,19 +218,328 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="hidden">
+<p>Every <strong>lab class</strong> follows roughly the same structure. In every session there will be some set of exercises from <a href="https://jutge.org">Jutge.org</a> to solve using the programming language C++.</p>
+<div class="callout callout-style-simple callout-warning">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>To make the most out of EDA’s labs, it is <strong>strongly</strong> suggested that you try the exercises ideally before every lab class (or right afterwards).</p>
+<p>The <strong>Goal</strong> is to arrive at <em>each</em> lab class either with a possible solution of the exercises or with concrete questions on places where you got stuck and didn’t know how to continue.</p>
+<p>Remember that for any doubt on the exercises you can ask me by <a href="mailto:ilario.bonacina+EDA@upc.edu">email</a> too until <span style="color:#880808;"><strong>6 days before the lab exam</strong></span>.</p>
+</div>
+</div>
+</div>
+<section id="section" class="level2">
+<h2 class="anchored" data-anchor-id="section">L1: Use of STL data structures</h2>
+<p><strong>Welcome to the first lab class of EDA!</strong></p>
+<p>We start with a <a href="../self_assessment/index.html">Self Assessment</a>. The self assessment is meant to recall basic best practices while compiling C++ code.</p>
+<p>Now we revise some aspects of <a href="../theory_bits/STL/index.html">The C++ Standard Template Library (STL)</a>. A way more comprehensive treatment of the STL is in <a href="https://en.cppreference.com/w/">cppreference.com</a>.</p>
+<p>In this class we consider the problems from <a href="https://www.jutge.org">Jutge.org</a>, section EDA <span class="math inline">\(\rightarrow\)</span> <strong>Use of STL data structures</strong>.</p>
+<p>Once you have chosen a problem to solve, dowload the .zip archive of the problem and <code>unzip</code> it. In the obtained folder there are:</p>
 <ul>
-<li>fix <span class="emoji" data-emoji="exclamation">❗</span> not rendered in titles</li>
-<li>add lightbox treatment for code</li>
-<li>add google module to schedule a meeting</li>
-<li>when course ends remember to make EDA/ private</li>
+<li>a file .pdf with the <strong>official</strong> problem statement</li>
+<li>one or more text files with examples of input <code>sample.inp</code></li>
+<li>the corresponding correct outputs <code>sample.cor</code></li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Possible workflow
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Step 1: Getting the C++ code to compile
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>After creating a C++ source file to solve the problem, compile it with <code>g++ -std=c++11</code>.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Common error(s)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Not using the flag <code>-std=c++11</code>.</p>
+</div>
+</div>
+<p>Possible useful flags are <code>-Wall -Wextra -Wno-overflow -Wpedantic -Werror -D_GLIBCXX_DEBUG</code></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Step 2: Testing testing testing
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Test the executable file obtained on the given example(s), for instance with <code>./a.out &lt; sample.inp &gt; output</code>. Also, test your code against simple/trivial inputs, e.g.&nbsp;a graph with no-edges.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Common error(s)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Writing the input by hand.<br>
+Not checking the exact formatting of the output.</p>
+</div>
+</div>
+<p>To see whether the <code>output</code> is the same as <code>sample.cor</code> a way is to use <code>diff output sample.cor</code></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Step 3: Submitting the solution to the Jutge
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Once the code compiles and on the given samples it gives the correct output submit it to the Jutge for automatic evaluation.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Common error(s)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Sending to the Jutge code that was not even compiled locally.<br>
+Not checking if the output was correct on the given inputs.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Step 4: I’m stuck. What can I do?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>You are “stuck” on a problem if you spent <strong>around 1 hour</strong> trying to solve it but still the Jutge is rejecting your solution.</p>
+<p>Possible approaches to getting “un-stuck” are:</p>
+<ul>
+<li><p>do not think about that problem for some time and come back to your code with fresh eyes</p></li>
+<li><p>look again at the theory</p></li>
+<li><p>try to explain your code to another student</p></li>
+<li><p>ask for hints, e.g.&nbsp;by <a href="mailto:ilario.bonacina+EDA@upc.edu">email</a>. <strong>Be specific on the type of help you need.</strong> Include in the email the code of your approach.</p></li>
 </ul>
 </div>
-<p>Welcome to Data Structures and Algorithmics (aka <strong>EDA</strong>)!</p>
-<p>I’m <strong>Ilario Bonacina</strong> and if you are a student of the groups P/L11 or P/L31 or L43 or L53 then I’m one of your instructors for this semester.</p>
-<p>Please refer to the <a href="https://www.cs.upc.edu/eda/">main webpage of EDA</a> for news, course material, etc and to the official UPC page for the <a href="https://www.fib.upc.edu/es/estudios/grados/grado-en-ingenieria-informatica/plan-de-estudios/asignaturas/EDA">course syllabus</a>.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>As a starting point we solve together the following problems.</p>
+<div id="listing-exercises-L1" class="quarto-listing quarto-listing-container-table">
+<table class="quarto-listing-table table">
+<thead>
+<tr>
+<th>
+Problem
+</th>
+<th>
+</th>
+</tr>
+</thead>
+<tbody class="list">
+<tr data-index="0" data-listing-file-modified-sort="1725809864614" data-listing-reading-time-sort="2" data-listing-word-count-sort="306" data-listing-title-sort="Role Classification" data-listing-filename-sort="index.qmd">
+<td>
+<a href="../labs/L1-P60296/index.html" class="title listing-title">Role Classification</a>
+</td>
+<td>
+<span class="listing-subtitle"><a href="https://jutge.org/problems/P60296_en">Go to the Jutge statement of the problem</a></span>
+</td>
+</tr>
+<tr data-index="1" data-listing-file-modified-sort="1725809859304" data-listing-reading-time-sort="1" data-listing-word-count-sort="183" data-listing-title-sort="Statistical measures" data-listing-filename-sort="index.qmd">
+<td>
+<a href="../labs/L1-P59282/index.html" class="title listing-title">Statistical measures</a>
+</td>
+<td>
+<span class="listing-subtitle"><a href="https://jutge.org/problems/P59282_en">Go to the Jutge statement of the problem</a></span>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Other Jutge problems on STL
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li><a href="https://jutge.org/problems/P50709_en">Collection of numbers</a> <!--
+P50709
+--></li>
+<li><a href="https://jutge.org/problems/P50709_en">Casino</a> <!--
+P40902
+--></li>
+<li><a href="https://jutge.org/problems/P69781_en">Collatz pseudo-sequences (2)</a> <span class="emoji" data-emoji="exclamation">❗</span> <!--
+P69781
+--><br>
+</li>
+<li><a href="https://jutge.org/problems/P84415_en">Bag of words</a> <!--
+P84415
+--></li>
+<li><a href="https://jutge.org/problems/P37064_en">Dynamic median</a> <span class="emoji" data-emoji="exclamation">❗</span><br>
+<!--
+P37064
+--></li>
+<li><a href="https://jutge.org/problems/P69932_en">The longest sequence</a> <span class="emoji" data-emoji="exclamation">❗</span> <!--
+P69932
+--><br>
+</li>
+<li><a href="https://jutge.org/problems/P60219_en">Easy game?</a> <!--
+P60219
+--></li>
+<li><a href="https://jutge.org/problems/P62653_en">Ticket distribution</a> <!--
+P62653
+--></li>
+<li><a href="https://jutge.org/problems/P63584_en">K-th element</a> (~ Problem 4.11 you will see in the problem class P5)<br>
+<!--
+P63584
+--></li>
+</ul>
+<p>Recall that <span class="emoji" data-emoji="exclamation">❗</span> marks possibly harder problems.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="section-1" class="level2">
+<h2 class="anchored" data-anchor-id="section-1">L2: Divide and Conquer</h2>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This section will be available closer to the class.</p>
+</div>
+</div>
+</section>
+<section id="section-2" class="level2">
+<h2 class="anchored" data-anchor-id="section-2">L3: Graph algorithms I</h2>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This section will be available closer to the class.</p>
+</div>
+</div>
+</section>
+<section id="section-3" class="level2">
+<h2 class="anchored" data-anchor-id="section-3">L4: Graph algorithms II</h2>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This section will be available closer to the class.</p>
+</div>
+</div>
+</section>
+<section id="section-4" class="level2">
+<h2 class="anchored" data-anchor-id="section-4">L5: Exhaustive algorithms I</h2>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This section will be available closer to the class.</p>
+</div>
+</div>
+</section>
+<section id="section-5" class="level2">
+<h2 class="anchored" data-anchor-id="section-5">L6: Exhaustive algorithms II</h2>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This section will be available closer to the class.</p>
+</div>
+</div>
 
 
+
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -720,5 +1100,5 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>
