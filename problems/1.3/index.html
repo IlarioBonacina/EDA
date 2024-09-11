@@ -70,6 +70,9 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
+<link rel="stylesheet" type="text/css" href="https://sagecell.sagemath.org/static/sagecell_embed.css">
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script>
+<script>sagecell.makeSagecell({"inputLocation": ".sage"});</script>
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -184,7 +187,7 @@ window.Quarto = {
 </div></div><p>For each function <span class="math inline">\(f(n)\)</span> and running time <span class="math inline">\(t\)</span> in the table below, determine the largest input size that can be solved in time <span class="math inline">\(t\)</span> for a problem that requires <span class="math inline">\(f(n)\)</span> microseconds (<span class="math inline">\(\mu\)</span>s) to solve on an input of size <span class="math inline">\(n\)</span>.</p>
 <table class="table-striped table">
 <colgroup>
-<col style="width: 37%">
+<col style="width: 36%">
 <col style="width: 14%">
 <col style="width: 13%">
 <col style="width: 6%">
@@ -269,7 +272,41 @@ window.Quarto = {
 </tr>
 </tbody>
 </table>
-<p>A couple of days after the class you should also see here a possible solution (if this is not the case please send me a reminder by <a href="mailto:ilario.bonacina+EDA@upc.edu">email</a>).</p>
+<hr>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+In class
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>For some exercises, as this one, in class I’ll show how to use the Computer Algebra System <a href="https://www.sagemath.org">SageMath</a> to get quicky answers. (Or as an assistant to your symbolic calculuations.)</p>
+<div class="sage">
+<script type="text/x-sage">
+sec = 10^6
+min = 60 * sec
+h = 60 * min
+d = 24 * h
+m = 30 * d
+y = 365.25 * d
+c = 100 * y
+
+Time = [sec.n(), min.n(), h.n(), d.n(), m.n(), y.n(), c.n()]
+
+LinTime = [(i).n(digits=2) for i in Time]
+
+show(LinTime)
+</script>
+</div>
+<p>As a comparison recall that it is estimated that there may be <span class="math inline">\(10^{78}\)</span> to <span class="math inline">\(10^{82}\)</span> atoms in the known universe.</p>
+</div>
+</div>
+</div>
 <p><a href="javascript:history.back()"><iconify-icon role="img" inline="" icon="twemoji:back-arrow" style="font-size: 2em;" aria-label="Icon back-arrow from twemoji Iconify.design set." title="Icon back-arrow from twemoji Iconify.design set."></iconify-icon></a></p>
 
 

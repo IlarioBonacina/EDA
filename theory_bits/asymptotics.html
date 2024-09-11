@@ -157,7 +157,10 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#common-errors" id="toc-common-errors" class="nav-link active" data-scroll-target="#common-errors">Common error(s)</a></li>
+  <li><a href="#on-the-big-oh-notation" id="toc-on-the-big-oh-notation" class="nav-link active" data-scroll-target="#on-the-big-oh-notation">On the Big-Oh notation</a></li>
+  <li><a href="#on-the-big-omega-notation" id="toc-on-the-big-omega-notation" class="nav-link" data-scroll-target="#on-the-big-omega-notation">On the Big-Omega notation</a></li>
+  <li><a href="#on-the-big-theta-notation" id="toc-on-the-big-theta-notation" class="nav-link" data-scroll-target="#on-the-big-theta-notation">On the Big-Theta notation</a></li>
+  <li><a href="#common-errorsconfusion" id="toc-common-errorsconfusion" class="nav-link" data-scroll-target="#common-errorsconfusion">Common errors/confusion</a></li>
   </ul>
 <div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="https://en.cppreference.com/w/"><i class="bi bi-code-slash"></i>cppreference.com</a></li><li><a href="https://jutge.org"><i class="bi bi-link-45deg"></i>Jutge.org</a></li><li><a href="https://www.cs.upc.edu/eda/"><i class="bi bi-link-45deg"></i>EDA Main Page</a></li><li><a href="https://www.cs.upc.edu/eda-eng/data/uploads/eda-problem-set.eng.pdf"><i class="bi bi-book"></i>EDA Problem Set</a></li><li><a href="https://www.cs.upc.edu/~oliveras/examens.eng.pdf"><i class="bi bi-book"></i>Collection of Solved Exams</a></li><li><a href="https://www.cs.upc.edu/eda/data/uploads/eda-codis.pdf"><i class="bi bi-book"></i>Algorithms in C++</a></li></ul></div></nav>
     </div>
@@ -184,55 +187,34 @@ window.Quarto = {
 
 
 <p>This <em>theory bit</em> is to recall the definition and basic properties of Big-Oh, Big-Omega, Big-Theta notation. To know if a function <span class="math inline">\(f\)</span> is <span class="math inline">\(O(g)\)</span> (or <span class="math inline">\(\Theta(g)\)</span> or <span class="math inline">\(\Omega(g)\)</span>) typically reduces to computing a limit. You might need to refresh how to compute limits (e.g.&nbsp;de L’Hôpital rule). See the <a href="../theory_bits/limits.html">theory bit on limits</a>.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-On the Big-Oh notation
-</div>
-</div>
-<div class="callout-body-container callout-body">
+<p>In this page we assume <span class="math inline">\(f,g\)</span> to be functions from <span class="math inline">\(\mathbb R_+ \to \mathbb R_+\)</span>.</p>
+<section id="on-the-big-oh-notation" class="level2">
+<h2 class="anchored" data-anchor-id="on-the-big-oh-notation">On the Big-Oh notation</h2>
 <ul>
 <li><span class="math inline">\(f\)</span> grows <strong>asymptotically slower (or equal)</strong> than <span class="math inline">\(g\)</span></li>
 <li><span class="math inline">\(f=O(g)\)</span></li>
 <li><span class="math inline">\(f\)</span> is Big-Oh of <span class="math inline">\(g\)</span></li>
 </ul>
-<p>have the same meaning and are interchangeable.</p>
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-On the Big-Omega notation
-</div>
-</div>
-<div class="callout-body-container callout-body">
+<p>have the same meaning and are interchangeable. Formally, <span class="math inline">\(f\)</span> is a Big-Oh of <span class="math inline">\(g\)</span> if for all large enough <span class="math inline">\(x\)</span>, <span class="math inline">\(f\)</span> is at most proportional to a multiple of <span class="math inline">\(g\)</span>. That is <span class="math inline">\(f=O(g)\)</span> if <span class="math display">\[
+\exists x_0\in \mathbb R_+\exists c\in \mathbb R_+\forall x\geq x_0\ f(x)\leq c\cdot g(x)\ .
+\]</span></p>
+<p>In particular, if <span class="math inline">\(\displaystyle\lim_{x\to \infty}\frac{f(x)}{g(x)}&lt; +\infty\)</span> then <span class="math inline">\(f=O(g)\)</span>.</p>
+</section>
+<section id="on-the-big-omega-notation" class="level2">
+<h2 class="anchored" data-anchor-id="on-the-big-omega-notation">On the Big-Omega notation</h2>
 <ul>
 <li><span class="math inline">\(f\)</span> grows <strong>asymptotically faster (or equal)</strong> than <span class="math inline">\(g\)</span></li>
 <li><span class="math inline">\(f=\Omega(g)\)</span></li>
 <li><span class="math inline">\(f\)</span> is Big-Omega of <span class="math inline">\(g\)</span></li>
 </ul>
-<p>have the same meaning and are interchangeable.</p>
-</div>
-</div>
-<ul>
-<li>if <span class="math inline">\(f=O(g)\)</span>, then <span class="math inline">\(g=\Omega(f)\)</span>, that is if <span class="math inline">\(f\)</span> grows asymptotically slower than <span class="math inline">\(g\)</span>, then <span class="math inline">\(g\)</span> grows asymptotically faster than <span class="math inline">\(f\)</span>.</li>
-</ul>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-On the Big-Theta notation
-</div>
-</div>
-<div class="callout-body-container callout-body">
+<p>have the same meaning and are interchangeable. Formally, <span class="math inline">\(f\)</span> is a Big-Omega of <span class="math inline">\(g\)</span> if for all large enough <span class="math inline">\(x\)</span>, <span class="math inline">\(f\)</span> is at at least proportional to a multiple of <span class="math inline">\(g\)</span>. That is <span class="math inline">\(f=\Omega(g)\)</span> if <span class="math display">\[
+\exists x_0\in \mathbb R_+\exists c\in \mathbb R_+\forall x\geq x_0\ f(x)\geq c\cdot g(x)\ .
+\]</span></p>
+<p>In particular, if <span class="math inline">\(\displaystyle\lim_{x\to \infty}\frac{f(x)}{g(x)}&gt; 0\)</span> then <span class="math inline">\(f=\Omega(g)\)</span>.</p>
+<p>That is, if <span class="math inline">\(f=O(g)\)</span>, then <span class="math inline">\(g=\Omega(f)\)</span>. If <span class="math inline">\(f\)</span> grows asymptotically slower than <span class="math inline">\(g\)</span>, then <span class="math inline">\(g\)</span> grows asymptotically faster than <span class="math inline">\(f\)</span>.</p>
+</section>
+<section id="on-the-big-theta-notation" class="level2">
+<h2 class="anchored" data-anchor-id="on-the-big-theta-notation">On the Big-Theta notation</h2>
 <ul>
 <li><span class="math inline">\(f\)</span> has <strong>the same asymptotic growth</strong> of <span class="math inline">\(g\)</span></li>
 <li><span class="math inline">\(f=\Theta(g)\)</span><br>
@@ -241,33 +223,14 @@ On the Big-Theta notation
 <li><span class="math inline">\(f\)</span> is Big-Theta of <span class="math inline">\(g\)</span></li>
 <li><span class="math inline">\(g\)</span> is Big-Theta of <span class="math inline">\(f\)</span></li>
 </ul>
-<p>all have the same meaning and are interchangeable.</p>
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-On the Big-Theta notation
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ul>
-<li><span class="math inline">\(f\)</span> has <strong>the same asymptotic growth</strong> of <span class="math inline">\(g\)</span></li>
-<li><span class="math inline">\(f=\Theta(g)\)</span><br>
-</li>
-<li><span class="math inline">\(g=\Theta(f)\)</span></li>
-<li><span class="math inline">\(f\)</span> is Big-Theta of <span class="math inline">\(g\)</span></li>
-<li><span class="math inline">\(g\)</span> is Big-Theta of <span class="math inline">\(f\)</span></li>
-</ul>
-<p>all have the same meaning and are interchangeable.</p>
-</div>
-</div>
-<section id="common-errors" class="level2">
-<h2 class="anchored" data-anchor-id="common-errors">Common error(s)</h2>
-<p>Saying that <span class="math inline">\(f=\Theta(g)\)</span>, or <span class="math inline">\(f=\Omega(g)\)</span> or <span class="math inline">\(f=O(g)\)</span> are sentences about the <em>asymptotic growth rate</em> of the function <span class="math inline">\(f\)</span> in comparison with the one of <span class="math inline">\(g\)</span>. Although <span class="math inline">\(f\)</span> or <span class="math inline">\(g\)</span> might be connected to algorithms (e.g.&nbsp;some running times), there is no reference to an algorithm implicit in the notation. In particular <strong>the <span class="math inline">\(\Theta\)</span>, <span class="math inline">\(O\)</span> and <span class="math inline">\(\Omega\)</span> notations are not connected at all to the worst/best/average cases of the running time of algorithms.</strong></p>
+<p>all have the same meaning and are interchangeable. Formally, <span class="math inline">\(f\)</span> is Big-Theta of <span class="math inline">\(g\)</span> if it is both Big-Oh and Big-Omega of <span class="math inline">\(g\)</span>. That is <span class="math inline">\(f=\Theta(g)\)</span> if <span class="math display">\[
+\exists x_0\in \mathbb R_+\exists c_1,c_2\in \mathbb R_+\forall x\geq x_0\ c_1\cdot g(x)\leq f(x)\leq c_2\cdot g(x)\ .
+\]</span></p>
+<p>In particular, if <span class="math inline">\(\displaystyle\lim_{x\to \infty}\frac{f(x)}{g(x)} = c\)</span> with <span class="math inline">\(0&lt; c&lt;+\infty\)</span>, then <span class="math inline">\(f=\Theta(g)\)</span>.</p>
+</section>
+<section id="common-errorsconfusion" class="level2">
+<h2 class="anchored" data-anchor-id="common-errorsconfusion">Common errors/confusion</h2>
+<p><span class="math inline">\(f=\Theta(g)\)</span>, or <span class="math inline">\(f=\Omega(g)\)</span> or <span class="math inline">\(f=O(g)\)</span> are sentences about the <em>asymptotic growth rate</em> of the function <span class="math inline">\(f\)</span> in comparison with the one of <span class="math inline">\(g\)</span>. Although <span class="math inline">\(f\)</span> or <span class="math inline">\(g\)</span> might be connected to algorithms (e.g.&nbsp;some running times), there is no reference to an algorithm implicit in the notation. In particular <strong>the <span class="math inline">\(\Theta\)</span>, <span class="math inline">\(O\)</span> and <span class="math inline">\(\Omega\)</span> notations are not connected at all to the worst/best/average cases of the running time of algorithms.</strong></p>
 <p>Sometimes the practical use of the <span class="math inline">\(O\)</span> and the <span class="math inline">\(\Theta\)</span> notation overlap. At times people use <span class="math inline">\(O(\cdot)\)</span> when they actually mean to use <span class="math inline">\(\Theta(\cdot)\)</span>. Recall that the <span class="math inline">\(O(\cdot)\)</span> notation denotes only an <em>upper-bound</em> on the asymptotic growth, while <span class="math inline">\(\Theta(\cdot)\)</span> indicates the exact asymptotic growth rate of a function. In EDA we don’t want to do this, we try to be as precise as possible.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -299,7 +262,7 @@ Example
 <div class="callout-body-container callout-body">
 <p>The figure below is taken from the internet and summarizes visually some growth orders of functions. It is a mostly correct visual aid but not quite completely correct. Can you spot the error(s)?</p>
 <div class="callout callout-style-simple callout-none no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -308,7 +271,7 @@ Answer
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>The figure mixes <span class="math inline">\(n\)</span> and <span class="math inline">\(x\)</span> for the name of the variable. This is an easy fix, but there is another error. It would have been correct if each <span class="math inline">\(O(\cdot)\)</span> were a <span class="math inline">\(\Theta(\cdot)\)</span>.</p>
 </div>

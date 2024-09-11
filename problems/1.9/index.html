@@ -70,6 +70,9 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
+<link rel="stylesheet" type="text/css" href="https://sagecell.sagemath.org/static/sagecell_embed.css">
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script>
+<script>sagecell.makeSagecell({"inputLocation": ".sage"});</script>
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -182,8 +185,8 @@ window.Quarto = {
 
 <div class="no-row-height column-margin column-container"><div class="">
 <p><img src="orders.png" class="img-fluid"></p>
-<p>The figure above is meant to be a visual reminder of the growth rate of functions. Can you spot the error(s)? (If not, look at the theory-bit <a href="../../theory_bits/asymptotics.html">asymptotics</a>).</p>
-</div></div><div class="columns">
+</div></div><div class="page-columns page-full"><p></p><div class="no-row-height column-margin column-container"><span class="margin-aside">The figure above is meant to be a visual reminder of the growth rate of functions. It is <em>morally</em> correct but it contains some small errors. Can you spot them? If not, look at the theory-bit <a href="../../theory_bits/asymptotics.html">asymptotics</a>.</span></div></div>
+<div class="columns">
 <div class="column" style="width:50%;">
 <p><span class="math display">\[
 n
@@ -248,17 +251,6 @@ n^2\log n
 \]</span></p>
 </div>
 </div>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Extra
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>What about <span class="math inline">\(n!\)</span> and <span class="math inline">\(3^n\)</span>? How do they compare with the rest?</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -271,7 +263,78 @@ Hint
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
+<p>You might want to refresh how to compute <a href="../../theory_bits/limits.html">limits</a> and properties of the <a href="../../theory_bits/logs.html">logarithms</a>.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Extra
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>What about <span class="math inline">\(n!\)</span> and <span class="math inline">\(3^n\)</span>? How do they compare with the rest?</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <p>Use <a href="../../theory_bits/logs.html">Stirling approximation</a> of <span class="math inline">\(n!\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<hr>
+<p>Once you solved this exercise you might want to double check the correctness of your answers using a Compuer Algebra System.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Check your answers using SageMath
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>You could use the box below to perform symbolic calculations in SageMath and use them to double-check the correctness of your calculations. If you click on the “Evaluate” button this will tell you something on the respective asymptotic growth of the functions <span class="math inline">\(2^{\sqrt{\log(x)}}\)</span> and <span class="math inline">\(\sqrt{x}\)</span>. Which one grows faster?</p>
+<div class="sage">
+<script type="text/x-sage">
+f = 2^(sqrt(log(x)))
+g = sqrt(x)
+
+lim = limit(f/g,x=oo) 
+
+show(LatexExpr(r"f(x)="), f)
+show(LatexExpr(r"g(x)="), g)
+show(LatexExpr(r"\lim_{x\to\infty}\frac{f(x)}{g(x)}="), lim)
+</script>
+</div>
+<p>Use the box above with different functions for <span class="math inline">\(f\)</span> and <span class="math inline">\(g\)</span>. A <em>minimal</em> explanantion of the syntax is <a href="../../theory_bits/limits.html">here</a>.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Do not use <span class="math inline">\(n\)</span> as the name of your variable, since this would tell SageMath to treat it as an integer. In our context, this would only create problems. Use <span class="math inline">\(x\)</span> instead.</p>
 </div>
 </div>
 </div>
