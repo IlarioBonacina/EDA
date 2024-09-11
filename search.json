@@ -228,7 +228,7 @@
     "href": "index.html",
     "title": "Data Structures and Algorithmics",
     "section": "",
-    "text": "fix ❗ not rendered in titles\nadd lightbox treatment for code\nadd google module to schedule a meeting\nwhen course ends remember to make EDA/ private\n\n\nWelcome to Data Structures and Algorithmics (aka EDA)!\nI’m Ilario Bonacina and if you are a student of the groups P/L11 or P/L31 or L43 or L53 then I’m one of your instructors for this semester.\nPlease refer to the main webpage of EDA for news, course material, etc and to the official UPC page for the course syllabus."
+    "text": "fix ❗ not rendered in titles\nadd lightbox treatment for code\nwhen course ends remember to make EDA/ private\n\n\nWelcome to Data Structures and Algorithmics (aka EDA)!\nI’m Ilario Bonacina and if you are a student of the groups P/L11 or P/L31 or L43 or L53 then I’m one of your instructors for this semester.\nThis page is just a support for the problem/lab classes I’m giving. Please refer to the main webpage of EDA for news, course material, etc and to the official UPC page for the course syllabus.\n\n\n\n\n\n\nPor el momento esta página es en Inglés. Puedes utilizar Google Translate y traducir al castellano o al idioma que más te agrade. Desafortunadamente, Google Translate no funciona muy bien en páginas con mucha matemática…\nEn poco tiempo espero hacer esta página multilingüe de verdad."
   },
   {
     "objectID": "labs/L1-P59282/index.html",
@@ -375,7 +375,7 @@
     "href": "theory_bits/asymptotics.html",
     "title": "Asymptotic notation",
     "section": "",
-    "text": "This theory bit is to recall the definition and basic properties of Big-Oh, Big-Omega, Big-Theta notation. To know if a function \\(f\\) is \\(O(g)\\) (or \\(\\Theta(g)\\) or \\(\\Omega(g)\\)) typically reduces to computing a limit. You might need to refresh how to compute limits (e.g. de L’Hôpital rule). See the theory bit on limits.\nIn this page we assume \\(f,g\\) to be functions from \\(\\mathbb R_+ \\to \\mathbb R_+\\)."
+    "text": "This theory bit is to recall the definition and basic properties of Big-Oh, Big-Omega, Big-Theta notation. To know if a function \\(f\\) is \\(O(g)\\) (or \\(\\Theta(g)\\) or \\(\\Omega(g)\\)) typically reduces to computing a limit. You might need to refresh how to compute limits (e.g. de L’Hôpital rule). See the theory bit on limits.\nIn this page we assume \\(f,g\\) to be functions from \\(\\mathbb R \\to \\mathbb R\\)."
   },
   {
     "objectID": "theory_bits/asymptotics.html#on-the-big-oh-notation",
