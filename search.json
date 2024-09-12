@@ -137,7 +137,7 @@
     "href": "problems/1.14/index.html",
     "title": "Ohs, Omegas, or Thetas",
     "section": "",
-    "text": "The following sentences refer to the insertion sort algorithm and the \\(X\\)’s hide an occurrence of \\(O\\), \\(\\Omega\\), or \\(\\Theta\\).\nFor each of the sentences, indicate which options for \\(X \\in \\{O, \\Omega, \\Theta\\}\\) make the statement true, which options make the statement false, and justify your answers:\n\nThe worst case is \\(X(n^2)\\).\nThe worst case is \\(X(n)\\).\nThe best case is \\(X(n^2)\\).\nThe best case is \\(X(n)\\).\nFor every probability distribution, the average case is \\(X(n^2)\\).\nFor every probability distribution, the average case is \\(X(n)\\).\nFor some probability distribution, the average case is \\(X(n \\log n)\\).\n\n\n\n\n\n\n\nExtra\n\n\n\nWhat if we consider the quicksort instead of the insertion sort?"
+    "text": "The following sentences refer to the insertion sort algorithm and the \\(X\\)’s hide an occurrence of \\(O\\), \\(\\Omega\\), or \\(\\Theta\\).\nFor each of the sentences, indicate which options for \\(X \\in \\{O, \\Omega, \\Theta\\}\\) make the statement true, which options make the statement false, and justify your answers:\n\nThe worst case is \\(X(n^2)\\).\nThe worst case is \\(X(n)\\).\nThe best case is \\(X(n^2)\\).\nThe best case is \\(X(n)\\).\nFor every probability distribution, the average case is \\(X(n^2)\\).\nFor every probability distribution, the average case is \\(X(n)\\).\nFor some probability distribution, the average case is \\(X(n \\log n)\\).\n\n\n\n\n\n\n\nExtra\n\n\n\nWhat if we consider the MergeSort instead of the Insertion Sort?"
   },
   {
     "objectID": "problems/1.12/index.html",
