@@ -243,13 +243,13 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#section" id="toc-section" class="nav-link active" data-scroll-target="#section">P1: Asymptotic notation</a></li>
-  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1">P2: Analysis of algorithms</a></li>
-  <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2">P3: Divide and Conquer</a></li>
-  <li><a href="#section-3" id="toc-section-3" class="nav-link" data-scroll-target="#section-3">P4: Dictionaries</a></li>
-  <li><a href="#section-4" id="toc-section-4" class="nav-link" data-scroll-target="#section-4">P5: Priority Queues</a></li>
-  <li><a href="#section-5" id="toc-section-5" class="nav-link" data-scroll-target="#section-5">P6: Graphs</a></li>
-  <li><a href="#section-6" id="toc-section-6" class="nav-link" data-scroll-target="#section-6">P7: Intractability</a></li>
+  <li><a href="#sec-P1" id="toc-sec-P1" class="nav-link active" data-scroll-target="#sec-P1">P1: Asymptotic notation</a></li>
+  <li><a href="#sec-P2" id="toc-sec-P2" class="nav-link" data-scroll-target="#sec-P2">P2: Analysis of algorithms</a></li>
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section">P3: Divide and Conquer</a></li>
+  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1">P4: Dictionaries</a></li>
+  <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2">P5: Priority Queues</a></li>
+  <li><a href="#section-3" id="toc-section-3" class="nav-link" data-scroll-target="#section-3">P6: Graphs</a></li>
+  <li><a href="#section-4" id="toc-section-4" class="nav-link" data-scroll-target="#section-4">P7: Intractability</a></li>
   </ul>
 <div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="https://en.cppreference.com/w/"><i class="bi bi-code-slash"></i>cppreference.com</a></li><li><a href="https://jutge.org"><i class="bi bi-link-45deg"></i>Jutge.org</a></li><li><a href="https://www.cs.upc.edu/eda/"><i class="bi bi-link-45deg"></i>EDA Main Page</a></li><li><a href="https://www.cs.upc.edu/eda-eng/data/uploads/eda-problem-set.eng.pdf"><i class="bi bi-book"></i>EDA Problem Set</a></li><li><a href="https://www.cs.upc.edu/~oliveras/examens.eng.pdf"><i class="bi bi-book"></i>Collection of Solved Exams</a></li><li><a href="https://www.cs.upc.edu/eda/data/uploads/eda-codis.pdf"><i class="bi bi-book"></i>Algorithms in C++</a></li></ul></div></nav>
     </div>
@@ -318,8 +318,8 @@ if the original solution was only half-way correct, I’ll try to help to get fr
 </div>
 </div>
 </div>
-<section id="section" class="level2">
-<h2 class="anchored" data-anchor-id="section">P1: Asymptotic notation</h2>
+<section id="sec-P1" class="level2">
+<h2 class="anchored" data-anchor-id="sec-P1">P1: Asymptotic notation</h2>
 <p><strong>Welcome to the first EDA problem class!</strong></p>
 <p>This session is about exercises on the asymptotic growth of functions. Later in the course we will be interested in functions associated to algorithms (typically the running time and how it scales w.r.t. the input size), but for the moment they are just functions without any algorithm in mind.</p>
 <p>The theoretical tools we use are:</p>
@@ -399,10 +399,10 @@ After class
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>To test your understanding try exercises from the <a href="https://www.cs.upc.edu/~oliveras/examens.eng.pdf">Collection of Solved Exams</a>. For instance:</p>
+<p>To test your understanding, try exercises from the <a href="https://www.cs.upc.edu/~oliveras/examens.eng.pdf">Collection of Solved Exams</a>. For instance:</p>
 <ul>
 <li><a href="https://www.cs.upc.edu/~oliveras/examens.eng.pdf#page=93">06/11/2020 Midterm EDA Exam Problem 1.b</a></li>
-<li><a href="https://www.cs.upc.edu/~oliveras/examens.eng.pdf#page=98">15/04/2021 Midterm EDA Exam Problem 1</a></li>
+<li><a href="https://www.cs.upc.edu/~oliveras/examens.eng.pdf#page=98">15/04/2021 Midterm EDA Exam Problem 1.a</a></li>
 <li><a href="https://www.cs.upc.edu/~oliveras/examens.eng.pdf#page=112">03/11/2022 Midterm EDA Exam Problem 1.b</a></li>
 <li><a href="https://www.cs.upc.edu/~oliveras/examens.eng.pdf#page=117">02/11/2023 Midterm EDA Exam Problem 1.b</a></li>
 <li><a href="https://www.cs.upc.edu/~oliveras/examens.eng.pdf#page=254">07/06/2021 Final EDA Exam Problem 1.a</a></li>
@@ -411,22 +411,18 @@ After class
 </div>
 </div>
 </section>
-<section id="section-1" class="level2">
-<h2 class="anchored" data-anchor-id="section-1">P2: Analysis of algorithms</h2>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Important
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>This section is likely to change closer to the class.</p>
-</div>
-</div>
-<p>In this class we continue with some problems from the <a href="https://www.cs.upc.edu/eda-eng/data/uploads/eda-problem-set.eng.pdf">EDA ProblemSet</a>, section 1 <em>Analysis of algorithms</em>.</p>
+<section id="sec-P2" class="level2">
+<h2 class="anchored" data-anchor-id="sec-P2">P2: Analysis of algorithms</h2>
+<p>This session is about finding the asymptotic cost (i.e.&nbsp;running time) of simple algorithms as a function of the input size.</p>
+<p>The theoretical tools we use are:</p>
+<ul>
+<li>notable sums from the problem class P1 (<a href="../problems/1.1/index.html">Exercise 1.1</a>)</li>
+<li><a href="../theory_bits/asymptotics.html">Asymptotic notation</a></li>
+<li>Analysis of Iterative Algorithms (look at your theory slides, for instance)</li>
+<li><a href="../theory_bits/master_theorem.html">Master Theorem(s)</a></li>
+<li><a href="../theory_bits/sorting_algorithms.html">Insertion Sort</a></li>
+</ul>
+<p>We continue with some problems from the <a href="https://www.cs.upc.edu/eda-eng/data/uploads/eda-problem-set.eng.pdf">EDA ProblemSet</a>, section 1 <em>Analysis of algorithms</em>.</p>
 <div id="listing-exercises-P2" class="quarto-listing quarto-listing-container-table">
 <table class="quarto-listing-table table">
 <thead>
@@ -440,7 +436,7 @@ Title
 </tr>
 </thead>
 <tbody class="list">
-<tr data-index="0" data-categories="P2 - Analysis of Algrithms,asymptotics,cost of algorithms" data-listing-file-modified-sort="1725785961625" data-listing-reading-time-sort="2" data-listing-word-count-sort="316" data-listing-title-sort="Fors, and fors inside fors" data-listing-filename-sort="index.qmd">
+<tr data-index="0" data-categories="P2 - Analysis of Algrithms,asymptotics,cost of algorithms" data-listing-file-modified-sort="1727209283274" data-listing-reading-time-sort="2" data-listing-word-count-sort="338" data-listing-title-sort="Fors, and fors inside fors" data-listing-filename-sort="index.qmd">
 <td>
 <span class="listing-subtitle">Exercise 1.12</span>
 </td>
@@ -448,7 +444,7 @@ Title
 <a href="../problems/1.12/index.html" class="title listing-title">Fors, and fors inside fors</a>
 </td>
 </tr>
-<tr data-index="1" data-categories="P2 - Analysis of Algrithms,asymptotics,cost of algorithms" data-listing-file-modified-sort="1725734023107" data-listing-reading-time-sort="1" data-listing-word-count-sort="63" data-listing-title-sort="Parameters" data-listing-filename-sort="index.qmd">
+<tr data-index="1" data-categories="P2 - Analysis of Algrithms,asymptotics,cost of algorithms" data-listing-file-modified-sort="1727208722660" data-listing-reading-time-sort="1" data-listing-word-count-sort="63" data-listing-title-sort="Parameters" data-listing-filename-sort="index.qmd">
 <td>
 <span class="listing-subtitle">Exercise 1.13</span>
 </td>
@@ -456,7 +452,7 @@ Title
 <a href="../problems/1.13/index.html" class="title listing-title">Parameters</a>
 </td>
 </tr>
-<tr data-index="2" data-categories="P2 - Analysis of Algrithms,asymptotics,cost of algorithms,insertion sort" data-listing-file-modified-sort="1726136424185" data-listing-reading-time-sort="1" data-listing-word-count-sort="112" data-listing-title-sort="Ohs, Omegas, or Thetas" data-listing-filename-sort="index.qmd">
+<tr data-index="2" data-categories="P2 - Analysis of Algrithms,asymptotics,cost of algorithms,insertion sort" data-listing-file-modified-sort="1727457911467" data-listing-reading-time-sort="1" data-listing-word-count-sort="111" data-listing-title-sort="Ohs, Omegas, or Thetas" data-listing-filename-sort="index.qmd">
 <td>
 <span class="listing-subtitle">Exercise 1.14</span>
 </td>
@@ -464,15 +460,15 @@ Title
 <a href="../problems/1.14/index.html" class="title listing-title">Ohs, Omegas, or Thetas</a>
 </td>
 </tr>
-<tr data-index="3" data-categories="P2 - Analysis of Algrithms,asymptotics,cost of algorithms" data-listing-file-modified-sort="1725734039372" data-listing-reading-time-sort="1" data-listing-word-count-sort="53" data-listing-title-sort="A mystery" data-listing-filename-sort="index.qmd">
+<tr data-index="3" data-categories="P2 - Analysis of Algrithms,asymptotics,cost of algorithms" data-listing-file-modified-sort="1727211483011" data-listing-reading-time-sort="1" data-listing-word-count-sort="54" data-listing-title-sort="A mystery!" data-listing-filename-sort="index.qmd">
 <td>
 <span class="listing-subtitle">Exercise 1.18</span>
 </td>
 <td>
-<a href="../problems/1.18/index.html" class="title listing-title">A mystery</a>
+<a href="../problems/1.18/index.html" class="title listing-title">A mystery!</a>
 </td>
 </tr>
-<tr data-index="4" data-categories="P2 - Analysis of Algrithms,asymptotics,exponentiation" data-listing-file-modified-sort="1725734051583" data-listing-reading-time-sort="1" data-listing-word-count-sort="124" data-listing-title-sort="Fast and slow exponentiation" data-listing-filename-sort="index.qmd">
+<tr data-index="4" data-categories="P2 - Analysis of Algrithms,asymptotics,exponentiation" data-listing-file-modified-sort="1727209712629" data-listing-reading-time-sort="1" data-listing-word-count-sort="139" data-listing-title-sort="Fast and slow exponentiation" data-listing-filename-sort="index.qmd">
 <td>
 <span class="listing-subtitle">Exercise 1.23</span>
 </td>
@@ -486,9 +482,30 @@ Title
 No matching items
 </div>
 </div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+After class
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>To test your understanding, try exercises from the <a href="https://www.cs.upc.edu/~oliveras/examens.eng.pdf">Collection of Solved Exams</a>. For instance:</p>
+<ul>
+<li><a href="https://www.cs.upc.edu/~oliveras/examens.eng.pdf#page=93">06/11/2020 Midterm EDA Exam Problem 2.a and 2.b</a></li>
+<li><a href="https://www.cs.upc.edu/~oliveras/examens.eng.pdf#page=98">15/04/2021 Midterm EDA Exam Problem 1.b and 1.c</a></li>
+<li><a href="https://www.cs.upc.edu/~oliveras/examens.eng.pdf#page=113">03/11/2022 Midterm EDA Exam Problem 2.a</a></li>
+<li><a href="https://www.cs.upc.edu/~oliveras/examens.eng.pdf#page=118">02/11/2023 Midterm EDA Exam Problem 2</a></li>
+<li><a href="https://www.cs.upc.edu/~oliveras/examens.eng.pdf#page=254">07/06/2021 Final EDA Exam Problem 1.c</a></li>
+</ul>
+<p>The solutions of the above problems are in the same pdf containing their statement.</p>
+</div>
+</div>
 </section>
-<section id="section-2" class="level2">
-<h2 class="anchored" data-anchor-id="section-2">P3: Divide and Conquer</h2>
+<section id="section" class="level2">
+<h2 class="anchored" data-anchor-id="section">P3: Divide and Conquer</h2>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -554,9 +571,62 @@ Title
 No matching items
 </div>
 </div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+After class
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>To test your understanding, try exercises from the <a href="https://www.cs.upc.edu/~oliveras/examens.eng.pdf">Collection of Solved Exams</a>. For instance:</p>
+<ul>
+<li>TBD</li>
+<li>TBD</li>
+<li>TBD</li>
+<li>TBD</li>
+<li>TBD</li>
+</ul>
+<p>The solutions of the above problems are in the same pdf containing their statement.</p>
+</div>
+</div>
+</section>
+<section id="section-1" class="level2">
+<h2 class="anchored" data-anchor-id="section-1">P4: Dictionaries</h2>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This section will be available closer to the class.</p>
+</div>
+</div>
+</section>
+<section id="section-2" class="level2">
+<h2 class="anchored" data-anchor-id="section-2">P5: Priority Queues</h2>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This section will be available closer to the class.</p>
+</div>
+</div>
 </section>
 <section id="section-3" class="level2">
-<h2 class="anchored" data-anchor-id="section-3">P4: Dictionaries</h2>
+<h2 class="anchored" data-anchor-id="section-3">P6: Graphs</h2>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -572,39 +642,7 @@ Important
 </div>
 </section>
 <section id="section-4" class="level2">
-<h2 class="anchored" data-anchor-id="section-4">P5: Priority Queues</h2>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Important
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>This section will be available closer to the class.</p>
-</div>
-</div>
-</section>
-<section id="section-5" class="level2">
-<h2 class="anchored" data-anchor-id="section-5">P6: Graphs</h2>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Important
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>This section will be available closer to the class.</p>
-</div>
-</div>
-</section>
-<section id="section-6" class="level2">
-<h2 class="anchored" data-anchor-id="section-6">P7: Intractability</h2>
+<h2 class="anchored" data-anchor-id="section-4">P7: Intractability</h2>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">

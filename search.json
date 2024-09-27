@@ -1,5 +1,12 @@
 [
   {
+    "objectID": "theory_bits/sorting_algorithms.html",
+    "href": "theory_bits/sorting_algorithms.html",
+    "title": "Some Elementary Sorting Algorithms",
+    "section": "",
+    "text": "We recall some basic facts on some elementary comparison-based sorting algorithms. These are sorting algorithms that only operate on the input array/vector by comparing pairs of elements and moving elements around based on the results of these comparisons.\n\n\n\n\n\n\nComparison-based sorting algorithm\n\n\n\nA comparison-based sorting algorithm takes as input an array/vector \\([a_1,a_2,\\dots ,a_n]\\) of \\(n\\) items, and can only gain information about the items by comparing pairs of them. Each comparison is of the form \\[\n\\text{$a_i &gt; a_j$?}\n\\]\nand returns YES or NO and counts a 1 time-step. The algorithm may also for free reorder items based on the results of comparisons made. In the end, the algorithm must output a permutation of the input in which all items are in sorted order (say increasingly).\n\n\nFor instance, Quicksort, Mergesort, and Insertion-sort are all comparison-based sorting algorithms. How efficient can be comparison-based sorting algorithms?\n\n\n\n\n\n\nTheorem\n\n\n\nAny deterministic comparison-based sorting algorithm must perform \\(\\Omega(n \\log n)\\) comparisons to sort \\(n\\) elements in the worst case.\nMore precisely, for any deterministic comparison-based sorting algorithm \\(A\\), for all \\(n \\geq 2\\) there exists an input \\(I\\) of size \\(n\\) such that \\(A\\) makes at least \\(\\log_2(n!) = \\Omega(n \\log n)\\) comparisons to sort \\(I\\).\n\n\nTo prove this theorem, we cannot assume the sorting algorithm is going to necessarily choose a pivot as in Quicksort, or split the input as in Mergesort — we need to analyze any possible (comparison-based) algorithm that might exist.\n\n\n\n\n\n\nProof (sketch)\n\n\n\n\n\nFor a deterministic algorithm, the permutation it outputs is solely a function of the series of answers it receives (any two inputs producing the same series of answers will cause the same permutation to be output). So, if an algorithm always made at most \\(k &lt; \\log_2(n!)\\) comparisons, then there are at most \\(2^k &lt; n!\\) diﬀerent permutations it can possibly output. But the total number of possible permutations in \\(n!\\). So, there is some permutation it can’t output and the algorithm will fail on any input for which that permutation is the only correct answer.\n\n\n\nThe theorem above actually holds for randomized algorithms too, but the argument is a bit more subtle.\nThe following tabs are about some comparison-based sorting algorithms, each contains a simple implementation of the algorithm with a reminder of the running time. You can find the implementations (and many more) also in Algorithms in C++.\n\nInsertion-sortMergeSortQuickSortHeapsort\n\n\ntemplate &lt;class T&gt;\n\nvoid insertion_sort (vector&lt;T&gt;& v) {\n    int n = v.size();\n    for (int i = 1; i &lt; n; ++i) {\n        for (int j = i; j &gt; 0 and v[j - 1] &gt; v[j]; --j) {\n            swap(v[j - 1], v[j]);\n        } \n    } \n}\n\n\n\n\n\n\n\nRunning time\n\n\n\n\n\nWorst case\n\\(\\Theta(n^2)\\)\n\n\nBest Case\n\\(\\Theta(n)\\) (…for what vector the best case happens?)\n\n\n\n\n\ntemplate &lt;class T&gt;\n\nvoid mergesort (vector&lt;T&gt;& v) {\n    mergesort(v, 0, v.size() - 1);\n}\n\nvoid mergesort (vector&lt;T&gt;& v, int l, int r) {\n    if (l &lt; r) {\n        int m = (l + r) / 2;\n        mergesort(v, l, m);\n        mergesort(v, m + 1, r);\n        merge(v, l, m, r);\n    } \n}\n\nvoid merge (vector&lt;T&gt;& v, int l, int m, int r) {\n    vector&lt;T&gt; b(r - l + 1);\n    int i = l, j = m + 1, k = 0;\n    while (i &lt;= m and j &lt;= r) {\n        if (v[i] &lt;= v[j]) b[k++] = v[i++];\n        else b[k++] = v[j++];\n    }\n    while (i &lt;= m) b[k++] = v[i++];\n    while (j &lt;= r) b[k++] = v[j++];\n    for (k = 0; k &lt;= r - l; ++k) v[l + k] = b[k];\n}\n\n\n\nRunning time\n\n\n\n\n\nWorst case\n\\(\\Theta(n\\log n)\\)\n\n\n\n\n\ntemplate &lt;class T&gt;\n\nvoid partition(vector&lt;T&gt;& v, int l, int u, int& k) {\n    int i = l+1;\n    int j = u;\n    T pv = v[i]; // simple choice for pivot\n    while (i &lt; j+1) {\n        while (i &lt; j+1 and v[i] &lt;= pv) ++i;\n        while (i &lt; j+1 and pv &lt;= v[j]) --j;\n        if (i &lt; j + 1) {\n            swap(v[i], v[j]);\n            ++i; \n            --j;\n        }\n    }\n    swap(v[l], v[j]);\n    k = j;\n}\n\nvoid quicksort(vector&lt;T&gt;& v, int l, int u) {\n    if (u -l + 1 &gt; M) {\n        int k;\n        partition(v, l, u, k);\n        quicksort(v, l, k-1);\n        quicksort(v, k+1, u);\n    }\n}\n\nvoid quicksort(vector&lt;T&gt;& v) {\n    quicksort(v, 0, v.size()-1);\n    insertion_sort(v, 0, v.size()-1);\n}\n\n\n\nRunning time\n\n\n\n\n\nWorst case\n\\(\\Theta(n^2)\\)\n\n\nAverage case\n\\(\\Theta(n\\log n)\\)under the uniform distribution\n\n\n\n\n\n#include &lt;queue&gt;\n\ntemplate &lt;class T&gt;\n\nvoid heapsort (vector&lt;T&gt;& v) {\n    int n = v.size();\n    priority_queue&lt;T&gt; pq;\n    for (int i = 0; i &lt; n; ++i) {\n        pq.push(v[i]);\n    }\n    for (int i = n-1; i &gt;= 0; --i) {\n        v[i] = pq.top();\n        pq.pop();\n    } \n}\n\n\n\nRunning time\n\n\n\n\n\nWorst case\n\\(\\Theta(n\\log n)\\)"
+  },
+  {
     "objectID": "theory_bits/logs.html",
     "href": "theory_bits/logs.html",
     "title": "Basic properties of logarithms and factorials",
@@ -130,21 +137,21 @@
     "href": "problems/1.23/index.html",
     "title": "Fast and slow exponentiation",
     "section": "",
-    "text": "Analyze the cost of the following recursive functions.\nThey all compute \\(x^n\\) for \\(n \\in \\mathbb N\\) in different ways.\ndouble power_1 (double x, int n) { \n    if (n == 0){\n        return 1;\n    } \n    else {\n        return x*power_1(x, n - 1); \n    }\n}\ndouble power_2 (double x, int n) { \n    if (n == 0){\n        return 1;\n    } else if (n % 2 == 0) {\n        int y = power_2(x, n/2);\n        return y*y;\n    } else {\n        int y = power_2(x, n/2);\n        return y*y*x; \n    }\n}\ndouble power_3 (double x, int n) {\n    if (n == 0){\n        return 1;\n    } else if (n % 2 == 0) {\n        return power_3(x, n/2) * power_3(x, n/2); \n    } else {\n     return power_3(x, n/2) * power_3(x, n/2) * x; \n    }\n}"
+    "text": "Analyze the cost of the following recursive functions.\nThey all compute \\(x^n\\) for \\(n \\in \\mathbb N\\) in different ways.\ndouble power_1 (double x, int n) { \n    if (n == 0){\n        return 1;\n    } \n    else {\n        return x*power_1(x, n - 1); \n    }\n}\ndouble power_2 (double x, int n) { \n    if (n == 0){\n        return 1;\n    } else if (n % 2 == 0) {\n        int y = power_2(x, n/2);\n        return y*y;\n    } else {\n        int y = power_2(x, n/2);\n        return y*y*x; \n    }\n}\ndouble power_3 (double x, int n) {\n    if (n == 0){\n        return 1;\n    } else if (n % 2 == 0) {\n        return power_3(x, n/2) * power_3(x, n/2); \n    } else {\n     return power_3(x, n/2) * power_3(x, n/2) * x; \n    }\n}\n\n\n\n\n\n\nExtra\n\n\n\nTry to solve the Jutge problem P29212 Modular exponentiation in the section Divide and conquer."
   },
   {
     "objectID": "problems/1.14/index.html",
     "href": "problems/1.14/index.html",
     "title": "Ohs, Omegas, or Thetas",
     "section": "",
-    "text": "The following sentences refer to the insertion sort algorithm and the \\(X\\)’s hide an occurrence of \\(O\\), \\(\\Omega\\), or \\(\\Theta\\).\nFor each of the sentences, indicate which options for \\(X \\in \\{O, \\Omega, \\Theta\\}\\) make the statement true, which options make the statement false, and justify your answers:\n\nThe worst case is \\(X(n^2)\\).\nThe worst case is \\(X(n)\\).\nThe best case is \\(X(n^2)\\).\nThe best case is \\(X(n)\\).\nFor every probability distribution, the average case is \\(X(n^2)\\).\nFor every probability distribution, the average case is \\(X(n)\\).\nFor some probability distribution, the average case is \\(X(n \\log n)\\).\n\n\n\n\n\n\n\nExtra\n\n\n\nWhat if we consider the MergeSort instead of the Insertion Sort?"
+    "text": "The following sentences refer to the insertion sort algorithm and the \\(X\\)’s hide an occurrence of \\(O\\), \\(\\Omega\\), or \\(\\Theta\\).\nFor each of the sentences, indicate which options for \\(X \\in \\{O, \\Omega, \\Theta\\}\\) make the statement true, which options make the statement false, and justify your answers:\n\nThe worst case is \\(X(n^2)\\).\nThe worst case is \\(X(n)\\).\nThe best case is \\(X(n^2)\\).\nThe best case is \\(X(n)\\).\nFor every probability distribution, the average case is \\(X(n^2)\\).\nFor every probability distribution, the average case is \\(X(n)\\).\n\n\n\n\n\n\n\nExtra\n\n\n\nFor some probability distribution, the average case is \\(X(n \\log n)\\).\nWhat if we consider the MergeSort instead of the Insertion Sort?"
   },
   {
     "objectID": "problems/1.12/index.html",
     "href": "problems/1.12/index.html",
     "title": "Fors, and fors inside fors",
     "section": "",
-    "text": "For each of the following fragments of code, analyze its cost.\n\n\n\n\n\n\nHint\n\n\n\n\n\nTo do this exercise you might want to look again at the sums in Exercise 1.1.\n\n\n\n// Fragment 1\nint s = 0;\nfor (int i = 0; i &lt; n; ++i) {\n    ++s; \n}\n// Fragment 2 \nint s = 0;\nfor (int i = 0; i &lt; n; i += 2) { \n    ++s;\n}\n// Fragment 3\nint s = 0;\nfor (int i = 0; i &lt; n; ++i) { \n    ++s;\n}\nfor (int j = 0; i &lt; n; ++j) { \n    ++s;\n}\n// Fragment 4\nint s = 0;\nfor (int i = 0; i &lt; n; ++i) {\n    for (int j = 0; j &lt; n; ++j) {\n        ++s;\n    }\n}\n// Fragment 5\nint s = 0;\nfor (int i = 0; i &lt; n; ++i) {\n    for (int j = 0; j &lt; i; ++j) { \n        ++s;\n    }\n}\n// Fragment 6\nint s = 0;\nfor (int i = 0; i &lt; n; ++i) {\n    for (int j = i; j &lt; n; ++j) { \n        ++s;\n    }\n}\n// Fragment 7\nint s = 0;\nfor (int i = 0; i &lt; n; ++i) {\n    for (int j = 0; j &lt; n; ++j) {\n        for (int k = 0; k &lt; n; ++k) {\n            ++s; \n        }\n    }\n}   \n// Fragment 8\nint s = 0;\nfor (int i = 0; i &lt; n; ++i) {\n    for (int j = 0; j &lt; i; ++j) {\n        for (int k = 0; k &lt; j; ++k) {\n            ++s;\n        }\n    }\n}\n// Fragment 9\nint s = 0;\nfor (int i = 1; i &lt;= n; i *= 2) {\n    ++s; \n}\n// Fragment 10\nint s = 0;\nfor (int i = 0; i &lt; n; ++i) {\n    for (int j = 0; j &lt; i*i; ++j) { \n        for (int k = 0; k &lt; n; ++k) {\n            ++s; \n        }\n    }\n}\n// Fragment 11\nint s = 0;\nfor (int i = 0; i &lt; n; ++i) {\n    for (int j = 0; j &lt; i*i; ++j) { \n        if (j % i == 0) {\n            for (int k = 0; k &lt; n; ++k) { \n                ++s;\n            }\n        }\n    }\n}"
+    "text": "For each of the following fragments of code, analyze its cost.\n\n\n\n\n\n\nWarning\n\n\n\n\n\nYou might be tempted to eye-ball the cost of some of the fragments below. This will very easily lead to errors.\n\n\n\n\n\n\n\n\n\nHint\n\n\n\n\n\nTo do this exercise you might want to look again at the sums in Exercise 1.1.\n\n\n\n// Fragment 1\nint s = 0;\nfor (int i = 0; i &lt; n; ++i) {\n    ++s; \n}\n// Fragment 2 \nint s = 0;\nfor (int i = 0; i &lt; n; i += 2) { \n    ++s;\n}\n// Fragment 3\nint s = 0;\nfor (int i = 0; i &lt; n; ++i) { \n    ++s;\n}\nfor (int j = 0; i &lt; n; ++j) { \n    ++s;\n}\n// Fragment 4\nint s = 0;\nfor (int i = 0; i &lt; n; ++i) {\n    for (int j = 0; j &lt; n; ++j) {\n        ++s;\n    }\n}\n// Fragment 5\nint s = 0;\nfor (int i = 0; i &lt; n; ++i) {\n    for (int j = 0; j &lt; i; ++j) { \n        ++s;\n    }\n}\n// Fragment 6\nint s = 0;\nfor (int i = 0; i &lt; n; ++i) {\n    for (int j = i; j &lt; n; ++j) { \n        ++s;\n    }\n}\n// Fragment 7\nint s = 0;\nfor (int i = 0; i &lt; n; ++i) {\n    for (int j = 0; j &lt; n; ++j) {\n        for (int k = 0; k &lt; n; ++k) {\n            ++s; \n        }\n    }\n}   \n// Fragment 8\nint s = 0;\nfor (int i = 0; i &lt; n; ++i) {\n    for (int j = 0; j &lt; i; ++j) {\n        for (int k = 0; k &lt; j; ++k) {\n            ++s;\n        }\n    }\n}\n// Fragment 9\nint s = 0;\nfor (int i = 1; i &lt;= n; i *= 2) {\n    ++s; \n}\n// Fragment 10\nint s = 0;\nfor (int i = 0; i &lt; n; ++i) {\n    for (int j = 0; j &lt; i*i; ++j) { \n        for (int k = 0; k &lt; n; ++k) {\n            ++s; \n        }\n    }\n}\n// Fragment 11\nint s = 0;\nfor (int i = 0; i &lt; n; ++i) {\n    for (int j = 0; j &lt; i*i; ++j) { \n        if (j % i == 0) {\n            for (int k = 0; k &lt; n; ++k) { \n                ++s;\n            }\n        }\n    }\n}"
   },
   {
     "objectID": "labs/index.html",
@@ -268,9 +275,9 @@
   {
     "objectID": "problems/1.18/index.html",
     "href": "problems/1.18/index.html",
-    "title": "A mystery",
+    "title": "A mystery!",
     "section": "",
-    "text": "Explain what the following algorithm does and give its cost as a function of \\(n\\).\nint mystery(int n) { \n    int f = 1;\n    for (int i = 2; i &lt;= n; ++i) \n        f *= i;\n    return f; \n}   \n\n\n\n\n\n\nExtra\n\n\n\nHow does the cost of the algorithm above compare with e.g. \\(3^n\\) or \\(n^n\\)?"
+    "text": "Explain what the following algorithm does and give its cost as a function of \\(n\\).\nint mystery(int n) { \n    int f = 1;\n    for (int i = 2; i &lt;= n; ++i) \n        f *= i;\n    return f; \n}   \n\n\n\n\n\n\nExtra\n\n\n\nHow does the cost of the algorithm above compare asymptotically with e.g. \\(3^n\\) or \\(n^n\\)?"
   },
   {
     "objectID": "problems/1.3/index.html",
@@ -308,50 +315,50 @@
     "text": "4.10 (statement): the big Oh in part (b) should be a Theta\n7.1: a scene has a content a bit too heterosexual.\nEvery problem class follows roughly the same structure. In every session we solve together a selection of problems from the EDA ProblemSet.\nTo make the most out of each problem class, try the corresponding exercises before each session using a reasonable amount of time.\nThe Goal is to arrive at the class either with"
   },
   {
+    "objectID": "problems/index.html#sec-P1",
+    "href": "problems/index.html#sec-P1",
+    "title": "Problem Classes",
+    "section": "P1: Asymptotic notation",
+    "text": "P1: Asymptotic notation\nWelcome to the first EDA problem class!\nThis session is about exercises on the asymptotic growth of functions. Later in the course we will be interested in functions associated to algorithms (typically the running time and how it scales w.r.t. the input size), but for the moment they are just functions without any algorithm in mind.\nThe theoretical tools we use are:\n\nInduction\nLimits\nBasic properties of \\(\\log(n)\\) and \\(n!\\)\nAsymptotic notation (\\(O\\), \\(\\Omega\\) and \\(\\Theta\\))\n\nWe consider the following problems from the EDA ProblemSet, section 1 Analysis of algorithms.\n\n\n\n\n\nExercise number\n\n\nTitle\n\n\n\n\n\n\nExercise 1.1\n\n\nBig sums everywhere\n\n\n\n\nExercise 1.3\n\n\nIt takes ages\n\n\n\n\nExercise 1.7\n\n\nPolynomials and logarithms\n\n\n\n\nExercise 1.8\n\n\nGrowth orders I\n\n\n\n\nExercise 1.9\n\n\nGrowth orders II\n\n\n\n\n\nNo matching items\n\n\n\n\n\n\n\n\nAfter class\n\n\n\nTo test your understanding, try exercises from the Collection of Solved Exams. For instance:\n\n06/11/2020 Midterm EDA Exam Problem 1.b\n15/04/2021 Midterm EDA Exam Problem 1.a\n03/11/2022 Midterm EDA Exam Problem 1.b\n02/11/2023 Midterm EDA Exam Problem 1.b\n07/06/2021 Final EDA Exam Problem 1.a\n\nThe solutions of the above problems are in the same pdf containing their statement."
+  },
+  {
+    "objectID": "problems/index.html#sec-P2",
+    "href": "problems/index.html#sec-P2",
+    "title": "Problem Classes",
+    "section": "P2: Analysis of algorithms",
+    "text": "P2: Analysis of algorithms\nThis session is about finding the asymptotic cost (i.e. running time) of simple algorithms as a function of the input size.\nThe theoretical tools we use are:\n\nnotable sums from the problem class P1 (Exercise 1.1)\nAsymptotic notation\nAnalysis of Iterative Algorithms (look at your theory slides, for instance)\nMaster Theorem(s)\nInsertion Sort\n\nWe continue with some problems from the EDA ProblemSet, section 1 Analysis of algorithms.\n\n\n\n\n\nExercise number\n\n\nTitle\n\n\n\n\n\n\nExercise 1.12\n\n\nFors, and fors inside fors\n\n\n\n\nExercise 1.13\n\n\nParameters\n\n\n\n\nExercise 1.14\n\n\nOhs, Omegas, or Thetas\n\n\n\n\nExercise 1.18\n\n\nA mystery!\n\n\n\n\nExercise 1.23\n\n\nFast and slow exponentiation\n\n\n\n\n\nNo matching items\n\n\n\n\n\n\n\n\nAfter class\n\n\n\nTo test your understanding, try exercises from the Collection of Solved Exams. For instance:\n\n06/11/2020 Midterm EDA Exam Problem 2.a and 2.b\n15/04/2021 Midterm EDA Exam Problem 1.b and 1.c\n03/11/2022 Midterm EDA Exam Problem 2.a\n02/11/2023 Midterm EDA Exam Problem 2\n07/06/2021 Final EDA Exam Problem 1.c\n\nThe solutions of the above problems are in the same pdf containing their statement."
+  },
+  {
     "objectID": "problems/index.html#section",
     "href": "problems/index.html#section",
     "title": "Problem Classes",
-    "section": "P1: Asymptotic notation",
-    "text": "P1: Asymptotic notation\nWelcome to the first EDA problem class!\nThis session is about exercises on the asymptotic growth of functions. Later in the course we will be interested in functions associated to algorithms (typically the running time and how it scales w.r.t. the input size), but for the moment they are just functions without any algorithm in mind.\nThe theoretical tools we use are:\n\nInduction\nLimits\nBasic properties of \\(\\log(n)\\) and \\(n!\\)\nAsymptotic notation (\\(O\\), \\(\\Omega\\) and \\(\\Theta\\))\n\nWe consider the following problems from the EDA ProblemSet, section 1 Analysis of algorithms.\n\n\n\n\n\nExercise number\n\n\nTitle\n\n\n\n\n\n\nExercise 1.1\n\n\nBig sums everywhere\n\n\n\n\nExercise 1.3\n\n\nIt takes ages\n\n\n\n\nExercise 1.7\n\n\nPolynomials and logarithms\n\n\n\n\nExercise 1.8\n\n\nGrowth orders I\n\n\n\n\nExercise 1.9\n\n\nGrowth orders II\n\n\n\n\n\nNo matching items\n\n\n\n\n\n\n\n\nAfter class\n\n\n\nTo test your understanding try exercises from the Collection of Solved Exams. For instance:\n\n06/11/2020 Midterm EDA Exam Problem 1.b\n15/04/2021 Midterm EDA Exam Problem 1\n03/11/2022 Midterm EDA Exam Problem 1.b\n02/11/2023 Midterm EDA Exam Problem 1.b\n07/06/2021 Final EDA Exam Problem 1.a\n\nThe solutions of the above problems are in the same pdf containing their statement."
+    "section": "P3: Divide and Conquer",
+    "text": "P3: Divide and Conquer\n\n\n\n\n\n\nImportant\n\n\n\nThis section is likely to change closer to the class.\n\n\nIn this class we solve some problems from the EDA ProblemSet, section 2 Divide and conquer.\n\n\n\n\n\nExercise number\n\n\nTitle\n\n\n\n\n\n\nExercise 2.11\n\n\nCounting inversions\n\n\n\n\nExercise 2.12\n\n\nOne inversion\n\n\n\n\nExercise 2.10\n\n\nQuim’s wild sorting algorithm\n\n\n\n\nExercise 2.9\n\n\nUnimodal\n\n\n\n\n\nNo matching items\n\n\n\n\n\n\n\n\nAfter class\n\n\n\nTo test your understanding, try exercises from the Collection of Solved Exams. For instance:\n\nTBD\nTBD\nTBD\nTBD\nTBD\n\nThe solutions of the above problems are in the same pdf containing their statement."
   },
   {
     "objectID": "problems/index.html#section-1",
     "href": "problems/index.html#section-1",
     "title": "Problem Classes",
-    "section": "P2: Analysis of algorithms",
-    "text": "P2: Analysis of algorithms\n\n\n\n\n\n\nImportant\n\n\n\nThis section is likely to change closer to the class.\n\n\nIn this class we continue with some problems from the EDA ProblemSet, section 1 Analysis of algorithms.\n\n\n\n\n\nExercise number\n\n\nTitle\n\n\n\n\n\n\nExercise 1.12\n\n\nFors, and fors inside fors\n\n\n\n\nExercise 1.13\n\n\nParameters\n\n\n\n\nExercise 1.14\n\n\nOhs, Omegas, or Thetas\n\n\n\n\nExercise 1.18\n\n\nA mystery\n\n\n\n\nExercise 1.23\n\n\nFast and slow exponentiation\n\n\n\n\n\nNo matching items"
+    "section": "P4: Dictionaries",
+    "text": "P4: Dictionaries\n\n\n\n\n\n\nImportant\n\n\n\nThis section will be available closer to the class."
   },
   {
     "objectID": "problems/index.html#section-2",
     "href": "problems/index.html#section-2",
     "title": "Problem Classes",
-    "section": "P3: Divide and Conquer",
-    "text": "P3: Divide and Conquer\n\n\n\n\n\n\nImportant\n\n\n\nThis section is likely to change closer to the class.\n\n\nIn this class we solve some problems from the EDA ProblemSet, section 2 Divide and conquer.\n\n\n\n\n\nExercise number\n\n\nTitle\n\n\n\n\n\n\nExercise 2.11\n\n\nCounting inversions\n\n\n\n\nExercise 2.12\n\n\nOne inversion\n\n\n\n\nExercise 2.10\n\n\nQuim’s wild sorting algorithm\n\n\n\n\nExercise 2.9\n\n\nUnimodal\n\n\n\n\n\nNo matching items"
+    "section": "P5: Priority Queues",
+    "text": "P5: Priority Queues\n\n\n\n\n\n\nImportant\n\n\n\nThis section will be available closer to the class."
   },
   {
     "objectID": "problems/index.html#section-3",
     "href": "problems/index.html#section-3",
     "title": "Problem Classes",
-    "section": "P4: Dictionaries",
-    "text": "P4: Dictionaries\n\n\n\n\n\n\nImportant\n\n\n\nThis section will be available closer to the class."
-  },
-  {
-    "objectID": "problems/index.html#section-4",
-    "href": "problems/index.html#section-4",
-    "title": "Problem Classes",
-    "section": "P5: Priority Queues",
-    "text": "P5: Priority Queues\n\n\n\n\n\n\nImportant\n\n\n\nThis section will be available closer to the class."
-  },
-  {
-    "objectID": "problems/index.html#section-5",
-    "href": "problems/index.html#section-5",
-    "title": "Problem Classes",
     "section": "P6: Graphs",
     "text": "P6: Graphs\n\n\n\n\n\n\nImportant\n\n\n\nThis section will be available closer to the class."
   },
   {
-    "objectID": "problems/index.html#section-6",
-    "href": "problems/index.html#section-6",
+    "objectID": "problems/index.html#section-4",
+    "href": "problems/index.html#section-4",
     "title": "Problem Classes",
     "section": "P7: Intractability",
     "text": "P7: Intractability\n\n\n\n\n\n\nImportant\n\n\n\nThis section will be available closer to the class."
@@ -425,5 +432,19 @@
     "title": "Limits",
     "section": "Limits in SageMath",
     "text": "Limits in SageMath\nThere are several CAS (Computer Algebra Systems) that allow to perform exact symbolic computations. Some examples are SymPy, Maxima, or Mathematica (among many others). Each has its own slightly different syntax and they are all extremely useful to automate routine calculations such as limits, derivatives, integration, and matrix operations (among a lot of other things).\nIn this course you need to be able to compute limits step-by-step and justify your calculations, but: you might want to use some CAS to double-check the correctness of your calculations. Treat CASs as being 90% correct, that is they might be wrong but it is quite unlikely.\nFor instance, we can use SageMath to compute limits as in the following example.\n\n\n\n\n\n\nExample\n\n\n\nSuppose we want to compute \\(\\displaystyle\\lim_{x\\to\\infty}\\frac{f(x)}{g(x)}\\) for \\(f(x)=2^{\\sqrt{\\log(x)}}\\) and \\(g(x)=\\sqrt{x}\\). In SageMath this could be done as follows.\n\n\n\n\n\nThe following table recaps the syntax of common functions in SageMath.\n\n\n\n\n\n\n\nFunction\nRepresentation in SageMath\n\n\n\n\n\\(e^x\\)\ne^x or exp(x)\n\n\n\\(2^x\\)\n2^x\n\n\n\\(\\displaystyle\\frac{3x^2+4x^{1/3}+2}{x+1}\\)\n(3*x^2 + 4*x^(1/3) + 2)/(x+1)\n\n\n\\(\\ln(x)\\)\nlog(x)\n\n\n\\(\\log_2(x)\\)\nlog(x,2)\n\n\n\\(\\sqrt{x}\\)\nsqrt(x)\n\n\n\\(x!\\)\nfactorial(x)\n\n\n\n\n\n\n\n\n\nImportant\n\n\n\nDo not use \\(n\\) as the name of your variable, since this would tell SageMath to treat it as an integer. In our context, this would only create problems. Use \\(x\\) instead.\n\n\nExercise: Use SageMath to verify Stirling’s approximation, i.e. that the ratio of \\(x!\\) with \\(\\sqrt{x}\\left(\\frac{x}{e}\\right)^x\\) tends to a constant when \\(x\\to \\infty\\)."
+  },
+  {
+    "objectID": "theory_bits/master_theorem.html",
+    "href": "theory_bits/master_theorem.html",
+    "title": "The Master Theorem(s)",
+    "section": "",
+    "text": "Master Theorem Subtract-and-Conquer\n\n\n\nGiven the recurrence \\[\nT(n)=\n\\begin{cases}\ng(n) & \\text{if } 0\\leq n &lt; n_0\\ ,\\\\\na\\cdot T(n-b)+ f(n) &\\text{if } n \\geq n_0\\ ,\n\\end{cases}\n\\] with \\(a,b, n_0, \\gamma\\) all non-negative constants, \\(g\\) an arbitrary function and \\(f(n)=\\Theta(n^\\gamma)\\), the closed form of \\(T\\) is\n\\[\nT(n)=\n\\begin{cases}\n\\Theta(n^\\gamma) &\\text{if } a &lt; 1\\ ,\\\\\n\\Theta(n^{\\gamma+1})&\\text{if } a = 1\\ ,\\\\\n\\Theta(a^{n/b}n^\\gamma)&\\text{if } a &gt; 1\\ .\n\\end{cases}\n\\]\nThe statement above still holds if instead of \\(\\frac{n}{b}\\) in the recurrence, there is any function in \\(\\frac{n}{b}+O(1)\\), for instance \\(\\lceil \\frac{n}{b}\\rceil\\) or \\(\\lfloor \\frac{n}{b}\\rfloor\\).1\nIn particular, the recurrence giving the running time of the MergeSort algorithm, i.e.\n\\[\nT(n)=T\\left(\\left\\lfloor\\frac{n}{2}\\right\\rfloor\\right)+T\\left(\\left\\lceil\\frac{n}{2}\\right\\rceil\\right)+\\Theta(n)\n\\]\nand the recurrence\n\\[\nS(n)=2S\\left(\\frac{n}{2}\\right)+\\Theta(n)\n\\]\nboth have the same solution, i.e. \\(T(n)=S(n)=\\Theta(n\\log n)\\). Which, btw, is asymptotically the best possible achieavable by comparison-based sorting algorithms."
+  },
+  {
+    "objectID": "theory_bits/master_theorem.html#footnotes",
+    "href": "theory_bits/master_theorem.html#footnotes",
+    "title": "The Master Theorem(s)",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nThis is a consequence of the Akra-Bazzi Theorem, a generalization of the Master Theorem used to handle much more general forms of recurrences.↩︎"
   }
 ]

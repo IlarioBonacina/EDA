@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>EDA - Fors, and fors inside fors</title>
+<title>EDA - The Master Theorem(s)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,62 +20,28 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../">
-<script src="../../site_libs/quarto-html/quarto.js"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<script src="../../site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -105,6 +71,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -115,7 +110,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../../index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">EDA</span>
     </a>
   </div>
@@ -126,22 +121,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../problems/index.html"> <i class="bi bi-body-text" role="img">
+    <a class="nav-link" href="../problems/index.html"> <i class="bi bi-body-text" role="img">
 </i> 
 <span class="menu-text">Problem Classes</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../labs/index.html"> <i class="bi bi-pc-display" role="img">
+    <a class="nav-link" href="../labs/index.html"> <i class="bi bi-pc-display" role="img">
 </i> 
 <span class="menu-text">Lab Classes</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../references/index.html"> <i class="bi bi-book" role="img">
+    <a class="nav-link" href="../references/index.html"> <i class="bi bi-book" role="img">
 </i> 
 <span class="menu-text">References</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../about.html"> <i class="bi bi-info-circle-fill" role="img">
+    <a class="nav-link" href="../about.html"> <i class="bi bi-info-circle-fill" role="img">
 </i> 
 <span class="menu-text">Contacts</span></a>
   </li>  
@@ -161,13 +156,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         
     <div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="https://en.cppreference.com/w/"><i class="bi bi-code-slash"></i>cppreference.com</a></li><li><a href="https://jutge.org"><i class="bi bi-link-45deg"></i>Jutge.org</a></li><li><a href="https://www.cs.upc.edu/eda/"><i class="bi bi-link-45deg"></i>EDA Main Page</a></li><li><a href="https://www.cs.upc.edu/eda-eng/data/uploads/eda-problem-set.eng.pdf"><i class="bi bi-book"></i>EDA Problem Set</a></li><li><a href="https://www.cs.upc.edu/~oliveras/examens.eng.pdf"><i class="bi bi-book"></i>Collection of Solved Exams</a></li><li><a href="https://www.cs.upc.edu/eda/data/uploads/eda-codis.pdf"><i class="bi bi-book"></i>Algorithms in C++</a></li></ul></div></div>
 <!-- main -->
-<main class="content page-columns page-full" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Fors, and fors inside fors</h1>
-<p class="subtitle lead">Exercise 1.12</p>
-  </div>
+<h1 class="title">The Master Theorem(s)</h1>
+</div>
 
 
 
@@ -183,129 +177,221 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Master Theorem <em>Subtract-and-Conquer</em>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Given the recurrence <span class="math display">\[
+T(n)=
+\begin{cases}
+g(n) &amp; \text{if } 0\leq n &lt; n_0\ ,\\
+a\cdot T(n-b)+ f(n) &amp;\text{if } n \geq n_0\ ,
+\end{cases}
+\]</span> with <span class="math inline">\(a,b, n_0, \gamma\)</span> all non-negative <strong>constants</strong>, <span class="math inline">\(g\)</span> an arbitrary function and <span class="math inline">\(f(n)=\Theta(n^\gamma)\)</span>, the closed form of <span class="math inline">\(T\)</span> is</p>
+<p><span class="math display">\[
+T(n)=
+\begin{cases}
+\Theta(n^\gamma) &amp;\text{if } a &lt; 1\ ,\\
+\Theta(n^{\gamma+1})&amp;\text{if } a = 1\ ,\\
+\Theta(a^{n/b}n^\gamma)&amp;\text{if } a &gt; 1\ .
+\end{cases}
+\]</span></p>
+</div>
+</div>
+<div class="hidden">
+<div class="callout callout-style-simple callout-none no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Proof (sketch)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p>Without loss of generality we can assume that <span class="math inline">\(n_0\)</span> is large enough so that there are constants <span class="math inline">\(c,C\)</span> such that for all <span class="math inline">\(n\geq n_0\)</span>, <span class="math inline">\(cn^{\gamma}\leq f(n)\leq Cn^{\gamma}\)</span>.</p>
+<p>By repeated substitution, we have</p>
+<p><span class="math display">\[
+\begin{align}
+T(n)&amp;= f(n^{\gamma}) + aT(n-b)\\
+    &amp;= f(n^\gamma) + af((n-b)^\gamma) +a^2T(n-2b)\\
+    &amp;= f(n^\gamma) + af((n-b)^\gamma) +a^2f((n-2b)^\gamma)+a^3T(n-3b)\\
+    &amp;=\cdots\\
+    &amp;= \sum_{i=0}^{\lfloor (n-n_0)/b\rfloor -1}a^i f((n-ib)^\gamma) + g(n-\lfloor (n-n_0)/b\rfloor b)
+\end{align}
+\]</span></p>
+<p>We use the fact that for every <span class="math inline">\(i=0,\dots,\lfloor n/b\rfloor -1\)</span>, <span class="math display">\[
+f((n-ib)^\gamma)\leq f(n)\leq Cn^\gamma\ .
+\]</span></p>
+<p>Moreover, for <span class="math inline">\(i=0, \dots, \lfloor (n-n_0)/2b\rfloor\)</span>, <span class="math inline">\(f((n-ib)^\gamma)=\Theta(n^\gamma)\)</span>.</p>
+<p>We also have that <span class="math inline">\(g(n-\lfloor (n-n_0)/b\rfloor b)=\Theta(1)\)</span>, and, actually, for every <span class="math inline">\(n\)</span>, there are two constants <span class="math inline">\(d,D\)</span> such that</p>
+<p><span class="math display">\[
+d\leq g(n-\lfloor (n-n_0)/b\rfloor b) \leq D\ .
+\]</span></p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Case 1: <span class="math inline">\(a&lt;1\)</span></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Case 2: <span class="math inline">\(a=1\)</span></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">Case 3: <span class="math inline">\(a&gt;1\)</span></a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 
-<div class="no-row-height column-margin column-container"><div class="">
-<p><img src="loops.png" class="img-fluid"></p>
-</div></div><p>For each of the following fragments of code, analyze its cost.</p>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="true" aria-label="Toggle callout">
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p><span class="math display">\[
+\begin{align}
+T(n) &amp;= \sum_{i=0}^{\lfloor (n-n_0)/b\rfloor -1}a^i f((n-ib)^\gamma) + g(n-\lfloor (n-n_0)/b\rfloor b)\\
+     &amp;\leq  \sum_{i=0}^{\lfloor (n-n_0)/b\rfloor -1} f((n-ib)^\gamma) + D\\
+     &amp;\leq \left\lfloor\frac{n-n_0}{b}\right\rfloor Cn^\gamma + D\\
+     &amp;= O(n^{\gamma+1})\ .
+\end{align}
+\]</span></p>
+<p><span class="math display">\[
+\begin{align}
+T(n) &amp;= \sum_{i=0}^{\lfloor (n-n_0)/b\rfloor -1}a^i f((n-ib)^\gamma)+ g(n-\lfloor (n-n_0)/b\rfloor b)\\
+     &amp;\geq  \sum_{i=0}^{\lfloor (n-n_0)/2b\rfloor} f((n-ib)^\gamma) + d\\
+     &amp;\geq \left\lfloor\frac{n}{b}\right\rfloor \Theta(n^\gamma)\\
+     &amp;= \Theta(n^{\gamma+1})\ .
+\end{align}
+\]</span></p>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<p>The upper bound is <span class="math inline">\(O(a^{n/b}n^\gamma)\)</span>.</p>
+<p>Assume <span class="math inline">\(\gamma=1\)</span> and <span class="math inline">\(f(n)=n\)</span>, then the recurrence becomes</p>
+<p><span class="math display">\[
+\begin{align}
+T(n)&amp;= n+ a(n-b)+a^2(n-2b)+a^3(n-3b)+ \cdots
+\end{align}
+\]</span></p>
+<p>assume the sum above has <span class="math inline">\(k\)</span> terms (<span class="math inline">\(k\sim n/b\)</span>). Then,</p>
+<p><span class="math display">\[
+\begin{align}
+T(n)&amp;=\sum_{i=0}^k a^i(n-ib)\\
+    &amp;= n\sum_{i=0}^k a^i -ab\sum_{i=1}^k ia^{i-1}\\
+    &amp;= n\frac{a^{k+1}-1}{a-1}-a\left.\left(\frac{d}{dx} \frac{x^{k+1}-1}{x-1}\right)\right|_{x=a}\\
+\end{align}
+\]</span></p>
+<p><span class="math display">\[
+\begin{align}
+T(n)&amp;=\sum_{i=0}^k a^i(n-ib)^2\\
+    &amp;=\sum_{i=0}^k a^i(n^2+i^2b^2-2ibn)\\
+    &amp;=n^2\sum_{i=0}^k a^i + b^2\sum_{i=0}^k i^2a^i -2bn\sum_{i=0}^k i a^i
+\end{align}
+\]</span></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Warning
+Master Theorem <em>Divide-and-Conquer</em>
 </div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
-<p>You might be tempted to eye-ball the cost of some of the fragments below. This will <strong>very easily</strong> lead to errors.</p>
+<p>Given the recurrence <span class="math display">\[
+T(n)=
+\begin{cases}
+g(n) &amp; \text{if } 0\leq n &lt; n_0\ ,\\
+a\cdot T\left(\frac{n}{b}\right)+ f(n) &amp;\text{if } n \geq n_0\ ,
+\end{cases}
+\]</span> with <span class="math inline">\(a\geq 1,b&gt; 1, n_0, \gamma\)</span> all non-negative <strong>constants</strong>, <span class="math inline">\(g\)</span> an arbitrary function and <span class="math inline">\(f(n)=\Theta(n^\gamma)\)</span>, the closed form of <span class="math inline">\(T\)</span> is</p>
+<p><span class="math display">\[
+T(n)=
+\begin{cases}
+\Theta(n^\gamma) &amp;\text{if  $a&lt;b^\gamma$ (equivalently, $\log_b a &lt;\gamma$)}\ ,\\
+\Theta(n^{\gamma}\log n)&amp;\text{if  $a=b^\gamma$ (equivalently, $\log_b a =\gamma$)}\ ,\\
+\Theta(a^{\log_b n})=\Theta(n^{\log_b a})&amp;\text{if  $a&gt;b^\gamma$ (equivalently, $\log_b a &gt;\gamma$)}\ .
+\end{cases}
+\]</span></p>
 </div>
 </div>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<p>The statement above still holds if instead of <span class="math inline">\(\frac{n}{b}\)</span> in the recurrence, there is any function in <span class="math inline">\(\frac{n}{b}+O(1)\)</span>, for instance <span class="math inline">\(\lceil \frac{n}{b}\rceil\)</span> or <span class="math inline">\(\lfloor \frac{n}{b}\rfloor\)</span>.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p>In particular, the recurrence giving the running time of the MergeSort algorithm, i.e.</p>
+<p><span class="math display">\[
+T(n)=T\left(\left\lfloor\frac{n}{2}\right\rfloor\right)+T\left(\left\lceil\frac{n}{2}\right\rceil\right)+\Theta(n)
+\]</span></p>
+<p>and the recurrence</p>
+<p><span class="math display">\[
+S(n)=2S\left(\frac{n}{2}\right)+\Theta(n)
+\]</span></p>
+<p>both have the same solution, i.e.&nbsp;<span class="math inline">\(T(n)=S(n)=\Theta(n\log n)\)</span>. Which, btw, is asymptotically the best possible achieavable by <a href="../theory_bits/sorting_algorithms.html">comparison-based sorting algorithms</a>.</p>
+<div class="hidden">
+<p>Suppose we want to solve the recurrence</p>
+<p><span class="math display">\[
+T(n)=
+\begin{cases}
+f(n)+aT\left(\frac{n}{b}\right)\ &amp;\text{if } n&gt; n_0\\
+c &amp; \text{if } n\leq n_0
+\end{cases}
+\]</span> for constants <span class="math inline">\(a,b,c\)</span>. For simplicity, assume <span class="math inline">\(n_0=1\)</span> and <span class="math inline">\(c=1\)</span>.</p>
+<p>Assume that <span class="math inline">\(n\)</span> is a power of <span class="math inline">\(b\)</span>. If <span class="math inline">\(f(n)=n^\gamma\)</span> for some constant <span class="math inline">\(\gamma\)</span>, we get</p>
+<p><span class="math display">\[
+\begin{align}
+T(n)&amp;= f(n)+ aT\left(\frac{n}{b}\right)\\
+&amp; = f(n)+ af\left(\frac{n}{b}\right)+aT\left(\frac{n}{b^2}\right)\\
+&amp; = f(n)+ af\left(\frac{n}{b}\right)+ a^2f\left(\frac{n}{b^2}\right)+a^2T\left(\frac{n}{b^3}\right)\\
+&amp; = \cdots\\
+&amp; = \sum_{i=0}^{\log_b n-1}a^if\left(\frac{n}{b^i}\right)+a^{\log_b n}T(1) \qquad\text{[by repeated substitution]}\\
+&amp; = \sum_{i=0}^{\log_b n}a^i \left(\frac{n}{b^i}\right)^\gamma\qquad\text{[for simplicity let $f(n)=n^\gamma$]}\\
+&amp; = n^\gamma \sum_{i=0}^{\log_b n} \left(\frac{a}{b^\gamma}\right)^i
+\end{align}
+\]</span></p>
+<p><strong>Case 1:</strong> <span class="math inline">\(a&lt;b^\gamma\)</span> (equivalently, <span class="math inline">\(\log_b a &lt;\gamma\)</span>)<br>
+<span class="math inline">\(\displaystyle\sum_{i=0}^{\log_b n} \left(\frac{a}{b^\gamma}\right)^i&lt; \sum_{i=0}^{\infty} \left(\frac{a}{b^\gamma}\right)^i\)</span> which converges to a constant. Hence <span class="math inline">\(T(n)=\Theta(n^\gamma)\)</span>.</p>
+<p><strong>Case 2:</strong> <span class="math inline">\(a=b^\gamma\)</span> (equivalently, <span class="math inline">\(\log_b a =\gamma\)</span>)<br>
+<span class="math inline">\(\displaystyle\sum_{i=0}^{\log_b n} \left(\frac{a}{b^\gamma}\right)^i=\log_b n +1=\Theta(\log n)\)</span>. Hence <span class="math inline">\(T(n)=\Theta(n^\gamma \log n)\)</span>.</p>
+<p><strong>Case 3:</strong> <span class="math inline">\(a&gt; b^\gamma\)</span> (equivalently, <span class="math inline">\(\log_b a &gt;\gamma\)</span>)<br>
+<span class="math inline">\(\displaystyle\sum_{i=0}^{\log_b n} \left(\frac{a}{b^\gamma}\right)^i=\Theta\left(\left(\frac{a}{b^\gamma}\right)^{\log_b n}\right)=\Theta\left(\frac{a^{\log_b n}}{n^\gamma}\right)\)</span>. Hence, <span class="math inline">\(T(n)=\Theta(a^{\log_b n})=\Theta(n^{\log_b a})\)</span>.</p>
+<p>Finally, let’s argue briefly on why <span class="math inline">\(T(m)\)</span> has the same asymptotics even when <span class="math inline">\(m\)</span> is not a power of <span class="math inline">\(b\)</span>. In all three cases it holds that <span class="math inline">\(T(n)=\Theta(T(bn))\)</span>. Using this fact, to prove that <span class="math inline">\(T(m)\)</span> has the same asymptotics even when <span class="math inline">\(m\)</span> is not a power of <span class="math inline">\(b\)</span>, it is enough to show that <span class="math inline">\(T\left(b^{\lfloor \log_b m\rfloor}\right)\leq T(m)\leq T\left(b^{\lceil \log_b m\rceil}\right)\)</span>. This follows from the fact that <span class="math inline">\(T(\cdot)\)</span> is monotone non-decreasing. We can prove this showing by induction on <span class="math inline">\(m\)</span> that <span class="math inline">\(T(m+1)\geq T(m)\)</span>.</p>
+<p><span class="math display">\[
+\begin{align}
+T(m+1) = f(m+1) + a T\left(\frac{m+1}{b}\right)
+\end{align}
+\]</span></p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Hint
+Advanced example
 </div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>To do this exercise you might want to look again at the sums in <a href="../../problems/1.1/index.html">Exercise 1.1</a>.</p>
+<p>Sometimes it is not possible to apply the Master Theorem directly to some recurrences but after some change of variables it becomes applicable.</p>
+<p>For instance, the recurrence <span class="math inline">\(T(n) = 2T(\lfloor\sqrt{n}\rfloor) + \log(n)\)</span> is not solvable directly using the Master Theorem, but after the change of variables <span class="math inline">\(m=\log n\)</span> it becomes</p>
+<p><span class="math display">\[
+T(2^m)=2T(\lfloor 2^{m/2}\rfloor)+m\ .
+\]</span> If we call <span class="math inline">\(S(x)=T(\lfloor 2^x\rfloor)\)</span>, then the recurrence above is the same as</p>
+<p><span class="math display">\[
+S(m)=2S(m/2)+m\ ,
+\]</span> and now we can apply the Master Theorem.</p>
 </div>
 </div>
 </div>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Fragment 1</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> s <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> n<span class="op">;</span> <span class="op">++</span>i<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">++</span>s<span class="op">;</span> </span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Fragment 2 </span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> s <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> n<span class="op">;</span> i <span class="op">+=</span> <span class="dv">2</span><span class="op">)</span> <span class="op">{</span> </span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">++</span>s<span class="op">;</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb3"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Fragment 3</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> s <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> n<span class="op">;</span> <span class="op">++</span>i<span class="op">)</span> <span class="op">{</span> </span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">++</span>s<span class="op">;</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> j <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> n<span class="op">;</span> <span class="op">++</span>j<span class="op">)</span> <span class="op">{</span> </span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="op">++</span>s<span class="op">;</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb4"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Fragment 4</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> s <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> n<span class="op">;</span> <span class="op">++</span>i<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> j <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> j <span class="op">&lt;</span> n<span class="op">;</span> <span class="op">++</span>j<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>        <span class="op">++</span>s<span class="op">;</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb5"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Fragment 5</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> s <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> n<span class="op">;</span> <span class="op">++</span>i<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> j <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> j <span class="op">&lt;</span> i<span class="op">;</span> <span class="op">++</span>j<span class="op">)</span> <span class="op">{</span> </span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>        <span class="op">++</span>s<span class="op">;</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb6"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Fragment 6</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> s <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> n<span class="op">;</span> <span class="op">++</span>i<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> j <span class="op">=</span> i<span class="op">;</span> j <span class="op">&lt;</span> n<span class="op">;</span> <span class="op">++</span>j<span class="op">)</span> <span class="op">{</span> </span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>        <span class="op">++</span>s<span class="op">;</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb7"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Fragment 7</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> s <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> n<span class="op">;</span> <span class="op">++</span>i<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> j <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> j <span class="op">&lt;</span> n<span class="op">;</span> <span class="op">++</span>j<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> k <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> k <span class="op">&lt;</span> n<span class="op">;</span> <span class="op">++</span>k<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>            <span class="op">++</span>s<span class="op">;</span> </span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span>   </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb8"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Fragment 8</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> s <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> n<span class="op">;</span> <span class="op">++</span>i<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> j <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> j <span class="op">&lt;</span> i<span class="op">;</span> <span class="op">++</span>j<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> k <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> k <span class="op">&lt;</span> j<span class="op">;</span> <span class="op">++</span>k<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>            <span class="op">++</span>s<span class="op">;</span></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb9"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Fragment 9</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> s <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> i <span class="op">&lt;=</span> n<span class="op">;</span> i <span class="op">*=</span> <span class="dv">2</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">++</span>s<span class="op">;</span> </span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb10"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Fragment 10</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> s <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> n<span class="op">;</span> <span class="op">++</span>i<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> j <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> j <span class="op">&lt;</span> i<span class="op">*</span>i<span class="op">;</span> <span class="op">++</span>j<span class="op">)</span> <span class="op">{</span> </span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> k <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> k <span class="op">&lt;</span> n<span class="op">;</span> <span class="op">++</span>k<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>            <span class="op">++</span>s<span class="op">;</span> </span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb11"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Fragment 11</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> s <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> n<span class="op">;</span> <span class="op">++</span>i<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> j <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> j <span class="op">&lt;</span> i<span class="op">*</span>i<span class="op">;</span> <span class="op">++</span>j<span class="op">)</span> <span class="op">{</span> </span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>j <span class="op">%</span> i <span class="op">==</span> <span class="dv">0</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> k <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> k <span class="op">&lt;</span> n<span class="op">;</span> <span class="op">++</span>k<span class="op">)</span> <span class="op">{</span> </span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>                <span class="op">++</span>s<span class="op">;</span></span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>            <span class="op">}</span></span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><a href="javascript:history.back()"><iconify-icon role="img" inline="" icon="twemoji:back-arrow" style="font-size: 2em;" aria-label="Icon back-arrow from twemoji Iconify.design set." title="Icon back-arrow from twemoji Iconify.design set."></iconify-icon></a></p>
 
 
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>This is a consequence of the <a href="https://en.wikipedia.org/wiki/Akra–Bazzi_method">Akra-Bazzi Theorem</a>, a generalization of the Master Theorem used to handle much more general forms of recurrences.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -864,5 +950,5 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
+<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>
