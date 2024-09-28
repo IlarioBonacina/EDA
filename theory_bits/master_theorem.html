@@ -199,7 +199,7 @@ T(n)=
 \begin{cases}
 \Theta(n^\gamma) &amp;\text{if } a &lt; 1\ ,\\
 \Theta(n^{\gamma+1})&amp;\text{if } a = 1\ ,\\
-\Theta(a^{n/b}n^\gamma)&amp;\text{if } a &gt; 1\ .
+\Theta(a^{n/b})&amp;\text{if } a &gt; 1\ .
 \end{cases}
 \]</span></p>
 </div>
@@ -268,7 +268,17 @@ T(n) &amp;= \sum_{i=0}^{\lfloor (n-n_0)/b\rfloor -1}a^i f((n-ib)^\gamma)+ g(n-\l
 T(n)&amp;= n+ a(n-b)+a^2(n-2b)+a^3(n-3b)+ \cdots
 \end{align}
 \]</span></p>
-<p>assume the sum above has <span class="math inline">\(k\)</span> terms (<span class="math inline">\(k\sim n/b\)</span>). Then,</p>
+<p><span class="math display">\[
+\begin{align}
+T(n) &amp;= aT(n-1)+n\\
+&amp;=a(aT(n-2)+(n-1))+n\\
+&amp;= a^2T(n-2) +a(n-1) + n\\
+&amp;=\sum_{i=0}^n a^i(n-i)\\
+&amp;= n\sum_{i=0}^n a^i -a\sum_{i=1}^n ia^{i-1}\\
+&amp;= n\frac{a^{n+1}-1}{a-1}-a\left.\left(\frac{d}{dx} \frac{x^{n+1}-1}{x-1}\right)\right|_{x=a}\\
+&amp;=\Theta(n a^n)
+\end{align}
+\]</span> assume the sum above has <span class="math inline">\(k\)</span> terms (<span class="math inline">\(k\sim n/b\)</span>). Then,</p>
 <p><span class="math display">\[
 \begin{align}
 T(n)&amp;=\sum_{i=0}^k a^i(n-ib)\\
