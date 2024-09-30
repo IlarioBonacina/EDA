@@ -284,7 +284,7 @@
     "href": "problems/1.18/index.html",
     "title": "A mystery!",
     "section": "",
-    "text": "Explain what the following algorithm does and give its cost as a function of \\(n\\).\nint mystery(int n) { \n    int f = 1;\n    for (int i = 2; i &lt;= n; ++i) \n        f *= i;\n    return f; \n}   \n\n\n\n\n\n\nExtra\n\n\n\nHow does the cost of the algorithm above compare asymptotically with e.g. \\(3^n\\) or \\(n^n\\)?"
+    "text": "Explain what the following algorithm does and give its cost as a function of \\(n\\).\nint mystery(int n) { \n    int f = 1;\n    for (int i = 2; i &lt;= n; ++i) \n        f *= i;\n    return f; \n}"
   },
   {
     "objectID": "problems/1.3/index.html",
