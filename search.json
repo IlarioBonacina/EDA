@@ -109,14 +109,14 @@
     "href": "problems/2.9/index.html",
     "title": "Unimodal",
     "section": "",
-    "text": "Write a divide and conquer algorithm that, given a vector that stores a unimodal sequence, finds its top in cost \\(O(\\log n)\\).\n\n\n\n\n\nThe Great Wave off Kanagawa Katsushika Hokusai\n\n\nArgue that the suggested algorithm has cost \\(O(\\log n)\\), and prove its correctness.\nA sequence of integers \\(A = (a_1, \\dots , a_n)\\) of length \\(n \\geq  3\\) is called unimodal if there exists an index \\(t\\) with \\(1\\leq t\\leq n\\) such that \\(a_1 &lt;a_2 &lt;\\dots&lt;a_t\\) and \\(a_t &gt;a_{t+1} &gt;\\dots&gt; a_n\\). In other words, the sequence \\(A\\) increases up to \\(a_t\\) and then decreases. The element \\(a_t\\) is called its top."
+    "text": "Write a divide and conquer algorithm that, given a vector that stores a unimodal sequence, finds its top in cost \\(O(\\log n)\\).\n\n\n\n\n\nThe Great Wave off Kanagawa Katsushika Hokusai\n\n\nArgue that the suggested algorithm has cost \\(O(\\log n)\\), and prove its correctness.\nA sequence of integers \\(A = (a_1, \\dots , a_n)\\) of length \\(n \\geq  3\\) is called unimodal if there exists an index \\(t\\) with \\(1\\leq t\\leq n\\) such that \\(a_1 &lt;a_2 &lt;\\dots&lt;a_t\\) and \\(a_t &gt;a_{t+1} &gt;\\dots&gt; a_n\\). In other words, the sequence \\(A\\) increases up to \\(a_t\\) and then decreases. The element \\(a_t\\) is called its top.\n\n\n\n\n\n\nExtra\n\n\n\nWhat if you didn’t want to find the top \\(t\\) but to tell whether an element \\(x\\) is in the unimodal sequence?\nAfter doing this exercise, you might want to solve the Jutge problem X82938 Search in a unimodal vector."
   },
   {
     "objectID": "problems/2.11/index.html",
     "href": "problems/2.11/index.html",
     "title": "Counting inversions",
     "section": "",
-    "text": "Write an algorithm that counts the number of inversions in a table with \\(n\\) elements. The worst-case cost of the algorithm should be \\(O(n \\log n)\\).\n\n\n\nAn inversion in a table \\(A[1 \\dots n]\\) is a pair of indices that point to elements in inverted order; that is, a pair \\((i, j)\\) such that \\(1 \\leq  i &lt; j \\leq n\\) and \\(A[i] &gt; A[j]\\)."
+    "text": "Write an algorithm that counts the number of inversions in a table with \\(n\\) elements. The worst-case cost of the algorithm should be \\(O(n \\log n)\\).\n\n\n\nAn inversion in a table \\(A[1 \\dots n]\\) is a pair of indices that point to elements in inverted order; that is, a pair \\((i, j)\\) such that \\(1 \\leq  i &lt; j \\leq n\\) and \\(A[i] &gt; A[j]\\).\n\n\n\n\n\n\nHint\n\n\n\n\n\nAs a starting point you might want to revise how the MergeSort works.\n\n\n\n\n\n\n\n\n\nExtra\n\n\n\nAfter doing this exercise, you might want to solve the Jutge problem P80595 How many inversions?"
   },
   {
     "objectID": "problems/1.9/index.html",
@@ -137,7 +137,7 @@
     "href": "problems/1.23/index.html",
     "title": "Fast and slow exponentiation",
     "section": "",
-    "text": "Analyze the cost of the following recursive functions.\nThey all compute \\(x^n\\) for \\(n \\in \\mathbb N\\) in different ways.\ndouble power_1 (double x, int n) { \n    if (n == 0){\n        return 1;\n    } \n    else {\n        return x*power_1(x, n - 1); \n    }\n}\ndouble power_2 (double x, int n) { \n    if (n == 0){\n        return 1;\n    } else if (n % 2 == 0) {\n        int y = power_2(x, n/2);\n        return y*y;\n    } else {\n        int y = power_2(x, n/2);\n        return y*y*x; \n    }\n}\ndouble power_3 (double x, int n) {\n    if (n == 0){\n        return 1;\n    } else if (n % 2 == 0) {\n        return power_3(x, n/2) * power_3(x, n/2); \n    } else {\n     return power_3(x, n/2) * power_3(x, n/2) * x; \n    }\n}\n\n\n\n\n\n\nExtra\n\n\n\nTry to solve the Jutge problem P29212 Modular exponentiation in the section Divide and conquer."
+    "text": "Analyze the cost of the following recursive functions.\nThey all compute \\(x^n\\) for \\(n \\in \\mathbb N\\) in different ways.\ndouble power_1 (double x, int n) { \n    if (n == 0){\n        return 1;\n    } \n    else {\n        return x*power_1(x, n - 1); \n    }\n}\ndouble power_2 (double x, int n) { \n    if (n == 0){\n        return 1;\n    } else if (n % 2 == 0) {\n        int y = power_2(x, n/2);\n        return y*y;\n    } else {\n        int y = power_2(x, n/2);\n        return y*y*x; \n    }\n}\ndouble power_3 (double x, int n) {\n    if (n == 0){\n        return 1;\n    } else if (n % 2 == 0) {\n        return power_3(x, n/2) * power_3(x, n/2); \n    } else {\n     return power_3(x, n/2) * power_3(x, n/2) * x; \n    }\n}\n\n\n\n\n\n\nAfter class\n\n\n\nTry to solve the following series of Jutge problems in the section Divide-and-Conquer before the next lab. They are all about efficient exponentiation (in one way or another).\n\nP29212 Modular exponentiation\nP61833 Powers of a matrix\nP74219 Fibonacci numbers (2)\nX39049 Powers of permutations\n\nUsing what we discussed in class, what is a good code to use as a starting point to solve the exercises above? (The exercises are listed in increasing order of difficulty.)"
   },
   {
     "objectID": "problems/1.14/index.html",
@@ -305,14 +305,14 @@
     "href": "problems/2.10/index.html",
     "title": "Quim’s wild sorting algorithm",
     "section": "",
-    "text": "Let \\(T[i\\dots j]\\) be a table with \\(n = j - i + 1\\) elements. Consider the following sorting algorithm known as Quim’s wild sorting algorithm:\n\n\n\n\nIf \\(n \\leq  2\\), sort the table directly.\nIf \\(n \\geq 3\\), “divide” the table into three intervals \\(T[i\\dots k - 1]\\), \\(T[k\\dots \\ell]\\), and \\(T[\\ell + 1\\dots j]\\), where \\(k = i + \\lfloor n/3\\rfloor\\) and \\(\\ell = j - \\lfloor n/3\\rfloor\\).\n\nThe algorithm recursively calls itself to first sort \\(T[i\\dots \\ell]\\), then sort \\(T[k\\dots j]\\), and finally sort \\(T[i\\dots \\ell]\\) again.\nProve that this algorithm is correct. Give a recurrence for its running time and solve it."
+    "text": "Let \\(T[i\\dots j]\\) be a table with \\(n = j - i + 1\\) elements. Consider the following sorting algorithm known as Quim’s wild sorting algorithm:\n\n\n\n\nIf \\(n \\leq  2\\), sort the table directly.\nIf \\(n \\geq 3\\), “divide” the table into three intervals \\(T[i\\dots k - 1]\\), \\(T[k\\dots \\ell]\\), and \\(T[\\ell + 1\\dots j]\\), where \\(k = i + \\lfloor n/3\\rfloor\\) and \\(\\ell = j - \\lfloor n/3\\rfloor\\).\n\nThe algorithm recursively calls itself to first sort \\(T[i\\dots \\ell]\\), then sort \\(T[k\\dots j]\\), and finally sort \\(T[i\\dots \\ell]\\) again.\nProve that this algorithm is correct. Give a recurrence for its running time and solve it.\n\n\n\n\n\n\nHint\n\n\n\n\n\nWriting the recurrence for the running time should be easier and using the Master Theorem it should not be difficult to solve. How good is the running time? Better or worse, say than Insertion Sort?\nProving that the algorithm is correct might be trickier, especially to write down as a formal argument. Don’t worry if you got stuck, but try to write down your argument anyway before class."
   },
   {
     "objectID": "problems/2.12/index.html",
     "href": "problems/2.12/index.html",
     "title": "One inversion",
     "section": "",
-    "text": "Describe an algorithm of cost \\(\\Theta(\\log n)\\) that, given an element \\(x\\) and a table \\(T[1\\dots n]\\) with a single inversion determines whether \\(x\\) is in \\(T\\) or not.\n\n\n\nFirst show that if a table has a single inversion, then the two elements of this inversion appear next to each other; that is, if \\((i, j)\\) is the unique inversion in the table, then \\(i + 1 = j\\). Then use this fact to construct the algorithm required.\nRecall that an inversion in a table \\(A[1 \\dots n]\\) is a pair of indices that point to elements in inverted order; that is, a pair \\((i, j)\\) such that \\(1 \\leq  i &lt; j \\leq n\\) and \\(A[i] &gt; A[j]\\)."
+    "text": "Describe an algorithm of cost \\(\\Theta(\\log n)\\) that, given an element \\(x\\) and a table \\(T[1\\dots n]\\) with a single inversion determines whether \\(x\\) is in \\(T\\) or not.\n\n\n\nFirst show that if a table has a single inversion, then the two elements of this inversion appear next to each other; that is, if \\((i, j)\\) is the unique inversion in the table, then \\(i + 1 = j\\). Then use this fact to construct the algorithm required.\nRecall that an inversion in a table \\(A[1 \\dots n]\\) is a pair of indices that point to elements in inverted order; that is, a pair \\((i, j)\\) such that \\(1 \\leq  i &lt; j \\leq n\\) and \\(A[i] &gt; A[j]\\).\n\n\n\n\n\n\nExtra\n\n\n\nWill your algorithm work if there were \\(2\\) inversions? Yes? No? Why?\nAfter doing this exercise, you might want to solve the Jutge problem P33412 Resistant dichotomic search"
   },
   {
     "objectID": "problems/index.html",
@@ -336,36 +336,36 @@
     "text": "P2: Analysis of algorithms\nThis session is about finding the asymptotic cost (i.e. running time) of simple algorithms as a function of the input size.\nThe theoretical tools we use are:\n\nnotable sums from the problem class P1 (Exercise 1.1)\nAsymptotic notation\nAnalysis of Iterative Algorithms (look at your theory slides, for instance)\nMaster Theorem(s)\nInsertion Sort\n\nWe continue with some problems from the EDA ProblemSet, section 1 Analysis of algorithms.\n\n\n\n\n\nExercise number\n\n\nTitle\n\n\n\n\n\n\nExercise 1.12\n\n\nFors, and fors inside fors\n\n\n\n\nExercise 1.13\n\n\nParameters\n\n\n\n\nExercise 1.14\n\n\nOhs, Omegas, or Thetas\n\n\n\n\nExercise 1.18\n\n\nA mystery!\n\n\n\n\nExercise 1.23\n\n\nFast and slow exponentiation\n\n\n\n\n\nNo matching items\n\n\n\n\n\n\n\n\nAfter class\n\n\n\nTo test your understanding, try exercises from the Collection of Solved Exams. For instance:\n\n06/11/2020 Midterm EDA Exam Problem 2.a and 2.b\n15/04/2021 Midterm EDA Exam Problem 1.b and 1.c\n03/11/2022 Midterm EDA Exam Problem 2.a\n02/11/2023 Midterm EDA Exam Problem 2\n07/06/2021 Final EDA Exam Problem 1.c\n\nThe solutions of the above problems are in the same pdf containing their statement."
   },
   {
-    "objectID": "problems/index.html#section",
-    "href": "problems/index.html#section",
+    "objectID": "problems/index.html#sec-P3",
+    "href": "problems/index.html#sec-P3",
     "title": "Problem Classes",
     "section": "P3: Divide and Conquer",
-    "text": "P3: Divide and Conquer\n\n\n\n\n\n\nImportant\n\n\n\nThis section is likely to change closer to the class.\n\n\nIn this class we solve some problems from the EDA ProblemSet, section 2 Divide and conquer.\n\n\n\n\n\nExercise number\n\n\nTitle\n\n\n\n\n\n\nExercise 2.11\n\n\nCounting inversions\n\n\n\n\nExercise 2.12\n\n\nOne inversion\n\n\n\n\nExercise 2.10\n\n\nQuim’s wild sorting algorithm\n\n\n\n\nExercise 2.9\n\n\nUnimodal\n\n\n\n\n\nNo matching items\n\n\n\n\n\n\n\n\nAfter class\n\n\n\nTo test your understanding, try exercises from the Collection of Solved Exams. For instance:\n\nTBD\nTBD\nTBD\nTBD\nTBD\n\nThe solutions of the above problems are in the same pdf containing their statement."
+    "text": "P3: Divide and Conquer\n\n\n\n\n\n\nImportant\n\n\n\nThis section is likely to change closer to the class.\n\n\nIn this class we solve some problems from the EDA ProblemSet, section 2 Divide and Conquer.\nThe theoretical tools we use are:\n\nBinary Search (revise your theory notes)\nMergeSort\nMaster Theorem\n\n\n\n\n\n\nExercise number\n\n\nTitle\n\n\n\n\n\n\nExercise 2.9\n\n\nUnimodal\n\n\n\n\nExercise 2.10\n\n\nQuim’s wild sorting algorithm\n\n\n\n\nExercise 2.11\n\n\nCounting inversions\n\n\n\n\nExercise 2.12\n\n\nOne inversion\n\n\n\n\n\nNo matching items\n\n\n\n\n\n\n\n\nAfter class\n\n\n\nTo test your understanding, you could try to solve the MidTerm EDA Exams from the Collection of Solved Exams where there is some C++ code to complete. As always, the solutions are in the very same pdf."
   },
   {
-    "objectID": "problems/index.html#section-1",
-    "href": "problems/index.html#section-1",
+    "objectID": "problems/index.html#section",
+    "href": "problems/index.html#section",
     "title": "Problem Classes",
     "section": "P4: Dictionaries",
     "text": "P4: Dictionaries\n\n\n\n\n\n\nImportant\n\n\n\nThis section will be available closer to the class."
   },
   {
-    "objectID": "problems/index.html#section-2",
-    "href": "problems/index.html#section-2",
+    "objectID": "problems/index.html#section-1",
+    "href": "problems/index.html#section-1",
     "title": "Problem Classes",
     "section": "P5: Priority Queues",
     "text": "P5: Priority Queues\n\n\n\n\n\n\nImportant\n\n\n\nThis section will be available closer to the class."
   },
   {
-    "objectID": "problems/index.html#section-3",
-    "href": "problems/index.html#section-3",
+    "objectID": "problems/index.html#section-2",
+    "href": "problems/index.html#section-2",
     "title": "Problem Classes",
     "section": "P6: Graphs",
     "text": "P6: Graphs\n\n\n\n\n\n\nImportant\n\n\n\nThis section will be available closer to the class."
   },
   {
-    "objectID": "problems/index.html#section-4",
-    "href": "problems/index.html#section-4",
+    "objectID": "problems/index.html#section-3",
+    "href": "problems/index.html#section-3",
     "title": "Problem Classes",
     "section": "P7: Intractability",
     "text": "P7: Intractability\n\n\n\n\n\n\nImportant\n\n\n\nThis section will be available closer to the class."

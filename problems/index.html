@@ -245,11 +245,11 @@ window.Quarto = {
   <ul>
   <li><a href="#sec-P1" id="toc-sec-P1" class="nav-link active" data-scroll-target="#sec-P1">P1: Asymptotic notation</a></li>
   <li><a href="#sec-P2" id="toc-sec-P2" class="nav-link" data-scroll-target="#sec-P2">P2: Analysis of algorithms</a></li>
-  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section">P3: Divide and Conquer</a></li>
-  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1">P4: Dictionaries</a></li>
-  <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2">P5: Priority Queues</a></li>
-  <li><a href="#section-3" id="toc-section-3" class="nav-link" data-scroll-target="#section-3">P6: Graphs</a></li>
-  <li><a href="#section-4" id="toc-section-4" class="nav-link" data-scroll-target="#section-4">P7: Intractability</a></li>
+  <li><a href="#sec-P3" id="toc-sec-P3" class="nav-link" data-scroll-target="#sec-P3">P3: Divide and Conquer</a></li>
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section">P4: Dictionaries</a></li>
+  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1">P5: Priority Queues</a></li>
+  <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2">P6: Graphs</a></li>
+  <li><a href="#section-3" id="toc-section-3" class="nav-link" data-scroll-target="#section-3">P7: Intractability</a></li>
   </ul>
 <div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="https://en.cppreference.com/w/"><i class="bi bi-code-slash"></i>cppreference.com</a></li><li><a href="https://jutge.org"><i class="bi bi-link-45deg"></i>Jutge.org</a></li><li><a href="https://www.cs.upc.edu/eda/"><i class="bi bi-link-45deg"></i>EDA Main Page</a></li><li><a href="https://www.cs.upc.edu/eda-eng/data/uploads/eda-problem-set.eng.pdf"><i class="bi bi-book"></i>EDA Problem Set</a></li><li><a href="https://www.cs.upc.edu/~oliveras/examens.eng.pdf"><i class="bi bi-book"></i>Collection of Solved Exams</a></li><li><a href="https://www.cs.upc.edu/eda/data/uploads/eda-codis.pdf"><i class="bi bi-book"></i>Algorithms in C++</a></li></ul></div></nav>
     </div>
@@ -468,7 +468,7 @@ Title
 <a href="../problems/1.18/index.html" class="title listing-title">A mystery!</a>
 </td>
 </tr>
-<tr data-index="4" data-categories="P2 - Analysis of Algrithms,asymptotics,exponentiation" data-listing-file-modified-sort="1727209712629" data-listing-reading-time-sort="1" data-listing-word-count-sort="139" data-listing-title-sort="Fast and slow exponentiation" data-listing-filename-sort="index.qmd">
+<tr data-index="4" data-categories="P2 - Analysis of Algrithms,asymptotics,exponentiation" data-listing-file-modified-sort="1727709878673" data-listing-reading-time-sort="2" data-listing-word-count-sort="203" data-listing-title-sort="Fast and slow exponentiation" data-listing-filename-sort="index.qmd">
 <td>
 <span class="listing-subtitle">Exercise 1.23</span>
 </td>
@@ -504,8 +504,8 @@ After class
 </div>
 </div>
 </section>
-<section id="section" class="level2">
-<h2 class="anchored" data-anchor-id="section">P3: Divide and Conquer</h2>
+<section id="sec-P3" class="level2">
+<h2 class="anchored" data-anchor-id="sec-P3">P3: Divide and Conquer</h2>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -519,7 +519,13 @@ Important
 <p>This section is likely to change closer to the class.</p>
 </div>
 </div>
-<p>In this class we solve some problems from the <a href="https://www.cs.upc.edu/eda-eng/data/uploads/eda-problem-set.eng.pdf">EDA ProblemSet</a>, section 2 <em>Divide and conquer</em>.</p>
+<p>In this class we solve some problems from the <a href="https://www.cs.upc.edu/eda-eng/data/uploads/eda-problem-set.eng.pdf">EDA ProblemSet</a>, section 2 <em>Divide and Conquer</em>.</p>
+<p>The theoretical tools we use are:</p>
+<ul>
+<li>Binary Search (revise your theory notes)</li>
+<li><a href="../theory_bits/sorting_algorithms.html">MergeSort</a></li>
+<li><a href="../theory_bits/master_theorem.html">Master Theorem</a></li>
+</ul>
 <div id="listing-exercises-P3" class="quarto-listing quarto-listing-container-table">
 <table class="quarto-listing-table table">
 <thead>
@@ -533,23 +539,15 @@ Title
 </tr>
 </thead>
 <tbody class="list">
-<tr data-index="0" data-categories="P3 - Divide and Conquer,inversions" data-listing-file-modified-sort="1725734073041" data-listing-reading-time-sort="1" data-listing-word-count-sort="69" data-listing-title-sort="Counting inversions" data-listing-filename-sort="index.qmd">
+<tr data-index="0" data-categories="P3 - Divide and Conquer,divide and conquer" data-listing-file-modified-sort="1727709268587" data-listing-reading-time-sort="1" data-listing-word-count-sort="142" data-listing-title-sort="Unimodal" data-listing-filename-sort="index.qmd">
 <td>
-<span class="listing-subtitle">Exercise 2.11</span>
+<span class="listing-subtitle">Exercise 2.9</span>
 </td>
 <td>
-<a href="../problems/2.11/index.html" class="title listing-title">Counting inversions</a>
-</td>
-</tr>
-<tr data-index="1" data-categories="P3 - Divide and Conquer,inversions,search" data-listing-file-modified-sort="1725734079685" data-listing-reading-time-sort="1" data-listing-word-count-sort="122" data-listing-title-sort="One inversion" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-subtitle">Exercise 2.12</span>
-</td>
-<td>
-<a href="../problems/2.12/index.html" class="title listing-title">One inversion</a>
+<a href="../problems/2.9/index.html" class="title listing-title">Unimodal</a>
 </td>
 </tr>
-<tr data-index="2" data-categories="P3 - Divide and Conquer,divide and conquer,sorting" data-listing-file-modified-sort="1725785626776" data-listing-reading-time-sort="1" data-listing-word-count-sort="108" data-listing-title-sort="Quim's wild sorting algorithm" data-listing-filename-sort="index.qmd">
+<tr data-index="1" data-categories="P3 - Divide and Conquer,divide and conquer,sorting" data-listing-file-modified-sort="1727710329518" data-listing-reading-time-sort="1" data-listing-word-count-sort="176" data-listing-title-sort="Quim's wild sorting algorithm" data-listing-filename-sort="index.qmd">
 <td>
 <span class="listing-subtitle">Exercise 2.10</span>
 </td>
@@ -557,12 +555,20 @@ Title
 <a href="../problems/2.10/index.html" class="title listing-title">Quim’s wild sorting algorithm</a>
 </td>
 </tr>
-<tr data-index="3" data-categories="P3 - Divide and Conquer,divide and conquer" data-listing-file-modified-sort="1725734057758" data-listing-reading-time-sort="1" data-listing-word-count-sort="104" data-listing-title-sort="Unimodal" data-listing-filename-sort="index.qmd">
+<tr data-index="2" data-categories="P3 - Divide and Conquer,inversions" data-listing-file-modified-sort="1727708680486" data-listing-reading-time-sort="1" data-listing-word-count-sort="99" data-listing-title-sort="Counting inversions" data-listing-filename-sort="index.qmd">
 <td>
-<span class="listing-subtitle">Exercise 2.9</span>
+<span class="listing-subtitle">Exercise 2.11</span>
 </td>
 <td>
-<a href="../problems/2.9/index.html" class="title listing-title">Unimodal</a>
+<a href="../problems/2.11/index.html" class="title listing-title">Counting inversions</a>
+</td>
+</tr>
+<tr data-index="3" data-categories="P3 - Divide and Conquer,inversions,search" data-listing-file-modified-sort="1727709128148" data-listing-reading-time-sort="1" data-listing-word-count-sort="150" data-listing-title-sort="One inversion" data-listing-filename-sort="index.qmd">
+<td>
+<span class="listing-subtitle">Exercise 2.12</span>
+</td>
+<td>
+<a href="../problems/2.12/index.html" class="title listing-title">One inversion</a>
 </td>
 </tr>
 </tbody>
@@ -581,20 +587,28 @@ After class
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>To test your understanding, try exercises from the <a href="https://www.cs.upc.edu/~oliveras/examens.eng.pdf">Collection of Solved Exams</a>. For instance:</p>
-<ul>
-<li>TBD</li>
-<li>TBD</li>
-<li>TBD</li>
-<li>TBD</li>
-<li>TBD</li>
-</ul>
-<p>The solutions of the above problems are in the same pdf containing their statement.</p>
+<p>To test your understanding, you could try to solve the <strong>MidTerm</strong> EDA Exams from the <a href="https://www.cs.upc.edu/~oliveras/examens.eng.pdf">Collection of Solved Exams</a> where there is some C++ code to complete. As always, the solutions are in the very same pdf.</p>
+</div>
+</div>
+</section>
+<section id="section" class="level2">
+<h2 class="anchored" data-anchor-id="section">P4: Dictionaries</h2>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This section will be available closer to the class.</p>
 </div>
 </div>
 </section>
 <section id="section-1" class="level2">
-<h2 class="anchored" data-anchor-id="section-1">P4: Dictionaries</h2>
+<h2 class="anchored" data-anchor-id="section-1">P5: Priority Queues</h2>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -610,7 +624,7 @@ Important
 </div>
 </section>
 <section id="section-2" class="level2">
-<h2 class="anchored" data-anchor-id="section-2">P5: Priority Queues</h2>
+<h2 class="anchored" data-anchor-id="section-2">P6: Graphs</h2>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -626,23 +640,7 @@ Important
 </div>
 </section>
 <section id="section-3" class="level2">
-<h2 class="anchored" data-anchor-id="section-3">P6: Graphs</h2>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Important
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>This section will be available closer to the class.</p>
-</div>
-</div>
-</section>
-<section id="section-4" class="level2">
-<h2 class="anchored" data-anchor-id="section-4">P7: Intractability</h2>
+<h2 class="anchored" data-anchor-id="section-3">P7: Intractability</h2>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">

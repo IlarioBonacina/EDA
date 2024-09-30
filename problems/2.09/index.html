@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>EDA - One inversion</title>
+<title>EDA - Unimodal</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -160,8 +160,8 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">One inversion</h1>
-<p class="subtitle lead">Exercise 2.12</p>
+<h1 class="title">Unimodal</h1>
+<p class="subtitle lead">Exercise 2.09</p>
   </div>
 
 
@@ -178,26 +178,17 @@ window.Quarto = {
 </header>
 
 
-<p>Describe an algorithm of cost <span class="math inline">\(\Theta(\log n)\)</span> that, given an element <span class="math inline">\(x\)</span> and a table <span class="math inline">\(T[1\dots n]\)</span> with a single inversion determines whether <span class="math inline">\(x\)</span> is in <span class="math inline">\(T\)</span> or not.</p>
+<p>Write a divide and conquer algorithm that, given a vector that stores a unimodal sequence, finds its top in cost <span class="math inline">\(O(\log n)\)</span>.</p>
 
 <div class="no-row-height column-margin column-container"><div class="">
-<p><img src="inversion.png" class="img-fluid"></p>
-</div></div><p>First show that if a table has a single inversion, then the two elements of this inversion appear next to each other; that is, if <span class="math inline">\((i, j)\)</span> is the unique inversion in the table, then <span class="math inline">\(i + 1 = j\)</span>. Then use this fact to construct the algorithm required.</p>
-<p>Recall that an <strong>inversion</strong> in a table <span class="math inline">\(A[1 \dots n]\)</span> is a pair of indices that point to elements in inverted order; that is, a pair <span class="math inline">\((i, j)\)</span> such that <span class="math inline">\(1 \leq  i &lt; j \leq n\)</span> and <span class="math inline">\(A[i] &gt; A[j]\)</span>.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="unimodal.jpg" class="img-fluid figure-img"></p>
+<figcaption><em>The Great Wave off Kanagawa</em> <br>Katsushika Hokusai</figcaption>
+</figure>
 </div>
-<div class="callout-title-container flex-fill">
-Extra
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Will your algorithm work if there were <span class="math inline">\(2\)</span> inversions? Yes? No? Why?</p>
-<p>After doing this exercise, you might want to solve the Jutge problem <a href="https://jutge.org/problems/P33412_en">P33412 Resistant dichotomic search</a></p>
-</div>
-</div>
+</div></div><p>Argue that the suggested algorithm has cost <span class="math inline">\(O(\log n)\)</span>, and prove its correctness.</p>
+<p>A sequence of integers <span class="math inline">\(A = (a_1, \dots , a_n)\)</span> of length <span class="math inline">\(n \geq  3\)</span> is called <strong>unimodal</strong> if there exists an index <span class="math inline">\(t\)</span> with <span class="math inline">\(1\leq t\leq n\)</span> such that <span class="math inline">\(a_1 &lt;a_2 &lt;\dots&lt;a_t\)</span> and <span class="math inline">\(a_t &gt;a_{t+1} &gt;\dots&gt; a_n\)</span>. In other words, the sequence <span class="math inline">\(A\)</span> increases up to <span class="math inline">\(a_t\)</span> and then decreases. The element <span class="math inline">\(a_t\)</span> is called its <strong>top</strong>.</p>
 <p><a href="javascript:history.back()"><iconify-icon role="img" inline="" icon="twemoji:back-arrow" style="font-size: 2em;" aria-label="Icon back-arrow from twemoji Iconify.design set." title="Icon back-arrow from twemoji Iconify.design set."></iconify-icon></a></p>
 
 
