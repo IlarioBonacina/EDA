@@ -284,7 +284,7 @@
     "href": "problems/1.18/index.html",
     "title": "A mystery!",
     "section": "",
-    "text": "Explain what the following algorithm does and give its cost as a function of \\(n\\).\nint mystery(int n) { \n    int f = 1;\n    for (int i = 2; i &lt;= n; ++i) \n        f *= i;\n    return f; \n}"
+    "text": "Explain what the following algorithm does and give its cost as a function of \\(n\\).\nint mystery(int n) { \n    int f = 1;\n    for (int i = 2; i &lt;= n; ++i) \n        f *= i;\n    return f; \n}   \n\n\n\n\n\n\nCum grano salis\n\n\n\nDoes the cost give a realistic running time? How many bits has the output as a function of \\(n\\) (asymptotically)? What is the cost actually measuring?"
   },
   {
     "objectID": "problems/1.3/index.html",
@@ -340,7 +340,7 @@
     "href": "problems/index.html#sec-P3",
     "title": "Problem Classes",
     "section": "P3: Divide and Conquer",
-    "text": "P3: Divide and Conquer\n\n\n\n\n\n\nImportant\n\n\n\nThis section is likely to change closer to the class.\n\n\nIn this class we solve some problems from the EDA ProblemSet, section 2 Divide and Conquer.\nThe theoretical tools we use are:\n\nBinary Search (revise your theory notes)\nMergeSort\nMaster Theorem\n\n\n\n\n\n\nExercise number\n\n\nTitle\n\n\n\n\n\n\nExercise 2.9\n\n\nUnimodal\n\n\n\n\nExercise 2.10\n\n\nQuim’s wild sorting algorithm\n\n\n\n\nExercise 2.11\n\n\nCounting inversions\n\n\n\n\nExercise 2.12\n\n\nOne inversion\n\n\n\n\n\nNo matching items\n\n\n\n\n\n\n\n\nAfter class\n\n\n\nTo test your understanding, you could try to solve the MidTerm EDA Exams from the Collection of Solved Exams where there is some C++ code to complete. As always, the solutions are in the very same pdf."
+    "text": "P3: Divide and Conquer\n\n\n\n\n\n\nImportant\n\n\n\nThis section is likely to change closer to the class.\n\n\nIn this class we solve some problems from the EDA ProblemSet, section 2 Divide and Conquer.\nThe theoretical tools we use are:\n\nBinary Search (revise your theory)\nMergeSort\nMaster Theorem\n\n\n\n\n\n\nExercise number\n\n\nTitle\n\n\n\n\n\n\nExercise 2.9\n\n\nUnimodal\n\n\n\n\nExercise 2.10\n\n\nQuim’s wild sorting algorithm\n\n\n\n\nExercise 2.11\n\n\nCounting inversions\n\n\n\n\nExercise 2.12\n\n\nOne inversion\n\n\n\n\n\nNo matching items\n\n\n\n\n\n\n\n\nAfter class\n\n\n\nTo test your understanding, you could try to solve the MidTerm EDA Exams from the Collection of Solved Exams where there is some C++ code to complete. As always, the solutions are in the very same pdf."
   },
   {
     "objectID": "problems/index.html#section",
