@@ -37,12 +37,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -80,9 +78,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-image','listing-subtitle','listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
+      valueNames: ['listing-image','listing-subtitle','listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-title","listing-author"],
+      searchColumns: ["listing-title","listing-author","listing-image","listing-description"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -108,9 +106,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-image','listing-subtitle','listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
+      valueNames: ['listing-image','listing-subtitle','listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-title","listing-author"],
+      searchColumns: ["listing-title","listing-author","listing-image","listing-description"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -136,9 +134,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-image','listing-subtitle','listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
+      valueNames: ['listing-image','listing-subtitle','listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-title","listing-author"],
+      searchColumns: ["listing-title","listing-author","listing-image","listing-description"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -229,7 +227,6 @@ window.Quarto = {
 </ul>
           </div> <!-- /navcollapse -->
           <div class="quarto-navbar-tools">
-  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -239,20 +236,8 @@ window.Quarto = {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#sec-P1" id="toc-sec-P1" class="nav-link active" data-scroll-target="#sec-P1">P1: Asymptotic notation</a></li>
-  <li><a href="#sec-P2" id="toc-sec-P2" class="nav-link" data-scroll-target="#sec-P2">P2: Analysis of algorithms</a></li>
-  <li><a href="#sec-P3" id="toc-sec-P3" class="nav-link" data-scroll-target="#sec-P3">P3: Divide and Conquer</a></li>
-  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section">P4: Dictionaries</a></li>
-  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1">P5: Priority Queues</a></li>
-  <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2">P6: Graphs</a></li>
-  <li><a href="#section-3" id="toc-section-3" class="nav-link" data-scroll-target="#section-3">P7: Intractability</a></li>
-  </ul>
-<div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="https://en.cppreference.com/w/"><i class="bi bi-code-slash"></i>cppreference.com</a></li><li><a href="https://jutge.org"><i class="bi bi-link-45deg"></i>Jutge.org</a></li><li><a href="https://www.cs.upc.edu/eda/"><i class="bi bi-link-45deg"></i>EDA Main Page</a></li><li><a href="https://www.cs.upc.edu/eda-eng/data/uploads/eda-problem-set.eng.pdf"><i class="bi bi-book"></i>EDA Problem Set</a></li><li><a href="https://www.cs.upc.edu/~oliveras/examens.eng.pdf"><i class="bi bi-book"></i>Collection of Solved Exams</a></li><li><a href="https://www.cs.upc.edu/eda/data/uploads/eda-codis.pdf"><i class="bi bi-book"></i>Algorithms in C++</a></li></ul></div></nav>
-    </div>
+        
+    <div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="https://en.cppreference.com/w/"><i class="bi bi-code-slash"></i>cppreference.com</a></li><li><a href="https://jutge.org"><i class="bi bi-link-45deg"></i>Jutge.org</a></li><li><a href="https://www.cs.upc.edu/eda/"><i class="bi bi-link-45deg"></i>EDA Main Page</a></li><li><a href="https://www.cs.upc.edu/eda-eng/data/uploads/eda-problem-set.eng.pdf"><i class="bi bi-book"></i>EDA Problem Set</a></li><li><a href="https://www.cs.upc.edu/~oliveras/examens.eng.pdf"><i class="bi bi-book"></i>Collection of Solved Exams</a></li><li><a href="https://www.cs.upc.edu/eda/data/uploads/eda-codis.pdf"><i class="bi bi-book"></i>Algorithms in C++</a></li></ul></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -278,7 +263,7 @@ window.Quarto = {
 <div class="hidden">
 <ul>
 <li>4.10 (statement): the big Oh in part (b) should be a Theta</li>
-<li>7.1: a scene has a content a bit too heterosexual.</li>
+<li>7.1: a scene has a content a bit too heterosexual?</li>
 </ul>
 </div>
 <p>Every <strong>problem class</strong> follows roughly the same structure. In every session we solve together a selection of problems from the <a href="https://www.cs.upc.edu/eda-eng/data/uploads/eda-problem-set.eng.pdf">EDA ProblemSet</a>.</p>
@@ -318,8 +303,11 @@ if the original solution was only half-way correct, I’ll try to help to get fr
 </div>
 </div>
 </div>
-<section id="sec-P1" class="level2">
-<h2 class="anchored" data-anchor-id="sec-P1">P1: Asymptotic notation</h2>
+<div class="nav-pills">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">P1: Asymptotic notation</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">P2: Analysis of algorithms</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">P3: Divide and Conquer</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false">P4: Dictionaries</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-5" role="tab" aria-controls="tabset-1-5" aria-selected="false">P5: Priority Queues</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-6-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-6" role="tab" aria-controls="tabset-1-6" aria-selected="false">P6: Graphs</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-7-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-7" role="tab" aria-controls="tabset-1-7" aria-selected="false">P7: Intractability</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <p><strong>Welcome to the first EDA problem class!</strong></p>
 <p>This session is about exercises on the asymptotic growth of functions. Later in the course we will be interested in functions associated to algorithms (typically the running time and how it scales w.r.t. the input size), but for the moment they are just functions without any algorithm in mind.</p>
 <p>The theoretical tools we use are:</p>
@@ -330,78 +318,94 @@ if the original solution was only half-way correct, I’ll try to help to get fr
 <li><a href="../theory_bits/asymptotics.html">Asymptotic notation (<span class="math inline">\(O\)</span>, <span class="math inline">\(\Omega\)</span> and <span class="math inline">\(\Theta\)</span>)</a></li>
 </ul>
 <p>We consider the following problems from the <a href="https://www.cs.upc.edu/eda-eng/data/uploads/eda-problem-set.eng.pdf">EDA ProblemSet</a>, section 1 <em>Analysis of algorithms</em>.</p>
-<div id="listing-exercises-P1" class="quarto-listing quarto-listing-container-table">
-<table class="quarto-listing-table table">
-<thead>
-<tr>
-<th>
-</th>
-<th>
-Exercise number
-</th>
-<th>
-Title
-</th>
-</tr>
-</thead>
-<tbody class="list">
-<tr data-index="0" data-categories="P1 - Asymptotic Notation,induction" data-listing-file-modified-sort="1726135309269" data-listing-reading-time-sort="1" data-listing-word-count-sort="154" data-listing-title-sort="Big sums everywhere" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-image"><img src="../problems/1.1/sums.png" style="height: 40px;"></span>
-</td>
-<td>
-<span class="listing-subtitle">Exercise 1.1</span>
-</td>
-<td>
-<a href="../problems/1.1/index.html" class="title listing-title">Big sums everywhere</a>
-</td>
-</tr>
-<tr data-index="1" data-categories="P1 - Asymptotic Notation,estimations" data-listing-file-modified-sort="1726135669526" data-listing-reading-time-sort="5" data-listing-word-count-sort="860" data-listing-title-sort="It takes ages" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-image"><img src="../problems/1.3/time.jpg" style="height: 40px;"></span>
-</td>
-<td>
-<span class="listing-subtitle">Exercise 1.3</span>
-</td>
-<td>
-<a href="../problems/1.3/index.html" class="title listing-title">It takes ages</a>
-</td>
-</tr>
-<tr data-index="2" data-categories="P1 - Asymptotic Notation,asymptotics" data-listing-file-modified-sort="1726135766935" data-listing-reading-time-sort="1" data-listing-word-count-sort="47" data-listing-title-sort="Polynomials and logarithms" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-image"><img src="../problems/1.7/poly.png" style="height: 40px;"></span>
-</td>
-<td>
-<span class="listing-subtitle">Exercise 1.7</span>
-</td>
-<td>
-<a href="../problems/1.7/index.html" class="title listing-title">Polynomials and logarithms</a>
-</td>
-</tr>
-<tr data-index="3" data-categories="P1 - Asymptotic Notation,asymptotics" data-listing-file-modified-sort="1726605523421" data-listing-reading-time-sort="2" data-listing-word-count-sort="217" data-listing-title-sort="Growth orders I" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-image"><img src="../problems/1.8/orders.png" style="height: 40px;"></span>
-</td>
-<td>
-<span class="listing-subtitle">Exercise 1.8</span>
-</td>
-<td>
-<a href="../problems/1.8/index.html" class="title listing-title">Growth orders I</a>
-</td>
-</tr>
-<tr data-index="4" data-categories="P1 - Asymptotic Notation,asymptotics" data-listing-file-modified-sort="1726605533539" data-listing-reading-time-sort="2" data-listing-word-count-sort="257" data-listing-title-sort="Growth orders II" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-image"><img src="../problems/1.9/orders.png" style="height: 40px;"></span>
-</td>
-<td>
-<span class="listing-subtitle">Exercise 1.9</span>
-</td>
-<td>
-<a href="../problems/1.9/index.html" class="title listing-title">Growth orders II</a>
-</td>
-</tr>
-</tbody>
-</table>
+<div id="listing-exercises-P1" class="quarto-listing quarto-listing-container-grid">
+<div class="list grid quarto-listing-cols-3">
+<div class="g-col-1" data-index="0" data-categories="P1 - Asymptotic Notation,induction" data-listing-file-modified-sort="1726135309269" data-listing-reading-time-sort="1" data-listing-word-count-sort="154">
+<a href="../problems/1.1/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="../problems/1.1/sums.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Big sums everywhere
+</h5>
+<div class="card-subtitle listing-subtitle">
+Exercise 1.1
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="1" data-categories="P1 - Asymptotic Notation,estimations" data-listing-file-modified-sort="1726135669526" data-listing-reading-time-sort="5" data-listing-word-count-sort="860">
+<a href="../problems/1.3/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="../problems/1.3/time.jpg" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+It takes ages
+</h5>
+<div class="card-subtitle listing-subtitle">
+Exercise 1.3
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="2" data-categories="P1 - Asymptotic Notation,asymptotics" data-listing-file-modified-sort="1726135766935" data-listing-reading-time-sort="1" data-listing-word-count-sort="47">
+<a href="../problems/1.7/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="../problems/1.7/poly.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Polynomials and logarithms
+</h5>
+<div class="card-subtitle listing-subtitle">
+Exercise 1.7
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="3" data-categories="P1 - Asymptotic Notation,asymptotics" data-listing-file-modified-sort="1726605523421" data-listing-reading-time-sort="2" data-listing-word-count-sort="217">
+<a href="../problems/1.8/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="../problems/1.8/orders.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Growth orders I
+</h5>
+<div class="card-subtitle listing-subtitle">
+Exercise 1.8
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="4" data-categories="P1 - Asymptotic Notation,asymptotics" data-listing-file-modified-sort="1726605533539" data-listing-reading-time-sort="2" data-listing-word-count-sort="257">
+<a href="../problems/1.9/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="../problems/1.9/orders.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Growth orders II
+</h5>
+<div class="card-subtitle listing-subtitle">
+Exercise 1.9
+</div>
+</div>
+</div>
+</a>
+</div>
+</div>
 <div class="listing-no-matching d-none">
 No matching items
 </div>
@@ -427,9 +431,8 @@ After class
 <p>The solutions of the above problems are in the same pdf containing their statement.</p>
 </div>
 </div>
-</section>
-<section id="sec-P2" class="level2">
-<h2 class="anchored" data-anchor-id="sec-P2">P2: Analysis of algorithms</h2>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
 <p>This session is about finding the asymptotic cost (i.e.&nbsp;running time) of simple algorithms as a function of the input size.</p>
 <p>The theoretical tools we use are:</p>
 <ul>
@@ -440,78 +443,94 @@ After class
 <li><a href="../theory_bits/sorting_algorithms.html">Insertion Sort</a></li>
 </ul>
 <p>We continue with some problems from the <a href="https://www.cs.upc.edu/eda-eng/data/uploads/eda-problem-set.eng.pdf">EDA ProblemSet</a>, section 1 <em>Analysis of algorithms</em>.</p>
-<div id="listing-exercises-P2" class="quarto-listing quarto-listing-container-table">
-<table class="quarto-listing-table table">
-<thead>
-<tr>
-<th>
-</th>
-<th>
-Exercise number
-</th>
-<th>
-Title
-</th>
-</tr>
-</thead>
-<tbody class="list">
-<tr data-index="0" data-categories="P2 - Analysis of Algrithms,asymptotics,cost of algorithms" data-listing-file-modified-sort="1727884111345" data-listing-reading-time-sort="2" data-listing-word-count-sort="338" data-listing-title-sort="Fors, and fors inside fors" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-image"><img src="../problems/1.12/loops.png" style="height: 40px;"></span>
-</td>
-<td>
-<span class="listing-subtitle">Exercise 1.12</span>
-</td>
-<td>
-<a href="../problems/1.12/index.html" class="title listing-title">Fors, and fors inside fors</a>
-</td>
-</tr>
-<tr data-index="1" data-categories="P2 - Analysis of Algrithms,asymptotics,cost of algorithms" data-listing-file-modified-sort="1727208722660" data-listing-reading-time-sort="1" data-listing-word-count-sort="63" data-listing-title-sort="Parameters" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-image"><img src="../problems/1.13/parameters.png" style="height: 40px;"></span>
-</td>
-<td>
-<span class="listing-subtitle">Exercise 1.13</span>
-</td>
-<td>
-<a href="../problems/1.13/index.html" class="title listing-title">Parameters</a>
-</td>
-</tr>
-<tr data-index="2" data-categories="P2 - Analysis of Algrithms,asymptotics,cost of algorithms,insertion sort" data-listing-file-modified-sort="1727694609285" data-listing-reading-time-sort="1" data-listing-word-count-sort="111" data-listing-title-sort="Ohs, Omegas, or Thetas" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-image"><img src="../problems/1.14/ohohoh.jpg" style="height: 40px;"></span>
-</td>
-<td>
-<span class="listing-subtitle">Exercise 1.14</span>
-</td>
-<td>
-<a href="../problems/1.14/index.html" class="title listing-title">Ohs, Omegas, or Thetas</a>
-</td>
-</tr>
-<tr data-index="3" data-categories="P2 - Analysis of Algrithms,asymptotics,cost of algorithms" data-listing-file-modified-sort="1727759338747" data-listing-reading-time-sort="1" data-listing-word-count-sort="64" data-listing-title-sort="A mystery!" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-image"><img src="../problems/1.18/mistery.webp" style="height: 40px;"></span>
-</td>
-<td>
-<span class="listing-subtitle">Exercise 1.18</span>
-</td>
-<td>
-<a href="../problems/1.18/index.html" class="title listing-title">A mystery!</a>
-</td>
-</tr>
-<tr data-index="4" data-categories="P2 - Analysis of Algrithms,asymptotics,exponentiation" data-listing-file-modified-sort="1727709878673" data-listing-reading-time-sort="2" data-listing-word-count-sort="203" data-listing-title-sort="Fast and slow exponentiation" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-image"><img src="../problems/1.23/fast-slow.jpg" style="height: 40px;"></span>
-</td>
-<td>
-<span class="listing-subtitle">Exercise 1.23</span>
-</td>
-<td>
-<a href="../problems/1.23/index.html" class="title listing-title">Fast and slow exponentiation</a>
-</td>
-</tr>
-</tbody>
-</table>
+<div id="listing-exercises-P2" class="quarto-listing quarto-listing-container-grid">
+<div class="list grid quarto-listing-cols-3">
+<div class="g-col-1" data-index="0" data-categories="P2 - Analysis of Algrithms,asymptotics,cost of algorithms" data-listing-file-modified-sort="1727884111345" data-listing-reading-time-sort="2" data-listing-word-count-sort="338">
+<a href="../problems/1.12/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="../problems/1.12/loops.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Fors, and fors inside fors
+</h5>
+<div class="card-subtitle listing-subtitle">
+Exercise 1.12
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="1" data-categories="P2 - Analysis of Algrithms,asymptotics,cost of algorithms" data-listing-file-modified-sort="1727208722660" data-listing-reading-time-sort="1" data-listing-word-count-sort="63">
+<a href="../problems/1.13/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="../problems/1.13/parameters.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Parameters
+</h5>
+<div class="card-subtitle listing-subtitle">
+Exercise 1.13
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="2" data-categories="P2 - Analysis of Algrithms,asymptotics,cost of algorithms,insertion sort" data-listing-file-modified-sort="1727694609285" data-listing-reading-time-sort="1" data-listing-word-count-sort="111">
+<a href="../problems/1.14/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="../problems/1.14/ohohoh.jpg" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Ohs, Omegas, or Thetas
+</h5>
+<div class="card-subtitle listing-subtitle">
+Exercise 1.14
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="3" data-categories="P2 - Analysis of Algrithms,asymptotics,cost of algorithms" data-listing-file-modified-sort="1727759338747" data-listing-reading-time-sort="1" data-listing-word-count-sort="64">
+<a href="../problems/1.18/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="../problems/1.18/mistery.webp" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+A mystery!
+</h5>
+<div class="card-subtitle listing-subtitle">
+Exercise 1.18
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="4" data-categories="P2 - Analysis of Algrithms,asymptotics,exponentiation" data-listing-file-modified-sort="1727709878673" data-listing-reading-time-sort="2" data-listing-word-count-sort="203">
+<a href="../problems/1.23/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="../problems/1.23/fast-slow.jpg" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Fast and slow exponentiation
+</h5>
+<div class="card-subtitle listing-subtitle">
+Exercise 1.23
+</div>
+</div>
+</div>
+</a>
+</div>
+</div>
 <div class="listing-no-matching d-none">
 No matching items
 </div>
@@ -537,9 +556,8 @@ After class
 <p>The solutions of the above problems are in the same pdf containing their statement.</p>
 </div>
 </div>
-</section>
-<section id="sec-P3" class="level2">
-<h2 class="anchored" data-anchor-id="sec-P3">P3: Divide and Conquer</h2>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
 <p>In this class we solve some problems from the <a href="https://www.cs.upc.edu/eda-eng/data/uploads/eda-problem-set.eng.pdf">EDA ProblemSet</a>, section 2 <em>Divide and Conquer</em>.</p>
 <p>The theoretical tools we use are:</p>
 <ul>
@@ -547,67 +565,77 @@ After class
 <li><a href="../theory_bits/sorting_algorithms.html">MergeSort</a></li>
 <li><a href="../theory_bits/master_theorem.html">Master Theorem</a></li>
 </ul>
-<div id="listing-exercises-P3" class="quarto-listing quarto-listing-container-table">
-<table class="quarto-listing-table table">
-<thead>
-<tr>
-<th>
-</th>
-<th>
-Exercise number
-</th>
-<th>
-Title
-</th>
-</tr>
-</thead>
-<tbody class="list">
-<tr data-index="0" data-categories="P3 - Divide and Conquer,divide and conquer" data-listing-file-modified-sort="1727886007392" data-listing-reading-time-sort="1" data-listing-word-count-sort="143" data-listing-title-sort="Unimodal" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-image"><img src="../problems/2.9/unimodal.jpg" style="height: 40px;"></span>
-</td>
-<td>
-<span class="listing-subtitle">Exercise 2.9</span>
-</td>
-<td>
-<a href="../problems/2.9/index.html" class="title listing-title">Unimodal</a>
-</td>
-</tr>
-<tr data-index="1" data-categories="P3 - Divide and Conquer,divide and conquer,sorting" data-listing-file-modified-sort="1727886013410" data-listing-reading-time-sort="1" data-listing-word-count-sort="176" data-listing-title-sort="Quim's wild sorting algorithm" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-image"><img src="../problems/2.10/sorting.webp" style="height: 40px;"></span>
-</td>
-<td>
-<span class="listing-subtitle">Exercise 2.10</span>
-</td>
-<td>
-<a href="../problems/2.10/index.html" class="title listing-title">Quim’s wild sorting algorithm</a>
-</td>
-</tr>
-<tr data-index="2" data-categories="P3 - Divide and Conquer,inversions" data-listing-file-modified-sort="1727708680486" data-listing-reading-time-sort="1" data-listing-word-count-sort="99" data-listing-title-sort="Counting inversions" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-image"><img src="../problems/2.11/inversions.png" style="height: 40px;"></span>
-</td>
-<td>
-<span class="listing-subtitle">Exercise 2.11</span>
-</td>
-<td>
-<a href="../problems/2.11/index.html" class="title listing-title">Counting inversions</a>
-</td>
-</tr>
-<tr data-index="3" data-categories="P3 - Divide and Conquer,inversions,search" data-listing-file-modified-sort="1727709128148" data-listing-reading-time-sort="1" data-listing-word-count-sort="150" data-listing-title-sort="One inversion" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-image"><img src="../problems/2.12/inversion.png" style="height: 40px;"></span>
-</td>
-<td>
-<span class="listing-subtitle">Exercise 2.12</span>
-</td>
-<td>
-<a href="../problems/2.12/index.html" class="title listing-title">One inversion</a>
-</td>
-</tr>
-</tbody>
-</table>
+<div id="listing-exercises-P3" class="quarto-listing quarto-listing-container-grid">
+<div class="list grid quarto-listing-cols-3">
+<div class="g-col-1" data-index="0" data-categories="P3 - Divide and Conquer,divide and conquer" data-listing-file-modified-sort="1727886007392" data-listing-reading-time-sort="1" data-listing-word-count-sort="143">
+<a href="../problems/2.9/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="../problems/2.9/unimodal.jpg" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Unimodal
+</h5>
+<div class="card-subtitle listing-subtitle">
+Exercise 2.9
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="1" data-categories="P3 - Divide and Conquer,divide and conquer,sorting" data-listing-file-modified-sort="1727886013410" data-listing-reading-time-sort="1" data-listing-word-count-sort="176">
+<a href="../problems/2.10/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="../problems/2.10/sorting.webp" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Quim’s wild sorting algorithm
+</h5>
+<div class="card-subtitle listing-subtitle">
+Exercise 2.10
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="2" data-categories="P3 - Divide and Conquer,inversions" data-listing-file-modified-sort="1727708680486" data-listing-reading-time-sort="1" data-listing-word-count-sort="99">
+<a href="../problems/2.11/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="../problems/2.11/inversions.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Counting inversions
+</h5>
+<div class="card-subtitle listing-subtitle">
+Exercise 2.11
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="3" data-categories="P3 - Divide and Conquer,inversions,search" data-listing-file-modified-sort="1727709128148" data-listing-reading-time-sort="1" data-listing-word-count-sort="150">
+<a href="../problems/2.12/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="../problems/2.12/inversion.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+One inversion
+</h5>
+<div class="card-subtitle listing-subtitle">
+Exercise 2.12
+</div>
+</div>
+</div>
+</a>
+</div>
+</div>
 <div class="listing-no-matching d-none">
 No matching items
 </div>
@@ -625,9 +653,8 @@ After class
 <p>To test your understanding, you could try to solve the <strong>MidTerm</strong> EDA Exams from the <a href="https://www.cs.upc.edu/~oliveras/examens.eng.pdf">Collection of Solved Exams</a> where there is some C++ code to complete. As always, the solutions are in the very same pdf.</p>
 </div>
 </div>
-</section>
-<section id="section" class="level2">
-<h2 class="anchored" data-anchor-id="section">P4: Dictionaries</h2>
+</div>
+<div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -641,9 +668,8 @@ Important
 <p>This section will be available closer to the class.</p>
 </div>
 </div>
-</section>
-<section id="section-1" class="level2">
-<h2 class="anchored" data-anchor-id="section-1">P5: Priority Queues</h2>
+</div>
+<div id="tabset-1-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-5-tab">
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -657,9 +683,8 @@ Important
 <p>This section will be available closer to the class.</p>
 </div>
 </div>
-</section>
-<section id="section-2" class="level2">
-<h2 class="anchored" data-anchor-id="section-2">P6: Graphs</h2>
+</div>
+<div id="tabset-1-6" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-6-tab">
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -673,9 +698,8 @@ Important
 <p>This section will be available closer to the class.</p>
 </div>
 </div>
-</section>
-<section id="section-3" class="level2">
-<h2 class="anchored" data-anchor-id="section-3">P7: Intractability</h2>
+</div>
+<div id="tabset-1-7" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-7-tab">
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -687,12 +711,15 @@ Important
 </div>
 <div class="callout-body-container callout-body">
 <p>This section will be available closer to the class.</p>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -715,150 +742,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
-  const disableStylesheet = (stylesheets) => {
-    for (let i=0; i < stylesheets.length; i++) {
-      const stylesheet = stylesheets[i];
-      stylesheet.rel = 'prefetch';
-    }
-  }
-  const enableStylesheet = (stylesheets) => {
-    for (let i=0; i < stylesheets.length; i++) {
-      const stylesheet = stylesheets[i];
-      stylesheet.rel = 'stylesheet';
-    }
-  }
-  const manageTransitions = (selector, allowTransitions) => {
-    const els = window.document.querySelectorAll(selector);
-    for (let i=0; i < els.length; i++) {
-      const el = els[i];
-      if (allowTransitions) {
-        el.classList.remove('notransition');
-      } else {
-        el.classList.add('notransition');
-      }
-    }
-  }
-  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
-    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
-    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
-    let newTheme = '';
-    if(darkModeDefault) {
-      newTheme = isAlternate ? baseTheme : alternateTheme;
-    } else {
-      newTheme = isAlternate ? alternateTheme : baseTheme;
-    }
-    const changeGiscusTheme = () => {
-      // From: https://github.com/giscus/giscus/issues/336
-      const sendMessage = (message) => {
-        const iframe = document.querySelector('iframe.giscus-frame');
-        if (!iframe) return;
-        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
-      }
-      sendMessage({
-        setConfig: {
-          theme: newTheme
-        }
-      });
-    }
-    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
-    if (isGiscussLoaded) {
-      changeGiscusTheme();
-    }
-  }
-  const toggleColorMode = (alternate) => {
-    // Switch the stylesheets
-    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
-    manageTransitions('#quarto-margin-sidebar .nav-link', false);
-    if (alternate) {
-      enableStylesheet(alternateStylesheets);
-      for (const sheetNode of alternateStylesheets) {
-        if (sheetNode.id === "quarto-bootstrap") {
-          toggleBodyColorMode(sheetNode);
-        }
-      }
-    } else {
-      disableStylesheet(alternateStylesheets);
-      toggleBodyColorPrimary();
-    }
-    manageTransitions('#quarto-margin-sidebar .nav-link', true);
-    // Switch the toggles
-    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
-    for (let i=0; i < toggles.length; i++) {
-      const toggle = toggles[i];
-      if (toggle) {
-        if (alternate) {
-          toggle.classList.add("alternate");     
-        } else {
-          toggle.classList.remove("alternate");
-        }
-      }
-    }
-    // Hack to workaround the fact that safari doesn't
-    // properly recolor the scrollbar when toggling (#1455)
-    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
-      manageTransitions("body", false);
-      window.scrollTo(0, 1);
-      setTimeout(() => {
-        window.scrollTo(0, 0);
-        manageTransitions("body", true);
-      }, 40);  
-    }
-  }
-  const isFileUrl = () => { 
-    return window.location.protocol === 'file:';
-  }
-  const hasAlternateSentinel = () => {  
-    let styleSentinel = getColorSchemeSentinel();
-    if (styleSentinel !== null) {
-      return styleSentinel === "alternate";
-    } else {
-      return false;
-    }
-  }
-  const setStyleSentinel = (alternate) => {
-    const value = alternate ? "alternate" : "default";
-    if (!isFileUrl()) {
-      window.localStorage.setItem("quarto-color-scheme", value);
-    } else {
-      localAlternateSentinel = value;
-    }
-  }
-  const getColorSchemeSentinel = () => {
-    if (!isFileUrl()) {
-      const storageValue = window.localStorage.getItem("quarto-color-scheme");
-      return storageValue != null ? storageValue : localAlternateSentinel;
-    } else {
-      return localAlternateSentinel;
-    }
-  }
-  const darkModeDefault = false;
-  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
-  // Dark / light mode switch
-  window.quartoToggleColorScheme = () => {
-    // Read the current dark / light value 
-    let toAlternate = !hasAlternateSentinel();
-    toggleColorMode(toAlternate);
-    setStyleSentinel(toAlternate);
-    toggleGiscusIfUsed(toAlternate, darkModeDefault);
-  };
-  // Ensure there is a toggle, if there isn't float one in the top right
-  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
-    const a = window.document.createElement('a');
-    a.classList.add('top-right');
-    a.classList.add('quarto-color-scheme-toggle');
-    a.href = "";
-    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
-    const i = window.document.createElement("i");
-    i.classList.add('bi');
-    a.appendChild(i);
-    window.document.body.appendChild(a);
-  }
-  // Switch to dark mode if need be
-  if (hasAlternateSentinel()) {
-    toggleColorMode(true);
-  } else {
-    toggleColorMode(false);
-  }
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {
