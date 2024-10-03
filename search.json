@@ -35,6 +35,335 @@
     "text": "Suppose you have a matemathical sentence \\(P(n)\\) depending on a parameter \\(n\\) which is a natural number. To prove that for every \\(n\\in \\mathbb{N}\\) the sentence \\(P(n)\\) holds, one way is to use Induction on \\(n\\), that is prove the following two facts\n\n\nBase case\n\nshow that \\(P(0)\\) is true. (Sometimes the base case is \\(P(\\ell)\\) for some natural number \\(\\ell\\), then, in this case, the induction will prove \\(P(n)\\) to be true for every \\(n\\geq \\ell\\).)\n\n\n\nInductive Step\n\nshow that for a generic \\(k\\in \\mathbb{N}\\), if \\(P(k)\\) is true, then also \\(P(k+1)\\) is true.\n\n\n\n\n\n\n\n\n\nImportant\n\n\n\n\nInduction is always on some parameter (some natural number, the depth of a tree, …).\nUsually proving the Base Case of the induction should be trivial, if this is not the case, perhaps induction is not the right approach.\nInduction is a technique to prove that something is true, but in general not a way to discover that something is true.\n\n\n\n\n\n\n\n\n\nAn example \\(\\sum_{i=0}^n i = n(n+1)/2\\)\n\n\n\n\n\nThere are a lot of different ways to prove that \\(\\sum_{i=0}^n i = n(n+1)/2\\). For instance a visual “proof” could be based on the following picture:\n\nBy induction, the argument would be as follows.\nLet \\(P(n)\\) be the sentence \\(\\sum_{i=0}^n i = n(n+1)/2\\). To show that \\(P(n)\\) is true for every \\(n\\in \\mathbb N\\) by Induction on \\(n\\) it suffices to show the Base Case and the Inductive Step.\n\n\nBase Case\n\n\\(P(0)\\) is the sentence \\(\\sum_{i=0}^0 i=0(0+1)/2\\) which is trivially true, since both sides of the equality are \\(0\\).\n\n\n\nInductive Step\n\nassuming \\(P(k)\\) to be true for a generic natural number \\(k\\), that is \\(\\sum_{i=0}^k i = k(k+1)/2\\), we need to show that \\(P(k+1)\\) is also true, that is \\(\\sum_{i=0}^{k+1} i = (k+1)(k+2)/2\\): \\[\n\\begin{align*}\n\\sum_{i=0}^{k+1} i &=\n\\sum_{i=0}^k i + (k+1)\n\\\\\n&\\stackrel{I.H.}{=} \\frac{k(k+1)}{2}+(k+1)\n\\\\\n&=\\frac{k(k+1)+2(k+1)}{2}\n\\\\\n&=\\frac{(k+1)(k+2)}{2}\\ .\n\\end{align*}\n\\]\n\n\n\nIn the equality marked with \\(I.H.\\) we used the Inductive Hypothesis, i.e. the fact we are working under the assumption that \\(P(k)\\) is true.\n\n\n\n\n\n\n\n\n\nWhat can we do if we didn’t remember that \\(\\sum_{i=0}^n i = n(n+1)/2\\)?\n\n\n\n\n\nIf for whatever reason we suspect \\(\\sum_{i=0}^n i\\) to be a polynomial in \\(n\\) of degree \\(2\\), say \\(an^2+bn+c\\) then we can substitute values for \\(n\\) and find candidates values for \\(a,b,c\\).\nFor \\(n=0\\), \\(\\sum_{i=0}^0 i=0=a\\cdot 0^2+b \\cdot 0 +c\\), that is \\(c=0\\).\nFor \\(n=1\\), \\(\\sum_{i=0}^1 i=1=a\\cdot 1^2+b\\cdot 1\\) (we are already using \\(c=0\\)).\nFor \\(n=2\\), \\(\\sum_{i=0}^2 i=3 = a\\cdot 2^2 +b\\cdot 2\\).\nThat is we have that \\[\n\\begin{matrix}\na+b &= 1\\\\\n4a+2b &= 3\n\\end{matrix}\n\\] which gives the solution \\(a=b=\\frac{1}{2}\\). That is we suspect that \\(\\sum_{i=0}^n i = n(n+1)/2\\), but the argument above is not a proof. We need to prove it formally in some way, by induction for instance."
   },
   {
+    "objectID": "theory_bits/asymptotics.html",
+    "href": "theory_bits/asymptotics.html",
+    "title": "Asymptotic notation",
+    "section": "",
+    "text": "This theory bit is to recall the definition and basic properties of Big-Oh, Big-Omega, Big-Theta notation. To know if a function \\(f\\) is \\(O(g)\\) (or \\(\\Theta(g)\\) or \\(\\Omega(g)\\)) typically reduces to computing a limit. You might need to refresh how to compute limits (e.g. de L’Hôpital rule). See the theory bit on limits.\nIn this page we assume \\(f,g\\) to be functions from \\(\\mathbb R \\to \\mathbb R\\)."
+  },
+  {
+    "objectID": "theory_bits/asymptotics.html#on-the-big-oh-notation",
+    "href": "theory_bits/asymptotics.html#on-the-big-oh-notation",
+    "title": "Asymptotic notation",
+    "section": "On the Big-Oh notation",
+    "text": "On the Big-Oh notation\n\n\\(f\\) grows asymptotically slower (or equal) than \\(g\\)\n\\(f=O(g)\\)\n\\(f\\) is Big-Oh of \\(g\\)\n\nhave the same meaning and are interchangeable. Formally, \\(f\\) is a Big-Oh of \\(g\\) if for all large enough \\(x\\), \\(f\\) is at most proportional to a multiple of \\(g\\). That is \\(f=O(g)\\) if \\[\n\\exists x_0\\in \\mathbb R_+\\exists c\\in \\mathbb R_+\\forall x\\geq x_0\\ f(x)\\leq c\\cdot g(x)\\ .\n\\]\nIn particular, if \\(\\displaystyle\\lim_{x\\to \\infty}\\frac{f(x)}{g(x)}&lt; +\\infty\\) then \\(f=O(g)\\)."
+  },
+  {
+    "objectID": "theory_bits/asymptotics.html#on-the-big-omega-notation",
+    "href": "theory_bits/asymptotics.html#on-the-big-omega-notation",
+    "title": "Asymptotic notation",
+    "section": "On the Big-Omega notation",
+    "text": "On the Big-Omega notation\n\n\\(f\\) grows asymptotically faster (or equal) than \\(g\\)\n\\(f=\\Omega(g)\\)\n\\(f\\) is Big-Omega of \\(g\\)\n\nhave the same meaning and are interchangeable. Formally, \\(f\\) is a Big-Omega of \\(g\\) if for all large enough \\(x\\), \\(f\\) is at at least proportional to a multiple of \\(g\\). That is \\(f=\\Omega(g)\\) if \\[\n\\exists x_0\\in \\mathbb R_+\\exists c\\in \\mathbb R_+\\forall x\\geq x_0\\ f(x)\\geq c\\cdot g(x)\\ .\n\\]\nIn particular, if \\(\\displaystyle\\lim_{x\\to \\infty}\\frac{f(x)}{g(x)}&gt; 0\\) then \\(f=\\Omega(g)\\).\nThat is, if \\(f=O(g)\\), then \\(g=\\Omega(f)\\). If \\(f\\) grows asymptotically slower than \\(g\\), then \\(g\\) grows asymptotically faster than \\(f\\)."
+  },
+  {
+    "objectID": "theory_bits/asymptotics.html#on-the-big-theta-notation",
+    "href": "theory_bits/asymptotics.html#on-the-big-theta-notation",
+    "title": "Asymptotic notation",
+    "section": "On the Big-Theta notation",
+    "text": "On the Big-Theta notation\n\n\\(f\\) has the same asymptotic growth of \\(g\\)\n\\(f=\\Theta(g)\\)\n\n\\(g=\\Theta(f)\\)\n\\(f\\) is Big-Theta of \\(g\\)\n\\(g\\) is Big-Theta of \\(f\\)\n\nall have the same meaning and are interchangeable. Formally, \\(f\\) is Big-Theta of \\(g\\) if it is both Big-Oh and Big-Omega of \\(g\\). That is \\(f=\\Theta(g)\\) if \\[\n\\exists x_0\\in \\mathbb R_+\\exists c_1,c_2\\in \\mathbb R_+\\forall x\\geq x_0\\ c_1\\cdot g(x)\\leq f(x)\\leq c_2\\cdot g(x)\\ .\n\\]\nIn particular, if \\(\\displaystyle\\lim_{x\\to \\infty}\\frac{f(x)}{g(x)} = c\\) with \\(0&lt; c&lt;+\\infty\\), then \\(f=\\Theta(g)\\)."
+  },
+  {
+    "objectID": "theory_bits/asymptotics.html#common-errorsconfusion",
+    "href": "theory_bits/asymptotics.html#common-errorsconfusion",
+    "title": "Asymptotic notation",
+    "section": "Common errors/confusion",
+    "text": "Common errors/confusion\n\\(f=\\Theta(g)\\), or \\(f=\\Omega(g)\\) or \\(f=O(g)\\) are sentences about the asymptotic growth rate of the function \\(f\\) in comparison with the one of \\(g\\). Although \\(f\\) or \\(g\\) might be connected to algorithms (e.g. some running times), there is no reference to an algorithm implicit in the notation. In particular the \\(\\Theta\\), \\(O\\) and \\(\\Omega\\) notations are not connected at all to the worst/best/average cases of the running time of algorithms.\nSometimes the practical use of the \\(O\\) and the \\(\\Theta\\) notation overlap. At times people use \\(O(\\cdot)\\) when they actually mean to use \\(\\Theta(\\cdot)\\). Recall that the \\(O(\\cdot)\\) notation denotes only an upper-bound on the asymptotic growth, while \\(\\Theta(\\cdot)\\) indicates the exact asymptotic growth rate of a function. In EDA we don’t want to do this, we try to be as precise as possible.\n\n\n\n\n\n\nExample\n\n\n\nThe sentences\n\nthe Insertion Sort algorithm runs in time \\(O(2^n)\\), and\nthe Insertion Sort algorithm runs in time in time \\(\\Theta(n^2)\\) \n\n(where \\(n\\) is the size of the input) are both technically correct sentences, but the first one is not very interesting. The first one is so little informative that actually in EDA exams might be even counted as incorrect.\n\n\n\n\n\n\n\n\nExample\n\n\n\nThe figure below is taken from the internet and summarizes visually some growth orders of functions. It is a mostly correct visual aid but not quite completely correct. Can you spot the error(s)?\n\n\n\n\n\n\nAnswer\n\n\n\n\n\nThe figure mixes \\(n\\) and \\(x\\) for the name of the variable. This is an easy fix, but there is another error. It would have been correct if each \\(O(\\cdot)\\) were a \\(\\Theta(\\cdot)\\).\n\n\n\n\n\n\n\nPyodide\nfrom sympy import *\nimport js\n\nvar('n', domain=RR)\n\nf = n\ng = 3*2**n\n\ndef my_print(f,g):\n    lim = limit(f/g, n, oo)\n    inv_lim = limit(g/f,n,oo)\n    print(r\"Since $\\displaystyle\\lim_{n\\to\\infty}\\frac{\",latex(f),r\"}{\",latex(g),r\"}=\",latex(lim),r\"$\")\n    if (lim &gt; 0 and inv_lim &gt; 0):\n        print(\", then $\\,\",latex(f),r\"=\\Theta(\",latex(g),\")$\")\n    elif (lim == 0):\n        print(\", then $\\,\",latex(f),r\"=O(\",latex(g),\")$\")\n    else:\n        print(\", then $\\,\",latex(f),r\"=\\Omega(\",latex(g),\")$\")\n\nmy_print(f,g)\nSince \\(\\,\\displaystyle\\lim_{n\\to\\infty}\\frac{ n }{ 3 \\cdot 2^{n} }= 0\\) , then \\(n =O( 3 \\cdot 2^{n} )\\)"
+  },
+  {
+    "objectID": "self_assessment/index.html",
+    "href": "self_assessment/index.html",
+    "title": "Initial Self-Assesment Test1",
+    "section": "",
+    "text": "Please dedicate the next 10 minutes to the following self assesment test."
+  },
+  {
+    "objectID": "self_assessment/index.html#footnotes",
+    "href": "self_assessment/index.html#footnotes",
+    "title": "Initial Self-Assesment Test1",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nThis test is an html version of this pdf.↩︎"
+  },
+  {
+    "objectID": "problems/index.html",
+    "href": "problems/index.html",
+    "title": "Problem Classes",
+    "section": "",
+    "text": "4.10 (statement): the big Oh in part (b) should be a Theta\n7.1: a scene has a content a bit too heterosexual.\nEvery problem class follows roughly the same structure. In every session we solve together a selection of problems from the EDA ProblemSet.\nTo make the most out of each problem class, try the corresponding exercises before each session using a reasonable amount of time.\nThe Goal is to arrive at the class either with"
+  },
+  {
+    "objectID": "problems/index.html#sec-P1",
+    "href": "problems/index.html#sec-P1",
+    "title": "Problem Classes",
+    "section": "P1: Asymptotic notation",
+    "text": "P1: Asymptotic notation\nWelcome to the first EDA problem class!\nThis session is about exercises on the asymptotic growth of functions. Later in the course we will be interested in functions associated to algorithms (typically the running time and how it scales w.r.t. the input size), but for the moment they are just functions without any algorithm in mind.\nThe theoretical tools we use are:\n\nInduction\nLimits\nBasic properties of \\(\\log(n)\\) and \\(n!\\)\nAsymptotic notation (\\(O\\), \\(\\Omega\\) and \\(\\Theta\\))\n\nWe consider the following problems from the EDA ProblemSet, section 1 Analysis of algorithms.\n\n\n\n\n\n\n\nExercise number\n\n\nTitle\n\n\n\n\n\n\n\n\n\nExercise 1.1\n\n\nBig sums everywhere\n\n\n\n\n\n\n\nExercise 1.3\n\n\nIt takes ages\n\n\n\n\n\n\n\nExercise 1.7\n\n\nPolynomials and logarithms\n\n\n\n\n\n\n\nExercise 1.8\n\n\nGrowth orders I\n\n\n\n\n\n\n\nExercise 1.9\n\n\nGrowth orders II\n\n\n\n\n\nNo matching items\n\n\n\n\n\n\n\n\nAfter class\n\n\n\nTo test your understanding, try exercises from the Collection of Solved Exams. For instance:\n\n06/11/2020 Midterm EDA Exam Problem 1.b\n15/04/2021 Midterm EDA Exam Problem 1.a\n03/11/2022 Midterm EDA Exam Problem 1.b\n02/11/2023 Midterm EDA Exam Problem 1.b\n07/06/2021 Final EDA Exam Problem 1.a\n\nThe solutions of the above problems are in the same pdf containing their statement."
+  },
+  {
+    "objectID": "problems/index.html#sec-P2",
+    "href": "problems/index.html#sec-P2",
+    "title": "Problem Classes",
+    "section": "P2: Analysis of algorithms",
+    "text": "P2: Analysis of algorithms\nThis session is about finding the asymptotic cost (i.e. running time) of simple algorithms as a function of the input size.\nThe theoretical tools we use are:\n\nnotable sums from the problem class P1 (Exercise 1.1)\nAsymptotic notation\nAnalysis of Iterative Algorithms (look at your theory slides, for instance)\nMaster Theorem(s)\nInsertion Sort\n\nWe continue with some problems from the EDA ProblemSet, section 1 Analysis of algorithms.\n\n\n\n\n\n\n\nExercise number\n\n\nTitle\n\n\n\n\n\n\n\n\n\nExercise 1.12\n\n\nFors, and fors inside fors\n\n\n\n\n\n\n\nExercise 1.13\n\n\nParameters\n\n\n\n\n\n\n\nExercise 1.14\n\n\nOhs, Omegas, or Thetas\n\n\n\n\n\n\n\nExercise 1.18\n\n\nA mystery!\n\n\n\n\n\n\n\nExercise 1.23\n\n\nFast and slow exponentiation\n\n\n\n\n\nNo matching items\n\n\n\n\n\n\n\n\nAfter class\n\n\n\nTo test your understanding, try exercises from the Collection of Solved Exams. For instance:\n\n06/11/2020 Midterm EDA Exam Problem 2.a and 2.b\n15/04/2021 Midterm EDA Exam Problem 1.b and 1.c\n03/11/2022 Midterm EDA Exam Problem 2.a\n02/11/2023 Midterm EDA Exam Problem 2\n07/06/2021 Final EDA Exam Problem 1.c\n\nThe solutions of the above problems are in the same pdf containing their statement."
+  },
+  {
+    "objectID": "problems/index.html#sec-P3",
+    "href": "problems/index.html#sec-P3",
+    "title": "Problem Classes",
+    "section": "P3: Divide and Conquer",
+    "text": "P3: Divide and Conquer\nIn this class we solve some problems from the EDA ProblemSet, section 2 Divide and Conquer.\nThe theoretical tools we use are:\n\nBinary Search\nMergeSort\nMaster Theorem\n\n\n\n\n\n\n\n\nExercise number\n\n\nTitle\n\n\n\n\n\n\n\n\n\nExercise 2.9\n\n\nUnimodal\n\n\n\n\n\n\n\nExercise 2.10\n\n\nQuim’s wild sorting algorithm\n\n\n\n\n\n\n\nExercise 2.11\n\n\nCounting inversions\n\n\n\n\n\n\n\nExercise 2.12\n\n\nOne inversion\n\n\n\n\n\nNo matching items\n\n\n\n\n\n\n\n\nAfter class\n\n\n\nTo test your understanding, you could try to solve the MidTerm EDA Exams from the Collection of Solved Exams where there is some C++ code to complete. As always, the solutions are in the very same pdf."
+  },
+  {
+    "objectID": "problems/index.html#section",
+    "href": "problems/index.html#section",
+    "title": "Problem Classes",
+    "section": "P4: Dictionaries",
+    "text": "P4: Dictionaries\n\n\n\n\n\n\nImportant\n\n\n\nThis section will be available closer to the class."
+  },
+  {
+    "objectID": "problems/index.html#section-1",
+    "href": "problems/index.html#section-1",
+    "title": "Problem Classes",
+    "section": "P5: Priority Queues",
+    "text": "P5: Priority Queues\n\n\n\n\n\n\nImportant\n\n\n\nThis section will be available closer to the class."
+  },
+  {
+    "objectID": "problems/index.html#section-2",
+    "href": "problems/index.html#section-2",
+    "title": "Problem Classes",
+    "section": "P6: Graphs",
+    "text": "P6: Graphs\n\n\n\n\n\n\nImportant\n\n\n\nThis section will be available closer to the class."
+  },
+  {
+    "objectID": "problems/index.html#section-3",
+    "href": "problems/index.html#section-3",
+    "title": "Problem Classes",
+    "section": "P7: Intractability",
+    "text": "P7: Intractability\n\n\n\n\n\n\nImportant\n\n\n\nThis section will be available closer to the class."
+  },
+  {
+    "objectID": "problems/2.12/index.html",
+    "href": "problems/2.12/index.html",
+    "title": "One inversion",
+    "section": "",
+    "text": "Describe an algorithm of cost \\(\\Theta(\\log n)\\) that, given an element \\(x\\) and a table \\(T[1\\dots n]\\) with a single inversion determines whether \\(x\\) is in \\(T\\) or not.\n\n\n\nFirst show that if a table has a single inversion, then the two elements of this inversion appear next to each other; that is, if \\((i, j)\\) is the unique inversion in the table, then \\(i + 1 = j\\). Then use this fact to construct the algorithm required.\nRecall that an inversion in a table \\(A[1 \\dots n]\\) is a pair of indices that point to elements in inverted order; that is, a pair \\((i, j)\\) such that \\(1 \\leq  i &lt; j \\leq n\\) and \\(A[i] &gt; A[j]\\).\n\n\n\n\n\n\nExtra\n\n\n\nWill your algorithm work if there were \\(2\\) inversions? Yes? No? Why?\nAfter doing this exercise, you might want to solve the Jutge problem P33412 Resistant dichotomic search"
+  },
+  {
+    "objectID": "problems/2.10/index.html",
+    "href": "problems/2.10/index.html",
+    "title": "Quim’s wild sorting algorithm",
+    "section": "",
+    "text": "Let \\(T[i\\dots j]\\) be a table with \\(n = j - i + 1\\) elements. Consider the following sorting algorithm known as Quim’s wild sorting algorithm:\n\n\n\n\nIf \\(n \\leq  2\\), sort the table directly.\nIf \\(n \\geq 3\\), “divide” the table into three intervals \\(T[i\\dots k - 1]\\), \\(T[k\\dots \\ell]\\), and \\(T[\\ell + 1\\dots j]\\), where \\(k = i + \\lfloor n/3\\rfloor\\) and \\(\\ell = j - \\lfloor n/3\\rfloor\\).\n\nThe algorithm recursively calls itself to first sort \\(T[i\\dots \\ell]\\), then sort \\(T[k\\dots j]\\), and finally sort \\(T[i\\dots \\ell]\\) again.\nProve that this algorithm is correct. Give a recurrence for its running time and solve it.\n\n\n\n\n\n\nHint\n\n\n\n\n\nWriting the recurrence for the running time should be easier and using the Master Theorem it should not be difficult to solve. How good is the running time? Better or worse, say than Insertion Sort?\nProving that the algorithm is correct might be trickier, especially to write down as a formal argument. Don’t worry if you got stuck, but try to write down your argument anyway before class."
+  },
+  {
+    "objectID": "problems/1.8/index.html",
+    "href": "problems/1.8/index.html",
+    "title": "Growth orders I",
+    "section": "",
+    "text": "Sort the following functions in increasing order of asymptotic growth. If two functions have the same asymptotic growth, point it out.\n\n\n\nThe figure above is meant to be a visual reminder of the growth rate of functions. It is morally correct but it contains some small errors. Can you spot them? If not, look at the theory-bit asymptotics.\n\\[\n5n \\ln n\n\\]\n\\[\n4n\\sqrt{n}\n\\]\n\\[\n\\log_\\pi (n^n )\n\\]\n\\[\n\\frac{n}{\\log_2 n}\n\\]\n\\[\n\\frac{n}{\\ln n}\n\\]\n\\[\n3 \\ln(7^n)\n\\]\n\n\n\n\n\n\nHint\n\n\n\n\n\nYou might want to refresh how to compute limits and properties of the logarithms.\n\n\n\n\nOnce you solved this exercise you might want to double check the correctness of your answers using a Compuer Algebra System.\n\n\n\n\n\n\nCheck your answers using SageMath\n\n\n\n\n\nYou could use the box below to perform symbolic calculations in SageMath and use them to double-check the correctness of your calculations. If you click on the “Evaluate” button this will tell you something on the respective asymptotic growth of the functions \\(\\log(x)\\) and \\(\\sqrt{x}\\). Which one grows faster?\n\n\n\nUse the box above with different functions for \\(f\\) and \\(g\\). A minimal explanantion of the syntax is here.\n\n\n\n\n\n\nImportant\n\n\n\nDo not use \\(n\\) as the name of your variable, since this would tell SageMath to treat it as an integer. In our context, this would only create problems. Use \\(x\\) instead."
+  },
+  {
+    "objectID": "problems/1.3/index.html",
+    "href": "problems/1.3/index.html",
+    "title": "It takes ages",
+    "section": "",
+    "text": "For each function \\(f(n)\\) and running time \\(t\\) in the table below, determine the largest input size that can be solved in time \\(t\\) for a problem that requires \\(f(n)\\) microseconds (\\(\\mu\\)s) to solve on an input of size \\(n\\).\n\n\n\n\n\n\n\n\n\n\n\n\n\n\\(\\log(n)\\)\n\\(\\sqrt{n}\\)\n\\(n\\)\n\\(n^2\\)\n\\(n^3\\)\n\\(2^n\\)\n\n\n\n\n\\(1\\) second (\\(10^6 \\mu s\\))\n\n\n\n\n\n\n\n\n\\(1\\) minute (\\(60\\) seconds)\n\n\n\n\n\n\n\n\n\\(1\\) hour (\\(60\\) minutes)\n\n\n\n\n\n\n\n\n\\(1\\) day (\\(24\\) hours)\n\n\n\n\n\n\n\n\n\\(1\\) month (\\(30\\) days)\n\n\n\n\n\n\n\n\n\\(1\\) year (\\(365.25\\) days)\n\n\n\n\n\n\n\n\n\\(1\\) century (\\(100\\) years)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIn class\n\n\n\n\n\nFor some exercises, as this one, in class I’ll show how to use the Computer Algebra System SageMath to get quicky answers. (Or as an assistant to your symbolic calculations.)\n\n\n\nAs a comparison recall that it is estimated that there may be \\(10^{78}\\) to \\(10^{82}\\) atoms in the known universe."
+  },
+  {
+    "objectID": "problems/1.18/index.html",
+    "href": "problems/1.18/index.html",
+    "title": "A mystery!",
+    "section": "",
+    "text": "Explain what the following algorithm does and give its cost as a function of \\(n\\).\nint mystery(int n) { \n    int f = 1;\n    for (int i = 2; i &lt;= n; ++i) \n        f *= i;\n    return f; \n}   \n\n\n\n\n\n\nCum grano salis\n\n\n\nDoes the cost give a realistic running time? How many bits has the output as a function of \\(n\\) (asymptotically)? What is the cost actually measuring?"
+  },
+  {
+    "objectID": "problems/1.13/index.html",
+    "href": "problems/1.13/index.html",
+    "title": "Parameters",
+    "section": "",
+    "text": "State the cost of instructions (1), (2) and (3) in the following program.\nint funcion1 (vector&lt;int&gt;& v) { return v[0]; } \nint funcion2 (vector&lt;int&gt;  v) { return v[0]; }\n\nint f(int n) { \n    vector&lt;int&gt; v(n, 33);       // (1)\n    int a = funcion1(v);        // (2)\n    int b = funcion2(v);        // (3)\n    return a + b;\n}"
+  },
+  {
+    "objectID": "problems/1.1/index.html",
+    "href": "problems/1.1/index.html",
+    "title": "Big sums everywhere",
+    "section": "",
+    "text": "Prove that for every natural number \\(n\\) the following identities hold.\n\\[\n\\begin{align}\n\\sum_{i=0}^n i & = \\frac{n(n+1)}{2}\\label{eq:i}\n\\\\\n\\sum_{i=0}^n i^2 & = \\frac{n(n+1)(2n+1)}{6}\n\\\\\n\\sum_{i=0}^n 2^i &= 2^{n+1}-1\n\\end{align}\n\\]\n\n\n\n\n\n\nHint\n\n\n\n\n\nRecall that, for a function \\(f: \\mathbb N\\to \\mathbb R\\), the notation \\(\\displaystyle \\sum_{i=0}^n f(i)\\) is just a shortcut for the sum \\(f(0)+f(1)+\\cdots+f(n-1)+f(n)\\). For instance \\(\\displaystyle\\sum_{i=0}^n i^2\\) is just a more compact (and precise) way to denote \\(0^2+1^2+2^2+\\cdots+(n-1)^2+n^2\\).\nOne systematic way to prove the equalities in this exercise is to use induction on \\(n\\).\n\n\n\n\n\n\n\n\n\n\nExtra\n\n\n\nOther useful equalities: \\[\n\\begin{align}\n\\sum_{i=0}^n i^3 & = \\left(\\sum_{i=0}^n i\\right)^2 = \\frac{n^2(n+1)^2}{4}\n\\\\\n\\sum_{i=0}^n i^k & = \\Theta(n^{k+1})\n\\end{align}\n\\]\n\n\n\n\n\n\n\n\nImportant\n\n\n\nIt is important to remember/memorize the equalities in this exercise: they will arise naturally in analyzing the cost of for/while loops of C++ programs, e.g. in Exercise 1.12."
+  },
+  {
+    "objectID": "labs/L1-P62653/index.html",
+    "href": "labs/L1-P62653/index.html",
+    "title": "Ticket distribution",
+    "section": "",
+    "text": "A football club does not usually have enough tickets for all its supporters, so some method is needed to distribute them:\nWhen a supporter asks for a ticket, if there is any available at that moment, the supporter immediately gets one. Otherwise, the supporter’s code is recorded. When a ticket is available, if there is no recorded code at that moment, the ticket is stored. Otherwise, the ticket is given to the supporter with the shortest code.\nTies are broken as follows: A fixed word \\(w\\) is arbitrarily chosen at the beginning of the process. Then, lexicographical order is used among codes of length \\(n\\), except that w[1..\\(n\\)] is considered the first code, and the rest are considered cyclically. For instance, if \\(n = 4\\) and w[1..4] =“abcd”, then codes of length \\(4\\) are sorted in this order: “abcd”, “abce”, … , “abcz”, “abda”, … , “abdz”, … , “zzzz”, “aaaa”, … , “abcc”.\nWrite a program to distribute tickets among supporters according to the method just described above.\nInput: Input consists of several cases. Each case begins with a string \\(w\\) made up of \\(10\\) lowercase letters, followed by several events:\n\n‘T’ for an available ticket, and\n‘S’ for a supporter asking for a ticket.\n\nIn the latter case follows the supporter’s code (a non-empty string with at most 10 lowercase letters). The same supporter can ask for more than one ticket.\nAn ‘E’ marks the end of the events of a case. Assume that each case has no more than \\(105\\) events.\nOutput: For every case, print the codes of the supporters who get tickets, in the order in which this happens. Print two lines with final information. Count every supporter who unsuccessfully asked for t tickets exactly as t supporters who unsuccessfully asked for one ticket. Print an empty line after every case.\n\n\n\n\n\n\nPossible workflow\n\n\n\n\n\n\n\n\n\n\n\nStep 1: Getting the C++ code to compile\n\n\n\n\n\nAfter creating a C++ source file to solve the problem, compile it with g++ -std=c++11.\n\n\n\n\n\n\nCommon error(s)\n\n\n\nNot using the flag -std=c++11.\n\n\nPossible useful flags are -Wall -Wextra -Wno-overflow -Wpedantic -Werror -D_GLIBCXX_DEBUG\n\n\n\n\n\n\n\n\n\nStep 2: Testing testing testing\n\n\n\n\n\nTest the executable file obtained on the given example(s), for instance with ./a.out &lt; sample.inp &gt; output. Also, test your code against simple/trivial inputs, e.g. a graph with no-edges.\n\n\n\n\n\n\nCommon error(s)\n\n\n\nWriting the input by hand.\nNot checking the exact formatting of the output.\n\n\nTo see whether the output is the same as sample.cor a way is to use diff output sample.cor\n\n\n\n\n\n\n\n\n\nStep 3: Submitting the solution to the Jutge\n\n\n\n\n\nOnce the code compiles and on the given samples it gives the correct output submit it to the Jutge for automatic evaluation.\n\n\n\n\n\n\nCommon error(s)\n\n\n\nSending to the Jutge code that was not even compiled locally.\nNot checking if the output was correct on the given inputs.\n\n\n\n\n\n\n\n\n\n\n\nStep 4: I’m stuck. What can I do?\n\n\n\n\n\nYou are “stuck” on a problem if you spent around 1 hour trying to solve it but still the Jutge is rejecting your solution.\nPossible approaches to getting “un-stuck” are:\n\ndo not think about that problem for some time and come back to your code with fresh eyes\nlook again at the theory\ntry to explain your code to another student\nask for hints, e.g. by email. Be specific on the type of help you need. Include in the email the code of your approach.\n\n\n\n\n\n\n\n\n\n\n\n\n\nHint\n\n\n\n\n\nUse a priority_queue with a custom ordering to store the codes of the supporters waiting for a ticket. First focus on getting the exercise done, perhaps with a “wrong” ordering, and then focus on the ordering on the supporters.\nThe code below shows a possible way to use a priority_queue for this, but not the custom ordering required by the exercise.\n\n\n\n\n\n\nA possible C++ code to start the problem\n\n\n\n\n\n// STL - Ticket distribution\n#include&lt;iostream&gt;\n#include&lt;queue&gt;\n\nusing namespace std;\n\nstring w;\n\nstruct comp {\n    bool operator()(const string &s1, const string &s2){\n        // do something\n    }\n};\n\n\nint main(){\n    while (cin &gt;&gt; w){\n        priority_queue&lt;string, vector&lt;string&gt;, comp&gt; pq;\n        char op;//operation\n        int avail = 0;//available tickets\n        while(cin &gt;&gt; op and op!='E'){\n            if (op == 'T'){\n                if (pq.size()== 0) ++avail;\n                else{\n                    cout &lt;&lt; pq.top()&lt;&lt; endl;\n                    pq.pop();\n                }\n            }\n            else{//op is 'S'\n                string code;\n                cin &gt;&gt; code;\n                if (avail == 0) pq.push(code);\n                else{\n                    cout &lt;&lt; code &lt;&lt; endl;\n                    --avail;\n                }\n\n            }\n        }\n        cout &lt;&lt; avail &lt;&lt;\" ticket(s) left\" &lt;&lt; endl;\n        cout &lt;&lt; pq.size() &lt;&lt; \" supporter(s) with no ticket\" &lt;&lt; endl &lt;&lt; endl;\n    }\n}\n\n\n\n\n\n\nA couple of days after the class you should also see here a possible solution (if this is not the case please send me a reminder by email).\n\n\n\n\n\n\nA possible solution\n\n\n\n\n\n// STL - Ticket distribution\n#include&lt;iostream&gt;\n#include&lt;queue&gt;\n\nusing namespace std;\n\nstring w;\n\nstruct comp {\n    bool operator()(const string &s1, const string &s2){\n        if (s1.size()&gt;s2.size()) return true;\n        if (s1.size()&lt;s2.size()) return false;\n        string ref = w.substr(0,s1.size());\n        if (s2 &lt; ref) return s1 &lt; ref and s2 &lt; s1;\n        else          return s1 &lt; ref or s1 &gt; s2;\n    }\n};\n\n\nint main(){\n    while (cin &gt;&gt; w){\n        priority_queue&lt;string, vector&lt;string&gt;, comp&gt; pq;\n        char op;//operation\n        int avail = 0;//available tickets\n        while(cin &gt;&gt; op and op!='E'){\n            if (op == 'T'){\n                if (pq.size()== 0) ++avail;\n                else{\n                    cout &lt;&lt; pq.top()&lt;&lt; endl;\n                    pq.pop();\n                }\n            }\n            else{//op is 'S'\n                string code;\n                cin &gt;&gt; code;\n                if (avail == 0) pq.push(code);\n                else{\n                    cout &lt;&lt; code &lt;&lt; endl;\n                    --avail;\n                }\n\n            }\n        }\n        cout &lt;&lt; avail &lt;&lt;\" ticket(s) left\" &lt;&lt; endl;\n        cout &lt;&lt; pq.size() &lt;&lt; \" supporter(s) with no ticket\" &lt;&lt; endl &lt;&lt; endl;\n    }\n}"
+  },
+  {
+    "objectID": "labs/L1-P60296/index.html",
+    "href": "labs/L1-P60296/index.html",
+    "title": "Role Classification",
+    "section": "",
+    "text": "Simulate a server of a role-playing game for two players.\nEach player has an “elo”, which is a value larger the better is the player. Everyone starts with \\(1200\\) points, and nobody ever gets a lower quantity, no matter how many games are lost. Whenever there is a match, the winner gets \\(10\\) elo points, and the loser loses \\(10\\) elo points (with the limitation above). The elo of a player is kept when he or she disconnects from the server.\nWe have these instructions:\nLOGIN j : The player j starts a session. Ignore it if the player is already connected.\nLOGOUT j : The player j closes the session. Ignore it if the player is not connected.\nPLAY j1 ⁠ ⁠ j2 : Indicates that \\(j_1\\) has beaten \\(j_2\\), with \\(j_1 \\neq j_2\\). Ignore it but print an error message if any of the two players is not connected.\nGET_ELO j : Print the player j (who was connected for sure previously, although now may be disconnected) with his or her current elo.\nInput: several instructions for at most 105 players. Each player’s name is different and made up of only lowercase letters.\nOutput: For every instruction GET_ELO (and perhaps PLAY) print the proper output. At the end, print an empty line, the word RANKING, and a ranking sorted in decreasing order by elo (if there is a tie, print first the alfabetically smallest name) with all the players ever connected to the server.\n\n\n\n\n\n\nPossible workflow\n\n\n\n\n\n\n\n\n\n\n\nStep 1: Getting the C++ code to compile\n\n\n\n\n\nAfter creating a C++ source file to solve the problem, compile it with g++ -std=c++11.\n\n\n\n\n\n\nCommon error(s)\n\n\n\nNot using the flag -std=c++11.\n\n\nPossible useful flags are -Wall -Wextra -Wno-overflow -Wpedantic -Werror -D_GLIBCXX_DEBUG\n\n\n\n\n\n\n\n\n\nStep 2: Testing testing testing\n\n\n\n\n\nTest the executable file obtained on the given example(s), for instance with ./a.out &lt; sample.inp &gt; output. Also, test your code against simple/trivial inputs, e.g. a graph with no-edges.\n\n\n\n\n\n\nCommon error(s)\n\n\n\nWriting the input by hand.\nNot checking the exact formatting of the output.\n\n\nTo see whether the output is the same as sample.cor a way is to use diff output sample.cor\n\n\n\n\n\n\n\n\n\nStep 3: Submitting the solution to the Jutge\n\n\n\n\n\nOnce the code compiles and on the given samples it gives the correct output submit it to the Jutge for automatic evaluation.\n\n\n\n\n\n\nCommon error(s)\n\n\n\nSending to the Jutge code that was not even compiled locally.\nNot checking if the output was correct on the given inputs.\n\n\n\n\n\n\n\n\n\n\n\nStep 4: I’m stuck. What can I do?\n\n\n\n\n\nYou are “stuck” on a problem if you spent around 1 hour trying to solve it but still the Jutge is rejecting your solution.\nPossible approaches to getting “un-stuck” are:\n\ndo not think about that problem for some time and come back to your code with fresh eyes\nlook again at the theory\ntry to explain your code to another student\nask for hints, e.g. by email. Be specific on the type of help you need. Include in the email the code of your approach.\n\n\n\n\n\n\n\n\n\n\n\n\n\nHint\n\n\n\n\n\n\nA possible appraoch is to use a set to store the logged players and a map to associate each player with his/her elo\n\n#include&lt;algorithm&gt; allows to sort a vector v using sort(v.begin(),v.end())\n\n\n\n\n\n\n\nA possible C++ code to start the problem\n\n\n\n\n\n//STL - Role classification\n#include&lt;iostream&gt;\n#include&lt;set&gt;\n#include&lt;map&gt;\n#include&lt;algorithm&gt;\n\nusing namespace std;\n\nint main(){\n    set&lt;string&gt; logged;\n    map&lt;string,int&gt; elo;\n    string op;\n    while(cin &gt;&gt; op){\n        string player1;\n        cin &gt;&gt; player1;\n        if (op == \"LOGIN\"){\n            // do something\n        }\n        else if (op == \"LOGOUT\"){\n            // do something\n        }\n        else if (op == \"PLAY\"){\n            // do something\n        }\n        else{// op == GET_ELO\n            // do something\n        }\n    }\n    cout &lt;&lt; endl &lt;&lt; \"RANKING\" &lt;&lt; endl;\n            // do something\n\n}\n\n\n\n\n\n\nA couple of days after the class you should also see here a possible solution (if this is not the case please send me a reminder by email).\n\n\n\n\n\n\nA possible solution\n\n\n\n\n\n//STL - Role classification\n#include&lt;iostream&gt;\n#include&lt;set&gt;\n#include&lt;map&gt;\n#include&lt;algorithm&gt;\n\nusing namespace std;\n\nint main(){\n    string cmd;\n    set&lt;string&gt; logged;\n    map&lt;string,int&gt; elo;\n\n    while(cin &gt;&gt; cmd){\n        string player1;\n        cin &gt;&gt; player1;\n        if (cmd == \"LOGIN\"){\n            logged.insert(player1);\n         if (not elo.count(player1)) elo[player1] = 1200;\n     }\n        else if (cmd == \"LOGOUT\") logged.erase(player1);\n        else if (cmd == \"GET_ELO\") cout &lt;&lt; player1 &lt;&lt; ' ' &lt;&lt; elo[player1] &lt;&lt; endl;\n        else{// case of PLAY\n            string player2;\n            cin &gt;&gt; player2;\n            if (not logged.count(player1) or not logged.count(player2)) cout &lt;&lt; \"player(s) not connected\" &lt;&lt; endl;\n            else{\n            elo[player1] +=10;\n                elo[player2] = max(elo[player2]-10,1200);\n            }\n        }\n    }\n    cout &lt;&lt; endl &lt;&lt; \"RANKING\" &lt;&lt; endl;\n    vector&lt;pair&lt;int,string&gt;&gt; v;\n    for (auto p : elo) v.emplace_back(-p.second,p.first);\n    sort(v.begin(),v.end());\n    for (auto p :v) cout &lt;&lt; p.second &lt;&lt; ' ' &lt;&lt; -p.first &lt;&lt; endl;\n}"
+  },
+  {
+    "objectID": "labs/L1-P59282/index.html",
+    "href": "labs/L1-P59282/index.html",
+    "title": "Statistical measures",
+    "section": "",
+    "text": "Write a program to compute the most common statistical measures (minimum, maximum and average) of several integer numbers.\nThese numbers are known increasingly. At every moment, it is also possible to delete the smallest element.\nInput: A sequence of (possibly, many) numbers, together with deleting instructions, as can be seen in the sample input. The numbers may be repeated. Deleting means removing the smallest element (one instance of it, if it is repeated). If there are no elements, deleting does nothing.\nOutput: After every instruction of the input, print the minimum, maximum and average of the current elements with four digits after the decimal point, or tell that there are no elements. Follow the format of the sample output.\n\n\n\n\n\n\nPossible workflow\n\n\n\n\n\n\n\n\n\n\n\nStep 1: Getting the C++ code to compile\n\n\n\n\n\nAfter creating a C++ source file to solve the problem, compile it with g++ -std=c++11.\n\n\n\n\n\n\nCommon error(s)\n\n\n\nNot using the flag -std=c++11.\n\n\nPossible useful flags are -Wall -Wextra -Wno-overflow -Wpedantic -Werror -D_GLIBCXX_DEBUG\n\n\n\n\n\n\n\n\n\nStep 2: Testing testing testing\n\n\n\n\n\nTest the executable file obtained on the given example(s), for instance with ./a.out &lt; sample.inp &gt; output. Also, test your code against simple/trivial inputs, e.g. a graph with no-edges.\n\n\n\n\n\n\nCommon error(s)\n\n\n\nWriting the input by hand.\nNot checking the exact formatting of the output.\n\n\nTo see whether the output is the same as sample.cor a way is to use diff output sample.cor\n\n\n\n\n\n\n\n\n\nStep 3: Submitting the solution to the Jutge\n\n\n\n\n\nOnce the code compiles and on the given samples it gives the correct output submit it to the Jutge for automatic evaluation.\n\n\n\n\n\n\nCommon error(s)\n\n\n\nSending to the Jutge code that was not even compiled locally.\nNot checking if the output was correct on the given inputs.\n\n\n\n\n\n\n\n\n\n\n\nStep 4: I’m stuck. What can I do?\n\n\n\n\n\nYou are “stuck” on a problem if you spent around 1 hour trying to solve it but still the Jutge is rejecting your solution.\nPossible approaches to getting “un-stuck” are:\n\ndo not think about that problem for some time and come back to your code with fresh eyes\nlook again at the theory\ntry to explain your code to another student\nask for hints, e.g. by email. Be specific on the type of help you need. Include in the email the code of your approach.\n\n\n\n\n\n\n\n\n\n\n\n\n\nHint\n\n\n\n\n\n\nTry to use a priority_queue with first element the smallest among the ones seen so far.\nTo output a double x with 4 digits of precision you can use #include&lt;iomanip&gt; and cout &lt;&lt; fixed &lt;&lt; setprecision(4) &lt;&lt; the double you want to output.\n#include&lt;limits&gt; allows you to access e.g. the smallest int with numeric_limits&lt;int&gt;::lowest().\n\n\n\n\n\n\n\nA possible C++ code to start the problem\n\n\n\n\n\n//STL - Statistical measures\n#include&lt;iostream&gt;\n#include&lt;queue&gt;\n#include&lt;limits&gt;\n#include&lt;iomanip&gt;\n\nusing namespace std;\n\nconst auto MININFTY = numeric_limits&lt;int&gt;::lowest();\n\nint main(){\n    string op;\n    priority_queue&lt;int,vector&lt;int&gt;,greater&lt;int&gt;&gt; q;\n    int sum = 0;\n    int max = MININFTY;\n    while (cin &gt;&gt; op){\n        if (op == \"delete\"){ \n            // do something\n        }\n        else{// case of \"number\"\n            // do something \n        } \n        int sz = q.size();\n        if (sz == 0) cout &lt;&lt; \"no elements\" &lt;&lt; endl;\n        else{\n            // do something\n            // to output a double x with 4 digits of precision use \n            // cout &lt;&lt; fixed &lt;&lt; setprecision(4) &lt;&lt; x\n        }\n    }\n}\n\n\n\n\n\n\nA couple of days after the class you should also see here a possible solution (if this is not the case please send me a reminder by email).\n\n\n\n\n\n\nA possible solution\n\n\n\n\n\n//STL - Satistical measures\n#include&lt;iostream&gt;\n#include&lt;queue&gt;\n#include&lt;limits&gt;\n#include&lt;iomanip&gt;\n\nusing namespace std;\n\nconst auto MININFTY = numeric_limits&lt;int&gt;::lowest();\n\nint main(){\n    string op;\n    priority_queue&lt;int,vector&lt;int&gt;,greater&lt;int&gt;&gt; q;\n    int sum = 0;\n    int max = MININFTY;\n    while (cin &gt;&gt; op){\n        if (op == \"delete\"){ \n            if (not q.empty()){\n                sum -=q.top();\n                q.pop();\n                if (q.empty()) max = MININFTY;\n            }\n        }\n        else{// case of \"number\"\n            int value;\n            cin &gt;&gt; value;\n            q.push(value);\n            sum +=value;\n            if (value &gt; max) max = value; \n        } \n        int sz = q.size();\n        if (sz == 0) cout &lt;&lt; \"no elements\" &lt;&lt; endl;\n        else{\n            double avg = double(sum) / sz;\n            cout &lt;&lt; \"minimum: \" &lt;&lt; q.top();\n            cout &lt;&lt; \", maximum: \" &lt;&lt; max;\n            cout &lt;&lt; \", average: \" &lt;&lt; fixed &lt;&lt; setprecision(4) &lt;&lt; avg &lt;&lt; endl;\n        }\n    }\n}"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Data Structures and Algorithmics",
+    "section": "",
+    "text": "fix ❗ not rendered in titles\nadd lightbox treatment for code\nwhen course ends remember to make EDA/ private\nWelcome to Data Structures and Algorithmics (aka EDA)!\nI’m Ilario Bonacina and if you are a student of the groups P/L11 or P/L31 or L43 or L53 then I’m one of your instructors for this semester.\nThis page is just a support for the problem/lab classes I’m giving. Please refer to the main webpage of EDA for news, course material, etc and to the official UPC page for the course syllabus."
+  },
+  {
+    "objectID": "index.html#announcements",
+    "href": "index.html#announcements",
+    "title": "Data Structures and Algorithmics",
+    "section": "Announcements",
+    "text": "Announcements\n\n\n\n\n\n\nChange of class October 15! L11 and L31\n\n\n\nPlease check the racó for info on which other lab goup you should join. If you are a student of the groups L11 and L31, otherwise everything is as usual."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "Contacts",
+    "section": "",
+    "text": "fix ❗ not rendered in titles\nadd lightbox treatment for code\nwhen course ends remember to make EDA/ private\n\n\nThe person in charge of the whole course is Albert Oliveras Llunell (email). For administrative questions please ask him directly.\nMy email for this course is ilario.bonacina+EDA@upc.edu.  The last possible day to ask questions by email is 6 days before the partial/final exam.\nPlease use the form below to book office time."
+  },
+  {
+    "objectID": "labs/L1-P59282/P59282-hint.html",
+    "href": "labs/L1-P59282/P59282-hint.html",
+    "title": "EDA",
+    "section": "",
+    "text": "Try to use a priority_queue with first element the smallest among the ones seen so far.\nTo output a double x with 4 digits of precision you can use #include&lt;iomanip&gt; and cout &lt;&lt; fixed &lt;&lt; setprecision(4) &lt;&lt; the double you want to output.\n#include&lt;limits&gt; allows you to access e.g. the smallest int with numeric_limits&lt;int&gt;::lowest()."
+  },
+  {
+    "objectID": "labs/L1-P60296/P60296-hint.html",
+    "href": "labs/L1-P60296/P60296-hint.html",
+    "title": "EDA",
+    "section": "",
+    "text": "A possible appraoch is to use a set to store the logged players and a map to associate each player with his/her elo\n\n#include&lt;algorithm&gt; allows to sort a vector v using sort(v.begin(),v.end())"
+  },
+  {
+    "objectID": "labs/L1-P62653/P62653-hint.html",
+    "href": "labs/L1-P62653/P62653-hint.html",
+    "title": "EDA",
+    "section": "",
+    "text": "Use a priority_queue with a custom ordering to store the codes of the supporters waiting for a ticket. First focus on getting the exercise done, perhaps with a “wrong” ordering, and then focus on the ordering on the supporters.\nThe code below shows a possible way to use a priority_queue for this, but not the custom ordering required by the exercise."
+  },
+  {
+    "objectID": "labs/index.html",
+    "href": "labs/index.html",
+    "title": "Lab Classes",
+    "section": "",
+    "text": "Every lab class follows roughly the same structure. In every session there will be some set of exercises from Jutge.org to solve using the programming language C++."
+  },
+  {
+    "objectID": "labs/index.html#section",
+    "href": "labs/index.html#section",
+    "title": "Lab Classes",
+    "section": "L1: Use of STL data structures",
+    "text": "L1: Use of STL data structures\nWelcome to the first lab class of EDA!\nWe start with a Self Assessment. The self assessment is meant to recall basic best practices while compiling C++ code.\nNow we revise some aspects of The C++ Standard Template Library (STL). A way more comprehensive treatment of the STL is in cppreference.com.\nIn this class we consider the problems from Jutge.org, section EDA \\(\\rightarrow\\) Use of STL data structures.\nOnce you have chosen a problem to solve, dowload the .zip archive of the problem and unzip it. In the obtained folder there are:\n\na file .pdf with the official problem statement\none or more text files with examples of input sample.inp\nthe corresponding correct outputs sample.cor\n\n\n\n\n\n\n\nPossible workflow\n\n\n\n\n\n\n\n\n\n\n\nStep 1: Getting the C++ code to compile\n\n\n\n\n\nAfter creating a C++ source file to solve the problem, compile it with g++ -std=c++11.\n\n\n\n\n\n\nCommon error(s)\n\n\n\nNot using the flag -std=c++11.\n\n\nPossible useful flags are -Wall -Wextra -Wno-overflow -Wpedantic -Werror -D_GLIBCXX_DEBUG\n\n\n\n\n\n\n\n\n\nStep 2: Testing testing testing\n\n\n\n\n\nTest the executable file obtained on the given example(s), for instance with ./a.out &lt; sample.inp &gt; output. Also, test your code against simple/trivial inputs, e.g. a graph with no-edges.\n\n\n\n\n\n\nCommon error(s)\n\n\n\nWriting the input by hand.\nNot checking the exact formatting of the output.\n\n\nTo see whether the output is the same as sample.cor a way is to use diff output sample.cor\n\n\n\n\n\n\n\n\n\nStep 3: Submitting the solution to the Jutge\n\n\n\n\n\nOnce the code compiles and on the given samples it gives the correct output submit it to the Jutge for automatic evaluation.\n\n\n\n\n\n\nCommon error(s)\n\n\n\nSending to the Jutge code that was not even compiled locally.\nNot checking if the output was correct on the given inputs.\n\n\n\n\n\n\n\n\n\n\n\nStep 4: I’m stuck. What can I do?\n\n\n\n\n\nYou are “stuck” on a problem if you spent around 1 hour trying to solve it but still the Jutge is rejecting your solution.\nPossible approaches to getting “un-stuck” are:\n\ndo not think about that problem for some time and come back to your code with fresh eyes\nlook again at the theory\ntry to explain your code to another student\nask for hints, e.g. by email. Be specific on the type of help you need. Include in the email the code of your approach.\n\n\n\n\n\n\n\nAs a starting point we solve together the following problems.\n\n\n\n\n\nProblem\n\n\n\n\n\n\n\n\nRole Classification\n\n\nGo to the Jutge statement of the problem\n\n\n\n\nStatistical measures\n\n\nGo to the Jutge statement of the problem\n\n\n\n\nTicket distribution\n\n\nGo to the Jutge statement of the problem\n\n\n\n\n\nNo matching items\n\n\n\n\n\n\n\n\nOther Jutge problems on STL\n\n\n\n\n\n\nCollection of numbers \nCasino \nCollatz pseudo-sequences (2) ❗ \n\nBag of words \nDynamic median ❗\n\nThe longest sequence ❗ \n\nEasy game? \nK-th element (~ Problem 4.11 you will see in the problem class P5)\n\n\n\n\nTicket distribution \n\n\nRecall that ❗ marks possibly harder problems."
+  },
+  {
+    "objectID": "labs/index.html#section-1",
+    "href": "labs/index.html#section-1",
+    "title": "Lab Classes",
+    "section": "L2: Divide and Conquer",
+    "text": "L2: Divide and Conquer\n\n\n\n\n\n\nImportant\n\n\n\nThis section will be available closer to the class."
+  },
+  {
+    "objectID": "labs/index.html#section-2",
+    "href": "labs/index.html#section-2",
+    "title": "Lab Classes",
+    "section": "L3: Graph algorithms I",
+    "text": "L3: Graph algorithms I\n\n\n\n\n\n\nImportant\n\n\n\nThis section will be available closer to the class."
+  },
+  {
+    "objectID": "labs/index.html#section-3",
+    "href": "labs/index.html#section-3",
+    "title": "Lab Classes",
+    "section": "L4: Graph algorithms II",
+    "text": "L4: Graph algorithms II\n\n\n\n\n\n\nImportant\n\n\n\nThis section will be available closer to the class."
+  },
+  {
+    "objectID": "labs/index.html#section-4",
+    "href": "labs/index.html#section-4",
+    "title": "Lab Classes",
+    "section": "L5: Exhaustive algorithms I",
+    "text": "L5: Exhaustive algorithms I\n\n\n\n\n\n\nImportant\n\n\n\nThis section will be available closer to the class."
+  },
+  {
+    "objectID": "labs/index.html#section-5",
+    "href": "labs/index.html#section-5",
+    "title": "Lab Classes",
+    "section": "L6: Exhaustive algorithms II",
+    "text": "L6: Exhaustive algorithms II\n\n\n\n\n\n\nImportant\n\n\n\nThis section will be available closer to the class."
+  },
+  {
+    "objectID": "problems/1.12/index.html",
+    "href": "problems/1.12/index.html",
+    "title": "Fors, and fors inside fors",
+    "section": "",
+    "text": "For each of the following fragments of code, analyze its cost.\n\n\n\n\n\n\nWarning\n\n\n\n\n\nYou might be tempted to eye-ball the cost of some of the fragments below. This will very easily lead to errors.\n\n\n\n\n\n\n\n\n\nHint\n\n\n\n\n\nTo do this exercise you might want to look again at the sums in Exercise 1.1.\n\n\n\n// Fragment 1\nint s = 0;\nfor (int i = 0; i &lt; n; ++i) {\n    ++s; \n}\n// Fragment 2 \nint s = 0;\nfor (int i = 0; i &lt; n; i += 2) { \n    ++s;\n}\n// Fragment 3\nint s = 0;\nfor (int i = 0; i &lt; n; ++i) { \n    ++s;\n}\nfor (int j = 0; j &lt; n; ++j) { \n    ++s;\n}\n// Fragment 4\nint s = 0;\nfor (int i = 0; i &lt; n; ++i) {\n    for (int j = 0; j &lt; n; ++j) {\n        ++s;\n    }\n}\n// Fragment 5\nint s = 0;\nfor (int i = 0; i &lt; n; ++i) {\n    for (int j = 0; j &lt; i; ++j) { \n        ++s;\n    }\n}\n// Fragment 6\nint s = 0;\nfor (int i = 0; i &lt; n; ++i) {\n    for (int j = i; j &lt; n; ++j) { \n        ++s;\n    }\n}\n// Fragment 7\nint s = 0;\nfor (int i = 0; i &lt; n; ++i) {\n    for (int j = 0; j &lt; n; ++j) {\n        for (int k = 0; k &lt; n; ++k) {\n            ++s; \n        }\n    }\n}   \n// Fragment 8\nint s = 0;\nfor (int i = 0; i &lt; n; ++i) {\n    for (int j = 0; j &lt; i; ++j) {\n        for (int k = 0; k &lt; j; ++k) {\n            ++s;\n        }\n    }\n}\n// Fragment 9\nint s = 0;\nfor (int i = 1; i &lt;= n; i *= 2) {\n    ++s; \n}\n// Fragment 10\nint s = 0;\nfor (int i = 0; i &lt; n; ++i) {\n    for (int j = 0; j &lt; i*i; ++j) { \n        for (int k = 0; k &lt; n; ++k) {\n            ++s; \n        }\n    }\n}\n// Fragment 11\nint s = 0;\nfor (int i = 0; i &lt; n; ++i) {\n    for (int j = 0; j &lt; i*i; ++j) { \n        if (j % i == 0) {\n            for (int k = 0; k &lt; n; ++k) { \n                ++s;\n            }\n        }\n    }\n}"
+  },
+  {
+    "objectID": "problems/1.14/index.html",
+    "href": "problems/1.14/index.html",
+    "title": "Ohs, Omegas, or Thetas",
+    "section": "",
+    "text": "The following sentences refer to the insertion sort algorithm and the \\(X\\)’s hide an occurrence of \\(O\\), \\(\\Omega\\), or \\(\\Theta\\).\nFor each of the sentences, indicate which options for \\(X \\in \\{O, \\Omega, \\Theta\\}\\) make the statement true, which options make the statement false, and justify your answers:\n\nThe worst case is \\(X(n^2)\\).\nThe worst case is \\(X(n)\\).\nThe best case is \\(X(n^2)\\).\nThe best case is \\(X(n)\\).\nFor every probability distribution, the average case is \\(X(n^2)\\).\nFor every probability distribution, the average case is \\(X(n)\\).\n\n\n\n\n\n\n\nExtra\n\n\n\nFor some probability distribution, the average case is \\(X(n \\log n)\\).\nWhat if we consider the MergeSort instead of the Insertion Sort?"
+  },
+  {
+    "objectID": "problems/1.23/index.html",
+    "href": "problems/1.23/index.html",
+    "title": "Fast and slow exponentiation",
+    "section": "",
+    "text": "Analyze the cost of the following recursive functions.\nThey all compute \\(x^n\\) for \\(n \\in \\mathbb N\\) in different ways.\ndouble power_1 (double x, int n) { \n    if (n == 0){\n        return 1;\n    } \n    else {\n        return x*power_1(x, n - 1); \n    }\n}\ndouble power_2 (double x, int n) { \n    if (n == 0){\n        return 1;\n    } else if (n % 2 == 0) {\n        int y = power_2(x, n/2);\n        return y*y;\n    } else {\n        int y = power_2(x, n/2);\n        return y*y*x; \n    }\n}\ndouble power_3 (double x, int n) {\n    if (n == 0){\n        return 1;\n    } else if (n % 2 == 0) {\n        return power_3(x, n/2) * power_3(x, n/2); \n    } else {\n     return power_3(x, n/2) * power_3(x, n/2) * x; \n    }\n}\n\n\n\n\n\n\nAfter class\n\n\n\nTry to solve the following series of Jutge problems in the section Divide-and-Conquer before the next lab. They are all about efficient exponentiation (in one way or another).\n\nP29212 Modular exponentiation\nP61833 Powers of a matrix\nP74219 Fibonacci numbers (2)\nX39049 Powers of permutations\n\nUsing what we discussed in class, what is a good code to use as a starting point to solve the exercises above? (The exercises are listed in increasing order of difficulty.)"
+  },
+  {
+    "objectID": "problems/1.7/index.html",
+    "href": "problems/1.7/index.html",
+    "title": "Polynomials and logarithms",
+    "section": "",
+    "text": "Prove the following asymptotic identities.\n\nFor every polynomial \\(p(n) = a_kn^k + a_{k-1}n^{k-1} + \\dots + a_1n + a_0\\) with \\(a_k &gt; 0\\), it holds that \\(p(n)=\\Theta(n^k)\\).         \nFor every two bases \\(a,b &gt; 1\\), it holds that \\(\\log_a n=\\Theta(\\log_b n)\\)."
+  },
+  {
+    "objectID": "problems/1.9/index.html",
+    "href": "problems/1.9/index.html",
+    "title": "Growth orders II",
+    "section": "",
+    "text": "Classify the functions below in such a way that \\(f(n)\\) and \\(g(n)\\) belong to the same class if and only if \\(f(n) =  \\Theta(g(n))\\), and enumerate the classes according to their growth order:\n\n\n\nThe figure above is meant to be a visual reminder of the growth rate of functions. It is morally correct but it contains some small errors. Can you spot them? If not, look at the theory-bit asymptotics.\n\n\n\\[\nn\n\\]\n\\[\n\\sqrt{n}\n\\]\n\\[\nn^{1.5}\n\\]\n\\[\nn^2\n\\]\n\\[\nn \\log n\n\\]\n\\[\nn \\log \\log n\n\\]\n\\[\n(\\log \\log n)^2\n\\]\n\\[\nn \\log^2 n\n\\]\n\\[\n\\frac{n^3}{n-1}\n\\]\n\\[\nn^{\\log n}\n\\]\n\n\\[\nn\\log(n^2)\n\\]\n\\[\n21n\n\\]\n\\[\n2^n\n\\]\n\\[\n2^{\\sqrt{n}}\n\\]\n\\[\n2^{\\sqrt{\\log n}}\n\\]\n\\[\n2^{n/2}\n\\]\n\\[\n37\n\\]\n\\[\n2^{2^n}\n\\]\n\\[\n\\frac{2}{n}\n\\]\n\\[\nn^2\\log n\n\\]\n\n\n\n\n\n\n\n\nHint\n\n\n\n\n\nYou might want to refresh how to compute limits and properties of the logarithms.\n\n\n\n\n\n\n\n\n\nExtra\n\n\n\nWhat about \\(n!\\) and \\(3^n\\)? How do they compare with the rest?\n\n\n\n\n\n\nHint\n\n\n\n\n\nUse Stirling approximation of \\(n!\\).\n\n\n\n\n\n\nOnce you solved this exercise you might want to double check the correctness of your answers using a Compuer Algebra System.\n\n\n\n\n\n\nCheck your answers using SageMath\n\n\n\n\n\nYou could use the box below to perform symbolic calculations in SageMath and use them to double-check the correctness of your calculations. If you click on the “Evaluate” button this will tell you something on the respective asymptotic growth of the functions \\(2^{\\sqrt{\\log(x)}}\\) and \\(\\sqrt{x}\\). Which one grows faster?\n\n\n\nUse the box above with different functions for \\(f\\) and \\(g\\). A minimal explanantion of the syntax is here.\n\n\n\n\n\n\nImportant\n\n\n\nDo not use \\(n\\) as the name of your variable, since this would tell SageMath to treat it as an integer. In our context, this would only create problems. Use \\(x\\) instead."
+  },
+  {
+    "objectID": "problems/2.11/index.html",
+    "href": "problems/2.11/index.html",
+    "title": "Counting inversions",
+    "section": "",
+    "text": "Write an algorithm that counts the number of inversions in a table with \\(n\\) elements. The worst-case cost of the algorithm should be \\(O(n \\log n)\\).\n\n\n\nAn inversion in a table \\(A[1 \\dots n]\\) is a pair of indices that point to elements in inverted order; that is, a pair \\((i, j)\\) such that \\(1 \\leq  i &lt; j \\leq n\\) and \\(A[i] &gt; A[j]\\).\n\n\n\n\n\n\nHint\n\n\n\n\n\nAs a starting point you might want to revise how the MergeSort works.\n\n\n\n\n\n\n\n\n\nExtra\n\n\n\nAfter doing this exercise, you might want to solve the Jutge problem P80595 How many inversions?"
+  },
+  {
+    "objectID": "problems/2.9/index.html",
+    "href": "problems/2.9/index.html",
+    "title": "Unimodal",
+    "section": "",
+    "text": "Write a divide and conquer algorithm that, given a vector that stores a unimodal sequence, finds its top in cost \\(O(\\log n)\\).\n\n\n\n\n\nThe Great Wave off Kanagawa Katsushika Hokusai\n\n\nArgue that the suggested algorithm has cost \\(O(\\log n)\\), and prove its correctness.\nA sequence of integers \\(A = (a_1, \\dots , a_n)\\) of length \\(n \\geq  3\\) is called unimodal if there exists an index \\(t\\) with \\(1\\leq t\\leq n\\) such that \\(a_1 &lt;a_2 &lt;\\dots&lt;a_t\\) and \\(a_t &gt;a_{t+1} &gt;\\dots&gt; a_n\\). In other words, the sequence \\(A\\) increases up to \\(a_t\\) and then decreases. The element \\(a_t\\) is called its top.\n\n\n\n\n\n\nExtra\n\n\n\nWhat if you didn’t want to find the top \\(t\\) but to tell whether an element \\(x\\) is in the unimodal sequence?\nAfter doing this exercise, you might want to solve the Jutge problem X82938 Search in a unimodal vector."
+  },
+  {
+    "objectID": "references/index.html",
+    "href": "references/index.html",
+    "title": "References",
+    "section": "",
+    "text": "Please refer to the main webpage of EDA for news, didactic material, etc and to the official UPC page for the course syllabus."
+  },
+  {
+    "objectID": "references/index.html#c-resources",
+    "href": "references/index.html#c-resources",
+    "title": "References",
+    "section": "C++ resources",
+    "text": "C++ resources\nIn the EDA Main Page\\(\\rightarrow\\) Material Docent you’ll find the following useful material:\n\nAlgorismes en C++\nNormes de Programació (in catalan) This file describes the accepted style of C++ writing.  It is used as a reference for correcting the lab exam.\nEines de Suport a la Programació (in catalan) A list of possibly useful software (source code editors, debuggers, git, …)\n\nRegarding C++ references, the standard ones are\n\n\ncppreference.com\n\nand its offline version C++ reference which is available to consult during the lab exam. Have a look at it to know what is not needed to memorize.\n\n\n  The C++ Programming Language\nBjarne Stroustrup. Addison-Wesley, (4th ed.) 2013"
+  },
+  {
     "objectID": "theory_bits/STL/index.html",
     "href": "theory_bits/STL/index.html",
     "title": "The C++ Standard Template Library1",
@@ -91,333 +420,11 @@
     "text": "Footnotes\n\n\nThe content of this page is mostly based on STL and Algorithms in C++.↩︎\nThat is a&lt;b is true when either a.first &lt; b.first or when a.first == b.first and a.second &lt; b.second.↩︎\nInternally, set&lt;T&gt; is implemented with a balanced binary search tree.↩︎\nInternally, map&lt;K,V&gt; is implemented with balanced binary search trees.↩︎\nInternally, unordered_set&lt;T&gt; is implemented with a Hash table.↩︎\nInternally, unordered_map&lt;K,V&gt; is implemented with a Hash table.↩︎"
   },
   {
-    "objectID": "references/index.html",
-    "href": "references/index.html",
-    "title": "References",
+    "objectID": "theory_bits/binary_search.html",
+    "href": "theory_bits/binary_search.html",
+    "title": "Binary Search",
     "section": "",
-    "text": "Please refer to the main webpage of EDA for news, didactic material, etc and to the official UPC page for the course syllabus."
-  },
-  {
-    "objectID": "references/index.html#c-resources",
-    "href": "references/index.html#c-resources",
-    "title": "References",
-    "section": "C++ resources",
-    "text": "C++ resources\nIn the EDA Main Page\\(\\rightarrow\\) Material Docent you’ll find the following useful material:\n\nAlgorismes en C++\nNormes de Programació (in catalan) This file describes the accepted style of C++ writing.  It is used as a reference for correcting the lab exam.\nEines de Suport a la Programació (in catalan) A list of possibly useful software (source code editors, debuggers, git, …)\n\nRegarding C++ references, the standard ones are\n\n\ncppreference.com\n\nand its offline version C++ reference which is available to consult during the lab exam. Have a look at it to know what is not needed to memorize.\n\n\n  The C++ Programming Language\nBjarne Stroustrup. Addison-Wesley, (4th ed.) 2013"
-  },
-  {
-    "objectID": "problems/2.9/index.html",
-    "href": "problems/2.9/index.html",
-    "title": "Unimodal",
-    "section": "",
-    "text": "Write a divide and conquer algorithm that, given a vector that stores a unimodal sequence, finds its top in cost \\(O(\\log n)\\).\n\n\n\n\n\nThe Great Wave off Kanagawa Katsushika Hokusai\n\n\nArgue that the suggested algorithm has cost \\(O(\\log n)\\), and prove its correctness.\nA sequence of integers \\(A = (a_1, \\dots , a_n)\\) of length \\(n \\geq  3\\) is called unimodal if there exists an index \\(t\\) with \\(1\\leq t\\leq n\\) such that \\(a_1 &lt;a_2 &lt;\\dots&lt;a_t\\) and \\(a_t &gt;a_{t+1} &gt;\\dots&gt; a_n\\). In other words, the sequence \\(A\\) increases up to \\(a_t\\) and then decreases. The element \\(a_t\\) is called its top.\n\n\n\n\n\n\nExtra\n\n\n\nWhat if you didn’t want to find the top \\(t\\) but to tell whether an element \\(x\\) is in the unimodal sequence?\nAfter doing this exercise, you might want to solve the Jutge problem X82938 Search in a unimodal vector."
-  },
-  {
-    "objectID": "problems/2.11/index.html",
-    "href": "problems/2.11/index.html",
-    "title": "Counting inversions",
-    "section": "",
-    "text": "Write an algorithm that counts the number of inversions in a table with \\(n\\) elements. The worst-case cost of the algorithm should be \\(O(n \\log n)\\).\n\n\n\nAn inversion in a table \\(A[1 \\dots n]\\) is a pair of indices that point to elements in inverted order; that is, a pair \\((i, j)\\) such that \\(1 \\leq  i &lt; j \\leq n\\) and \\(A[i] &gt; A[j]\\).\n\n\n\n\n\n\nHint\n\n\n\n\n\nAs a starting point you might want to revise how the MergeSort works.\n\n\n\n\n\n\n\n\n\nExtra\n\n\n\nAfter doing this exercise, you might want to solve the Jutge problem P80595 How many inversions?"
-  },
-  {
-    "objectID": "problems/1.9/index.html",
-    "href": "problems/1.9/index.html",
-    "title": "Growth orders II",
-    "section": "",
-    "text": "Classify the functions below in such a way that \\(f(n)\\) and \\(g(n)\\) belong to the same class if and only if \\(f(n) =  \\Theta(g(n))\\), and enumerate the classes according to their growth order:\n\n\n\nThe figure above is meant to be a visual reminder of the growth rate of functions. It is morally correct but it contains some small errors. Can you spot them? If not, look at the theory-bit asymptotics.\n\n\n\\[\nn\n\\]\n\\[\n\\sqrt{n}\n\\]\n\\[\nn^{1.5}\n\\]\n\\[\nn^2\n\\]\n\\[\nn \\log n\n\\]\n\\[\nn \\log \\log n\n\\]\n\\[\n(\\log \\log n)^2\n\\]\n\\[\nn \\log^2 n\n\\]\n\\[\n\\frac{n^3}{n-1}\n\\]\n\\[\nn^{\\log n}\n\\]\n\n\\[\nn\\log(n^2)\n\\]\n\\[\n21n\n\\]\n\\[\n2^n\n\\]\n\\[\n2^{\\sqrt{n}}\n\\]\n\\[\n2^{\\sqrt{\\log n}}\n\\]\n\\[\n2^{n/2}\n\\]\n\\[\n37\n\\]\n\\[\n2^{2^n}\n\\]\n\\[\n\\frac{2}{n}\n\\]\n\\[\nn^2\\log n\n\\]\n\n\n\n\n\n\n\n\nHint\n\n\n\n\n\nYou might want to refresh how to compute limits and properties of the logarithms.\n\n\n\n\n\n\n\n\n\nExtra\n\n\n\nWhat about \\(n!\\) and \\(3^n\\)? How do they compare with the rest?\n\n\n\n\n\n\nHint\n\n\n\n\n\nUse Stirling approximation of \\(n!\\).\n\n\n\n\n\n\nOnce you solved this exercise you might want to double check the correctness of your answers using a Compuer Algebra System.\n\n\n\n\n\n\nCheck your answers using SageMath\n\n\n\n\n\nYou could use the box below to perform symbolic calculations in SageMath and use them to double-check the correctness of your calculations. If you click on the “Evaluate” button this will tell you something on the respective asymptotic growth of the functions \\(2^{\\sqrt{\\log(x)}}\\) and \\(\\sqrt{x}\\). Which one grows faster?\n\n\n\nUse the box above with different functions for \\(f\\) and \\(g\\). A minimal explanantion of the syntax is here.\n\n\n\n\n\n\nImportant\n\n\n\nDo not use \\(n\\) as the name of your variable, since this would tell SageMath to treat it as an integer. In our context, this would only create problems. Use \\(x\\) instead."
-  },
-  {
-    "objectID": "problems/1.7/index.html",
-    "href": "problems/1.7/index.html",
-    "title": "Polynomials and logarithms",
-    "section": "",
-    "text": "Prove the following asymptotic identities.\n\nFor every polynomial \\(p(n) = a_kn^k + a_{k-1}n^{k-1} + \\dots + a_1n + a_0\\) with \\(a_k &gt; 0\\), it holds that \\(p(n)=\\Theta(n^k)\\).         \nFor every two bases \\(a,b &gt; 1\\), it holds that \\(\\log_a n=\\Theta(\\log_b n)\\)."
-  },
-  {
-    "objectID": "problems/1.23/index.html",
-    "href": "problems/1.23/index.html",
-    "title": "Fast and slow exponentiation",
-    "section": "",
-    "text": "Analyze the cost of the following recursive functions.\nThey all compute \\(x^n\\) for \\(n \\in \\mathbb N\\) in different ways.\ndouble power_1 (double x, int n) { \n    if (n == 0){\n        return 1;\n    } \n    else {\n        return x*power_1(x, n - 1); \n    }\n}\ndouble power_2 (double x, int n) { \n    if (n == 0){\n        return 1;\n    } else if (n % 2 == 0) {\n        int y = power_2(x, n/2);\n        return y*y;\n    } else {\n        int y = power_2(x, n/2);\n        return y*y*x; \n    }\n}\ndouble power_3 (double x, int n) {\n    if (n == 0){\n        return 1;\n    } else if (n % 2 == 0) {\n        return power_3(x, n/2) * power_3(x, n/2); \n    } else {\n     return power_3(x, n/2) * power_3(x, n/2) * x; \n    }\n}\n\n\n\n\n\n\nAfter class\n\n\n\nTry to solve the following series of Jutge problems in the section Divide-and-Conquer before the next lab. They are all about efficient exponentiation (in one way or another).\n\nP29212 Modular exponentiation\nP61833 Powers of a matrix\nP74219 Fibonacci numbers (2)\nX39049 Powers of permutations\n\nUsing what we discussed in class, what is a good code to use as a starting point to solve the exercises above? (The exercises are listed in increasing order of difficulty.)"
-  },
-  {
-    "objectID": "problems/1.14/index.html",
-    "href": "problems/1.14/index.html",
-    "title": "Ohs, Omegas, or Thetas",
-    "section": "",
-    "text": "The following sentences refer to the insertion sort algorithm and the \\(X\\)’s hide an occurrence of \\(O\\), \\(\\Omega\\), or \\(\\Theta\\).\nFor each of the sentences, indicate which options for \\(X \\in \\{O, \\Omega, \\Theta\\}\\) make the statement true, which options make the statement false, and justify your answers:\n\nThe worst case is \\(X(n^2)\\).\nThe worst case is \\(X(n)\\).\nThe best case is \\(X(n^2)\\).\nThe best case is \\(X(n)\\).\nFor every probability distribution, the average case is \\(X(n^2)\\).\nFor every probability distribution, the average case is \\(X(n)\\).\n\n\n\n\n\n\n\nExtra\n\n\n\nFor some probability distribution, the average case is \\(X(n \\log n)\\).\nWhat if we consider the MergeSort instead of the Insertion Sort?"
-  },
-  {
-    "objectID": "problems/1.12/index.html",
-    "href": "problems/1.12/index.html",
-    "title": "Fors, and fors inside fors",
-    "section": "",
-    "text": "For each of the following fragments of code, analyze its cost.\n\n\n\n\n\n\nWarning\n\n\n\n\n\nYou might be tempted to eye-ball the cost of some of the fragments below. This will very easily lead to errors.\n\n\n\n\n\n\n\n\n\nHint\n\n\n\n\n\nTo do this exercise you might want to look again at the sums in Exercise 1.1.\n\n\n\n// Fragment 1\nint s = 0;\nfor (int i = 0; i &lt; n; ++i) {\n    ++s; \n}\n// Fragment 2 \nint s = 0;\nfor (int i = 0; i &lt; n; i += 2) { \n    ++s;\n}\n// Fragment 3\nint s = 0;\nfor (int i = 0; i &lt; n; ++i) { \n    ++s;\n}\nfor (int j = 0; i &lt; n; ++j) { \n    ++s;\n}\n// Fragment 4\nint s = 0;\nfor (int i = 0; i &lt; n; ++i) {\n    for (int j = 0; j &lt; n; ++j) {\n        ++s;\n    }\n}\n// Fragment 5\nint s = 0;\nfor (int i = 0; i &lt; n; ++i) {\n    for (int j = 0; j &lt; i; ++j) { \n        ++s;\n    }\n}\n// Fragment 6\nint s = 0;\nfor (int i = 0; i &lt; n; ++i) {\n    for (int j = i; j &lt; n; ++j) { \n        ++s;\n    }\n}\n// Fragment 7\nint s = 0;\nfor (int i = 0; i &lt; n; ++i) {\n    for (int j = 0; j &lt; n; ++j) {\n        for (int k = 0; k &lt; n; ++k) {\n            ++s; \n        }\n    }\n}   \n// Fragment 8\nint s = 0;\nfor (int i = 0; i &lt; n; ++i) {\n    for (int j = 0; j &lt; i; ++j) {\n        for (int k = 0; k &lt; j; ++k) {\n            ++s;\n        }\n    }\n}\n// Fragment 9\nint s = 0;\nfor (int i = 1; i &lt;= n; i *= 2) {\n    ++s; \n}\n// Fragment 10\nint s = 0;\nfor (int i = 0; i &lt; n; ++i) {\n    for (int j = 0; j &lt; i*i; ++j) { \n        for (int k = 0; k &lt; n; ++k) {\n            ++s; \n        }\n    }\n}\n// Fragment 11\nint s = 0;\nfor (int i = 0; i &lt; n; ++i) {\n    for (int j = 0; j &lt; i*i; ++j) { \n        if (j % i == 0) {\n            for (int k = 0; k &lt; n; ++k) { \n                ++s;\n            }\n        }\n    }\n}"
-  },
-  {
-    "objectID": "labs/index.html",
-    "href": "labs/index.html",
-    "title": "Lab Classes",
-    "section": "",
-    "text": "Every lab class follows roughly the same structure. In every session there will be some set of exercises from Jutge.org to solve using the programming language C++."
-  },
-  {
-    "objectID": "labs/index.html#section",
-    "href": "labs/index.html#section",
-    "title": "Lab Classes",
-    "section": "L1: Use of STL data structures",
-    "text": "L1: Use of STL data structures\nWelcome to the first lab class of EDA!\nWe start with a Self Assessment. The self assessment is meant to recall basic best practices while compiling C++ code.\nNow we revise some aspects of The C++ Standard Template Library (STL). A way more comprehensive treatment of the STL is in cppreference.com.\nIn this class we consider the problems from Jutge.org, section EDA \\(\\rightarrow\\) Use of STL data structures.\nOnce you have chosen a problem to solve, dowload the .zip archive of the problem and unzip it. In the obtained folder there are:\n\na file .pdf with the official problem statement\none or more text files with examples of input sample.inp\nthe corresponding correct outputs sample.cor\n\n\n\n\n\n\n\nPossible workflow\n\n\n\n\n\n\n\n\n\n\n\nStep 1: Getting the C++ code to compile\n\n\n\n\n\nAfter creating a C++ source file to solve the problem, compile it with g++ -std=c++11.\n\n\n\n\n\n\nCommon error(s)\n\n\n\nNot using the flag -std=c++11.\n\n\nPossible useful flags are -Wall -Wextra -Wno-overflow -Wpedantic -Werror -D_GLIBCXX_DEBUG\n\n\n\n\n\n\n\n\n\nStep 2: Testing testing testing\n\n\n\n\n\nTest the executable file obtained on the given example(s), for instance with ./a.out &lt; sample.inp &gt; output. Also, test your code against simple/trivial inputs, e.g. a graph with no-edges.\n\n\n\n\n\n\nCommon error(s)\n\n\n\nWriting the input by hand.\nNot checking the exact formatting of the output.\n\n\nTo see whether the output is the same as sample.cor a way is to use diff output sample.cor\n\n\n\n\n\n\n\n\n\nStep 3: Submitting the solution to the Jutge\n\n\n\n\n\nOnce the code compiles and on the given samples it gives the correct output submit it to the Jutge for automatic evaluation.\n\n\n\n\n\n\nCommon error(s)\n\n\n\nSending to the Jutge code that was not even compiled locally.\nNot checking if the output was correct on the given inputs.\n\n\n\n\n\n\n\n\n\n\n\nStep 4: I’m stuck. What can I do?\n\n\n\n\n\nYou are “stuck” on a problem if you spent around 1 hour trying to solve it but still the Jutge is rejecting your solution.\nPossible approaches to getting “un-stuck” are:\n\ndo not think about that problem for some time and come back to your code with fresh eyes\nlook again at the theory\ntry to explain your code to another student\nask for hints, e.g. by email. Be specific on the type of help you need. Include in the email the code of your approach.\n\n\n\n\n\n\n\nAs a starting point we solve together the following problems.\n\n\n\n\n\nProblem\n\n\n\n\n\n\n\n\nRole Classification\n\n\nGo to the Jutge statement of the problem\n\n\n\n\nStatistical measures\n\n\nGo to the Jutge statement of the problem\n\n\n\n\nTicket distribution\n\n\nGo to the Jutge statement of the problem\n\n\n\n\n\nNo matching items\n\n\n\n\n\n\n\n\nOther Jutge problems on STL\n\n\n\n\n\n\nCollection of numbers \nCasino \nCollatz pseudo-sequences (2) ❗ \n\nBag of words \nDynamic median ❗\n\nThe longest sequence ❗ \n\nEasy game? \nK-th element (~ Problem 4.11 you will see in the problem class P5)\n\n\n\n\nTicket distribution \n\n\nRecall that ❗ marks possibly harder problems."
-  },
-  {
-    "objectID": "labs/index.html#section-1",
-    "href": "labs/index.html#section-1",
-    "title": "Lab Classes",
-    "section": "L2: Divide and Conquer",
-    "text": "L2: Divide and Conquer\n\n\n\n\n\n\nImportant\n\n\n\nThis section will be available closer to the class."
-  },
-  {
-    "objectID": "labs/index.html#section-2",
-    "href": "labs/index.html#section-2",
-    "title": "Lab Classes",
-    "section": "L3: Graph algorithms I",
-    "text": "L3: Graph algorithms I\n\n\n\n\n\n\nImportant\n\n\n\nThis section will be available closer to the class."
-  },
-  {
-    "objectID": "labs/index.html#section-3",
-    "href": "labs/index.html#section-3",
-    "title": "Lab Classes",
-    "section": "L4: Graph algorithms II",
-    "text": "L4: Graph algorithms II\n\n\n\n\n\n\nImportant\n\n\n\nThis section will be available closer to the class."
-  },
-  {
-    "objectID": "labs/index.html#section-4",
-    "href": "labs/index.html#section-4",
-    "title": "Lab Classes",
-    "section": "L5: Exhaustive algorithms I",
-    "text": "L5: Exhaustive algorithms I\n\n\n\n\n\n\nImportant\n\n\n\nThis section will be available closer to the class."
-  },
-  {
-    "objectID": "labs/index.html#section-5",
-    "href": "labs/index.html#section-5",
-    "title": "Lab Classes",
-    "section": "L6: Exhaustive algorithms II",
-    "text": "L6: Exhaustive algorithms II\n\n\n\n\n\n\nImportant\n\n\n\nThis section will be available closer to the class."
-  },
-  {
-    "objectID": "labs/L1-P62653/P62653-hint.html",
-    "href": "labs/L1-P62653/P62653-hint.html",
-    "title": "EDA",
-    "section": "",
-    "text": "Use a priority_queue with a custom ordering to store the codes of the supporters waiting for a ticket. First focus on getting the exercise done, perhaps with a “wrong” ordering, and then focus on the ordering on the supporters.\nThe code below shows a possible way to use a priority_queue for this, but not the custom ordering required by the exercise."
-  },
-  {
-    "objectID": "labs/L1-P60296/P60296-hint.html",
-    "href": "labs/L1-P60296/P60296-hint.html",
-    "title": "EDA",
-    "section": "",
-    "text": "A possible appraoch is to use a set to store the logged players and a map to associate each player with his/her elo\n\n#include&lt;algorithm&gt; allows to sort a vector v using sort(v.begin(),v.end())"
-  },
-  {
-    "objectID": "labs/L1-P59282/P59282-hint.html",
-    "href": "labs/L1-P59282/P59282-hint.html",
-    "title": "EDA",
-    "section": "",
-    "text": "Try to use a priority_queue with first element the smallest among the ones seen so far.\nTo output a double x with 4 digits of precision you can use #include&lt;iomanip&gt; and cout &lt;&lt; fixed &lt;&lt; setprecision(4) &lt;&lt; the double you want to output.\n#include&lt;limits&gt; allows you to access e.g. the smallest int with numeric_limits&lt;int&gt;::lowest()."
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "Contacts",
-    "section": "",
-    "text": "fix ❗ not rendered in titles\nadd lightbox treatment for code\nwhen course ends remember to make EDA/ private\n\n\nThe person in charge of the whole course is Albert Oliveras Llunell (email). For administrative questions please ask him directly.\nMy email for this course is ilario.bonacina+EDA@upc.edu.  The last possible day to ask questions by email is 6 days before the partial/final exam.\nPlease use the form below to book office time."
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Data Structures and Algorithmics",
-    "section": "",
-    "text": "fix ❗ not rendered in titles\nadd lightbox treatment for code\nwhen course ends remember to make EDA/ private\nWelcome to Data Structures and Algorithmics (aka EDA)!\nI’m Ilario Bonacina and if you are a student of the groups P/L11 or P/L31 or L43 or L53 then I’m one of your instructors for this semester.\nThis page is just a support for the problem/lab classes I’m giving. Please refer to the main webpage of EDA for news, course material, etc and to the official UPC page for the course syllabus."
-  },
-  {
-    "objectID": "index.html#announcements",
-    "href": "index.html#announcements",
-    "title": "Data Structures and Algorithmics",
-    "section": "Announcements",
-    "text": "Announcements\n\n\n\n\n\n\nChange of class October 15! L11 and L31\n\n\n\nPlease check the racó for info on which other lab goup you should join. If you are a student of the groups L11 and L31, otherwise everything is as usual."
-  },
-  {
-    "objectID": "labs/L1-P59282/index.html",
-    "href": "labs/L1-P59282/index.html",
-    "title": "Statistical measures",
-    "section": "",
-    "text": "Write a program to compute the most common statistical measures (minimum, maximum and average) of several integer numbers.\nThese numbers are known increasingly. At every moment, it is also possible to delete the smallest element.\nInput: A sequence of (possibly, many) numbers, together with deleting instructions, as can be seen in the sample input. The numbers may be repeated. Deleting means removing the smallest element (one instance of it, if it is repeated). If there are no elements, deleting does nothing.\nOutput: After every instruction of the input, print the minimum, maximum and average of the current elements with four digits after the decimal point, or tell that there are no elements. Follow the format of the sample output.\n\n\n\n\n\n\nPossible workflow\n\n\n\n\n\n\n\n\n\n\n\nStep 1: Getting the C++ code to compile\n\n\n\n\n\nAfter creating a C++ source file to solve the problem, compile it with g++ -std=c++11.\n\n\n\n\n\n\nCommon error(s)\n\n\n\nNot using the flag -std=c++11.\n\n\nPossible useful flags are -Wall -Wextra -Wno-overflow -Wpedantic -Werror -D_GLIBCXX_DEBUG\n\n\n\n\n\n\n\n\n\nStep 2: Testing testing testing\n\n\n\n\n\nTest the executable file obtained on the given example(s), for instance with ./a.out &lt; sample.inp &gt; output. Also, test your code against simple/trivial inputs, e.g. a graph with no-edges.\n\n\n\n\n\n\nCommon error(s)\n\n\n\nWriting the input by hand.\nNot checking the exact formatting of the output.\n\n\nTo see whether the output is the same as sample.cor a way is to use diff output sample.cor\n\n\n\n\n\n\n\n\n\nStep 3: Submitting the solution to the Jutge\n\n\n\n\n\nOnce the code compiles and on the given samples it gives the correct output submit it to the Jutge for automatic evaluation.\n\n\n\n\n\n\nCommon error(s)\n\n\n\nSending to the Jutge code that was not even compiled locally.\nNot checking if the output was correct on the given inputs.\n\n\n\n\n\n\n\n\n\n\n\nStep 4: I’m stuck. What can I do?\n\n\n\n\n\nYou are “stuck” on a problem if you spent around 1 hour trying to solve it but still the Jutge is rejecting your solution.\nPossible approaches to getting “un-stuck” are:\n\ndo not think about that problem for some time and come back to your code with fresh eyes\nlook again at the theory\ntry to explain your code to another student\nask for hints, e.g. by email. Be specific on the type of help you need. Include in the email the code of your approach.\n\n\n\n\n\n\n\n\n\n\n\n\n\nHint\n\n\n\n\n\n\nTry to use a priority_queue with first element the smallest among the ones seen so far.\nTo output a double x with 4 digits of precision you can use #include&lt;iomanip&gt; and cout &lt;&lt; fixed &lt;&lt; setprecision(4) &lt;&lt; the double you want to output.\n#include&lt;limits&gt; allows you to access e.g. the smallest int with numeric_limits&lt;int&gt;::lowest().\n\n\n\n\n\n\n\nA possible C++ code to start the problem\n\n\n\n\n\n//STL - Statistical measures\n#include&lt;iostream&gt;\n#include&lt;queue&gt;\n#include&lt;limits&gt;\n#include&lt;iomanip&gt;\n\nusing namespace std;\n\nconst auto MININFTY = numeric_limits&lt;int&gt;::lowest();\n\nint main(){\n    string op;\n    priority_queue&lt;int,vector&lt;int&gt;,greater&lt;int&gt;&gt; q;\n    int sum = 0;\n    int max = MININFTY;\n    while (cin &gt;&gt; op){\n        if (op == \"delete\"){ \n            // do something\n        }\n        else{// case of \"number\"\n            // do something \n        } \n        int sz = q.size();\n        if (sz == 0) cout &lt;&lt; \"no elements\" &lt;&lt; endl;\n        else{\n            // do something\n            // to output a double x with 4 digits of precision use \n            // cout &lt;&lt; fixed &lt;&lt; setprecision(4) &lt;&lt; x\n        }\n    }\n}\n\n\n\n\n\n\nA couple of days after the class you should also see here a possible solution (if this is not the case please send me a reminder by email).\n\n\n\n\n\n\nA possible solution\n\n\n\n\n\n//STL - Satistical measures\n#include&lt;iostream&gt;\n#include&lt;queue&gt;\n#include&lt;limits&gt;\n#include&lt;iomanip&gt;\n\nusing namespace std;\n\nconst auto MININFTY = numeric_limits&lt;int&gt;::lowest();\n\nint main(){\n    string op;\n    priority_queue&lt;int,vector&lt;int&gt;,greater&lt;int&gt;&gt; q;\n    int sum = 0;\n    int max = MININFTY;\n    while (cin &gt;&gt; op){\n        if (op == \"delete\"){ \n            if (not q.empty()){\n                sum -=q.top();\n                q.pop();\n                if (q.empty()) max = MININFTY;\n            }\n        }\n        else{// case of \"number\"\n            int value;\n            cin &gt;&gt; value;\n            q.push(value);\n            sum +=value;\n            if (value &gt; max) max = value; \n        } \n        int sz = q.size();\n        if (sz == 0) cout &lt;&lt; \"no elements\" &lt;&lt; endl;\n        else{\n            double avg = double(sum) / sz;\n            cout &lt;&lt; \"minimum: \" &lt;&lt; q.top();\n            cout &lt;&lt; \", maximum: \" &lt;&lt; max;\n            cout &lt;&lt; \", average: \" &lt;&lt; fixed &lt;&lt; setprecision(4) &lt;&lt; avg &lt;&lt; endl;\n        }\n    }\n}"
-  },
-  {
-    "objectID": "labs/L1-P60296/index.html",
-    "href": "labs/L1-P60296/index.html",
-    "title": "Role Classification",
-    "section": "",
-    "text": "Simulate a server of a role-playing game for two players.\nEach player has an “elo”, which is a value larger the better is the player. Everyone starts with \\(1200\\) points, and nobody ever gets a lower quantity, no matter how many games are lost. Whenever there is a match, the winner gets \\(10\\) elo points, and the loser loses \\(10\\) elo points (with the limitation above). The elo of a player is kept when he or she disconnects from the server.\nWe have these instructions:\nLOGIN j : The player j starts a session. Ignore it if the player is already connected.\nLOGOUT j : The player j closes the session. Ignore it if the player is not connected.\nPLAY j1 ⁠ ⁠ j2 : Indicates that \\(j_1\\) has beaten \\(j_2\\), with \\(j_1 \\neq j_2\\). Ignore it but print an error message if any of the two players is not connected.\nGET_ELO j : Print the player j (who was connected for sure previously, although now may be disconnected) with his or her current elo.\nInput: several instructions for at most 105 players. Each player’s name is different and made up of only lowercase letters.\nOutput: For every instruction GET_ELO (and perhaps PLAY) print the proper output. At the end, print an empty line, the word RANKING, and a ranking sorted in decreasing order by elo (if there is a tie, print first the alfabetically smallest name) with all the players ever connected to the server.\n\n\n\n\n\n\nPossible workflow\n\n\n\n\n\n\n\n\n\n\n\nStep 1: Getting the C++ code to compile\n\n\n\n\n\nAfter creating a C++ source file to solve the problem, compile it with g++ -std=c++11.\n\n\n\n\n\n\nCommon error(s)\n\n\n\nNot using the flag -std=c++11.\n\n\nPossible useful flags are -Wall -Wextra -Wno-overflow -Wpedantic -Werror -D_GLIBCXX_DEBUG\n\n\n\n\n\n\n\n\n\nStep 2: Testing testing testing\n\n\n\n\n\nTest the executable file obtained on the given example(s), for instance with ./a.out &lt; sample.inp &gt; output. Also, test your code against simple/trivial inputs, e.g. a graph with no-edges.\n\n\n\n\n\n\nCommon error(s)\n\n\n\nWriting the input by hand.\nNot checking the exact formatting of the output.\n\n\nTo see whether the output is the same as sample.cor a way is to use diff output sample.cor\n\n\n\n\n\n\n\n\n\nStep 3: Submitting the solution to the Jutge\n\n\n\n\n\nOnce the code compiles and on the given samples it gives the correct output submit it to the Jutge for automatic evaluation.\n\n\n\n\n\n\nCommon error(s)\n\n\n\nSending to the Jutge code that was not even compiled locally.\nNot checking if the output was correct on the given inputs.\n\n\n\n\n\n\n\n\n\n\n\nStep 4: I’m stuck. What can I do?\n\n\n\n\n\nYou are “stuck” on a problem if you spent around 1 hour trying to solve it but still the Jutge is rejecting your solution.\nPossible approaches to getting “un-stuck” are:\n\ndo not think about that problem for some time and come back to your code with fresh eyes\nlook again at the theory\ntry to explain your code to another student\nask for hints, e.g. by email. Be specific on the type of help you need. Include in the email the code of your approach.\n\n\n\n\n\n\n\n\n\n\n\n\n\nHint\n\n\n\n\n\n\nA possible appraoch is to use a set to store the logged players and a map to associate each player with his/her elo\n\n#include&lt;algorithm&gt; allows to sort a vector v using sort(v.begin(),v.end())\n\n\n\n\n\n\n\nA possible C++ code to start the problem\n\n\n\n\n\n//STL - Role classification\n#include&lt;iostream&gt;\n#include&lt;set&gt;\n#include&lt;map&gt;\n#include&lt;algorithm&gt;\n\nusing namespace std;\n\nint main(){\n    set&lt;string&gt; logged;\n    map&lt;string,int&gt; elo;\n    string op;\n    while(cin &gt;&gt; op){\n        string player1;\n        cin &gt;&gt; player1;\n        if (op == \"LOGIN\"){\n            // do something\n        }\n        else if (op == \"LOGOUT\"){\n            // do something\n        }\n        else if (op == \"PLAY\"){\n            // do something\n        }\n        else{// op == GET_ELO\n            // do something\n        }\n    }\n    cout &lt;&lt; endl &lt;&lt; \"RANKING\" &lt;&lt; endl;\n            // do something\n\n}\n\n\n\n\n\n\nA couple of days after the class you should also see here a possible solution (if this is not the case please send me a reminder by email).\n\n\n\n\n\n\nA possible solution\n\n\n\n\n\n//STL - Role classification\n#include&lt;iostream&gt;\n#include&lt;set&gt;\n#include&lt;map&gt;\n#include&lt;algorithm&gt;\n\nusing namespace std;\n\nint main(){\n    string cmd;\n    set&lt;string&gt; logged;\n    map&lt;string,int&gt; elo;\n\n    while(cin &gt;&gt; cmd){\n        string player1;\n        cin &gt;&gt; player1;\n        if (cmd == \"LOGIN\"){\n            logged.insert(player1);\n         if (not elo.count(player1)) elo[player1] = 1200;\n     }\n        else if (cmd == \"LOGOUT\") logged.erase(player1);\n        else if (cmd == \"GET_ELO\") cout &lt;&lt; player1 &lt;&lt; ' ' &lt;&lt; elo[player1] &lt;&lt; endl;\n        else{// case of PLAY\n            string player2;\n            cin &gt;&gt; player2;\n            if (not logged.count(player1) or not logged.count(player2)) cout &lt;&lt; \"player(s) not connected\" &lt;&lt; endl;\n            else{\n            elo[player1] +=10;\n                elo[player2] = max(elo[player2]-10,1200);\n            }\n        }\n    }\n    cout &lt;&lt; endl &lt;&lt; \"RANKING\" &lt;&lt; endl;\n    vector&lt;pair&lt;int,string&gt;&gt; v;\n    for (auto p : elo) v.emplace_back(-p.second,p.first);\n    sort(v.begin(),v.end());\n    for (auto p :v) cout &lt;&lt; p.second &lt;&lt; ' ' &lt;&lt; -p.first &lt;&lt; endl;\n}"
-  },
-  {
-    "objectID": "labs/L1-P62653/index.html",
-    "href": "labs/L1-P62653/index.html",
-    "title": "Ticket distribution",
-    "section": "",
-    "text": "A football club does not usually have enough tickets for all its supporters, so some method is needed to distribute them:\nWhen a supporter asks for a ticket, if there is any available at that moment, the supporter immediately gets one. Otherwise, the supporter’s code is recorded. When a ticket is available, if there is no recorded code at that moment, the ticket is stored. Otherwise, the ticket is given to the supporter with the shortest code.\nTies are broken as follows: A fixed word \\(w\\) is arbitrarily chosen at the beginning of the process. Then, lexicographical order is used among codes of length \\(n\\), except that w[1..\\(n\\)] is considered the first code, and the rest are considered cyclically. For instance, if \\(n = 4\\) and w[1..4] =“abcd”, then codes of length \\(4\\) are sorted in this order: “abcd”, “abce”, … , “abcz”, “abda”, … , “abdz”, … , “zzzz”, “aaaa”, … , “abcc”.\nWrite a program to distribute tickets among supporters according to the method just described above.\nInput: Input consists of several cases. Each case begins with a string \\(w\\) made up of \\(10\\) lowercase letters, followed by several events:\n\n‘T’ for an available ticket, and\n‘S’ for a supporter asking for a ticket.\n\nIn the latter case follows the supporter’s code (a non-empty string with at most 10 lowercase letters). The same supporter can ask for more than one ticket.\nAn ‘E’ marks the end of the events of a case. Assume that each case has no more than \\(105\\) events.\nOutput: For every case, print the codes of the supporters who get tickets, in the order in which this happens. Print two lines with final information. Count every supporter who unsuccessfully asked for t tickets exactly as t supporters who unsuccessfully asked for one ticket. Print an empty line after every case.\n\n\n\n\n\n\nPossible workflow\n\n\n\n\n\n\n\n\n\n\n\nStep 1: Getting the C++ code to compile\n\n\n\n\n\nAfter creating a C++ source file to solve the problem, compile it with g++ -std=c++11.\n\n\n\n\n\n\nCommon error(s)\n\n\n\nNot using the flag -std=c++11.\n\n\nPossible useful flags are -Wall -Wextra -Wno-overflow -Wpedantic -Werror -D_GLIBCXX_DEBUG\n\n\n\n\n\n\n\n\n\nStep 2: Testing testing testing\n\n\n\n\n\nTest the executable file obtained on the given example(s), for instance with ./a.out &lt; sample.inp &gt; output. Also, test your code against simple/trivial inputs, e.g. a graph with no-edges.\n\n\n\n\n\n\nCommon error(s)\n\n\n\nWriting the input by hand.\nNot checking the exact formatting of the output.\n\n\nTo see whether the output is the same as sample.cor a way is to use diff output sample.cor\n\n\n\n\n\n\n\n\n\nStep 3: Submitting the solution to the Jutge\n\n\n\n\n\nOnce the code compiles and on the given samples it gives the correct output submit it to the Jutge for automatic evaluation.\n\n\n\n\n\n\nCommon error(s)\n\n\n\nSending to the Jutge code that was not even compiled locally.\nNot checking if the output was correct on the given inputs.\n\n\n\n\n\n\n\n\n\n\n\nStep 4: I’m stuck. What can I do?\n\n\n\n\n\nYou are “stuck” on a problem if you spent around 1 hour trying to solve it but still the Jutge is rejecting your solution.\nPossible approaches to getting “un-stuck” are:\n\ndo not think about that problem for some time and come back to your code with fresh eyes\nlook again at the theory\ntry to explain your code to another student\nask for hints, e.g. by email. Be specific on the type of help you need. Include in the email the code of your approach.\n\n\n\n\n\n\n\n\n\n\n\n\n\nHint\n\n\n\n\n\nUse a priority_queue with a custom ordering to store the codes of the supporters waiting for a ticket. First focus on getting the exercise done, perhaps with a “wrong” ordering, and then focus on the ordering on the supporters.\nThe code below shows a possible way to use a priority_queue for this, but not the custom ordering required by the exercise.\n\n\n\n\n\n\nA possible C++ code to start the problem\n\n\n\n\n\n// STL - Ticket distribution\n#include&lt;iostream&gt;\n#include&lt;queue&gt;\n\nusing namespace std;\n\nstring w;\n\nstruct comp {\n    bool operator()(const string &s1, const string &s2){\n        // do something\n    }\n};\n\n\nint main(){\n    while (cin &gt;&gt; w){\n        priority_queue&lt;string, vector&lt;string&gt;, comp&gt; pq;\n        char op;//operation\n        int avail = 0;//available tickets\n        while(cin &gt;&gt; op and op!='E'){\n            if (op == 'T'){\n                if (pq.size()== 0) ++avail;\n                else{\n                    cout &lt;&lt; pq.top()&lt;&lt; endl;\n                    pq.pop();\n                }\n            }\n            else{//op is 'S'\n                string code;\n                cin &gt;&gt; code;\n                if (avail == 0) pq.push(code);\n                else{\n                    cout &lt;&lt; code &lt;&lt; endl;\n                    --avail;\n                }\n\n            }\n        }\n        cout &lt;&lt; avail &lt;&lt;\" ticket(s) left\" &lt;&lt; endl;\n        cout &lt;&lt; pq.size() &lt;&lt; \" supporter(s) with no ticket\" &lt;&lt; endl &lt;&lt; endl;\n    }\n}\n\n\n\n\n\n\nA couple of days after the class you should also see here a possible solution (if this is not the case please send me a reminder by email).\n\n\n\n\n\n\nA possible solution\n\n\n\n\n\n// STL - Ticket distribution\n#include&lt;iostream&gt;\n#include&lt;queue&gt;\n\nusing namespace std;\n\nstring w;\n\nstruct comp {\n    bool operator()(const string &s1, const string &s2){\n        if (s1.size()&gt;s2.size()) return true;\n        if (s1.size()&lt;s2.size()) return false;\n        string ref = w.substr(0,s1.size());\n        if (s2 &lt; ref) return s1 &lt; ref and s2 &lt; s1;\n        else          return s1 &lt; ref or s1 &gt; s2;\n    }\n};\n\n\nint main(){\n    while (cin &gt;&gt; w){\n        priority_queue&lt;string, vector&lt;string&gt;, comp&gt; pq;\n        char op;//operation\n        int avail = 0;//available tickets\n        while(cin &gt;&gt; op and op!='E'){\n            if (op == 'T'){\n                if (pq.size()== 0) ++avail;\n                else{\n                    cout &lt;&lt; pq.top()&lt;&lt; endl;\n                    pq.pop();\n                }\n            }\n            else{//op is 'S'\n                string code;\n                cin &gt;&gt; code;\n                if (avail == 0) pq.push(code);\n                else{\n                    cout &lt;&lt; code &lt;&lt; endl;\n                    --avail;\n                }\n\n            }\n        }\n        cout &lt;&lt; avail &lt;&lt;\" ticket(s) left\" &lt;&lt; endl;\n        cout &lt;&lt; pq.size() &lt;&lt; \" supporter(s) with no ticket\" &lt;&lt; endl &lt;&lt; endl;\n    }\n}"
-  },
-  {
-    "objectID": "problems/1.1/index.html",
-    "href": "problems/1.1/index.html",
-    "title": "Big sums everywhere",
-    "section": "",
-    "text": "Prove that for every natural number \\(n\\) the following identities hold.\n\\[\n\\begin{align}\n\\sum_{i=0}^n i & = \\frac{n(n+1)}{2}\\label{eq:i}\n\\\\\n\\sum_{i=0}^n i^2 & = \\frac{n(n+1)(2n+1)}{6}\n\\\\\n\\sum_{i=0}^n 2^i &= 2^{n+1}-1\n\\end{align}\n\\]\n\n\n\n\n\n\nHint\n\n\n\n\n\nRecall that, for a function \\(f: \\mathbb N\\to \\mathbb R\\), the notation \\(\\displaystyle \\sum_{i=0}^n f(i)\\) is just a shortcut for the sum \\(f(0)+f(1)+\\cdots+f(n-1)+f(n)\\). For instance \\(\\displaystyle\\sum_{i=0}^n i^2\\) is just a more compact (and precise) way to denote \\(0^2+1^2+2^2+\\cdots+(n-1)^2+n^2\\).\nOne systematic way to prove the equalities in this exercise is to use induction on \\(n\\).\n\n\n\n\n\n\n\n\n\n\nExtra\n\n\n\nOther useful equalities: \\[\n\\begin{align}\n\\sum_{i=0}^n i^3 & = \\left(\\sum_{i=0}^n i\\right)^2 = \\frac{n^2(n+1)^2}{4}\n\\\\\n\\sum_{i=0}^n i^k & = \\Theta(n^{k+1})\n\\end{align}\n\\]\n\n\n\n\n\n\n\n\nImportant\n\n\n\nIt is important to remember/memorize the equalities in this exercise: they will arise naturally in analyzing the cost of for/while loops of C++ programs, e.g. in Exercise 1.12."
-  },
-  {
-    "objectID": "problems/1.13/index.html",
-    "href": "problems/1.13/index.html",
-    "title": "Parameters",
-    "section": "",
-    "text": "State the cost of instructions (1), (2) and (3) in the following program.\nint funcion1 (vector&lt;int&gt;& v) { return v[0]; } \nint funcion2 (vector&lt;int&gt;  v) { return v[0]; }\n\nint f(int n) { \n    vector&lt;int&gt; v(n, 33);       // (1)\n    int a = funcion1(v);        // (2)\n    int b = funcion2(v);        // (3)\n    return a + b;\n}"
-  },
-  {
-    "objectID": "problems/1.18/index.html",
-    "href": "problems/1.18/index.html",
-    "title": "A mystery!",
-    "section": "",
-    "text": "Explain what the following algorithm does and give its cost as a function of \\(n\\).\nint mystery(int n) { \n    int f = 1;\n    for (int i = 2; i &lt;= n; ++i) \n        f *= i;\n    return f; \n}   \n\n\n\n\n\n\nCum grano salis\n\n\n\nDoes the cost give a realistic running time? How many bits has the output as a function of \\(n\\) (asymptotically)? What is the cost actually measuring?"
-  },
-  {
-    "objectID": "problems/1.3/index.html",
-    "href": "problems/1.3/index.html",
-    "title": "It takes ages",
-    "section": "",
-    "text": "For each function \\(f(n)\\) and running time \\(t\\) in the table below, determine the largest input size that can be solved in time \\(t\\) for a problem that requires \\(f(n)\\) microseconds (\\(\\mu\\)s) to solve on an input of size \\(n\\).\n\n\n\n\n\n\n\n\n\n\n\n\n\n\\(\\log(n)\\)\n\\(\\sqrt{n}\\)\n\\(n\\)\n\\(n^2\\)\n\\(n^3\\)\n\\(2^n\\)\n\n\n\n\n\\(1\\) second (\\(10^6 \\mu s\\))\n\n\n\n\n\n\n\n\n\\(1\\) minute (\\(60\\) seconds)\n\n\n\n\n\n\n\n\n\\(1\\) hour (\\(60\\) minutes)\n\n\n\n\n\n\n\n\n\\(1\\) day (\\(24\\) hours)\n\n\n\n\n\n\n\n\n\\(1\\) month (\\(30\\) days)\n\n\n\n\n\n\n\n\n\\(1\\) year (\\(365.25\\) days)\n\n\n\n\n\n\n\n\n\\(1\\) century (\\(100\\) years)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIn class\n\n\n\n\n\nFor some exercises, as this one, in class I’ll show how to use the Computer Algebra System SageMath to get quicky answers. (Or as an assistant to your symbolic calculations.)\n\n\n\nAs a comparison recall that it is estimated that there may be \\(10^{78}\\) to \\(10^{82}\\) atoms in the known universe."
-  },
-  {
-    "objectID": "problems/1.8/index.html",
-    "href": "problems/1.8/index.html",
-    "title": "Growth orders I",
-    "section": "",
-    "text": "Sort the following functions in increasing order of asymptotic growth. If two functions have the same asymptotic growth, point it out.\n\n\n\nThe figure above is meant to be a visual reminder of the growth rate of functions. It is morally correct but it contains some small errors. Can you spot them? If not, look at the theory-bit asymptotics.\n\\[\n5n \\ln n\n\\]\n\\[\n4n\\sqrt{n}\n\\]\n\\[\n\\log_\\pi (n^n )\n\\]\n\\[\n\\frac{n}{\\log_2 n}\n\\]\n\\[\n\\frac{n}{\\ln n}\n\\]\n\\[\n3 \\ln(7^n)\n\\]\n\n\n\n\n\n\nHint\n\n\n\n\n\nYou might want to refresh how to compute limits and properties of the logarithms.\n\n\n\n\nOnce you solved this exercise you might want to double check the correctness of your answers using a Compuer Algebra System.\n\n\n\n\n\n\nCheck your answers using SageMath\n\n\n\n\n\nYou could use the box below to perform symbolic calculations in SageMath and use them to double-check the correctness of your calculations. If you click on the “Evaluate” button this will tell you something on the respective asymptotic growth of the functions \\(\\log(x)\\) and \\(\\sqrt{x}\\). Which one grows faster?\n\n\n\nUse the box above with different functions for \\(f\\) and \\(g\\). A minimal explanantion of the syntax is here.\n\n\n\n\n\n\nImportant\n\n\n\nDo not use \\(n\\) as the name of your variable, since this would tell SageMath to treat it as an integer. In our context, this would only create problems. Use \\(x\\) instead."
-  },
-  {
-    "objectID": "problems/2.10/index.html",
-    "href": "problems/2.10/index.html",
-    "title": "Quim’s wild sorting algorithm",
-    "section": "",
-    "text": "Let \\(T[i\\dots j]\\) be a table with \\(n = j - i + 1\\) elements. Consider the following sorting algorithm known as Quim’s wild sorting algorithm:\n\n\n\n\nIf \\(n \\leq  2\\), sort the table directly.\nIf \\(n \\geq 3\\), “divide” the table into three intervals \\(T[i\\dots k - 1]\\), \\(T[k\\dots \\ell]\\), and \\(T[\\ell + 1\\dots j]\\), where \\(k = i + \\lfloor n/3\\rfloor\\) and \\(\\ell = j - \\lfloor n/3\\rfloor\\).\n\nThe algorithm recursively calls itself to first sort \\(T[i\\dots \\ell]\\), then sort \\(T[k\\dots j]\\), and finally sort \\(T[i\\dots \\ell]\\) again.\nProve that this algorithm is correct. Give a recurrence for its running time and solve it.\n\n\n\n\n\n\nHint\n\n\n\n\n\nWriting the recurrence for the running time should be easier and using the Master Theorem it should not be difficult to solve. How good is the running time? Better or worse, say than Insertion Sort?\nProving that the algorithm is correct might be trickier, especially to write down as a formal argument. Don’t worry if you got stuck, but try to write down your argument anyway before class."
-  },
-  {
-    "objectID": "problems/2.12/index.html",
-    "href": "problems/2.12/index.html",
-    "title": "One inversion",
-    "section": "",
-    "text": "Describe an algorithm of cost \\(\\Theta(\\log n)\\) that, given an element \\(x\\) and a table \\(T[1\\dots n]\\) with a single inversion determines whether \\(x\\) is in \\(T\\) or not.\n\n\n\nFirst show that if a table has a single inversion, then the two elements of this inversion appear next to each other; that is, if \\((i, j)\\) is the unique inversion in the table, then \\(i + 1 = j\\). Then use this fact to construct the algorithm required.\nRecall that an inversion in a table \\(A[1 \\dots n]\\) is a pair of indices that point to elements in inverted order; that is, a pair \\((i, j)\\) such that \\(1 \\leq  i &lt; j \\leq n\\) and \\(A[i] &gt; A[j]\\).\n\n\n\n\n\n\nExtra\n\n\n\nWill your algorithm work if there were \\(2\\) inversions? Yes? No? Why?\nAfter doing this exercise, you might want to solve the Jutge problem P33412 Resistant dichotomic search"
-  },
-  {
-    "objectID": "problems/index.html",
-    "href": "problems/index.html",
-    "title": "Problem Classes",
-    "section": "",
-    "text": "4.10 (statement): the big Oh in part (b) should be a Theta\n7.1: a scene has a content a bit too heterosexual.\nEvery problem class follows roughly the same structure. In every session we solve together a selection of problems from the EDA ProblemSet.\nTo make the most out of each problem class, try the corresponding exercises before each session using a reasonable amount of time.\nThe Goal is to arrive at the class either with"
-  },
-  {
-    "objectID": "problems/index.html#sec-P1",
-    "href": "problems/index.html#sec-P1",
-    "title": "Problem Classes",
-    "section": "P1: Asymptotic notation",
-    "text": "P1: Asymptotic notation\nWelcome to the first EDA problem class!\nThis session is about exercises on the asymptotic growth of functions. Later in the course we will be interested in functions associated to algorithms (typically the running time and how it scales w.r.t. the input size), but for the moment they are just functions without any algorithm in mind.\nThe theoretical tools we use are:\n\nInduction\nLimits\nBasic properties of \\(\\log(n)\\) and \\(n!\\)\nAsymptotic notation (\\(O\\), \\(\\Omega\\) and \\(\\Theta\\))\n\nWe consider the following problems from the EDA ProblemSet, section 1 Analysis of algorithms.\n\n\n\n\n\nExercise number\n\n\nTitle\n\n\n\n\n\n\nExercise 1.1\n\n\nBig sums everywhere\n\n\n\n\nExercise 1.3\n\n\nIt takes ages\n\n\n\n\nExercise 1.7\n\n\nPolynomials and logarithms\n\n\n\n\nExercise 1.8\n\n\nGrowth orders I\n\n\n\n\nExercise 1.9\n\n\nGrowth orders II\n\n\n\n\n\nNo matching items\n\n\n\n\n\n\n\n\nAfter class\n\n\n\nTo test your understanding, try exercises from the Collection of Solved Exams. For instance:\n\n06/11/2020 Midterm EDA Exam Problem 1.b\n15/04/2021 Midterm EDA Exam Problem 1.a\n03/11/2022 Midterm EDA Exam Problem 1.b\n02/11/2023 Midterm EDA Exam Problem 1.b\n07/06/2021 Final EDA Exam Problem 1.a\n\nThe solutions of the above problems are in the same pdf containing their statement."
-  },
-  {
-    "objectID": "problems/index.html#sec-P2",
-    "href": "problems/index.html#sec-P2",
-    "title": "Problem Classes",
-    "section": "P2: Analysis of algorithms",
-    "text": "P2: Analysis of algorithms\nThis session is about finding the asymptotic cost (i.e. running time) of simple algorithms as a function of the input size.\nThe theoretical tools we use are:\n\nnotable sums from the problem class P1 (Exercise 1.1)\nAsymptotic notation\nAnalysis of Iterative Algorithms (look at your theory slides, for instance)\nMaster Theorem(s)\nInsertion Sort\n\nWe continue with some problems from the EDA ProblemSet, section 1 Analysis of algorithms.\n\n\n\n\n\nExercise number\n\n\nTitle\n\n\n\n\n\n\nExercise 1.12\n\n\nFors, and fors inside fors\n\n\n\n\nExercise 1.13\n\n\nParameters\n\n\n\n\nExercise 1.14\n\n\nOhs, Omegas, or Thetas\n\n\n\n\nExercise 1.18\n\n\nA mystery!\n\n\n\n\nExercise 1.23\n\n\nFast and slow exponentiation\n\n\n\n\n\nNo matching items\n\n\n\n\n\n\n\n\nAfter class\n\n\n\nTo test your understanding, try exercises from the Collection of Solved Exams. For instance:\n\n06/11/2020 Midterm EDA Exam Problem 2.a and 2.b\n15/04/2021 Midterm EDA Exam Problem 1.b and 1.c\n03/11/2022 Midterm EDA Exam Problem 2.a\n02/11/2023 Midterm EDA Exam Problem 2\n07/06/2021 Final EDA Exam Problem 1.c\n\nThe solutions of the above problems are in the same pdf containing their statement."
-  },
-  {
-    "objectID": "problems/index.html#sec-P3",
-    "href": "problems/index.html#sec-P3",
-    "title": "Problem Classes",
-    "section": "P3: Divide and Conquer",
-    "text": "P3: Divide and Conquer\n\n\n\n\n\n\nImportant\n\n\n\nThis section is likely to change closer to the class.\n\n\nIn this class we solve some problems from the EDA ProblemSet, section 2 Divide and Conquer.\nThe theoretical tools we use are:\n\nBinary Search (revise your theory)\nMergeSort\nMaster Theorem\n\n\n\n\n\n\nExercise number\n\n\nTitle\n\n\n\n\n\n\nExercise 2.9\n\n\nUnimodal\n\n\n\n\nExercise 2.10\n\n\nQuim’s wild sorting algorithm\n\n\n\n\nExercise 2.11\n\n\nCounting inversions\n\n\n\n\nExercise 2.12\n\n\nOne inversion\n\n\n\n\n\nNo matching items\n\n\n\n\n\n\n\n\nAfter class\n\n\n\nTo test your understanding, you could try to solve the MidTerm EDA Exams from the Collection of Solved Exams where there is some C++ code to complete. As always, the solutions are in the very same pdf."
-  },
-  {
-    "objectID": "problems/index.html#section",
-    "href": "problems/index.html#section",
-    "title": "Problem Classes",
-    "section": "P4: Dictionaries",
-    "text": "P4: Dictionaries\n\n\n\n\n\n\nImportant\n\n\n\nThis section will be available closer to the class."
-  },
-  {
-    "objectID": "problems/index.html#section-1",
-    "href": "problems/index.html#section-1",
-    "title": "Problem Classes",
-    "section": "P5: Priority Queues",
-    "text": "P5: Priority Queues\n\n\n\n\n\n\nImportant\n\n\n\nThis section will be available closer to the class."
-  },
-  {
-    "objectID": "problems/index.html#section-2",
-    "href": "problems/index.html#section-2",
-    "title": "Problem Classes",
-    "section": "P6: Graphs",
-    "text": "P6: Graphs\n\n\n\n\n\n\nImportant\n\n\n\nThis section will be available closer to the class."
-  },
-  {
-    "objectID": "problems/index.html#section-3",
-    "href": "problems/index.html#section-3",
-    "title": "Problem Classes",
-    "section": "P7: Intractability",
-    "text": "P7: Intractability\n\n\n\n\n\n\nImportant\n\n\n\nThis section will be available closer to the class."
-  },
-  {
-    "objectID": "self_assessment/index.html",
-    "href": "self_assessment/index.html",
-    "title": "Initial Self-Assesment Test1",
-    "section": "",
-    "text": "Please dedicate the next 10 minutes to the following self assesment test."
-  },
-  {
-    "objectID": "self_assessment/index.html#footnotes",
-    "href": "self_assessment/index.html#footnotes",
-    "title": "Initial Self-Assesment Test1",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nThis test is an html version of this pdf.↩︎"
-  },
-  {
-    "objectID": "theory_bits/asymptotics.html",
-    "href": "theory_bits/asymptotics.html",
-    "title": "Asymptotic notation",
-    "section": "",
-    "text": "This theory bit is to recall the definition and basic properties of Big-Oh, Big-Omega, Big-Theta notation. To know if a function \\(f\\) is \\(O(g)\\) (or \\(\\Theta(g)\\) or \\(\\Omega(g)\\)) typically reduces to computing a limit. You might need to refresh how to compute limits (e.g. de L’Hôpital rule). See the theory bit on limits.\nIn this page we assume \\(f,g\\) to be functions from \\(\\mathbb R \\to \\mathbb R\\)."
-  },
-  {
-    "objectID": "theory_bits/asymptotics.html#on-the-big-oh-notation",
-    "href": "theory_bits/asymptotics.html#on-the-big-oh-notation",
-    "title": "Asymptotic notation",
-    "section": "On the Big-Oh notation",
-    "text": "On the Big-Oh notation\n\n\\(f\\) grows asymptotically slower (or equal) than \\(g\\)\n\\(f=O(g)\\)\n\\(f\\) is Big-Oh of \\(g\\)\n\nhave the same meaning and are interchangeable. Formally, \\(f\\) is a Big-Oh of \\(g\\) if for all large enough \\(x\\), \\(f\\) is at most proportional to a multiple of \\(g\\). That is \\(f=O(g)\\) if \\[\n\\exists x_0\\in \\mathbb R_+\\exists c\\in \\mathbb R_+\\forall x\\geq x_0\\ f(x)\\leq c\\cdot g(x)\\ .\n\\]\nIn particular, if \\(\\displaystyle\\lim_{x\\to \\infty}\\frac{f(x)}{g(x)}&lt; +\\infty\\) then \\(f=O(g)\\)."
-  },
-  {
-    "objectID": "theory_bits/asymptotics.html#on-the-big-omega-notation",
-    "href": "theory_bits/asymptotics.html#on-the-big-omega-notation",
-    "title": "Asymptotic notation",
-    "section": "On the Big-Omega notation",
-    "text": "On the Big-Omega notation\n\n\\(f\\) grows asymptotically faster (or equal) than \\(g\\)\n\\(f=\\Omega(g)\\)\n\\(f\\) is Big-Omega of \\(g\\)\n\nhave the same meaning and are interchangeable. Formally, \\(f\\) is a Big-Omega of \\(g\\) if for all large enough \\(x\\), \\(f\\) is at at least proportional to a multiple of \\(g\\). That is \\(f=\\Omega(g)\\) if \\[\n\\exists x_0\\in \\mathbb R_+\\exists c\\in \\mathbb R_+\\forall x\\geq x_0\\ f(x)\\geq c\\cdot g(x)\\ .\n\\]\nIn particular, if \\(\\displaystyle\\lim_{x\\to \\infty}\\frac{f(x)}{g(x)}&gt; 0\\) then \\(f=\\Omega(g)\\).\nThat is, if \\(f=O(g)\\), then \\(g=\\Omega(f)\\). If \\(f\\) grows asymptotically slower than \\(g\\), then \\(g\\) grows asymptotically faster than \\(f\\)."
-  },
-  {
-    "objectID": "theory_bits/asymptotics.html#on-the-big-theta-notation",
-    "href": "theory_bits/asymptotics.html#on-the-big-theta-notation",
-    "title": "Asymptotic notation",
-    "section": "On the Big-Theta notation",
-    "text": "On the Big-Theta notation\n\n\\(f\\) has the same asymptotic growth of \\(g\\)\n\\(f=\\Theta(g)\\)\n\n\\(g=\\Theta(f)\\)\n\\(f\\) is Big-Theta of \\(g\\)\n\\(g\\) is Big-Theta of \\(f\\)\n\nall have the same meaning and are interchangeable. Formally, \\(f\\) is Big-Theta of \\(g\\) if it is both Big-Oh and Big-Omega of \\(g\\). That is \\(f=\\Theta(g)\\) if \\[\n\\exists x_0\\in \\mathbb R_+\\exists c_1,c_2\\in \\mathbb R_+\\forall x\\geq x_0\\ c_1\\cdot g(x)\\leq f(x)\\leq c_2\\cdot g(x)\\ .\n\\]\nIn particular, if \\(\\displaystyle\\lim_{x\\to \\infty}\\frac{f(x)}{g(x)} = c\\) with \\(0&lt; c&lt;+\\infty\\), then \\(f=\\Theta(g)\\)."
-  },
-  {
-    "objectID": "theory_bits/asymptotics.html#common-errorsconfusion",
-    "href": "theory_bits/asymptotics.html#common-errorsconfusion",
-    "title": "Asymptotic notation",
-    "section": "Common errors/confusion",
-    "text": "Common errors/confusion\n\\(f=\\Theta(g)\\), or \\(f=\\Omega(g)\\) or \\(f=O(g)\\) are sentences about the asymptotic growth rate of the function \\(f\\) in comparison with the one of \\(g\\). Although \\(f\\) or \\(g\\) might be connected to algorithms (e.g. some running times), there is no reference to an algorithm implicit in the notation. In particular the \\(\\Theta\\), \\(O\\) and \\(\\Omega\\) notations are not connected at all to the worst/best/average cases of the running time of algorithms.\nSometimes the practical use of the \\(O\\) and the \\(\\Theta\\) notation overlap. At times people use \\(O(\\cdot)\\) when they actually mean to use \\(\\Theta(\\cdot)\\). Recall that the \\(O(\\cdot)\\) notation denotes only an upper-bound on the asymptotic growth, while \\(\\Theta(\\cdot)\\) indicates the exact asymptotic growth rate of a function. In EDA we don’t want to do this, we try to be as precise as possible.\n\n\n\n\n\n\nExample\n\n\n\nThe sentences\n\nthe Insertion Sort algorithm runs in time \\(O(2^n)\\), and\nthe Insertion Sort algorithm runs in time in time \\(\\Theta(n^2)\\) \n\n(where \\(n\\) is the size of the input) are both technically correct sentences, but the first one is not very interesting. The first one is so little informative that actually in EDA exams might be even counted as incorrect.\n\n\n\n\n\n\n\n\nExample\n\n\n\nThe figure below is taken from the internet and summarizes visually some growth orders of functions. It is a mostly correct visual aid but not quite completely correct. Can you spot the error(s)?\n\n\n\n\n\n\nAnswer\n\n\n\n\n\nThe figure mixes \\(n\\) and \\(x\\) for the name of the variable. This is an easy fix, but there is another error. It would have been correct if each \\(O(\\cdot)\\) were a \\(\\Theta(\\cdot)\\).\n\n\n\n\n\n\n\nPyodide\nfrom sympy import *\nimport js\n\nvar('n', domain=RR)\n\nf = n\ng = 3*2**n\n\ndef my_print(f,g):\n    lim = limit(f/g, n, oo)\n    inv_lim = limit(g/f,n,oo)\n    print(r\"Since $\\displaystyle\\lim_{n\\to\\infty}\\frac{\",latex(f),r\"}{\",latex(g),r\"}=\",latex(lim),r\"$\")\n    if (lim &gt; 0 and inv_lim &gt; 0):\n        print(\", then $\\,\",latex(f),r\"=\\Theta(\",latex(g),\")$\")\n    elif (lim == 0):\n        print(\", then $\\,\",latex(f),r\"=O(\",latex(g),\")$\")\n    else:\n        print(\", then $\\,\",latex(f),r\"=\\Omega(\",latex(g),\")$\")\n\nmy_print(f,g)\nSince \\(\\,\\displaystyle\\lim_{n\\to\\infty}\\frac{ n }{ 3 \\cdot 2^{n} }= 0\\) , then \\(n =O( 3 \\cdot 2^{n} )\\)"
+    "text": "Given as input an integer \\(x\\) and a vector \\(v\\) of integers ordered increasingly, i.e. \\(v[0]\\leq v[1]\\leq v[2]\\leq \\cdots\\), return the position of \\(x\\) if it appears in the vector \\(v\\) (and \\(-1\\) otherwise).\nThe fact that the vector is of integers is not relevant, obviously, it could be of elements of any type \\(T\\), as long as \\(T\\) has defined an ordering on it.\ntemplate &lt;class T&gt;\n\n// Initial call: int p = BinarySearch(v, 0, v.size() - 1, x);\n\nint BinarySearch(const vector&lt;T&gt;& v, int left, int right, T x){\n    if (left &gt; right) return -1;\n    int mid = (left + right) / 2;\n    if (x &lt; v[mid]) \n        return BinarySearch(v, left, mid - 1, x);\n    if (x &gt; v[mid]) \n        return BinarySearch(v, mid + 1, right, x);\n    return mid;\n}\nThe worst case running time \\(T(n)\\) of BinarySearch on an input of size \\(n\\) satisfies the recurrence\n\\[\nT(n)=T\\left(\\frac{n}{2}\\right)+\\Theta(1)\n\\]\nwhich, by the Master Theorem, gives \\(T(n)=\\Theta(\\log n)\\).\n\n\n\n\n\n\nTheorem\n\n\n\nAny deterministic comparison-based searching algorithm must perform \\(\\Omega(\\log n)\\) comparisons in the worst case to search for an element in a vector of size \\(n\\).\n\n\nA comparison-based search algorithm, searching for an element \\(x\\) in a vector \\(v\\), is only allowed to interact with \\(v\\) by asking questions of the form “is \\(x&gt;v[i]\\)?” or “is \\(x=v[i]\\)?” “is \\(x &lt; v[i]\\)?”, and getting a YES/NO answer.\nThe proof of the theorem above is similar to the one used to show the lower bound on the \\(\\Omega(n\\log n)\\) worst case running time of any comparison-based sorting algorithm, and it is left as an exercise."
   },
   {
     "objectID": "theory_bits/limits.html",
@@ -445,7 +452,7 @@
     "href": "theory_bits/master_theorem.html",
     "title": "The Master Theorem(s)",
     "section": "",
-    "text": "Master Theorem Subtract-and-Conquer\n\n\n\nGiven the recurrence \\[\nT(n)=\n\\begin{cases}\ng(n) & \\text{if } 0\\leq n &lt; n_0\\ ,\\\\\na\\cdot T(n-b)+ f(n) &\\text{if } n \\geq n_0\\ ,\n\\end{cases}\n\\] with \\(a,b, n_0, \\gamma\\) all non-negative constants, \\(g\\) an arbitrary function and \\(f(n)=\\Theta(n^\\gamma)\\), the closed form of \\(T\\) is\n\\[\nT(n)=\n\\begin{cases}\n\\Theta(n^\\gamma) &\\text{if } a &lt; 1\\ ,\\\\\n\\Theta(n^{\\gamma+1})&\\text{if } a = 1\\ ,\\\\\n\\Theta(a^{n/b})&\\text{if } a &gt; 1\\ .\n\\end{cases}\n\\]\nThe statement above still holds if instead of \\(\\frac{n}{b}\\) in the recurrence, there is any function in \\(\\frac{n}{b}+O(1)\\), for instance \\(\\lceil \\frac{n}{b}\\rceil\\) or \\(\\lfloor \\frac{n}{b}\\rfloor\\).1\nIn particular, the recurrence giving the running time of the MergeSort algorithm, i.e.\n\\[\nT(n)=T\\left(\\left\\lfloor\\frac{n}{2}\\right\\rfloor\\right)+T\\left(\\left\\lceil\\frac{n}{2}\\right\\rceil\\right)+\\Theta(n)\n\\]\nand the recurrence\n\\[\nS(n)=2S\\left(\\frac{n}{2}\\right)+\\Theta(n)\n\\]\nboth have the same solution, i.e. \\(T(n)=S(n)=\\Theta(n\\log n)\\). Which, btw, is asymptotically the best possible achieavable by comparison-based sorting algorithms."
+    "text": "Master Theorem Subtract-and-Conquer\n\n\n\nGiven the recurrence \\[\nT(n)=\n\\begin{cases}\ng(n) & \\text{if } 0\\leq n &lt; n_0\\ ,\\\\\na\\cdot T(n-b)+ f(n) &\\text{if } n \\geq n_0\\ ,\n\\end{cases}\n\\] with \\(a,b, n_0, \\gamma\\) all non-negative constants, \\(g\\) an arbitrary function and \\(f(n)=\\Theta(n^\\gamma)\\), the closed form of \\(T\\) is\n\\[\nT(n)=\n\\begin{cases}\n\\Theta(n^\\gamma) &\\text{if } a &lt; 1\\ ,\\\\\n\\Theta(n^{\\gamma+1})&\\text{if } a = 1\\ ,\\\\\n\\Theta(a^{n/b})&\\text{if } a &gt; 1\\ .\n\\end{cases}\n\\]\nThe statement above still holds if instead of \\(\\frac{n}{b}\\) in the recurrence, there is any function in \\(\\frac{n}{b}+O(1)\\), for instance \\(\\lceil \\frac{n}{b}\\rceil\\) or \\(\\lfloor \\frac{n}{b}\\rfloor\\).1\nIn particular, the recurrence giving the worst case running time of the MergeSort algorithm, i.e.\n\\[\nT(n)=T\\left(\\left\\lfloor\\frac{n}{2}\\right\\rfloor\\right)+T\\left(\\left\\lceil\\frac{n}{2}\\right\\rceil\\right)+\\Theta(n)\n\\]\nand the recurrence\n\\[\nS(n)=2S\\left(\\frac{n}{2}\\right)+\\Theta(n)\n\\]\nboth have the same solution, i.e. \\(T(n)=S(n)=\\Theta(n\\log n)\\). Btw, no comparison-based sorting algorithm could have a wort case running time better than \\(\\Theta(n\\log n)\\)."
   },
   {
     "objectID": "theory_bits/master_theorem.html#footnotes",

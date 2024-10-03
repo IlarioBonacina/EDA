@@ -1,13 +1,5 @@
 [
   {
-    "listing": "/labs/index.html",
-    "items": [
-      "/labs/L1-P60296/index.html",
-      "/labs/L1-P59282/index.html",
-      "/labs/L1-P62653/index.html"
-    ]
-  },
-  {
     "listing": "/problems/index.html",
     "items": [
       "/problems/1.1/index.html",
@@ -24,6 +16,14 @@
       "/problems/2.10/index.html",
       "/problems/2.11/index.html",
       "/problems/2.12/index.html"
+    ]
+  },
+  {
+    "listing": "/labs/index.html",
+    "items": [
+      "/labs/L1-P60296/index.html",
+      "/labs/L1-P59282/index.html",
+      "/labs/L1-P62653/index.html"
     ]
   }
 ]
