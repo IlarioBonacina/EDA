@@ -37,10 +37,12 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -152,6 +154,34 @@ ul.task-list li input[type="checkbox"] {
       window['quarto-listing-loaded']();
     }
   })
+  
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-exercises-P4 .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-image','listing-subtitle','listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-title","listing-author","listing-image","listing-description"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-exercises-P4'] = new List('listing-exercises-P4', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
   </script>
 <style>html{ scroll-behavior: smooth; }</style>
 
@@ -227,6 +257,7 @@ window.Quarto = {
 </ul>
           </div> <!-- /navcollapse -->
           <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -371,35 +402,18 @@ Exercise 1.7
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="3" data-categories="P1 - Asymptotic Notation,asymptotics" data-listing-file-modified-sort="1726605523421" data-listing-reading-time-sort="2" data-listing-word-count-sort="217">
-<a href="../problems/1.8/index.html" class="quarto-grid-link">
+<div class="g-col-1" data-index="3" data-categories="P1 - Asymptotic Notation,asymptotics" data-listing-file-modified-sort="1727960257916" data-listing-reading-time-sort="2" data-listing-word-count-sort="336">
+<a href="../problems/1.8-1.9/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
-<img src="../problems/1.8/orders.png" class="thumbnail-image card-img" style="height: 150px;">
+<img src="../problems/1.8-1.9/orders.png" class="thumbnail-image card-img" style="height: 150px;">
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
-Growth orders I
+Growth orders
 </h5>
 <div class="card-subtitle listing-subtitle">
-Exercise 1.8
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="4" data-categories="P1 - Asymptotic Notation,asymptotics" data-listing-file-modified-sort="1726605533539" data-listing-reading-time-sort="2" data-listing-word-count-sort="257">
-<a href="../problems/1.9/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="../problems/1.9/orders.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Growth orders II
-</h5>
-<div class="card-subtitle listing-subtitle">
-Exercise 1.9
+Exercises 1.8 and 1.9
 </div>
 </div>
 </div>
@@ -558,13 +572,14 @@ After class
 </div>
 </div>
 <div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
-<p>In this class we solve some problems from the <a href="https://www.cs.upc.edu/eda-eng/data/uploads/eda-problem-set.eng.pdf">EDA ProblemSet</a>, section 2 <em>Divide and Conquer</em>.</p>
+<p>This session is about examples of application of the <em>Divide-and-Conquer</em> paradigm.</p>
 <p>The theoretical tools we use are:</p>
 <ul>
 <li><a href="../theory_bits/binary_search.html">Binary Search</a></li>
 <li><a href="../theory_bits/sorting_algorithms.html">MergeSort</a></li>
 <li><a href="../theory_bits/master_theorem.html">Master Theorem</a></li>
 </ul>
+<p>We solve some problems from the <a href="https://www.cs.upc.edu/eda-eng/data/uploads/eda-problem-set.eng.pdf">EDA ProblemSet</a>, section 2 <em>Divide and Conquer</em>.</p>
 <div id="listing-exercises-P3" class="quarto-listing quarto-listing-container-grid">
 <div class="list grid quarto-listing-cols-3">
 <div class="g-col-1" data-index="0" data-categories="P3 - Divide and Conquer,divide and conquer" data-listing-file-modified-sort="1727886007392" data-listing-reading-time-sort="1" data-listing-word-count-sort="143">
@@ -584,7 +599,7 @@ Exercise 2.9
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="1" data-categories="P3 - Divide and Conquer,divide and conquer,sorting" data-listing-file-modified-sort="1727886013410" data-listing-reading-time-sort="1" data-listing-word-count-sort="176">
+<div class="g-col-1" data-index="1" data-categories="P3 - Divide and Conquer,divide and conquer,sorting" data-listing-file-modified-sort="1728053996398" data-listing-reading-time-sort="2" data-listing-word-count-sort="202">
 <a href="../problems/2.10/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -665,7 +680,169 @@ Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This section will be available closer to the class.</p>
+<p>This section is a draft, it will be updated closer to the class (probably).</p>
+</div>
+</div>
+<p>This session is about Hash functions, Binary Search Trees (BST) and AVL trees.<br>
+We solve some problems from the <a href="https://www.cs.upc.edu/eda-eng/data/uploads/eda-problem-set.eng.pdf">EDA ProblemSet</a>, section 3 <em>Dictionaries</em>.</p>
+<div id="listing-exercises-P4" class="quarto-listing quarto-listing-container-grid">
+<div class="list grid quarto-listing-cols-3">
+<div class="g-col-1" data-index="0" data-categories="P4 - Dictionaries,hash" data-listing-file-modified-sort="1727954796239" data-listing-reading-time-sort="4" data-listing-word-count-sort="722">
+<a href="../problems/3.1-3.2/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="../problems/3.1-3.2/hash.jpg" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Hash tables
+</h5>
+<div class="card-subtitle listing-subtitle">
+Exercises 3.1 and 3.2
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="1" data-categories="P4 - Dictionaries,BASIC" data-listing-file-modified-sort="1727952617959" data-listing-reading-time-sort="1" data-listing-word-count-sort="145">
+<a href="../problems/3.3/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="../problems/3.3/basic.jpg" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+BASIC’s renum
+</h5>
+<div class="card-subtitle listing-subtitle">
+Exercise 3.3
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="2" data-categories="P4 - Dictionaries,hash" data-listing-file-modified-sort="1727952802217" data-listing-reading-time-sort="1" data-listing-word-count-sort="27">
+<a href="../problems/3.4/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="../problems/3.4/different.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+All different
+</h5>
+<div class="card-subtitle listing-subtitle">
+Exercise 3.4
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="3" data-categories="P4 - Dictionaries,Binary-Search-Trees" data-listing-file-modified-sort="1727976820428" data-listing-reading-time-sort="1" data-listing-word-count-sort="150">
+<a href="../problems/3.5/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="../problems/3.5/tree.jpg" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+The ABC of BSTs
+</h5>
+<div class="card-subtitle listing-subtitle">
+Exercise 3.5
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="4" data-categories="P4 - Dictionaries,Binary-Search-Trees" data-listing-file-modified-sort="1727954446603" data-listing-reading-time-sort="1" data-listing-word-count-sort="86">
+<a href="../problems/3.6-3.7/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="../problems/3.6-3.7/tree.jpg" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Inserting in a BST
+</h5>
+<div class="card-subtitle listing-subtitle">
+Exercises 3.6 and 3.7
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="5" data-categories="P4 - Dictionaries,Binary-Search-Trees" data-listing-file-modified-sort="1727955093565" data-listing-reading-time-sort="1" data-listing-word-count-sort="35">
+<a href="../problems/3.8/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="../problems/3.8/leaves.jpg" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+About the maximum in a BST
+</h5>
+<div class="card-subtitle listing-subtitle">
+Exercises 3.8
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="6" data-categories="P4 - Dictionaries,Binary-Search-Trees" data-listing-file-modified-sort="1727977340614" data-listing-reading-time-sort="1" data-listing-word-count-sort="49">
+<a href="../problems/3.9/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="../problems/3.9/falling-leaves.jpg" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Deleting in a BST
+</h5>
+<div class="card-subtitle listing-subtitle">
+Exercises 3.9
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="7" data-categories="P4 - Dictionaries,Binary-Search-Trees,in-oder traversal" data-listing-file-modified-sort="1727959338434" data-listing-reading-time-sort="1" data-listing-word-count-sort="30">
+<a href="../problems/3.10/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="../problems/3.10/logs.jpg" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Inorder of a BST
+</h5>
+<div class="card-subtitle listing-subtitle">
+Exercise 3.10
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="8" data-categories="P4 - Dictionaries,AVL trees" data-listing-file-modified-sort="1727977701559" data-listing-reading-time-sort="1" data-listing-word-count-sort="100">
+<a href="../problems/3.23-3.24/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="../problems/3.23-3.24/owl.jpg" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Inserting in an AVL
+</h5>
+<div class="card-subtitle listing-subtitle">
+Exercises 3.23 and 3.24
+</div>
+</div>
+</div>
+</a>
+</div>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
 </div>
 </div>
 </div>
@@ -742,6 +919,150 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {

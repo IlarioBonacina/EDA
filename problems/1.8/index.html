@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>EDA - Growth orders I</title>
+<title>EDA - Growth orders</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -160,8 +160,8 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Growth orders I</h1>
-<p class="subtitle lead">Exercise 1.8</p>
+<h1 class="title">Growth orders</h1>
+<p class="subtitle lead">Exercises 1.8 and 1.9</p>
   </div>
 
 
@@ -217,10 +217,125 @@ Hint
 </div>
 </div>
 </div>
-<hr>
-<p>Once you solved this exercise you might want to double check the correctness of your answers using a Compuer Algebra System.</p>
-<div class="callout callout-style-default callout-note callout-titled">
+<p>Classify the functions below in such a way that <span class="math inline">\(f(n)\)</span> and <span class="math inline">\(g(n)\)</span> belong to the same class if and only if <span class="math inline">\(f(n) =  \Theta(g(n))\)</span>, and enumerate the classes according to their growth order:</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p><img src="orders.png" class="img-fluid"></p>
+</div></div><div class="page-columns page-full"><p></p><div class="no-row-height column-margin column-container"><span class="margin-aside">The figure above is meant to be a visual reminder of the growth rate of functions. It is <em>morally</em> correct but it contains some small errors. Can you spot them? If not, look at the theory-bit <a href="../../theory_bits/asymptotics.html">asymptotics</a>.</span></div></div>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><span class="math display">\[
+n
+\]</span></p>
+<p><span class="math display">\[
+\sqrt{n}
+\]</span></p>
+<p><span class="math display">\[
+n^{1.5}
+\]</span></p>
+<p><span class="math display">\[
+n^2
+\]</span></p>
+<p><span class="math display">\[
+n \log n
+\]</span></p>
+<p><span class="math display">\[
+n \log \log n
+\]</span></p>
+<p><span class="math display">\[
+(\log \log n)^2
+\]</span></p>
+<p><span class="math display">\[
+n \log^2 n
+\]</span></p>
+<p><span class="math display">\[
+\frac{n^3}{n-1}
+\]</span></p>
+<p><span class="math display">\[
+n^{\log n}
+\]</span></p>
+</div><div class="column" style="width:50%;">
+<p><span class="math display">\[
+n\log(n^2)
+\]</span></p>
+<p><span class="math display">\[
+21n
+\]</span></p>
+<p><span class="math display">\[
+2^n
+\]</span></p>
+<p><span class="math display">\[
+2^{\sqrt{n}}
+\]</span></p>
+<p><span class="math display">\[
+2^{\sqrt{\log n}}
+\]</span></p>
+<p><span class="math display">\[
+2^{n/2}
+\]</span></p>
+<p><span class="math display">\[
+37
+\]</span></p>
+<p><span class="math display">\[
+2^{2^n}
+\]</span></p>
+<p><span class="math display">\[
+\frac{2}{n}
+\]</span></p>
+<p><span class="math display">\[
+n^2\log n
+\]</span></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>You might want to refresh how to compute <a href="../../theory_bits/limits.html">limits</a> and properties of the <a href="../../theory_bits/logs.html">logarithms</a>.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Extra
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>What about <span class="math inline">\(n!\)</span> and <span class="math inline">\(3^n\)</span>? How do they compare with the rest?</p>
+<div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Use <a href="../../theory_bits/logs.html">Stirling approximation</a> of <span class="math inline">\(n!\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<hr>
+<p>Once you solved the exercises above you might want to double check the correctness of your answers using a Compuer Algebra System.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -229,7 +344,7 @@ Check your answers using SageMath
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>You could use the box below to perform symbolic calculations in SageMath and use them to double-check the correctness of your calculations. If you click on the “Evaluate” button this will tell you something on the respective asymptotic growth of the functions <span class="math inline">\(\log(x)\)</span> and <span class="math inline">\(\sqrt{x}\)</span>. Which one grows faster?</p>
 <div class="sage">

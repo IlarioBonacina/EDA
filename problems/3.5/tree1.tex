@@ -1,0 +1,17 @@
+\begin{tikzpicture}
+    \node[]{32}[sibling distance=10em]
+    child{node{25}[sibling distance=5em]
+        child{node{12}}
+        child{node{34}[sibling distance=3em]
+        child[missing]{}
+        child{node{35}}
+        }
+    }
+    child{node{49}[sibling distance=5em]
+        child{node{39}}
+        child{node{67}[sibling distance=3em]
+            child{node{64}}
+            child{node{79}}
+        }
+    };
+\end{tikzpicture}
