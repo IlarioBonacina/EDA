@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>EDA - Inserting in an AVL</title>
+<title>EDA - Inserting and deleting in a heap</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -125,8 +125,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#exercise-3.23" id="toc-exercise-3.23" class="nav-link active" data-scroll-target="#exercise-3.23">Exercise 3.23</a></li>
-  <li><a href="#exercise-3.24" id="toc-exercise-3.24" class="nav-link" data-scroll-target="#exercise-3.24">Exercise 3.24</a></li>
+  <li><a href="#exercise-4.3" id="toc-exercise-4.3" class="nav-link active" data-scroll-target="#exercise-4.3">Exercise 4.3</a></li>
+  <li><a href="#exercise-4.5" id="toc-exercise-4.5" class="nav-link" data-scroll-target="#exercise-4.5">Exercise 4.5</a></li>
   </ul>
 <div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="https://en.cppreference.com/w/"><i class="bi bi-code-slash"></i>cppreference.com</a></li><li><a href="https://jutge.org"><i class="bi bi-link-45deg"></i>Jutge.org</a></li><li><a href="https://www.cs.upc.edu/eda/"><i class="bi bi-link-45deg"></i>EDA Main Page</a></li><li><a href="https://www.cs.upc.edu/eda-eng/data/uploads/eda-problem-set.eng.pdf"><i class="bi bi-book"></i>EDA Problem Set</a></li><li><a href="https://www.cs.upc.edu/~oliveras/examens.eng.pdf"><i class="bi bi-book"></i>Collection of Solved Exams</a></li><li><a href="https://www.cs.upc.edu/eda/data/uploads/eda-codis.pdf"><i class="bi bi-book"></i>Algorithms in C++</a></li></ul></div></nav>
     </div>
@@ -135,8 +135,8 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Inserting in an AVL</h1>
-<p class="subtitle lead">Exercises 3.23 and 3.24</p>
+<h1 class="title">Inserting and deleting in a heap</h1>
+<p class="subtitle lead">Exercises 4.3 and 4.5</p>
   </div>
 
 
@@ -155,10 +155,15 @@ ul.task-list li input[type="checkbox"] {
 
 
 <div class="no-row-height column-margin column-container"><div class="">
-<p><img src="owl.jpg" class="img-fluid"></p>
-</div></div><section id="exercise-3.23" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-3.23">Exercise 3.23</h3>
-<p>Give the three AVL trees resulting from adding the keys <strong>31</strong>, <strong>32</strong>, <strong>33</strong> one after the other to the following AVL tree. (apply each operation to the tree obtained at the previous step)</p>
+<p><img src="heap-insert.jpg" class="img-fluid"></p>
+</div></div><section id="exercise-4.3" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-4.3">Exercise 4.3</h3>
+<p>Starting from an empty <strong>min</strong>-heap, insert one after the other the following numbers: <strong>45</strong>, <strong>67</strong>, <strong>23</strong>, <strong>46</strong>, <strong>89</strong>, <strong>65</strong>, <strong>12</strong>, <strong>34</strong>, <strong>98</strong>, <strong>76</strong>.</p>
+<p><br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br></p>
+</section>
+<section id="exercise-4.5" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-4.5">Exercise 4.5</h3>
+<p>Starting from the following <strong>max</strong>-heap, eliminate one after the other the maximum element until it becomes an empty max-heap.</p>
 <div class="columns">
 <div class="column" style="width:25%;">
 
@@ -173,28 +178,6 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div><div class="column" style="width:25%;">
-
-</div>
-</div>
-<p><br><br></p>
-</section>
-<section id="exercise-3.24" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-3.24">Exercise 3.24</h3>
-<p>Give the two AVL trees resulting from adding the keys <strong>18</strong>, <strong>12</strong> to the following AVL tree (apply each operation to the tree obtained at the previous step).</p>
-<div class="columns">
-<div class="column" style="width:35%;">
-
-</div><div class="column" style="width:40%;">
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</div><div class="column" style="width:35%;">
 
 </div>
 </div>

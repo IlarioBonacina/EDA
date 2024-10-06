@@ -180,6 +180,90 @@ ul.task-list li input[type="checkbox"] {
       window['quarto-listing-loaded']();
     }
   })
+  
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-exercises-P5 .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-image','listing-subtitle','listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-title","listing-author","listing-image","listing-description"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-exercises-P5'] = new List('listing-exercises-P5', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-exercises-P6 .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-image','listing-subtitle','listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-title","listing-author","listing-image","listing-description"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-exercises-P6'] = new List('listing-exercises-P6', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-exercises-P7 .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-image','listing-subtitle','listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-title","listing-author","listing-image","listing-description"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-exercises-P7'] = new List('listing-exercises-P7', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
   </script>
 <style>html{ scroll-behavior: smooth; }</style>
 
@@ -294,7 +378,7 @@ window.Quarto = {
 <li>7.1: a scene has a content a bit too heterosexual?</li>
 </ul>
 </div>
-<p>Every <strong>problem class</strong> follows roughly the same structure. In every session we solve together a selection of problems from the <a href="https://www.cs.upc.edu/eda-eng/data/uploads/eda-problem-set.eng.pdf">EDA ProblemSet</a>.</p>
+<p>In EDA you will have 7 <strong>problem classes</strong> and each of them follows roughly the same structure. In every session we solve together a selection of problems from the <a href="https://www.cs.upc.edu/eda-eng/data/uploads/eda-problem-set.eng.pdf">EDA ProblemSet</a>.</p>
 <p>To make the most out of <strong>each</strong> problem class, try the corresponding exercises before each session using <strong>a reasonable amount of time</strong>.</p>
 <p>The <strong>Goal</strong> is to arrive at the class either with</p>
 <ul>
@@ -677,14 +761,19 @@ Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This section is a draft, it will be updated closer to the class (probably).</p>
+<p>This section is a draft, it will be updated closer to the class.</p>
 </div>
 </div>
-<p>This session is about Hash functions, Binary Search Trees (BST) and AVL trees.<br>
-We solve some problems from the <a href="https://www.cs.upc.edu/eda-eng/data/uploads/eda-problem-set.eng.pdf">EDA ProblemSet</a>, section 3 <em>Dictionaries</em>.</p>
+<p>This session is about dictionaries and seeing exercises from past Midterm exams.</p>
+<p>The theoretical tools we use are:</p>
+<ul>
+<li>Hash functions,</li>
+<li>Binary Search Trees (BST) and AVL trees.</li>
+</ul>
+<p>We solve some problems from the <a href="https://www.cs.upc.edu/eda-eng/data/uploads/eda-problem-set.eng.pdf">EDA ProblemSet</a>, section 3 <em>Dictionaries</em>.</p>
 <div id="listing-exercises-P4" class="quarto-listing quarto-listing-container-grid">
 <div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="P4 - Dictionaries,hash" data-listing-file-modified-sort="1727954796239" data-listing-reading-time-sort="4" data-listing-word-count-sort="722">
+<div class="g-col-1" data-index="0" data-categories="P4 - Dictionaries,hash" data-listing-file-modified-sort="1728146374759" data-listing-reading-time-sort="4" data-listing-word-count-sort="725">
 <a href="../problems/3.1-3.2/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -735,41 +824,24 @@ Exercise 3.4
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="3" data-categories="P4 - Dictionaries,Binary-Search-Trees" data-listing-file-modified-sort="1727976820428" data-listing-reading-time-sort="1" data-listing-word-count-sort="150">
-<a href="../problems/3.5/index.html" class="quarto-grid-link">
+<div class="g-col-1" data-index="3" data-categories="P4 - Dictionaries,Binary-Search-Trees" data-listing-file-modified-sort="1728146459328" data-listing-reading-time-sort="2" data-listing-word-count-sort="232">
+<a href="../problems/3.5-3.6-3.7/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
-<img src="../problems/3.5/tree.jpg" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-The ABC of BSTs
-</h5>
-<div class="card-subtitle listing-subtitle">
-Exercise 3.5
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="4" data-categories="P4 - Dictionaries,Binary-Search-Trees" data-listing-file-modified-sort="1727954446603" data-listing-reading-time-sort="1" data-listing-word-count-sort="86">
-<a href="../problems/3.6-3.7/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="../problems/3.6-3.7/tree.jpg" class="thumbnail-image card-img" style="height: 150px;">
+<img src="../problems/3.5-3.6-3.7/tree.jpg" class="thumbnail-image card-img" style="height: 150px;">
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
 Inserting in a BST
 </h5>
 <div class="card-subtitle listing-subtitle">
-Exercises 3.6 and 3.7
+Exercises 3.5, 3.6 and 3.7
 </div>
 </div>
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="5" data-categories="P4 - Dictionaries,Binary-Search-Trees" data-listing-file-modified-sort="1727955093565" data-listing-reading-time-sort="1" data-listing-word-count-sort="35">
+<div class="g-col-1" data-index="4" data-categories="P4 - Dictionaries,Binary-Search-Trees" data-listing-file-modified-sort="1727955093565" data-listing-reading-time-sort="1" data-listing-word-count-sort="35">
 <a href="../problems/3.8/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -786,7 +858,7 @@ Exercises 3.8
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="6" data-categories="P4 - Dictionaries,Binary-Search-Trees" data-listing-file-modified-sort="1727977340614" data-listing-reading-time-sort="1" data-listing-word-count-sort="49">
+<div class="g-col-1" data-index="5" data-categories="P4 - Dictionaries,Binary-Search-Trees" data-listing-file-modified-sort="1727977340614" data-listing-reading-time-sort="1" data-listing-word-count-sort="49">
 <a href="../problems/3.9/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -803,7 +875,7 @@ Exercises 3.9
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="7" data-categories="P4 - Dictionaries,Binary-Search-Trees,in-oder traversal" data-listing-file-modified-sort="1727959338434" data-listing-reading-time-sort="1" data-listing-word-count-sort="30">
+<div class="g-col-1" data-index="6" data-categories="P4 - Dictionaries,Binary-Search-Trees,in-oder traversal" data-listing-file-modified-sort="1727959338434" data-listing-reading-time-sort="1" data-listing-word-count-sort="30">
 <a href="../problems/3.10/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -820,7 +892,7 @@ Exercise 3.10
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="8" data-categories="P4 - Dictionaries,AVL trees" data-listing-file-modified-sort="1727977701559" data-listing-reading-time-sort="1" data-listing-word-count-sort="100">
+<div class="g-col-1" data-index="7" data-categories="P4 - Dictionaries,AVL trees" data-listing-file-modified-sort="1728146554863" data-listing-reading-time-sort="1" data-listing-word-count-sort="102">
 <a href="../problems/3.23-3.24/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -842,6 +914,23 @@ Exercises 3.23 and 3.24
 No matching items
 </div>
 </div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+After class
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>To test your understanding, try exercises from the <a href="https://www.cs.upc.edu/~oliveras/examens.eng.pdf">Collection of Solved Exams</a>. For instance:</p>
+<ul>
+<li><a href="https://www.cs.upc.edu/~oliveras/examens.eng.pdf#page=99">15/04/2021 Midterm EDA Exam Problem 1.d</a></li>
+<li><a href="https://www.cs.upc.edu/~oliveras/examens.eng.pdf#page=117">02/11/2023 Midterm EDA Exam Problem 1.c</a></li>
+</ul>
+</div>
+</div>
 </div>
 <div id="tabset-1-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-5-tab">
 <div class="callout callout-style-default callout-important callout-titled">
@@ -854,7 +943,106 @@ Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This section will be available closer to the class.</p>
+<p>This section is a draft, it will be updated closer to the class.</p>
+</div>
+</div>
+<p>This session is about priority queues and how to use them in relation to sorting.</p>
+<p>The theoretical tools we use are:</p>
+<ul>
+<li>min-heaps, max-heaps,</li>
+<li>operations on them.</li>
+</ul>
+<p>We solve some problems from the <a href="https://www.cs.upc.edu/eda-eng/data/uploads/eda-problem-set.eng.pdf">EDA ProblemSet</a>, section 4 <em>Priority queues</em>.</p>
+<div id="listing-exercises-P5" class="quarto-listing quarto-listing-container-grid">
+<div class="list grid quarto-listing-cols-3">
+<div class="g-col-1" data-index="0" data-categories="P5 - Priority Queues,min-heap" data-listing-file-modified-sort="1728146597500" data-listing-reading-time-sort="1" data-listing-word-count-sort="106">
+<a href="../problems/4.1-4.2/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="../problems/4.1-4.2/heap.jpg" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Are they min/max-heaps?
+</h5>
+<div class="card-subtitle listing-subtitle">
+Exercises 4.1 and 4.2
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="1" data-categories="P5 - Priority Queues,min-heap" data-listing-file-modified-sort="1728146615552" data-listing-reading-time-sort="1" data-listing-word-count-sort="76">
+<a href="../problems/4.3-4.5/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="../problems/4.3-4.5/heap-insert.jpg" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Inserting and deleting in a heap
+</h5>
+<div class="card-subtitle listing-subtitle">
+Exercises 4.3 and 4.5
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="2" data-categories="P5 - Priority Queues,min-heap" data-listing-file-modified-sort="1728145577825" data-listing-reading-time-sort="1" data-listing-word-count-sort="73">
+<a href="../problems/4.9/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="../problems/4.9/test.jpg" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Test
+</h5>
+<div class="card-subtitle listing-subtitle">
+Exercise 4.9
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="3" data-categories="P5 - Priority Queues,partial-sort" data-listing-file-modified-sort="1728146152969" data-listing-reading-time-sort="1" data-listing-word-count-sort="94">
+<a href="../problems/4.10/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="../problems/4.10/sorting.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Partial sort
+</h5>
+<div class="card-subtitle listing-subtitle">
+Exercise 4.10
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="4" data-categories="P5 - Priority Queues,partial-sort" data-listing-file-modified-sort="1728147197824" data-listing-reading-time-sort="1" data-listing-word-count-sort="71">
+<a href="../problems/4.11/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="../problems/4.11/sorting.gif" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+<span class="math inline">\(k\)</span>-th element out of <span class="math inline">\(n\)</span> sorted tables
+</h5>
+<div class="card-subtitle listing-subtitle">
+Exercise 4.11
+</div>
+</div>
+</div>
+</a>
+</div>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
 </div>
 </div>
 </div>
@@ -869,7 +1057,88 @@ Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This section will be available closer to the class.</p>
+<p>This section is a draft, it will be updated closer to the class.</p>
+</div>
+</div>
+<p>This session is about graphs.</p>
+<p>The theoretical tools we use are:</p>
+<ul>
+<li><strong>TBD</strong></li>
+</ul>
+<p>We solve some problems from the <a href="https://www.cs.upc.edu/eda-eng/data/uploads/eda-problem-set.eng.pdf">EDA ProblemSet</a>, section 5 <em>Graphs</em>.</p>
+<div id="listing-exercises-P6" class="quarto-listing quarto-listing-container-grid">
+<div class="list grid quarto-listing-cols-3">
+<div class="g-col-1" data-index="0" data-categories="P6 - Graphs" data-listing-file-modified-sort="1728206417180" data-listing-reading-time-sort="1" data-listing-word-count-sort="60">
+<a href="../problems/5.5-5.6/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="../problems/5.5-5.6/handshake.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Handshaking Lemma
+</h5>
+<div class="card-subtitle listing-subtitle">
+Exercises 5.5 and 5.6
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="1" data-categories="P6 - Graphs" data-listing-file-modified-sort="1728207427859" data-listing-reading-time-sort="1" data-listing-word-count-sort="179">
+<a href="../problems/5.12-5.13-5.14/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="../problems/5.12-5.13-5.14/sorting.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Topological orderings
+</h5>
+<div class="card-subtitle listing-subtitle">
+Exercises 5.12 and 5.13 and 5.14
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="2" data-categories="P6 - Graphs" data-listing-file-modified-sort="1728208209810" data-listing-reading-time-sort="1" data-listing-word-count-sort="96">
+<a href="../problems/5.17-5.18/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="../problems/5.17-5.18/square.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Squaring
+</h5>
+<div class="card-subtitle listing-subtitle">
+Exercises 5.17 and 5.18
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="3" data-categories="P6 - Graphs" data-listing-file-modified-sort="1728209439451" data-listing-reading-time-sort="1" data-listing-word-count-sort="59">
+<a href="../problems/5.23-5.24/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="../problems/5.23-5.24/graph.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Is it acyclic?
+</h5>
+<div class="card-subtitle listing-subtitle">
+Exercises 5.23 and 5.24
+</div>
+</div>
+</div>
+</a>
+</div>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
 </div>
 </div>
 </div>
@@ -884,7 +1153,89 @@ Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This section will be available closer to the class.</p>
+<p>This section is a draft, it will be updated closer to the class.</p>
+</div>
+</div>
+<p>This session is about intractability.</p>
+<p>The theoretical tools we use are:</p>
+<ul>
+<li><strong>NP</strong>-completeness,</li>
+<li>polynomial-time reductions.</li>
+</ul>
+<p>We solve some problems from the <a href="https://www.cs.upc.edu/eda-eng/data/uploads/eda-problem-set.eng.pdf">EDA ProblemSet</a>, section 7 <em>Intractability</em>.</p>
+<div id="listing-exercises-P7" class="quarto-listing quarto-listing-container-grid">
+<div class="list grid quarto-listing-cols-3">
+<div class="g-col-1" data-index="0" data-categories="P7 - Intractability" data-listing-file-modified-sort="1728149024719" data-listing-reading-time-sort="8" data-listing-word-count-sort="1569">
+<a href="../problems/7.1/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="../problems/7.1/dinner.jpg" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+A Tragicomedy in Nine Scenes
+</h5>
+<div class="card-subtitle listing-subtitle">
+Exercise 7.1
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="1" data-categories="P7 - Intractability" data-listing-file-modified-sort="1728149657965" data-listing-reading-time-sort="1" data-listing-word-count-sort="98">
+<a href="../problems/7.2/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="../problems/7.2/np.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Understanding the Definitions
+</h5>
+<div class="card-subtitle listing-subtitle">
+Exercise 7.2
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="2" data-categories="P7 - Intractability" data-listing-file-modified-sort="1728149988499" data-listing-reading-time-sort="1" data-listing-word-count-sort="118">
+<a href="../problems/7.3/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="../problems/7.3/directions.webp" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Reductions in What Direction?
+</h5>
+<div class="card-subtitle listing-subtitle">
+Exercise 7.3
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="3" data-categories="P7 - Intractability" data-listing-file-modified-sort="1728150562782" data-listing-reading-time-sort="1" data-listing-word-count-sort="108">
+<a href="../problems/7.4/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="../problems/7.4/partition.webp" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+PARTITION
+</h5>
+<div class="card-subtitle listing-subtitle">
+Exercise 7.4
+</div>
+</div>
+</div>
+</a>
+</div>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
 </div>
 </div>
 </div>

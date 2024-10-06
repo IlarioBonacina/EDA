@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>EDA - Inserting in an AVL</title>
+<title>EDA - Is it acyclic?</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -69,6 +69,35 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -125,8 +154,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#exercise-3.23" id="toc-exercise-3.23" class="nav-link active" data-scroll-target="#exercise-3.23">Exercise 3.23</a></li>
-  <li><a href="#exercise-3.24" id="toc-exercise-3.24" class="nav-link" data-scroll-target="#exercise-3.24">Exercise 3.24</a></li>
+  <li><a href="#exercise-5.23" id="toc-exercise-5.23" class="nav-link active" data-scroll-target="#exercise-5.23">Exercise 5.23</a></li>
+  <li><a href="#exercise-5.24" id="toc-exercise-5.24" class="nav-link" data-scroll-target="#exercise-5.24">Exercise 5.24</a></li>
   </ul>
 <div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="https://en.cppreference.com/w/"><i class="bi bi-code-slash"></i>cppreference.com</a></li><li><a href="https://jutge.org"><i class="bi bi-link-45deg"></i>Jutge.org</a></li><li><a href="https://www.cs.upc.edu/eda/"><i class="bi bi-link-45deg"></i>EDA Main Page</a></li><li><a href="https://www.cs.upc.edu/eda-eng/data/uploads/eda-problem-set.eng.pdf"><i class="bi bi-book"></i>EDA Problem Set</a></li><li><a href="https://www.cs.upc.edu/~oliveras/examens.eng.pdf"><i class="bi bi-book"></i>Collection of Solved Exams</a></li><li><a href="https://www.cs.upc.edu/eda/data/uploads/eda-codis.pdf"><i class="bi bi-book"></i>Algorithms in C++</a></li></ul></div></nav>
     </div>
@@ -135,8 +164,8 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Inserting in an AVL</h1>
-<p class="subtitle lead">Exercises 3.23 and 3.24</p>
+<h1 class="title">Is it acyclic?</h1>
+<p class="subtitle lead">Exercises 5.23 and 5.24</p>
   </div>
 
 
@@ -155,47 +184,28 @@ ul.task-list li input[type="checkbox"] {
 
 
 <div class="no-row-height column-margin column-container"><div class="">
-<p><img src="owl.jpg" class="img-fluid"></p>
-</div></div><section id="exercise-3.23" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-3.23">Exercise 3.23</h3>
-<p>Give the three AVL trees resulting from adding the keys <strong>31</strong>, <strong>32</strong>, <strong>33</strong> one after the other to the following AVL tree. (apply each operation to the tree obtained at the previous step)</p>
-<div class="columns">
-<div class="column" style="width:25%;">
-
-</div><div class="column" style="width:50%;">
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</div><div class="column" style="width:25%;">
-
-</div>
-</div>
-<p><br><br></p>
+<p><img src="graph.png" class="img-fluid"></p>
+</div></div><section id="exercise-5.23" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-5.23">Exercise 5.23</h3>
+<p>Design and analyse an algorithm that is able to determine if an <strong>undirected</strong> graph <span class="math inline">\(G=(V,E)\)</span> contains cycles or not in time <span class="math inline">\(\mathcal O (|V|)\)</span>.</p>
 </section>
-<section id="exercise-3.24" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-3.24">Exercise 3.24</h3>
-<p>Give the two AVL trees resulting from adding the keys <strong>18</strong>, <strong>12</strong> to the following AVL tree (apply each operation to the tree obtained at the previous step).</p>
-<div class="columns">
-<div class="column" style="width:35%;">
-
-</div><div class="column" style="width:40%;">
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
+<section id="exercise-5.24" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-5.24">Exercise 5.24</h3>
+<p>Design and analyse an algorithm that determines if a <strong>directed</strong> graph contains cycles or not.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
+<div class="callout-title-container flex-fill">
+Hint
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-</div><div class="column" style="width:35%;">
-
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>A possibility is to try to construct a topological ordering.</p>
+</div>
 </div>
 </div>
 <p><a href="javascript:history.back()"><iconify-icon role="img" inline="" icon="twemoji:back-arrow" style="font-size: 2em;" aria-label="Icon back-arrow from twemoji Iconify.design set." title="Icon back-arrow from twemoji Iconify.design set."></iconify-icon></a></p>
