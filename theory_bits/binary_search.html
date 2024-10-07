@@ -223,11 +223,32 @@ window.Quarto = {
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> BinarySearch<span class="op">(</span>v<span class="op">,</span> mid <span class="op">+</span> <span class="dv">1</span><span class="op">,</span> right<span class="op">,</span> x<span class="op">);</span></span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> mid<span class="op">;</span></span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+First occurrence?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Does the code above find the <strong>first</strong> occurrence of <span class="math inline">\(x\)</span> in <span class="math inline">\(v\)</span>? If not, how can you modify it so that it does?</p>
+<p>You might want to solve the Jutge.org exercise <a href="https://jutge.org/problems/P84219_en/">P84219 First occurrence</a>.</p>
+</div>
+</div>
 <p>The worst case running time <span class="math inline">\(T(n)\)</span> of BinarySearch on an input of size <span class="math inline">\(n\)</span> satisfies the recurrence</p>
 <p><span class="math display">\[
 T(n)=T\left(\frac{n}{2}\right)+\Theta(1)
 \]</span></p>
 <p>which, by the <a href="../theory_bits/master_theorem.html">Master Theorem</a>, gives <span class="math inline">\(T(n)=\Theta(\log n)\)</span>.</p>
+<p>This is actually the best possible among all comparison-based search algorithms. A <em>comparison-based search algorithm</em>, searching for an element <span class="math inline">\(x\)</span> in a vector <span class="math inline">\(v\)</span>, is only allowed to interact with <span class="math inline">\(v\)</span> by asking questions of the form</p>
+<ul>
+<li>“<em>is <span class="math inline">\(x&gt;v[i]\)</span>?</em>” or</li>
+<li>“<em>is <span class="math inline">\(x=v[i]\)</span>?</em>”, or</li>
+<li>“<em>is <span class="math inline">\(x &lt; v[i]\)</span>?</em>”,</li>
+</ul>
+<p>and getting a <strong>YES</strong>/<strong>NO</strong> answer.</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -241,7 +262,6 @@ Theorem
 <p><strong>Any</strong> deterministic comparison-based searching algorithm must perform <span class="math inline">\(\Omega(\log n)\)</span> comparisons in the worst case to search for an element in a vector of size <span class="math inline">\(n\)</span>.</p>
 </div>
 </div>
-<p>A <em>comparison-based search algorithm</em>, searching for an element <span class="math inline">\(x\)</span> in a vector <span class="math inline">\(v\)</span>, is only allowed to interact with <span class="math inline">\(v\)</span> by asking questions of the form “<em>is <span class="math inline">\(x&gt;v[i]\)</span>?</em>” or “<em>is <span class="math inline">\(x=v[i]\)</span>?</em>” “<em>is <span class="math inline">\(x &lt; v[i]\)</span>?</em>”, and getting a <strong>YES</strong>/<strong>NO</strong> answer.</p>
 <p>The proof of the theorem above is similar to the one used to show the lower bound on the <span class="math inline">\(\Omega(n\log n)\)</span> worst case running time of <strong>any</strong> <a href="../theory_bits/sorting_algorithms.html">comparison-based sorting algorithm</a>, and it is left as an exercise.</p>
 <p><a href="javascript:history.back()"><iconify-icon role="img" inline="" icon="twemoji:back-arrow" style="font-size: 2em;" aria-label="Icon back-arrow from twemoji Iconify.design set." title="Icon back-arrow from twemoji Iconify.design set."></iconify-icon></a></p>
 

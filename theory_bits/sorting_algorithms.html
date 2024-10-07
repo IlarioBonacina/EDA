@@ -209,55 +209,6 @@ window.Quarto = {
 
 
 <p>We recall some basic facts on some elementary comparison-based sorting algorithms. These are sorting algorithms that only operate on the input array/vector by comparing pairs of elements and moving elements around based on the results of these comparisons.</p>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Comparison-based sorting algorithm
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>A <em>comparison-based sorting algorithm</em> takes as input an array/vector <span class="math inline">\([a_1,a_2,\dots ,a_n]\)</span> of <span class="math inline">\(n\)</span> items, and can only gain information about the items by comparing pairs of them. Each comparison is of the form <span class="math display">\[
-\text{$a_i &gt; a_j$?}
-\]</span></p>
-<p>and returns <strong>YES</strong> or <strong>NO</strong> and counts a 1 time-step. The algorithm may also for free reorder items based on the results of comparisons made. In the end, the algorithm must output a permutation of the input in which all items are in sorted order (say increasingly).</p>
-</div>
-</div>
-<p>For instance, Quicksort, Mergesort, and Insertion-sort are all comparison-based sorting algorithms. How efficient can be comparison-based sorting algorithms?</p>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Theorem
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Any deterministic comparison-based sorting algorithm must perform <span class="math inline">\(\Omega(n \log n)\)</span> comparisons to sort <span class="math inline">\(n\)</span> elements in the worst case.</p>
-<p>More precisely, for any deterministic comparison-based sorting algorithm <span class="math inline">\(A\)</span>, for all <span class="math inline">\(n \geq 2\)</span> there exists an input <span class="math inline">\(I\)</span> of size <span class="math inline">\(n\)</span> such that <span class="math inline">\(A\)</span> makes at least <span class="math inline">\(\log_2(n!) = \Omega(n \log n)\)</span> comparisons to sort <span class="math inline">\(I\)</span>.</p>
-</div>
-</div>
-<p>To prove this theorem, we cannot assume the sorting algorithm is going to necessarily choose a pivot as in Quicksort, or split the input as in Mergesort — we need to analyze <strong>any</strong> possible (comparison-based) algorithm that might exist.</p>
-<div class="callout callout-style-simple callout-none no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Proof (sketch)
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>For a deterministic algorithm, the permutation it outputs is solely a function of the series of answers it receives (any two inputs producing the same series of answers will cause the same permutation to be output). So, if an algorithm always made at most <span class="math inline">\(k &lt; \log_2(n!)\)</span> comparisons, then there are at most <span class="math inline">\(2^k &lt; n!\)</span> diﬀerent permutations it can possibly output. But the total number of possible permutations in <span class="math inline">\(n!\)</span>. So, there is some permutation it can’t output and the algorithm will fail on any input for which that permutation is the only correct answer.</p>
-</div>
-</div>
-</div>
-<p>The theorem above actually holds for randomized algorithms too, but the argument is a bit more subtle.</p>
 <p>The following tabs are about some comparison-based sorting algorithms, each contains a simple implementation of the algorithm with a reminder of the running time. You can find the implementations (and many more) also in <a href="https://www.cs.upc.edu/eda/data/uploads/eda-codis.pdf#page=11">Algorithms in C++</a>.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Insertion-sort</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">MergeSort</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">QuickSort</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false">Heapsort</a></li></ul>
@@ -423,6 +374,55 @@ Proof (sketch)
 </div>
 </div>
 </div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Comparison-based sorting algorithm
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A <em>comparison-based sorting algorithm</em> takes as input an array/vector <span class="math inline">\([a_1,a_2,\dots ,a_n]\)</span> of <span class="math inline">\(n\)</span> items, and can only gain information about the items by comparing pairs of them. Each comparison is of the form <span class="math display">\[
+\text{$a_i &gt; a_j$?}
+\]</span></p>
+<p>and returns <strong>YES</strong> or <strong>NO</strong> and counts a 1 time-step. The algorithm may also for free reorder items based on the results of comparisons made. In the end, the algorithm must output a permutation of the input in which all items are in sorted order (say increasingly).</p>
+</div>
+</div>
+<p>For instance, Quicksort, Mergesort, and Insertion-sort are all comparison-based sorting algorithms. How efficient can be comparison-based sorting algorithms?</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Theorem
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Any deterministic comparison-based sorting algorithm must perform <span class="math inline">\(\Omega(n \log n)\)</span> comparisons to sort <span class="math inline">\(n\)</span> elements in the worst case.</p>
+<p>More precisely, for any deterministic comparison-based sorting algorithm <span class="math inline">\(A\)</span>, for all <span class="math inline">\(n \geq 2\)</span> there exists an input <span class="math inline">\(I\)</span> of size <span class="math inline">\(n\)</span> such that <span class="math inline">\(A\)</span> makes at least <span class="math inline">\(\log_2(n!) = \Omega(n \log n)\)</span> comparisons to sort <span class="math inline">\(I\)</span>.</p>
+</div>
+</div>
+<p>To prove this theorem, we cannot assume the sorting algorithm is going to necessarily choose a pivot as in Quicksort, or split the input as in Mergesort — we need to analyze <strong>any</strong> possible (comparison-based) algorithm that might exist.</p>
+<div class="callout callout-style-simple callout-none no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Proof (sketch)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>For a deterministic algorithm, the permutation it outputs is solely a function of the series of answers it receives (any two inputs producing the same series of answers will cause the same permutation to be output). So, if an algorithm always made at most <span class="math inline">\(k &lt; \log_2(n!)\)</span> comparisons, then there are at most <span class="math inline">\(2^k &lt; n!\)</span> diﬀerent permutations it can possibly output. But the total number of possible permutations is <span class="math inline">\(n!\)</span>. So, there is some permutation it can’t output and the algorithm will fail on any input for which that permutation is the only correct answer.</p>
+</div>
+</div>
+</div>
+<p>The theorem above actually holds for randomized algorithms too, but the argument is a bit more subtle.</p>
 <p><a href="javascript:history.back()"><iconify-icon role="img" inline="" icon="twemoji:back-arrow" style="font-size: 2em;" aria-label="Icon back-arrow from twemoji Iconify.design set." title="Icon back-arrow from twemoji Iconify.design set."></iconify-icon></a></p>
 
 

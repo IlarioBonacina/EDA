@@ -175,7 +175,8 @@ window.Quarto = {
 </header>
 
 
-<p>Write a divide and conquer algorithm that, given a vector that stores a unimodal sequence, finds its top in cost <span class="math inline">\(O(\log n)\)</span>.</p>
+<p>A sequence of integers <span class="math inline">\(A = (a_1, \dots , a_n)\)</span> of length <span class="math inline">\(n \geq  3\)</span> is called <strong>unimodal</strong> if there exists an index <span class="math inline">\(t\)</span> with <span class="math inline">\(1\leq t\leq n\)</span> such that <span class="math inline">\(a_1 &lt;a_2 &lt;\dots&lt;a_t\)</span> and <span class="math inline">\(a_t &gt;a_{t+1} &gt;\dots&gt; a_n\)</span>. In other words, the sequence <span class="math inline">\(A\)</span> increases up to <span class="math inline">\(a_t\)</span> and then decreases. The element <span class="math inline">\(a_t\)</span> is called its <strong>top</strong>.</p>
+<p>Write a divide and conquer algorithm that, given a vector that stores a <em>unimodal</em> sequence, finds its <em>top</em> in cost <span class="math inline">\(O(\log n)\)</span>.</p>
 
 <div class="no-row-height column-margin column-container"><div class="">
 <div class="quarto-figure quarto-figure-center">
@@ -185,7 +186,6 @@ window.Quarto = {
 </figure>
 </div>
 </div></div><p>Argue that the suggested algorithm has cost <span class="math inline">\(O(\log n)\)</span>, and prove its correctness.</p>
-<p>A sequence of integers <span class="math inline">\(A = (a_1, \dots , a_n)\)</span> of length <span class="math inline">\(n \geq  3\)</span> is called <strong>unimodal</strong> if there exists an index <span class="math inline">\(t\)</span> with <span class="math inline">\(1\leq t\leq n\)</span> such that <span class="math inline">\(a_1 &lt;a_2 &lt;\dots&lt;a_t\)</span> and <span class="math inline">\(a_t &gt;a_{t+1} &gt;\dots&gt; a_n\)</span>. In other words, the sequence <span class="math inline">\(A\)</span> increases up to <span class="math inline">\(a_t\)</span> and then decreases. The element <span class="math inline">\(a_t\)</span> is called its <strong>top</strong>.</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
