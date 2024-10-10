@@ -103,8 +103,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -256,12 +270,12 @@ Example
 <tr class="odd">
 <td><code>bool empty() const</code></td>
 <td>says whether the container is empty</td>
-<td><span class="math inline">\(\Theta(1)\)</span></td>
+<td><span class="math inline">\Theta(1)</span></td>
 </tr>
 <tr class="even">
 <td><code>unsigned int size() const</code></td>
 <td>returns the size of the container</td>
-<td><span class="math inline">\(\Theta(1)\)</span></td>
+<td><span class="math inline">\Theta(1)</span></td>
 </tr>
 </tbody>
 </table>
@@ -365,17 +379,17 @@ Example of usage
 <tr class="odd">
 <td><code>void push(const T&amp; x)</code></td>
 <td>adds <code>x</code> to the queue</td>
-<td><span class="math inline">\(\Theta(\log n)\)</span></td>
+<td><span class="math inline">\Theta(\log n)</span></td>
 </tr>
 <tr class="even">
 <td><code>void pop()</code></td>
 <td>removes the largest element</td>
-<td><span class="math inline">\(\Theta(\log n)\)</span></td>
+<td><span class="math inline">\Theta(\log n)</span></td>
 </tr>
 <tr class="odd">
 <td><code>const T&amp; top() const</code></td>
 <td>returns the top of the queue</td>
-<td><span class="math inline">\(\Theta(1)\)</span></td>
+<td><span class="math inline">\Theta(1)</span></td>
 </tr>
 </tbody>
 </table>
@@ -431,32 +445,32 @@ Example (<em>Heapsort</em>)
 <tr class="odd">
 <td><code>pair&lt;set&lt;T&gt;::iterator,bool&gt; insert (const T&amp; x);</code></td>
 <td>adds <code>x</code> to the set.<br> If <code>x</code> was not in the set it returns an iterator to the place of <code>x</code> and <code>true</code>. Otherwise, an iterator to <code>x</code> in the set and <code>false</code></td>
-<td><span class="math inline">\(\Theta(\log n)\)</span></td>
+<td><span class="math inline">\Theta(\log n)</span></td>
 </tr>
 <tr class="even">
 <td><code>set&lt;T&gt;::iterator begin()</code></td>
 <td>returns an iterator to the first element of the set</td>
-<td><span class="math inline">\(\Theta(1)\)</span></td>
+<td><span class="math inline">\Theta(1)</span></td>
 </tr>
 <tr class="odd">
 <td><code>set&lt;T&gt;::iterator end()</code></td>
 <td>returns an iterator <em>after</em> the last element of the set</td>
-<td><span class="math inline">\(\Theta(1)\)</span></td>
+<td><span class="math inline">\Theta(1)</span></td>
 </tr>
 <tr class="even">
 <td><code>set&lt;T&gt;::iterator find(const T&amp; x) const</code></td>
 <td>looks for <code>x</code> in the set.<br> If <code>x</code> was in the set it returns an iterator pointing to it. Otherwise it returns <code>end()</code></td>
-<td><span class="math inline">\(\Theta(\log n)\)</span></td>
+<td><span class="math inline">\Theta(\log n)</span></td>
 </tr>
 <tr class="odd">
 <td><code>void erase(iterator it)</code></td>
 <td>deletes the element pointed by <code>it</code></td>
-<td><span class="math inline">\(\Theta(1)\)</span> (amortized)</td>
+<td><span class="math inline">\Theta(1)</span> (amortized)</td>
 </tr>
 <tr class="even">
 <td><code>int erase(const T&amp; x)</code></td>
 <td>if <code>x</code> is in the set, deletes it and returns <code>1</code>. Otherwise, returns <code>0</code></td>
-<td><span class="math inline">\(\Theta(\log n)\)</span></td>
+<td><span class="math inline">\Theta(\log n)</span></td>
 </tr>
 </tbody>
 </table>
@@ -509,32 +523,32 @@ Example
 <tr class="odd">
 <td><code>pair&lt;map&lt;K,V&gt;::iterator,bool&gt; insert (const pair&lt;K,V&gt;&amp; p)</code></td>
 <td>add the pair <code>p</code>. If there was a pair with that key, it returns an iterator to the exsiting pair and <code>false</code>. Otherwise, adds the pair <code>p</code> to the map and returns an iterator to it and <code>true</code></td>
-<td><span class="math inline">\(\Theta(\log n)\)</span></td>
+<td><span class="math inline">\Theta(\log n)</span></td>
 </tr>
 <tr class="even">
 <td><code>map&lt;K,V&gt;::iterator begin()</code></td>
 <td>returns an iterator to the pair with the first key in the ordering (by default the smallest key)</td>
-<td><span class="math inline">\(\Theta(1)\)</span></td>
+<td><span class="math inline">\Theta(1)</span></td>
 </tr>
 <tr class="odd">
 <td><code>map&lt;K,V&gt;::iterator end()</code></td>
 <td>returns an interator <em>after</em> the pair with the last key in the ordering (by default the largest key)</td>
-<td><span class="math inline">\(\Theta(1)\)</span></td>
+<td><span class="math inline">\Theta(1)</span></td>
 </tr>
 <tr class="even">
 <td><code>map&lt;K,V&gt;::iterator find(const K&amp; k) const</code></td>
 <td>looks for the pair with key <code>k</code> in the map. If it finds it, returns an iterator pointing to it. Otherwise returns <code>end()</code></td>
-<td><span class="math inline">\(\Theta(\log n)\)</span></td>
+<td><span class="math inline">\Theta(\log n)</span></td>
 </tr>
 <tr class="odd">
 <td><code>void erase(map&lt;K,V&gt;::iterator it)</code></td>
 <td>deletes the pair pointed by <code>it</code></td>
-<td><span class="math inline">\(\Theta(1)\)</span> (amortized)</td>
+<td><span class="math inline">\Theta(1)</span> (amortized)</td>
 </tr>
 <tr class="even">
 <td><code>int erase (const K&amp; k)</code></td>
 <td>if there is an element with key <code>k</code>, deletes it and returns <code>1</code>. Otherwise, returns <code>0</code></td>
-<td><span class="math inline">\(\Theta(\log n)\)</span></td>
+<td><span class="math inline">\Theta(\log n)</span></td>
 </tr>
 </tbody>
 </table>
@@ -583,7 +597,7 @@ Example
 <section id="unordered_sett" class="level2">
 <h2 class="anchored" data-anchor-id="unordered_sett"><code>unordered_set&lt;T&gt;</code></h2>
 <p>An <code>unordered_set&lt;T&gt;</code> is like a <code>set</code> but it does not guarantees an order on the elements.</p>
-<p><code>insert</code>, <code>find</code>, <code>erase</code> work in time <span class="math inline">\(\Theta(n)\)</span> (worst case), but in time <span class="math inline">\(\Theta(1)\)</span> on average.<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a></p>
+<p><code>insert</code>, <code>find</code>, <code>erase</code> work in time <span class="math inline">\Theta(n)</span> (worst case), but in time <span class="math inline">\Theta(1)</span> on average.<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a></p>
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -620,7 +634,7 @@ Example
 <section id="unordered_mapkv" class="level2">
 <h2 class="anchored" data-anchor-id="unordered_mapkv"><code>unordered_map&lt;K,V&gt;</code></h2>
 <p>An <code>unordered_map&lt;K,V&gt;</code> is like a <code>map</code> but it does not guarantee an order on the pairs.</p>
-<p><code>insert</code>, <code>find</code>, <code>erase</code> work in time <span class="math inline">\(\Theta(n)\)</span> (worst case), but in time <span class="math inline">\(\Theta(1)\)</span> on average.<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a></p>
+<p><code>insert</code>, <code>find</code>, <code>erase</code> work in time <span class="math inline">\Theta(n)</span> (worst case), but in time <span class="math inline">\Theta(1)</span> on average.<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a></p>
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">

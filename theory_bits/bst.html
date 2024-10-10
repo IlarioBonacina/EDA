@@ -69,8 +69,22 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -175,8 +189,8 @@ window.Quarto = {
 
 
 <p>A <strong>binary search tree</strong> (BST) is a rooted binary tree data structure in which each vertex can have up to two children. Every vertex in the left subtree of a given vertex must carry a value smaller than that of the given vertex, and every vertex in the right subtree must carry a value larger.</p>
-<p>The time complexity of operations on the binary search tree (insert, delete and search) is linear with respect to the height of the tree. On average, they take <span class="math inline">\(O(\log n)\)</span> for <span class="math inline">\(n\)</span> nodes. In the worst case, <span class="math inline">\(O(n)\)</span> due to boundless increase of the tree height with arbitrary insertions and deletions.</p>
-<p>An Adelson-Velskii Landis (<strong>AVL</strong>) tree is a self-balancing BST that maintains its height within a logarithmic order <span class="math inline">\(O(\log n)\)</span> relative to the number of vertices <span class="math inline">\(n\)</span> present in the AVL tree.</p>
+<p>The time complexity of operations on the binary search tree (insert, delete and search) is linear with respect to the height of the tree. On average, they take <span class="math inline">O(\log n)</span> for <span class="math inline">n</span> nodes. In the worst case, <span class="math inline">O(n)</span> due to boundless increase of the tree height with arbitrary insertions and deletions.</p>
+<p>An Adelson-Velskii Landis (<strong>AVL</strong>) tree is a self-balancing BST that maintains its height within a logarithmic order <span class="math inline">O(\log n)</span> relative to the number of vertices <span class="math inline">n</span> present in the AVL tree.</p>
 <p><a href="javascript:history.back()"><iconify-icon role="img" inline="" icon="twemoji:back-arrow" style="font-size: 2em;" aria-label="Icon back-arrow from twemoji Iconify.design set." title="Icon back-arrow from twemoji Iconify.design set."></iconify-icon></a></p>
 
 

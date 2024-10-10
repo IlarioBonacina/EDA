@@ -69,8 +69,22 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -180,8 +194,8 @@ window.Quarto = {
 <p><img src="poly.png" class="img-fluid"></p>
 </div></div><p>Prove the following asymptotic identities.</p>
 <ul>
-<li><p>For every polynomial <span class="math inline">\(p(n) = a_kn^k + a_{k-1}n^{k-1} + \dots + a_1n + a_0\)</span> with <span class="math inline">\(a_k &gt; 0\)</span>, it holds that <span class="math inline">\(p(n)=\Theta(n^k)\)</span>. <br> <br> <br> <br> <br> <br> <br> <br> <br></p></li>
-<li><p>For every two bases <span class="math inline">\(a,b &gt; 1\)</span>, it holds that <span class="math inline">\(\log_a n=\Theta(\log_b n)\)</span>.</p></li>
+<li><p>For every polynomial <span class="math inline">p(n) = a_kn^k + a_{k-1}n^{k-1} + \dots + a_1n + a_0</span> with <span class="math inline">a_k &gt; 0</span>, it holds that <span class="math inline">p(n)=\Theta(n^k)</span>. <br> <br> <br> <br> <br> <br> <br> <br> <br></p></li>
+<li><p>For every two bases <span class="math inline">a,b &gt; 1</span>, it holds that <span class="math inline">\log_a n=\Theta(\log_b n)</span>.</p></li>
 </ul>
 <p><a href="javascript:history.back()"><iconify-icon role="img" inline="" icon="twemoji:back-arrow" style="font-size: 2em;" aria-label="Icon back-arrow from twemoji Iconify.design set." title="Icon back-arrow from twemoji Iconify.design set."></iconify-icon></a></p>
 

@@ -267,8 +267,22 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <style>html{ scroll-behavior: smooth; }</style>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -426,8 +440,8 @@ if the original solution was only half-way correct, I’ll try to help to get fr
 <ul>
 <li><a href="../theory_bits/induction.html">Induction</a></li>
 <li><a href="../theory_bits/limits.html">Limits</a></li>
-<li><a href="../theory_bits/logs.html">Basic properties of <span class="math inline">\(\log(n)\)</span> and <span class="math inline">\(n!\)</span></a></li>
-<li><a href="../theory_bits/asymptotics.html">Asymptotic notation (<span class="math inline">\(O\)</span>, <span class="math inline">\(\Omega\)</span> and <span class="math inline">\(\Theta\)</span>)</a></li>
+<li><a href="../theory_bits/logs.html">Basic properties of <span class="math inline">\log(n)</span> and <span class="math inline">n!</span></a></li>
+<li><a href="../theory_bits/asymptotics.html">Asymptotic notation (<span class="math inline">O</span>, <span class="math inline">\Omega</span> and <span class="math inline">\Theta</span>)</a></li>
 </ul>
 <p>We consider the following problems from the <a href="https://www.cs.upc.edu/eda-eng/data/uploads/eda-problem-set.eng.pdf">EDA ProblemSet</a>, section 1 <em>Analysis of algorithms</em>.</p>
 <div id="listing-exercises-P1" class="quarto-listing quarto-listing-container-grid">
@@ -1031,7 +1045,7 @@ Exercise 4.10
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
-<span class="math inline">\(k\)</span>-th element out of <span class="math inline">\(n\)</span> sorted tables
+<span class="math inline">k</span>-th element out of <span class="math inline">n</span> sorted tables
 </h5>
 <div class="card-subtitle listing-subtitle">
 Exercise 4.11

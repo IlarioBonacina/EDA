@@ -69,8 +69,22 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -184,21 +198,21 @@ Master Theorem <em>Subtract-and-Conquer</em>
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Given the recurrence <span class="math display">\[
+<p>Given the recurrence <span class="math display">
 T(n)=
 \begin{cases}
 g(n) &amp; \text{if } 0\leq n &lt; n_0\ ,\\
 a\cdot T(n-b)+ f(n) &amp;\text{if } n \geq n_0\ ,
 \end{cases}
-\]</span> with <span class="math inline">\(a,b, n_0, \gamma\)</span> all non-negative <strong>constants</strong>, <span class="math inline">\(g\)</span> an arbitrary function and <span class="math inline">\(f(n)=\Theta(n^\gamma)\)</span>, the closed form of <span class="math inline">\(T\)</span> is</p>
-<p><span class="math display">\[
+</span> with <span class="math inline">a,b, n_0, \gamma</span> all non-negative <strong>constants</strong>, <span class="math inline">g</span> an arbitrary function and <span class="math inline">f(n)=\Theta(n^\gamma)</span>, the closed form of <span class="math inline">T</span> is</p>
+<p><span class="math display">
 T(n)=
 \begin{cases}
 \Theta(n^\gamma) &amp;\text{if } a &lt; 1\ ,\\
 \Theta(n^{\gamma+1})&amp;\text{if } a = 1\ ,\\
 \Theta(a^{n/b})&amp;\text{if } a &gt; 1\ .
 \end{cases}
-\]</span></p>
+</span></p>
 </div>
 </div>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
@@ -211,33 +225,33 @@ Master Theorem <em>Divide-and-Conquer</em>
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Given the recurrence <span class="math display">\[
+<p>Given the recurrence <span class="math display">
 T(n)=
 \begin{cases}
 g(n) &amp; \text{if } 0\leq n &lt; n_0\ ,\\
 a\cdot T\left(\frac{n}{b}\right)+ f(n) &amp;\text{if } n \geq n_0\ ,
 \end{cases}
-\]</span> with <span class="math inline">\(a\geq 1,b&gt; 1, n_0, \gamma\)</span> all non-negative <strong>constants</strong>, <span class="math inline">\(g\)</span> an arbitrary function and <span class="math inline">\(f(n)=\Theta(n^\gamma)\)</span>, the closed form of <span class="math inline">\(T\)</span> is</p>
-<p><span class="math display">\[
+</span> with <span class="math inline">a\geq 1,b&gt; 1, n_0, \gamma</span> all non-negative <strong>constants</strong>, <span class="math inline">g</span> an arbitrary function and <span class="math inline">f(n)=\Theta(n^\gamma)</span>, the closed form of <span class="math inline">T</span> is</p>
+<p><span class="math display">
 T(n)=
 \begin{cases}
 \Theta(n^\gamma) &amp;\text{if  $a&lt;b^\gamma$ (equivalently, $\log_b a &lt;\gamma$)}\ ,\\
 \Theta(n^{\gamma}\log n)&amp;\text{if  $a=b^\gamma$ (equivalently, $\log_b a =\gamma$)}\ ,\\
 \Theta(a^{\log_b n})=\Theta(n^{\log_b a})&amp;\text{if  $a&gt;b^\gamma$ (equivalently, $\log_b a &gt;\gamma$)}\ .
 \end{cases}
-\]</span></p>
+</span></p>
 </div>
 </div>
-<p>The statement above still holds if instead of <span class="math inline">\(\frac{n}{b}\)</span> in the recurrence, there is any function in <span class="math inline">\(\frac{n}{b}+O(1)\)</span>, for instance <span class="math inline">\(\lceil \frac{n}{b}\rceil\)</span> or <span class="math inline">\(\lfloor \frac{n}{b}\rfloor\)</span>.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p>The statement above still holds if instead of <span class="math inline">\frac{n}{b}</span> in the recurrence, there is any function in <span class="math inline">\frac{n}{b}+O(1)</span>, for instance <span class="math inline">\lceil \frac{n}{b}\rceil</span> or <span class="math inline">\lfloor \frac{n}{b}\rfloor</span>.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
 <p>In particular, the recurrence giving the worst case running time of the MergeSort algorithm, i.e.</p>
-<p><span class="math display">\[
+<p><span class="math display">
 T(n)=T\left(\left\lfloor\frac{n}{2}\right\rfloor\right)+T\left(\left\lceil\frac{n}{2}\right\rceil\right)+\Theta(n)
-\]</span></p>
+</span></p>
 <p>and the recurrence</p>
-<p><span class="math display">\[
+<p><span class="math display">
 S(n)=2S\left(\frac{n}{2}\right)+\Theta(n)
-\]</span></p>
-<p>both have the same solution, i.e.&nbsp;<span class="math inline">\(T(n)=S(n)=\Theta(n\log n)\)</span>. Btw, no <a href="../theory_bits/sorting_algorithms.html">comparison-based sorting algorithm</a> could have a wort case running time better than <span class="math inline">\(\Theta(n\log n)\)</span>.</p>
+</span></p>
+<p>both have the same solution, i.e.&nbsp;<span class="math inline">T(n)=S(n)=\Theta(n\log n)</span>. Btw, no <a href="../theory_bits/sorting_algorithms.html">comparison-based sorting algorithm</a> could have a wort case running time better than <span class="math inline">\Theta(n\log n)</span>.</p>
 <p><a href="javascript:history.back()"><iconify-icon role="img" inline="" icon="twemoji:back-arrow" style="font-size: 2em;" aria-label="Icon back-arrow from twemoji Iconify.design set." title="Icon back-arrow from twemoji Iconify.design set."></iconify-icon></a></p>
 
 

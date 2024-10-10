@@ -103,8 +103,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -214,15 +228,15 @@ window.Quarto = {
 <p><img src="ticket.jpg" class="img-fluid"></p>
 </div></div><p>A football club does not usually have enough tickets for all its supporters, so some method is needed to distribute them:</p>
 <p>When a supporter asks for a ticket, if there is any available at that moment, the supporter immediately gets one. Otherwise, the supporter’s code is recorded. When a ticket is available, if there is no recorded code at that moment, the ticket is stored. Otherwise, the ticket is given to the supporter with the shortest code.</p>
-<p>Ties are broken as follows: A fixed word <span class="math inline">\(w\)</span> is arbitrarily chosen at the beginning of the process. Then, lexicographical order is used among codes of length <span class="math inline">\(n\)</span>, except that w[1..<span class="math inline">\(n\)</span>] is considered the first code, and the rest are considered cyclically. For instance, if <span class="math inline">\(n = 4\)</span> and w[1..4] =“abcd”, then codes of length <span class="math inline">\(4\)</span> are sorted in this order: “abcd”, “abce”, … , “abcz”, “abda”, … , “abdz”, … , “zzzz”, “aaaa”, … , “abcc”.</p>
+<p>Ties are broken as follows: A fixed word <span class="math inline">w</span> is arbitrarily chosen at the beginning of the process. Then, lexicographical order is used among codes of length <span class="math inline">n</span>, except that w[1..<span class="math inline">n</span>] is considered the first code, and the rest are considered cyclically. For instance, if <span class="math inline">n = 4</span> and w[1..4] =“abcd”, then codes of length <span class="math inline">4</span> are sorted in this order: “abcd”, “abce”, … , “abcz”, “abda”, … , “abdz”, … , “zzzz”, “aaaa”, … , “abcc”.</p>
 <p>Write a program to distribute tickets among supporters according to the method just described above.</p>
-<p><strong>Input</strong>: Input consists of several cases. Each case begins with a string <span class="math inline">\(w\)</span> made up of <span class="math inline">\(10\)</span> lowercase letters, followed by several events:</p>
+<p><strong>Input</strong>: Input consists of several cases. Each case begins with a string <span class="math inline">w</span> made up of <span class="math inline">10</span> lowercase letters, followed by several events:</p>
 <ul>
 <li>‘T’ for an available ticket, and</li>
 <li>‘S’ for a supporter asking for a ticket.</li>
 </ul>
 <p>In the latter case follows the supporter’s code (a non-empty string with at most 10 lowercase letters). The same supporter can ask for more than one ticket.</p>
-<p>An ‘E’ marks the end of the events of a case. Assume that each case has no more than <span class="math inline">\(105\)</span> events.</p>
+<p>An ‘E’ marks the end of the events of a case. Assume that each case has no more than <span class="math inline">105</span> events.</p>
 <p><strong>Output</strong>: For every case, print the codes of the supporters who get tickets, in the order in which this happens. Print two lines with final information. Count every supporter who unsuccessfully asked for t tickets exactly as t supporters who unsuccessfully asked for one ticket. Print an empty line after every case.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">

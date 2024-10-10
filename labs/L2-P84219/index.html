@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>EDA - Reductions in What Direction?</title>
+<title>EDA - First occurrence</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -171,9 +205,9 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Reductions in What Direction?</h1>
-<p class="subtitle lead">Exercise 7.3</p>
-  </div>
+<h1 class="title">First occurrence</h1>
+<p class="subtitle lead"><a href="https://jutge.org/problems/P84219_en">Go to the Jutge statement of the problem</a></p>
+</div>
 
 
 
@@ -191,22 +225,196 @@ window.Quarto = {
 
 
 <div class="no-row-height column-margin column-container"><div class="">
-<p><img src="directions.webp" class="img-fluid"></p>
-</div></div><p><span class="math display">
-\newcommand{\NP}{\mathsf{NP}}
-\newcommand{\SAT}{\mathsf{SAT}}
-\newcommand{\HAM}{\mathsf{HAM}}
-\newcommand{\EUL}{\mathsf{EUL}}
-</span></p>
-<p>The problems of Satisfiability of Boolean formulas (<span class="math inline">\SAT</span>) and of determining whether a given graph is Hamiltonian (<span class="math inline">\HAM</span>) are two well-known <span class="math inline">\NP</span>-complete problems.</p>
-<p>The problem of determining whether a given graph contains an Eulerian circuit (<span class="math inline">\EUL</span>) has a solution with cost <span class="math inline">\Theta(n + m)</span>, where <span class="math inline">n</span> is the number of vertices in the graph and <span class="math inline">m</span> is its number of edges.</p>
-<p>Which one of the following sentences can we say it is true?</p>
+<p><img src="first.png" class="img-fluid"></p>
+</div></div><p>Write an efficient function <code>int first_occurrence(double x, const vector&lt;double&gt;&amp; v);</code> that returns the position of the <strong>first</strong> occurrence of <span class="math inline">x</span> in the vector <span class="math inline">v</span>. If <span class="math inline">x</span> does not belong to <span class="math inline">v</span>, return a <span class="math inline">-1</span>. Assume the vector <span class="math inline">v</span> is sorted in nondecreasing order.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Possible workflow
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Step 1: Getting the C++ code to compile
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>After creating a C++ source file to solve the problem, compile it with <code>g++ -std=c++11</code>.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Common error(s)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Not using the flag <code>-std=c++11</code>.</p>
+</div>
+</div>
+<p>Possible useful flags are <code>-Wall -Wextra -Wno-overflow -Wpedantic -Werror -D_GLIBCXX_DEBUG</code></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Step 2: Testing testing testing
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Test the executable file obtained on the given example(s), for instance with <code>./a.out &lt; sample.inp &gt; output</code>. Also, test your code against simple/trivial inputs, e.g.&nbsp;a graph with no-edges.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Common error(s)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Writing the input by hand.<br>
+Not checking the exact formatting of the output.</p>
+</div>
+</div>
+<p>To see whether the <code>output</code> is the same as <code>sample.cor</code> a way is to use <code>diff output sample.cor</code></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Step 3: Submitting the solution to the Jutge
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Once the code compiles and on the given samples it gives the correct output submit it to the Jutge for automatic evaluation.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Common error(s)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Sending to the Jutge code that was not even compiled locally.<br>
+Not checking if the output was correct on the given inputs.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Step 4: I’m stuck. What can I do?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>You are “stuck” on a problem if you spent <strong>around 1 hour</strong> trying to solve it but still the Jutge is rejecting your solution.</p>
+<p>Possible approaches to getting “un-stuck” are:</p>
 <ul>
-<li><span class="math inline">\SAT</span> reduces to <span class="math inline">\HAM</span> and <span class="math inline">\HAM</span> reduces to <span class="math inline">\EUL</span>.</li>
-<li><span class="math inline">\EUL</span> reduces to <span class="math inline">\SAT</span> and <span class="math inline">\SAT</span> reduces to <span class="math inline">\HAM</span>.</li>
-<li><span class="math inline">\SAT</span> and <span class="math inline">\HAM</span> reduce to each other; <span class="math inline">\EUL</span> only reduces to <span class="math inline">\HAM</span>.</li>
-<li><span class="math inline">\SAT</span> reduces to <span class="math inline">\EUL</span> and <span class="math inline">\EUL</span> reduces to <span class="math inline">\HAM</span>.</li>
+<li><p>do not think about that problem for some time and come back to your code with fresh eyes</p></li>
+<li><p>look again at the theory</p></li>
+<li><p>try to explain your code to another student</p></li>
+<li><p>ask for hints, e.g.&nbsp;by <a href="mailto:ilario.bonacina+EDA@upc.edu">email</a>. <strong>Be specific on the type of help you need.</strong> Include in the email the code of your approach.</p></li>
 </ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Use the code provided in the Jutge statement. The function to implement is really similar to <a href="../../theory_bits/binary_search.html">Dichotomic Search</a>. What is the base case in this context?</p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+A possible C++ code to start the problem
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;vector&gt;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> <span class="kw">namespace</span> std<span class="op">;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> first_occurrence<span class="op">(</span><span class="dt">double</span> x<span class="op">,</span> <span class="at">const</span> vector<span class="op">&lt;</span><span class="dt">double</span><span class="op">&gt;&amp;</span> v<span class="op">,</span> <span class="dt">int</span> left<span class="op">,</span> <span class="dt">int</span> right<span class="op">){</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Similar to dichotomic search</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> first_occurrence<span class="op">(</span><span class="dt">double</span> x<span class="op">,</span> <span class="at">const</span> vector<span class="op">&lt;</span><span class="dt">double</span><span class="op">&gt;&amp;</span> v<span class="op">){</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> first_occurrence<span class="op">(</span>x<span class="op">,</span> v<span class="op">,</span> <span class="dv">0</span><span class="op">,</span> v<span class="op">.</span>size<span class="op">()-</span><span class="dv">1</span><span class="op">);</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> n<span class="op">;</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="op">(</span>cin <span class="op">&gt;&gt;</span> n<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>        vector<span class="op">&lt;</span><span class="dt">double</span><span class="op">&gt;</span> V<span class="op">(</span>n<span class="op">);</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> n<span class="op">;</span> <span class="op">++</span>i<span class="op">)</span> cin <span class="op">&gt;&gt;</span> V<span class="op">[</span>i<span class="op">];</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>        <span class="dt">int</span> t<span class="op">;</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>        cin <span class="op">&gt;&gt;</span> t<span class="op">;</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>        <span class="cf">while</span> <span class="op">(</span>t<span class="op">--)</span> <span class="op">{</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>            <span class="dt">double</span> x<span class="op">;</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>            cin <span class="op">&gt;&gt;</span> x<span class="op">;</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>            cout <span class="op">&lt;&lt;</span> first_occurrence<span class="op">(</span>x<span class="op">,</span> V<span class="op">)</span> <span class="op">&lt;&lt;</span> endl<span class="op">;</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>A couple of days after the class you should also see here a possible solution (if this is not the case please send me a reminder by <a href="mailto:ilario.bonacina+EDA@upc.edu">email</a>).</p>
 <p><a href="javascript:history.back()"><iconify-icon role="img" inline="" icon="twemoji:back-arrow" style="font-size: 2em;" aria-label="Icon back-arrow from twemoji Iconify.design set." title="Icon back-arrow from twemoji Iconify.design set."></iconify-icon></a></p>
 
 

@@ -69,8 +69,22 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -184,7 +198,7 @@ window.Quarto = {
 
 <section id="exercise-3.1" class="level3 page-columns page-full">
 <h3 class="anchored" data-anchor-id="exercise-3.1">Exercise 3.1</h3>
-<p>Consider a hash table with separate chaining, <span class="math inline">\(M = 10\)</span> positions with integer keys, and hash function <span class="math inline">\(h(x)=x \pmod M\)</span>.</p>
+<p>Consider a hash table with separate chaining, <span class="math inline">M = 10</span> positions with integer keys, and hash function <span class="math inline">h(x)=x \pmod M</span>.</p>
 
 <div class="no-row-height column-margin column-container"><div class="">
 <p><img src="hash.jpg" class="img-fluid"></p>
@@ -206,7 +220,7 @@ window.Quarto = {
 <strong>1299</strong><br>
 <strong>999</strong><br>
 <strong>18267</strong></p>
-<p>Show the resulting table after applying a rehash of the previous table into <span class="math inline">\(M=20\)</span> positions.</p>
+<p>Show the resulting table after applying a rehash of the previous table into <span class="math inline">M=20</span> positions.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -219,7 +233,7 @@ Hint
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>The hash table when <span class="math inline">\(M=10\)</span> and the first element has been inserted has the following form.</p>
+<p>The hash table when <span class="math inline">M=10</span> and the first element has been inserted has the following form.</p>
 <table class="table">
 <colgroup>
 <col style="width: 10%">
@@ -227,7 +241,7 @@ Hint
 </colgroup>
 <thead>
 <tr class="header">
-<th><span class="math inline">\(h(x)\)</span></th>
+<th><span class="math inline">h(x)</span></th>
 <th></th>
 </tr>
 </thead>
@@ -270,7 +284,7 @@ Hint
 </tr>
 </tbody>
 </table>
-<p>When <span class="math inline">\(M=20\)</span> (and the first element has been inserted) it has the following form</p>
+<p>When <span class="math inline">M=20</span> (and the first element has been inserted) it has the following form</p>
 <table class="table">
 <colgroup>
 <col style="width: 10%">
@@ -278,7 +292,7 @@ Hint
 </colgroup>
 <thead>
 <tr class="header">
-<th><span class="math inline">\(h(x)\)</span></th>
+<th><span class="math inline">h(x)</span></th>
 <th></th>
 </tr>
 </thead>
@@ -378,7 +392,7 @@ Hint
 <strong>75</strong><br>
 <strong>31</strong><br>
 <strong>19</strong></p>
-<p>with <span class="math inline">\(M=11\)</span> positions and hash function <span class="math inline">\(h(x)=x \pmod M\)</span>.</p>
+<p>with <span class="math inline">M=11</span> positions and hash function <span class="math inline">h(x)=x \pmod M</span>.</p>
 <p>What is the <strong>maximum</strong> number of comparisons in a successful search in this last table?</p>
 <p>What is the <strong>expected</strong> number of comparisons in a successful search in this last table?</p>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -393,7 +407,7 @@ Hint
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>The hash table when <span class="math inline">\(M=11\)</span> and the first element has been inserted has the following form.</p>
+<p>The hash table when <span class="math inline">M=11</span> and the first element has been inserted has the following form.</p>
 <table class="table">
 <colgroup>
 <col style="width: 10%">
@@ -401,7 +415,7 @@ Hint
 </colgroup>
 <thead>
 <tr class="header">
-<th><span class="math inline">\(h(x)\)</span></th>
+<th><span class="math inline">h(x)</span></th>
 <th></th>
 </tr>
 </thead>

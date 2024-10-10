@@ -72,8 +72,22 @@ ul.task-list li input[type="checkbox"] {
 <script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script>
 <script>sagecell.makeSagecell({"inputLocation": ".sage"});</script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -181,7 +195,7 @@ window.Quarto = {
 
 <div class="no-row-height column-margin column-container"><div class="">
 <p><img src="time.jpg" class="img-fluid"></p>
-</div></div><p>For each function <span class="math inline">\(f(n)\)</span> and running time <span class="math inline">\(t\)</span> in the table below, determine the largest input size that can be solved in time <span class="math inline">\(t\)</span> for a problem that requires <span class="math inline">\(f(n)\)</span> microseconds (<span class="math inline">\(\mu\)</span>s) to solve on an input of size <span class="math inline">\(n\)</span>.</p>
+</div></div><p>For each function <span class="math inline">f(n)</span> and running time <span class="math inline">t</span> in the table below, determine the largest input size that can be solved in time <span class="math inline">t</span> for a problem that requires <span class="math inline">f(n)</span> microseconds (<span class="math inline">\mu</span>s) to solve on an input of size <span class="math inline">n</span>.</p>
 <table class="table-striped table">
 <colgroup>
 <col style="width: 36%">
@@ -195,17 +209,17 @@ window.Quarto = {
 <thead>
 <tr class="header">
 <th></th>
-<th><span class="math inline">\(\log(n)\)</span></th>
-<th><span class="math inline">\(\sqrt{n}\)</span></th>
-<th><span class="math inline">\(n\)</span></th>
-<th><span class="math inline">\(n^2\)</span></th>
-<th><span class="math inline">\(n^3\)</span></th>
-<th><span class="math inline">\(2^n\)</span></th>
+<th><span class="math inline">\log(n)</span></th>
+<th><span class="math inline">\sqrt{n}</span></th>
+<th><span class="math inline">n</span></th>
+<th><span class="math inline">n^2</span></th>
+<th><span class="math inline">n^3</span></th>
+<th><span class="math inline">2^n</span></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><span class="math inline">\(1\)</span> second (<span class="math inline">\(10^6 \mu s\)</span>)</td>
+<td><span class="math inline">1</span> second (<span class="math inline">10^6 \mu s</span>)</td>
 <td></td>
 <td></td>
 <td></td>
@@ -214,7 +228,7 @@ window.Quarto = {
 <td></td>
 </tr>
 <tr class="even">
-<td><span class="math inline">\(1\)</span> minute (<span class="math inline">\(60\)</span> seconds)</td>
+<td><span class="math inline">1</span> minute (<span class="math inline">60</span> seconds)</td>
 <td></td>
 <td></td>
 <td></td>
@@ -223,7 +237,7 @@ window.Quarto = {
 <td></td>
 </tr>
 <tr class="odd">
-<td><span class="math inline">\(1\)</span> hour (<span class="math inline">\(60\)</span> minutes)</td>
+<td><span class="math inline">1</span> hour (<span class="math inline">60</span> minutes)</td>
 <td></td>
 <td></td>
 <td></td>
@@ -232,7 +246,7 @@ window.Quarto = {
 <td></td>
 </tr>
 <tr class="even">
-<td><span class="math inline">\(1\)</span> day (<span class="math inline">\(24\)</span> hours)</td>
+<td><span class="math inline">1</span> day (<span class="math inline">24</span> hours)</td>
 <td></td>
 <td></td>
 <td></td>
@@ -241,7 +255,7 @@ window.Quarto = {
 <td></td>
 </tr>
 <tr class="odd">
-<td><span class="math inline">\(1\)</span> month (<span class="math inline">\(30\)</span> days)</td>
+<td><span class="math inline">1</span> month (<span class="math inline">30</span> days)</td>
 <td></td>
 <td></td>
 <td></td>
@@ -250,7 +264,7 @@ window.Quarto = {
 <td></td>
 </tr>
 <tr class="even">
-<td><span class="math inline">\(1\)</span> year (<span class="math inline">\(365.25\)</span> days)</td>
+<td><span class="math inline">1</span> year (<span class="math inline">365.25</span> days)</td>
 <td></td>
 <td></td>
 <td></td>
@@ -259,7 +273,7 @@ window.Quarto = {
 <td></td>
 </tr>
 <tr class="odd">
-<td><span class="math inline">\(1\)</span> century (<span class="math inline">\(100\)</span> years)</td>
+<td><span class="math inline">1</span> century (<span class="math inline">100</span> years)</td>
 <td></td>
 <td></td>
 <td></td>
@@ -300,7 +314,7 @@ LinTime = [(i).n(digits=2) for i in Time]
 show(LinTime)
 </script>
 </div>
-<p>As a comparison recall that it is estimated that there may be <span class="math inline">\(10^{78}\)</span> to <span class="math inline">\(10^{82}\)</span> atoms in the known universe.</p>
+<p>As a comparison recall that it is estimated that there may be <span class="math inline">10^{78}</span> to <span class="math inline">10^{82}</span> atoms in the known universe.</p>
 </div>
 </div>
 </div>

@@ -69,8 +69,22 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -213,7 +227,7 @@ window.Quarto = {
 </section>
 <section id="exercise-5.14" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-5.14">Exercise 5.14</h3>
-<p>An <strong>inverse topological ordering</strong> of a DAG is a sequence formed by all the vertices of the graph in such a way that if <span class="math inline">\((v, w)\)</span> is an edge of the graph, then <span class="math inline">\(w\)</span> appears before <span class="math inline">\(v\)</span> in the sequence.</p>
+<p>An <strong>inverse topological ordering</strong> of a DAG is a sequence formed by all the vertices of the graph in such a way that if <span class="math inline">(v, w)</span> is an edge of the graph, then <span class="math inline">w</span> appears before <span class="math inline">v</span> in the sequence.</p>
 <p>Starting from the algorithm for depth-first traversal, design and analyse an algorithm that obtains an inverse topological ordering of a DAG.</p>
 <p><a href="javascript:history.back()"><iconify-icon role="img" inline="" icon="twemoji:back-arrow" style="font-size: 2em;" aria-label="Icon back-arrow from twemoji Iconify.design set." title="Icon back-arrow from twemoji Iconify.design set."></iconify-icon></a></p>
 

@@ -69,8 +69,22 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -175,15 +189,15 @@ window.Quarto = {
 </header>
 
 
-<p>Let <span class="math inline">\(T[i\dots j]\)</span> be a table with <span class="math inline">\(n = j - i + 1\)</span> elements. Consider the following sorting algorithm known as <strong>Quim’s wild sorting algorithm</strong>:</p>
+<p>Let <span class="math inline">T[i\dots j]</span> be a table with <span class="math inline">n = j - i + 1</span> elements. Consider the following sorting algorithm known as <strong>Quim’s wild sorting algorithm</strong>:</p>
 
 <div class="no-row-height column-margin column-container"><div class="">
 <p><img src="sorting.webp" class="img-fluid"></p>
 </div></div><ul>
-<li><p>If <span class="math inline">\(n \leq  2\)</span>, sort the table directly.</p></li>
-<li><p>If <span class="math inline">\(n \geq 3\)</span>, “divide” the table into three intervals <span class="math inline">\(T[i\dots k - 1]\)</span>, <span class="math inline">\(T[k\dots \ell]\)</span>, and <span class="math inline">\(T[\ell + 1\dots j]\)</span>, where <span class="math inline">\(k = i + \lfloor n/3\rfloor\)</span> and <span class="math inline">\(\ell = j - \lfloor n/3\rfloor\)</span>.</p></li>
+<li><p>If <span class="math inline">n \leq  2</span>, sort the table directly.</p></li>
+<li><p>If <span class="math inline">n \geq 3</span>, “divide” the table into three intervals <span class="math inline">T[i\dots k - 1]</span>, <span class="math inline">T[k\dots \ell]</span>, and <span class="math inline">T[\ell + 1\dots j]</span>, where <span class="math inline">k = i + \lfloor n/3\rfloor</span> and <span class="math inline">\ell = j - \lfloor n/3\rfloor</span>.</p></li>
 </ul>
-<p>The algorithm recursively calls itself to first sort <span class="math inline">\(T[i\dots \ell]\)</span>, then sort <span class="math inline">\(T[k\dots j]\)</span>, and finally sort <span class="math inline">\(T[i\dots \ell]\)</span> again.</p>
+<p>The algorithm recursively calls itself to first sort <span class="math inline">T[i\dots \ell]</span>, then sort <span class="math inline">T[k\dots j]</span>, and finally sort <span class="math inline">T[i\dots \ell]</span> again.</p>
 <p>Prove that this algorithm is correct. Give a recurrence for its running time and solve it.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
@@ -198,7 +212,7 @@ Hint
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Writing the recurrence for the running time should be easier and using the <a href="../../theory_bits/master_theorem.html">Master Theorem</a> it should not be difficult to solve. How good is the running time? Better or worse, say than <a href="../../theory_bits/sorting_algorithms.html">Insertion Sort</a>?</p>
-<p>Proving that the algorithm is correct might be trickier, especially to write down as a formal argument. Don’t worry if you got stuck, <strong>but</strong> try to write down your argument anyway before class. If you find the <span class="math inline">\(i\)</span>, <span class="math inline">\(j\)</span> confusing think of <span class="math inline">\(i=0\)</span> and <span class="math inline">\(j=n-1\)</span>.</p>
+<p>Proving that the algorithm is correct might be trickier, especially to write down as a formal argument. Don’t worry if you got stuck, <strong>but</strong> try to write down your argument anyway before class. If you find the <span class="math inline">i</span>, <span class="math inline">j</span> confusing think of <span class="math inline">i=0</span> and <span class="math inline">j=n-1</span>.</p>
 </div>
 </div>
 </div>
@@ -212,7 +226,7 @@ Extra
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Would the algorithm be correct if instead of sorting <span class="math inline">\(T[k..j]\)</span> it sorted <span class="math inline">\(T[\ell..j]\)</span>?</p>
+<p>Would the algorithm be correct if instead of sorting <span class="math inline">T[k..j]</span> it sorted <span class="math inline">T[\ell..j]</span>?</p>
 </div>
 </div>
 <p><a href="javascript:history.back()"><iconify-icon role="img" inline="" icon="twemoji:back-arrow" style="font-size: 2em;" aria-label="Icon back-arrow from twemoji Iconify.design set." title="Icon back-arrow from twemoji Iconify.design set."></iconify-icon></a></p>

@@ -96,11 +96,109 @@ ul.task-list li input[type="checkbox"] {
       window['quarto-listing-loaded']();
     }
   })
+  
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-exercises-L2-dichotomic-search .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-image','listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-title","listing-author","listing-image","listing-description"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-exercises-L2-dichotomic-search'] = new List('listing-exercises-L2-dichotomic-search', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-exercises-L2-exponentiation .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-image','listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-title","listing-author","listing-image","listing-description"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-exercises-L2-exponentiation'] = new List('listing-exercises-L2-exponentiation', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-exercises-L2-wild .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-image','listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-title","listing-author","listing-image","listing-description"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-exercises-L2-wild'] = new List('listing-exercises-L2-wild', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
   </script>
 <style>html{ scroll-behavior: smooth; }</style>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -225,7 +323,7 @@ window.Quarto = {
 <p><strong>Welcome to the first lab class of EDA!</strong></p>
 <p>We start with a <a href="../self_assessment/index.html">Self Assessment</a>. The self assessment is meant to recall basic best practices while compiling C++ code.</p>
 <p>Now we revise some aspects of <a href="../theory_bits/STL/index.html">The C++ Standard Template Library (STL)</a>. A way more comprehensive treatment of the STL is in <a href="https://en.cppreference.com/w/">cppreference.com</a>.</p>
-<p>In this class we consider the problems from <a href="https://www.jutge.org">Jutge.org</a>, section EDA <span class="math inline">\(\rightarrow\)</span> <strong>Use of STL data structures</strong>.</p>
+<p>In this class we consider the problems from <a href="https://www.jutge.org">Jutge.org</a>, section EDA <span class="math inline">\rightarrow</span> <strong>Use of STL data structures</strong>.</p>
 <p>Once you have chosen a problem to solve, dowload the .zip archive of the problem and <code>unzip</code> it. In the obtained folder there are:</p>
 <ul>
 <li>a file .pdf with the <strong>official</strong> problem statement</li>
@@ -445,20 +543,7 @@ After class
 </div>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Warning
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>The exercises we solve together in class might change at the last minute.</p>
-</div>
-</div>
-<p>In this lab we consider the problems from <a href="https://www.jutge.org">Jutge.org</a>, section EDA <span class="math inline">\(\rightarrow\)</span> <strong>Divide and Conquer</strong>. The problems in this section are of three different types</p>
+<p>In this lab we consider the problems from <a href="https://www.jutge.org">Jutge.org</a>, section EDA <span class="math inline">\rightarrow</span> <strong>Divide and Conquer</strong>. The problems in this section are of three different types</p>
 <ul>
 <li>variations on dichotomic search,</li>
 <li>efficient exponentiation, and</li>
@@ -471,7 +556,7 @@ Warning
 <li>the corresponding correct outputs <code>sample.cor</code></li>
 </ul>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -480,10 +565,10 @@ Possible workflow
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-18" class="callout-18-contents callout-collapse collapse">
+<div id="callout-17" class="callout-17-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -492,7 +577,7 @@ Step 1: Getting the C++ code to compile
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>After creating a C++ source file to solve the problem, compile it with <code>g++ -std=c++11</code>.</p>
 <div class="callout callout-style-default callout-important callout-titled">
@@ -513,7 +598,7 @@ Common error(s)
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -522,7 +607,7 @@ Step 2: Testing testing testing
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-14" class="callout-14-contents callout-collapse collapse">
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Test the executable file obtained on the given example(s), for instance with <code>./a.out &lt; sample.inp &gt; output</code>. Also, test your code against simple/trivial inputs, e.g.&nbsp;a graph with no-edges.</p>
 <div class="callout callout-style-default callout-important callout-titled">
@@ -544,7 +629,7 @@ Not checking the exact formatting of the output.</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -553,7 +638,7 @@ Step 3: Submitting the solution to the Jutge
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-16" class="callout-16-contents callout-collapse collapse">
+<div id="callout-15" class="callout-15-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Once the code compiles and on the given samples it gives the correct output submit it to the Jutge for automatic evaluation.</p>
 <div class="callout callout-style-default callout-important callout-titled">
@@ -574,7 +659,7 @@ Not checking if the output was correct on the given inputs.</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-caution callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -583,7 +668,7 @@ Step 4: I’m stuck. What can I do?
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-17" class="callout-17-contents callout-collapse collapse">
+<div id="callout-16" class="callout-16-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>You are “stuck” on a problem if you spent <strong>around 1 hour</strong> trying to solve it but still the Jutge is rejecting your solution.</p>
 <p>Possible approaches to getting “un-stuck” are:</p>
@@ -618,7 +703,42 @@ In class
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>From this block of exercises, in class we solve together <a href="https://jutge.org/problems/P84219_en">P84219 First occurrence</a>.</p>
+<p>From this block of exercises, in class we solve together <a href="https://jutge.org/problems/P84219_en">P84219 First occurrence</a> and <a href="https://jutge.org/problems/P33412_en">P33412 Resistant dichotomic search</a>.</p>
+<div id="listing-exercises-L2-dichotomic-search" class="quarto-listing quarto-listing-container-grid">
+<div class="list grid quarto-listing-cols-3">
+<div class="g-col-1" data-index="0" data-listing-file-modified-sort="1728549282183" data-listing-reading-time-sort="1" data-listing-word-count-sort="112">
+<a href="../labs/L2-P84219/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="../labs/L2-P84219/first.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+First occurrence
+</h5>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="1" data-listing-file-modified-sort="1728550223193" data-listing-reading-time-sort="1" data-listing-word-count-sort="128">
+<a href="../labs/L2-P33412/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="../labs/L2-P33412/inversion.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Resistant dichotomic search
+</h5>
+</div>
+</div>
+</a>
+</div>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div>
 </div>
 </div>
 </section>
@@ -632,7 +752,7 @@ In class
 <li><a href="https://jutge.org/problems/X39049_en">X39049 Powers of permutations</a></li>
 </ul>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-20-contents" aria-controls="callout-20" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-19-contents" aria-controls="callout-19" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -641,9 +761,9 @@ Why Fibonacci is in the block of exercises?
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-20" class="callout-20-contents callout-collapse collapse">
+<div id="callout-19" class="callout-19-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>The Fibonacci sequence <span class="math inline">\((F_n)_{n\in \mathbb N}\)</span> is defined as follows: <span class="math inline">\(F_0=0\)</span>, <span class="math inline">\(F_1=1\)</span> and for every <span class="math inline">\(n\geq 2\)</span>, <span class="math inline">\(F_n=F_{n-1}+F_{n-2}\)</span>. That is <span class="math display">\[
+<p>The Fibonacci sequence <span class="math inline">(F_n)_{n\in \mathbb N}</span> is defined as follows: <span class="math inline">F_0=0</span>, <span class="math inline">F_1=1</span> and for every <span class="math inline">n\geq 2</span>, <span class="math inline">F_n=F_{n-1}+F_{n-2}</span>. That is <span class="math display">
 \begin{pmatrix}
 F_n\\
 F_{n-1}
@@ -681,8 +801,8 @@ F_{1}\\
 F_{0}
 \end{pmatrix}
 \ .
-\]</span></p>
-<p>It is not hard to see (by induction on <span class="math inline">\(n\)</span>), that <span class="math display">\[
+</span></p>
+<p>It is not hard to see (by induction on <span class="math inline">n</span>), that <span class="math display">
 \begin{pmatrix}
 1 &amp;1\\
 1&amp; 0
@@ -693,7 +813,7 @@ F_{0}
 F_n &amp;F_{n-1}\\
 F_{n-1}&amp; F_{n-2}
 \end{pmatrix}
-\]</span> for each <span class="math inline">\(n\geq 2\)</span>.</p>
+</span> for each <span class="math inline">n\geq 2</span>.</p>
 </div>
 </div>
 </div>
@@ -707,13 +827,62 @@ In class
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>From this block of exercises, in class we solve together <a href="https://jutge.org/problems/P29212_en">P29212 Modular exponentiation</a>.</p>
+<p>From this block of exercises, in class we solve together <a href="https://jutge.org/problems/P29212_en">P29212 Modular exponentiation</a>, <a href="https://jutge.org/problems/P61833_en">P61833 Powers of a matrix</a>, and <a href="https://jutge.org/problems/X39049_en">X39049 Powers of permutations</a>.</p>
+<div id="listing-exercises-L2-exponentiation" class="quarto-listing quarto-listing-container-grid">
+<div class="list grid quarto-listing-cols-3">
+<div class="g-col-1" data-index="0" data-categories="L2,Divide and Conquer" data-listing-file-modified-sort="1728550559951" data-listing-reading-time-sort="1" data-listing-word-count-sort="114">
+<a href="../labs/L2-P29212/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="../labs/L2-P29212/modular.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Modular exponentiation
+</h5>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="1" data-categories="L2,Divide and Conquer" data-listing-file-modified-sort="1728551964027" data-listing-reading-time-sort="1" data-listing-word-count-sort="171">
+<a href="../labs/L2-P61833/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="../labs/L2-P61833/matrix_mult.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Powers of a matrix
+</h5>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="2" data-categories="L2,Divide and Conquer" data-listing-file-modified-sort="1728553751067" data-listing-reading-time-sort="2" data-listing-word-count-sort="297">
+<a href="../labs/L2-X39049/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="../labs/L2-X39049/shuffle.jpg" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Powers of permutations
+</h5>
+</div>
+</div>
+</a>
+</div>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div>
 </div>
 </div>
 </section>
 <section id="wildcards" class="level3">
 <h3 class="anchored" data-anchor-id="wildcards">Wildcards</h3>
-<p>A third type of exercises don’t really share much similarities. They are the following.</p>
+<p>A third type of exercises don’t really share much similarities (apart from being amenable to a <em>divide-and-conquer</em> approach). They are the following.</p>
 <ul>
 <li><a href="https://jutge.org/problems/P80595_en">P80595 How many inversions?</a> (similar to <a href="../problems/2.11/">Problem 2.11</a> from problem class P3)<br>
 </li>
@@ -731,6 +900,27 @@ In class
 </div>
 <div class="callout-body-container callout-body">
 <p>From this block of exercises, in class we solve together <a href="https://jutge.org/problems/P34682_en">P34682 Fixed points</a>.</p>
+<div id="listing-exercises-L2-wild" class="quarto-listing quarto-listing-container-grid">
+<div class="list grid quarto-listing-cols-3">
+<div class="g-col-1" data-index="0" data-categories="L2,Divide and Conquer" data-listing-file-modified-sort="1728554488795" data-listing-reading-time-sort="2" data-listing-word-count-sort="208">
+<a href="../labs/L2-P34682/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="../labs/L2-P34682/fixed.jpg" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Fixed points
+</h5>
+</div>
+</div>
+</a>
+</div>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div>
 </div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">

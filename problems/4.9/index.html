@@ -69,8 +69,22 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -181,8 +195,8 @@ window.Quarto = {
 </div></div><p>Validate or refute the following statements:</p>
 <ul>
 <li><p>A table with its elements sorted from lowest to highest is a <strong>min</strong>-heap.</p></li>
-<li><p>Inserting in a <strong>max</strong>-heap with <span class="math inline">\(n\)</span> elements has cost <span class="math inline">\(\Theta(\log n)\)</span> in the worst case scenario.</p></li>
-<li><p>Finding the largest element in a <strong>min</strong>-heap has cost <span class="math inline">\(O(\sqrt{n})\)</span>.</p></li>
+<li><p>Inserting in a <strong>max</strong>-heap with <span class="math inline">n</span> elements has cost <span class="math inline">\Theta(\log n)</span> in the worst case scenario.</p></li>
+<li><p>Finding the largest element in a <strong>min</strong>-heap has cost <span class="math inline">O(\sqrt{n})</span>.</p></li>
 </ul>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -194,7 +208,7 @@ Extra
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Is it true that eliminating the maximum element of a <strong>max</strong>-heap with <span class="math inline">\(n\)</span> different elements has cost <span class="math inline">\(\Theta(1)\)</span> in the best case?</p>
+<p>Is it true that eliminating the maximum element of a <strong>max</strong>-heap with <span class="math inline">n</span> different elements has cost <span class="math inline">\Theta(1)</span> in the best case?</p>
 </div>
 </div>
 <p><a href="javascript:history.back()"><iconify-icon role="img" inline="" icon="twemoji:back-arrow" style="font-size: 2em;" aria-label="Icon back-arrow from twemoji Iconify.design set." title="Icon back-arrow from twemoji Iconify.design set."></iconify-icon></a></p>

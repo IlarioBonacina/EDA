@@ -69,8 +69,22 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -191,7 +205,7 @@ BIN-PACKING
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Given <span class="math inline">\(n\)</span> items with sizes <span class="math inline">\(d_1, \dots , d_n\)</span> and <span class="math inline">\(k\)</span> bins with capacity <span class="math inline">\(m\)</span>, determine whether all the items can be packed into the bins so that the capacity is not exceeded.</p>
+<p>Given <span class="math inline">n</span> items with sizes <span class="math inline">d_1, \dots , d_n</span> and <span class="math inline">k</span> bins with capacity <span class="math inline">m</span>, determine whether all the items can be packed into the bins so that the capacity is not exceeded.</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
@@ -204,7 +218,7 @@ TRIPARTITE-MATCHING
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Given three disjoint sets <span class="math inline">\(C_1\)</span>, <span class="math inline">\(C_2\)</span>, <span class="math inline">\(C_3\)</span> having <span class="math inline">\(n\)</span> elements each and given a subset <span class="math inline">\(S \subseteq  C_1 \times C_2 \times C_3\)</span>, determine whether it is possible to select <span class="math inline">\(n\)</span> elements from <span class="math inline">\(S\)</span> so that every element from <span class="math inline">\(C_1\)</span>, <span class="math inline">\(C_2\)</span>, and <span class="math inline">\(C_3\)</span> appears only once in these <span class="math inline">\(n\)</span> triples.</p>
+<p>Given three disjoint sets <span class="math inline">C_1</span>, <span class="math inline">C_2</span>, <span class="math inline">C_3</span> having <span class="math inline">n</span> elements each and given a subset <span class="math inline">S \subseteq  C_1 \times C_2 \times C_3</span>, determine whether it is possible to select <span class="math inline">n</span> elements from <span class="math inline">S</span> so that every element from <span class="math inline">C_1</span>, <span class="math inline">C_2</span>, and <span class="math inline">C_3</span> appears only once in these <span class="math inline">n</span> triples.</p>
 </div>
 </div>
 </div><div class="column" style="width:10%;">
@@ -220,7 +234,7 @@ TRIPARTITE-MATCHING
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Given a graph, determine whether it is possible to assign colors to vertices, choosing among <span class="math inline">\(3\)</span> possible colors, so that no edge has its endpoints of the same color.</p>
+<p>Given a graph, determine whether it is possible to assign colors to vertices, choosing among <span class="math inline">3</span> possible colors, so that no edge has its endpoints of the same color.</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
@@ -246,7 +260,7 @@ DOMINATING-SET
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Given a graph and a positive integer <span class="math inline">\(k\)</span>, determine whether it has a subset with <span class="math inline">\(k\)</span> vertices such that every vertex outside the subset is adjacent to a vertex in the subset.</p>
+<p>Given a graph and a positive integer <span class="math inline">k</span>, determine whether it has a subset with <span class="math inline">k</span> vertices such that every vertex outside the subset is adjacent to a vertex in the subset.</p>
 </div>
 </div>
 </div>
@@ -267,20 +281,20 @@ DOMINATING-SET
 </div>
 <div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
 <p>While Roy thinks on how to distribute people around the three tables, Johnny appears again saying that the restaurant is about to close and that they’d better look for a different place for dinner.</p>
-<p>ROY: Look, before looking for another place, I’d like to make some things clear to the group: When they say “hey, hey, I don’t want to sit near this or that person”, they’re being childish! I want to talk to them seriously. The problem is that I’m a little aphonic and if I speak to everybody, I’ll ran out of voice. I want you to choose <span class="math inline">\(k\)</span> representatives so that, for any person in the group, there is one of the representatives with whom that person is not angry. This way, the <span class="math inline">\(k\)</span> representatives will spread the message to the whole group.</p>
+<p>ROY: Look, before looking for another place, I’d like to make some things clear to the group: When they say “hey, hey, I don’t want to sit near this or that person”, they’re being childish! I want to talk to them seriously. The problem is that I’m a little aphonic and if I speak to everybody, I’ll ran out of voice. I want you to choose <span class="math inline">k</span> representatives so that, for any person in the group, there is one of the representatives with whom that person is not angry. This way, the <span class="math inline">k</span> representatives will spread the message to the whole group.</p>
 </div>
 <div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
-<p>Since Johnny doesn’t succeed in choosing the <span class="math inline">\(k\)</span> representatives, he finally takes a megaphone and tells everybody that if they keep acting like that, they’ll have to go home very soon.</p>
+<p>Since Johnny doesn’t succeed in choosing the <span class="math inline">k</span> representatives, he finally takes a megaphone and tells everybody that if they keep acting like that, they’ll have to go home very soon.</p>
 <p>JOHNNY: Listen, I have a city map where I’ve located the squares having good restaurants and the streets joining them. We could walk through all of them and check whether they have free tables.</p>
 <p>ROY: OK, give me the map for a while so that I can choose the tour; it’s cold outside and I’m not feeling like visiting the same place twice.</p>
 </div>
 <div id="tabset-1-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-5-tab">
 <p>After a long while, Roy still can’t find the solution in spite of having all the available information. Johnny wants to help him:</p>
 <p>JOHNNY: Listen Roy, I have a handful of colleagues in town and for each of these squares, a friend of mine lives there. Give me some bucks and I’ll phone them and ask them if we can have dinner at any restaurant in their squares.</p>
-<p>ROY: Man, I’m skint and can’t afford so many calls. I’ll give you enough for <span class="math inline">\(m\)</span> phone calls. You can ask your friends to look for restaurants not only in their squares but also in the squares one street away from theirs. Choose the right friends so that they can cover all the squares.</p>
+<p>ROY: Man, I’m skint and can’t afford so many calls. I’ll give you enough for <span class="math inline">m</span> phone calls. You can ask your friends to look for restaurants not only in their squares but also in the squares one street away from theirs. Choose the right friends so that they can cover all the squares.</p>
 </div>
 <div id="tabset-1-6" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-6-tab">
-<p>Since he doesn’t succeed, Johnny calls to the first person in the list and it turns out that there is a restaurant with free tables near him. When they get there, there is only one table with <span class="math inline">\(k\)</span> chairs, and they are closing soon.</p>
+<p>Since he doesn’t succeed, Johnny calls to the first person in the list and it turns out that there is a restaurant with free tables near him. When they get there, there is only one table with <span class="math inline">k</span> chairs, and they are closing soon.</p>
 <p>JOHNNY: I got it, here’s a solution: We’ll have dinner by turns; when somebody finishes, he or she will go out and somebody else will come in. Look, some time ago I collected information about how long everyone takes for dinner. You know I have some weird hobbies…</p>
 <p>ROY: My God…</p>
 <p>JOHHNY: With all this data, we can plan the distribution of people on the chairs, so that everybody can have dinner before they close.</p>
@@ -319,7 +333,7 @@ Hint
 <p>ROY: STEFFY!?!?!?</p>
 <p>JOHNNY: Yes, and she said she’s longing very much to see you. I think she’s going to have a big disappointment if you don’t show up.</p>
 <p>ROY: Hummm… well… maybe I’ve gone a bit too far. In the end, they are good guys… Sometimes they’re unbearable, but they’re good people, and that’s what matters. Friendship, in fact, is full of bad moments, but it’s mainly full of marvelous moments of bliss. Come on! What the hell! I’m coming. And if you want, I can help you organize things.</p>
-<p>JOHNNY: Perfect! You’re the best! A winner, for sure! Come and let’s organize it right now. Let’s see, the only problem is that there are <span class="math inline">\(k\)</span> cars and…</p>
+<p>JOHNNY: Perfect! You’re the best! A winner, for sure! Come and let’s organize it right now. Let’s see, the only problem is that there are <span class="math inline">k</span> cars and…</p>
 </div>
 </div>
 </div>

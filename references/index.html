@@ -68,8 +68,22 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -182,7 +196,7 @@ window.Quarto = {
 <p>Please refer to the <a href="https://www.cs.upc.edu/eda/">main webpage of EDA</a> for news, didactic material, etc and to the official UPC page for the <a href="https://www.fib.upc.edu/es/estudios/grados/grado-en-ingenieria-informatica/plan-de-estudios/asignaturas/EDA">course syllabus</a>.</p>
 <section id="c-resources" class="level2">
 <h2 class="anchored" data-anchor-id="c-resources">C++ resources</h2>
-<p>In the <a href="{{< EDA.webpage  >}}">EDA Main Page</a><span class="math inline">\(\rightarrow\)</span> Material Docent you’ll find the following useful material:</p>
+<p>In the <a href="{{< EDA.webpage  >}}">EDA Main Page</a><span class="math inline">\rightarrow</span> Material Docent you’ll find the following useful material:</p>
 <ul>
 <li><a href="https://www.cs.upc.edu/eda/data/uploads/eda-codis.pdf">Algorismes en C++</a></li>
 <li><a href="https://www.cs.upc.edu/eda/data/uploads/normes-prog.pdf">Normes de Programació (in catalan)</a><br> This file describes the accepted style of C++ writing. <br> <strong>It is used as a reference for correcting the lab exam.</strong></li>
