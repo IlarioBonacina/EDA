@@ -172,9 +172,8 @@ window.Quarto = {
 
 
 <p>Call a <strong>fixed point</strong> for <span class="math inline">f_a</span> any <span class="math inline">i</span> such that <span class="math inline">f_a(i)=i</span>, that is any index <span class="math inline">i</span> such that <span class="math inline">x_i+a = i</span>.</p>
-<p>Since the ordering on <span class="math inline">S</span> is strict, for any <span class="math inline">k&gt;0</span> and any <span class="math inline">j</span>, <span class="math inline">x_{j-k}\leq x_j-k</span> (why?), therefore if <span class="math inline">j</span> is <strong>not a fixed point</strong> and <span class="math inline">x_j + a &lt; j</span>, then <span class="math display">
-x_{j-k} +a \leq x_{j} - k + a &lt; j - k
-</span> hence, <span class="math inline">j-k</span> is also not a fixpoint.</p>
+<p>Alternatively, one could lok at the sequence given by <span class="math inline">x_i + a - i</span>, for <span class="math inline">i=1,\dots, n</span>, and we want to search for the first occurrence of <span class="math inline">0</span> in that sequence. If the sequence was increasing/decreasing then great, dichotomic search! Is it increasing/decreasing? Yes/No, why?</p>
+<p>:::{.callout-tip icon}</p>
 
 
 
