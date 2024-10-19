@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>EDA - Hash tables</title>
+<title>EDA - Hashing and Hash Tables</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,23 +23,23 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../">
-<script src="../../site_libs/quarto-html/quarto.js"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<script src="../../site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -122,7 +122,7 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../../index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">EDA</span>
     </a>
   </div>
@@ -133,22 +133,22 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../problems/index.html"> <i class="bi bi-body-text" role="img">
+    <a class="nav-link" href="../problems/index.html"> <i class="bi bi-body-text" role="img">
 </i> 
 <span class="menu-text">Problem Classes</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../labs/index.html"> <i class="bi bi-pc-display" role="img">
+    <a class="nav-link" href="../labs/index.html"> <i class="bi bi-pc-display" role="img">
 </i> 
 <span class="menu-text">Lab Classes</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../references/index.html"> <i class="bi bi-book" role="img">
+    <a class="nav-link" href="../references/index.html"> <i class="bi bi-book" role="img">
 </i> 
 <span class="menu-text">References</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../about.html"> <i class="bi bi-info-circle-fill" role="img">
+    <a class="nav-link" href="../about.html"> <i class="bi bi-info-circle-fill" role="img">
 </i> 
 <span class="menu-text">Contacts</span></a>
   </li>  
@@ -164,23 +164,15 @@ window.Quarto = {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#exercise-3.1" id="toc-exercise-3.1" class="nav-link active" data-scroll-target="#exercise-3.1">Exercise 3.1</a></li>
-  <li><a href="#exercise-3.2" id="toc-exercise-3.2" class="nav-link" data-scroll-target="#exercise-3.2">Exercise 3.2</a></li>
-  </ul>
-<div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="https://en.cppreference.com/w/"><i class="bi bi-code-slash"></i>cppreference.com</a></li><li><a href="https://jutge.org"><i class="bi bi-link-45deg"></i>Jutge.org</a></li><li><a href="https://www.cs.upc.edu/eda/"><i class="bi bi-link-45deg"></i>EDA Main Page</a></li><li><a href="https://www.cs.upc.edu/eda/data/uploads/eda-problem-set.cat.pdf"><i class="bi bi-book"></i>EDA Problem Set</a></li><li><a href="https://www.cs.upc.edu/~oliveras/examens.cat.pdf"><i class="bi bi-book"></i>Collection of Solved Exams</a></li><li><a href="https://www.cs.upc.edu/eda/data/uploads/eda-codis.pdf"><i class="bi bi-book"></i>Algorithms in C++</a></li></ul></div></nav>
-    </div>
+        
+    <div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="https://en.cppreference.com/w/"><i class="bi bi-code-slash"></i>cppreference.com</a></li><li><a href="https://jutge.org"><i class="bi bi-link-45deg"></i>Jutge.org</a></li><li><a href="https://www.cs.upc.edu/eda/"><i class="bi bi-link-45deg"></i>EDA Main Page</a></li><li><a href="https://www.cs.upc.edu/eda/data/uploads/eda-problem-set.cat.pdf"><i class="bi bi-book"></i>EDA Problem Set</a></li><li><a href="https://www.cs.upc.edu/~oliveras/examens.cat.pdf"><i class="bi bi-book"></i>Collection of Solved Exams</a></li><li><a href="https://www.cs.upc.edu/eda/data/uploads/eda-codis.pdf"><i class="bi bi-book"></i>Algorithms in C++</a></li></ul></div></div>
 <!-- main -->
-<main class="content page-columns page-full" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Hash tables</h1>
-<p class="subtitle lead">Exercises 3.1 and 3.2</p>
-  </div>
+<h1 class="title">Hashing and Hash Tables</h1>
+</div>
 
 
 
@@ -196,275 +188,63 @@ window.Quarto = {
 </header>
 
 
-<section id="exercise-3.1" class="level3 page-columns page-full">
-<h3 class="anchored" data-anchor-id="exercise-3.1">Exercise 3.1</h3>
-<p>Consider a <a href="../../theory_bits/hash.html">hash table with separate chaining</a>, <span class="math inline">M = 10</span> positions with integer keys, and hash function <span class="math inline">h(x)=x \pmod M</span>.</p>
-
-<div class="no-row-height column-margin column-container"><div class="">
-<p><img src="hash.jpg" class="img-fluid"></p>
-</div></div><p>Starting from an empty table, show the resulting table after inserting the keys:</p>
-<p><strong>3441</strong><br>
-<strong>3412</strong><br>
-<strong>498</strong><br>
-<strong>1983</strong><br>
-<strong>4893</strong><br>
-<strong>3874</strong><br>
-<strong>3722</strong><br>
-<strong>3313</strong><br>
-<strong>4830</strong><br>
-<strong>2001</strong><br>
-<strong>3202</strong><br>
-<strong>365</strong><br>
-<strong>128181</strong><br>
-<strong>7812</strong><br>
-<strong>1299</strong><br>
-<strong>999</strong><br>
-<strong>18267</strong></p>
-<p>Show the resulting table after applying a rehash of the previous table into <span class="math inline">M=20</span> positions.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<p>A <strong>hash function</strong> <span class="math inline">h</span> is a function that maps a large object <span class="math inline">\mathcal D</span> (a genome, a string, a sequence of elements, etc.) into a smaller object (a shorter string, an integer in a small range, etc.). For simplicity, suppose <span class="math inline">h</span> maps <span class="math inline">\mathcal D</span> into the set of natural numbers <span class="math inline">\{0,1,\dots, M-1\}</span>.</p>
+<p>A hash function <strong>must</strong> be deterministic and easy to compute.</p>
+<p>A hash function <strong>should</strong> try to produce different outputs for different inputs. This is not possible to happen for all inputs when <span class="math inline">M&lt; |\mathcal D|</span>, for instance. Actually, we should expect to find different elements mapping to the same number as soon as the number of elements in <span class="math inline">\mathcal D</span> is <span class="math inline">\Omega(\sqrt M)</span>.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+The birthday paradox
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Suppose that <span class="math inline">\mathcal D</span> is a set of people and the hashing function <span class="math inline">h \colon \mathcal D \to \{0,1,\dots,365\}</span> assigns to each person the day of her/his birthday. The <strong>birthday paradox</strong> refers to the counterintuitive fact that as soon <span class="math inline">|\mathcal D|&gt;23</span>, then with probability at least <span class="math inline">\frac{1}{2}</span> there is a collision, i.e.&nbsp;two people in <span class="math inline">\mathcal D</span> with the same birthday.</p>
+</div>
+</div>
+<p>We say that two distinct elements <span class="math inline">x</span>, <span class="math inline">y</span> of <span class="math inline">\mathcal D</span> <strong>collide</strong> (under the hash function <span class="math inline">h</span>) if <span class="math inline">h(x) = h(y)</span>.</p>
+<p>Ideally, a good hash function <span class="math inline">h</span> should evenly distribute the elements of <span class="math inline">\mathcal D</span> into <span class="math inline">\{0,1,\dots, M-1\}</span>. That is, for every <span class="math inline">m\in M</span>, <span class="math display">
+\mathbb E[|\{x\in \mathcal D : h(x)=m\}|]\approx \frac{|\mathcal D|}{M}\ .
+</span> In other words, on average we should expect about <span class="math inline">\frac{|\mathcal D|}{M}</span>-many elements of <span class="math inline">\mathcal D</span> being mapped to any particular value. The value <span class="math inline">\frac{|\mathcal D|}{M}</span> is called the <strong>load factor</strong> and it is often denoted with the greek letter <span class="math inline">\alpha</span>.</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Hint
+Contruction of hash functions
 </div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>The hash table when <span class="math inline">M=10</span> and the first element has been inserted has the following form.</p>
-<table class="table">
-<colgroup>
-<col style="width: 10%">
-<col style="width: 90%">
-</colgroup>
-<thead>
-<tr class="header">
-<th><span class="math inline">h(x)</span></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>0</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>1</td>
-<td>3441</td>
-</tr>
-<tr class="odd">
-<td>2</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>4</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>5</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>6</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>7</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>8</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>9</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p>When <span class="math inline">M=20</span> (and the first element has been inserted) it has the following form</p>
-<table class="table">
-<colgroup>
-<col style="width: 10%">
-<col style="width: 90%">
-</colgroup>
-<thead>
-<tr class="header">
-<th><span class="math inline">h(x)</span></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>0</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>1</td>
-<td>3441</td>
-</tr>
-<tr class="odd">
-<td>2</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>3</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>4</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>5</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>6</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>7</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>8</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>9</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>10</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>11</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>12</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>13</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>14</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>15</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>16</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>17</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>18</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>19</td>
-<td></td>
-</tr>
-</tbody>
-</table>
+<p>Defining a good hash function is not an easy task and it requires a solid background in several branches of Math. This task is very closely related to the definition of good pseudo-random number generators.</p>
+<p>As a general rule, the keys are first converted to positive integers (reading the binary representation of the key as a number), some mathematical transformation is applied, taking the result modulo <span class="math inline">M</span>. For various theoretical reasons, it is a good idea that <span class="math inline">M</span> is a prime number.</p>
 </div>
 </div>
-</div>
-</section>
-<section id="exercise-3.2" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-3.2">Exercise 3.2</h3>
-<p>Now we want to build the <a href="../../theory_bits/hash.html">hash table with separate chaining</a> for the keys</p>
-<p><strong>30</strong><br>
-<strong>20</strong><br>
-<strong>56</strong><br>
-<strong>75</strong><br>
-<strong>31</strong><br>
-<strong>19</strong></p>
-<p>with <span class="math inline">M=11</span> positions and hash function <span class="math inline">h(x)=x \pmod M</span>.</p>
-<p>What is the <strong>maximum</strong> number of comparisons in a successful search in this last table?</p>
-<p>What is the <strong>expected</strong> number of comparisons in a successful search in this last table?</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<p>Hash functions are extremely important, for instance in cryptography. Here we only see how to use hash functions to tell whether an element <span class="math inline">x</span> is in <span class="math inline">\mathcal D</span> or not efficiently.</p>
+<p>This is done using the so-called <strong>hash tables</strong> with separate chaining. First create <span class="math inline">M</span> <em>buckets</em>. Then use a hash function <span class="math inline">h</span> to associate each possible element in <span class="math inline">\mathcal D</span> with one bucket. Then, to tell wether an element <span class="math inline">x</span> is in <span class="math inline">\mathcal D</span> or not we can just compute <span class="math inline">h(x)</span>, go to the bucket corresponding to <span class="math inline">h(x)</span> and look the elements stored there one by one, until we find <span class="math inline">x</span> or we have seen all elements of the bucket and we didn’t find <span class="math inline">x</span>.</p>
+<p>To achive this we can use an array <span class="math inline">A</span> of linked lists, <span class="math inline">A[i]</span> will correspond to the <span class="math inline">i</span>th bucket. All the elements of <span class="math inline">\mathcal D</span> mapped by <span class="math inline">h</span> to <span class="math inline">i</span> are stored in <span class="math inline">A[i]</span> using a linked list.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Hint
+Example
 </div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>The hash table when <span class="math inline">M=11</span> and the first element has been inserted has the following form.</p>
-<table class="table">
-<colgroup>
-<col style="width: 10%">
-<col style="width: 90%">
-</colgroup>
-<thead>
-<tr class="header">
-<th><span class="math inline">h(x)</span></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>0</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>1</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>2</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>4</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>5</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>6</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>7</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>8</td>
-<td>30</td>
-</tr>
-<tr class="odd">
-<td>9</td>
-<td></td>
-</tr>
-</tbody>
-</table>
+<p>Given <span class="math inline">\mathcal D=\{0, 4, 6, 10, 12, 13, 17, 19, 23, 25, 30\}</span>, <span class="math inline">M=13</span> and <span class="math inline">h(x)= x\pmod M</span>, then a hash table with separate chaining looks like the following.</p>
+<p><img src="hash_table.png" class="img-fluid" style="width:50.0%"></p>
 </div>
 </div>
-</div>
+<p>Assuming a good hash function, i.e.&nbsp;one that spreads the elements approximately evenly, the expected time to look up for an element in a hash table is <span class="math inline">O(1 + \frac{|\mathcal D|}{M})=O(1+\alpha)</span>. So, if <span class="math inline">\alpha</span> is a constant this is <span class="math inline">O(1)</span>.</p>
+<p>For <strong>insertions</strong> in a hash table with separate chaining, we access the apropriate linked list using the hash function, and scan the list to find out whether the key was already present or not. If present, we modify the associated value; if not, a new node with the pair ⟨key,value⟩ is added to the list. Since the lists contain very few elements each, the simplest and more efficient solution is to add elements to the front.</p>
+<p>There is no need for double links, sentinels, etc. Sorting the lists or using some other sophisticated data structure instead of linked lists does not report real practical benefits.</p>
 <p><a href="javascript:history.back()"><iconify-icon role="img" inline="" icon="twemoji:back-arrow" style="font-size: 2em;" aria-label="Icon back-arrow from twemoji Iconify.design set." title="Icon back-arrow from twemoji Iconify.design set."></iconify-icon></a></p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -881,5 +661,5 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
+<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>
