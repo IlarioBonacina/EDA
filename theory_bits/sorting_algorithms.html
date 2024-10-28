@@ -192,8 +192,8 @@ window.Quarto = {
 </div>
       </div> <!-- /container-fluid -->
     </nav>
-  <div id="quarto-announcement" data-announcement-id="82f5b3bcfa48cd130ec83cdc3466ba01" class="alert alert-warning hidden"><i class="bi bi-exclamation-triangle-fill quarto-announcement-icon"></i><div class="quarto-announcement-content">
-<p>Por el momento esta página está disponible en Inglés. Si lo necesitas, puedes utilizar <a href="https://ilariobonacina-github-io.translate.goog/EDA/?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=ca&amp;_x_tr_pto=wapp">Google Translate</a> para traducir al castellano, al català, o al idioma que más te agrade. Ten en cuenta que Google Translate no funciona muy bien en páginas con mucha matemática.”</p>
+  <div id="quarto-announcement" data-announcement-id="df0a319c1a43838ae13e1dd1b4ee3b04" class="alert alert-warning hidden"><i class="bi bi-exclamation-triangle-fill quarto-announcement-icon"></i><div class="quarto-announcement-content">
+<p>Por el momento esta página está disponible en Inglés. Si lo necesitas, puedes utilizar <a href="https://ilariobonacina-github-io.translate.goog/EDA/?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=ca&amp;_x_tr_pto=wapp">Google Translate</a> para traducir al castellano, al català, o al idioma que más te agrade. Ten en cuenta que Google Translate no funciona muy bien en páginas con mucha matemática.</p>
 </div></div>
 </header>
 <!-- content -->
@@ -228,169 +228,254 @@ window.Quarto = {
 <p>We recall some basic facts on some elementary comparison-based sorting algorithms. These are sorting algorithms that only operate on the input array/vector by comparing pairs of elements and moving elements around based on the results of these comparisons.</p>
 <p>The following tabs are about some comparison-based sorting algorithms, each contains a simple implementation of the algorithm with a reminder of the running time. You can find the implementations (and many more) also in <a href="https://www.cs.upc.edu/eda/data/uploads/eda-codis.pdf#page=11">Algorithms in C++</a>.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Insertion-sort</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">MergeSort</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">QuickSort</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false">Heapsort</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Selection-sort</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Insertion-sort</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">Merge-Sort</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false">Quick-Sort</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-5" role="tab" aria-controls="tabset-1-5" aria-selected="false">Heap-sort</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<div class="sourceCode" id="cb1"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">template</span> <span class="op">&lt;</span><span class="kw">class</span> T<span class="op">&gt;</span></span>
+<p>The <strong>Selection-sort</strong> algorithm divides the input vector into two parts: a sorted subvector of items which is built up from left to right at the front (left) of the vector and a subvector of the remaining unsorted items that occupy the rest of the vector.</p>
+<p>Initially, the sorted subvector is empty and the unsorted subvector is the entire input vector. The algorithm proceeds by finding the smallest (or largest, depending on sorting order) element in the unsorted subvector, exchanging (<em>swapping</em>) it with the leftmost unsorted element (putting it in sorted order), and moving the subvector boundaries one element to the right.</p>
+<div class="columns">
+<div class="column" style="width:30%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Selection-Sort-Animation.gif" class="img-fluid figure-img"></p>
+<figcaption>Selection sort animation.<br>Red is current min.<br>Yellow is sorted list.<br>Blue is current item.</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:4%;">
+
+</div><div class="column" style="width:66%;">
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">template</span> <span class="op">&lt;</span><span class="kw">typename</span> elem<span class="op">&gt;</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> insertion_sort <span class="op">(</span>vector<span class="op">&lt;</span>T<span class="op">&gt;&amp;</span> v<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> sel_sort <span class="op">(</span>vector<span class="op">&lt;</span>elem<span class="op">&gt;&amp;</span> v<span class="op">)</span> <span class="op">{</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> n <span class="op">=</span> v<span class="op">.</span>size<span class="op">();</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> i <span class="op">&lt;</span> n<span class="op">;</span> <span class="op">++</span>i<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> j <span class="op">=</span> i<span class="op">;</span> j <span class="op">&gt;</span> <span class="dv">0</span> <span class="kw">and</span> v<span class="op">[</span>j <span class="op">-</span> <span class="dv">1</span><span class="op">]</span> <span class="op">&gt;</span> v<span class="op">[</span>j<span class="op">];</span> <span class="op">--</span>j<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>            swap<span class="op">(</span>v<span class="op">[</span>j <span class="op">-</span> <span class="dv">1</span><span class="op">],</span> v<span class="op">[</span>j<span class="op">]);</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span> </span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span> </span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> n <span class="op">-</span> <span class="dv">1</span><span class="op">;</span> <span class="op">++</span>i<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>        <span class="dt">int</span> p <span class="op">=</span> pos_min<span class="op">(</span>v<span class="op">,</span> i<span class="op">,</span> n<span class="op">-</span><span class="dv">1</span><span class="op">);</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>        swap<span class="op">(</span>v<span class="op">[</span>i<span class="op">],</span> v<span class="op">[</span>p<span class="op">]);</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span> </span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="kw">template</span> <span class="op">&lt;</span><span class="kw">typename</span> elem<span class="op">&gt;</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> pos_min <span class="op">(</span>vector<span class="op">&lt;</span>elem<span class="op">&gt;&amp;</span> v<span class="op">,</span> <span class="dt">int</span> l<span class="op">,</span> <span class="dt">int</span> r<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> p <span class="op">=</span> l<span class="op">;</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> j <span class="op">=</span> l <span class="op">+</span> <span class="dv">1</span><span class="op">;</span> j <span class="op">&lt;=</span> r<span class="op">;</span> <span class="op">++</span>j<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>v<span class="op">[</span>j<span class="op">]</span> <span class="op">&lt;</span> v<span class="op">[</span>p<span class="op">])</span> p <span class="op">=</span> j<span class="op">;</span> </span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> p<span class="op">;</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p><strong>Insertion sort</strong> iterates, consuming one input element each repetition, and grows a sorted output list. At each iteration, insertion sort removes one element from the input data, finds the location it belongs within the sorted vector, and inserts it there. It repeats until no input elements remain.</p>
+<div class="columns">
+<div class="column" style="width:30%;">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="Insertion_sort_animation.gif" class="img-fluid figure-img"></p>
+<figcaption>Insertion sort animation</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:4%;">
+
+</div><div class="column" style="width:66%;">
+<div class="sourceCode" id="cb2"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">template</span> <span class="op">&lt;</span><span class="kw">class</span> T<span class="op">&gt;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> insertion_sort <span class="op">(</span>vector<span class="op">&lt;</span>T<span class="op">&gt;&amp;</span> v<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> n <span class="op">=</span> v<span class="op">.</span>size<span class="op">();</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> i <span class="op">&lt;</span> n<span class="op">;</span> <span class="op">++</span>i<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> j <span class="op">=</span> i<span class="op">;</span> j <span class="op">&gt;</span> <span class="dv">0</span> <span class="kw">and</span> v<span class="op">[</span>j <span class="op">-</span> <span class="dv">1</span><span class="op">]</span> <span class="op">&gt;</span> v<span class="op">[</span>j<span class="op">];</span> <span class="op">--</span>j<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>            swap<span class="op">(</span>v<span class="op">[</span>j <span class="op">-</span> <span class="dv">1</span><span class="op">],</span> v<span class="op">[</span>j<span class="op">]);</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span> </span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span> </span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<p><strong>Merge sort</strong> is a divide-and-conquer algorithm that was invented by John von Neumann in 1945. Conceptually, a merge sort works as follows:</p>
+<ol type="1">
+<li>Divide the unsorted list into <span class="math inline">n</span> sublists, each containing one element (a list of one element is considered sorted).</li>
+<li>Repeatedly merge sublists to produce new sorted sublists until there is only one sublist remaining. This will be the sorted list.</li>
+</ol>
+<div class="columns">
+<div class="column" style="width:30%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Merge-sort-animation.gif" class="img-fluid figure-img"></p>
+<figcaption>An example of merge sort. First, divide the list into the smallest unit (1 element), then compare each element with the adjacent list to sort and merge the two adjacent lists. Finally, all the elements are sorted and merged.</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:4%;">
+
+</div><div class="column" style="width:66%;">
+<div class="sourceCode" id="cb3"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">template</span> <span class="op">&lt;</span><span class="kw">class</span> T<span class="op">&gt;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> mergesort <span class="op">(</span>vector<span class="op">&lt;</span>T<span class="op">&gt;&amp;</span> v<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    mergesort<span class="op">(</span>v<span class="op">,</span> <span class="dv">0</span><span class="op">,</span> v<span class="op">.</span>size<span class="op">()</span> <span class="op">-</span> <span class="dv">1</span><span class="op">);</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> mergesort <span class="op">(</span>vector<span class="op">&lt;</span>T<span class="op">&gt;&amp;</span> v<span class="op">,</span> <span class="dt">int</span> l<span class="op">,</span> <span class="dt">int</span> r<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>l <span class="op">&lt;</span> r<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>        <span class="dt">int</span> m <span class="op">=</span> <span class="op">(</span>l <span class="op">+</span> r<span class="op">)</span> <span class="op">/</span> <span class="dv">2</span><span class="op">;</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>        mergesort<span class="op">(</span>v<span class="op">,</span> l<span class="op">,</span> m<span class="op">);</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>        mergesort<span class="op">(</span>v<span class="op">,</span> m <span class="op">+</span> <span class="dv">1</span><span class="op">,</span> r<span class="op">);</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>        merge<span class="op">(</span>v<span class="op">,</span> l<span class="op">,</span> m<span class="op">,</span> r<span class="op">);</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span> </span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> merge <span class="op">(</span>vector<span class="op">&lt;</span>T<span class="op">&gt;&amp;</span> v<span class="op">,</span> <span class="dt">int</span> l<span class="op">,</span> <span class="dt">int</span> m<span class="op">,</span> <span class="dt">int</span> r<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    vector<span class="op">&lt;</span>T<span class="op">&gt;</span> b<span class="op">(</span>r <span class="op">-</span> l <span class="op">+</span> <span class="dv">1</span><span class="op">);</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> i <span class="op">=</span> l<span class="op">,</span> j <span class="op">=</span> m <span class="op">+</span> <span class="dv">1</span><span class="op">,</span> k <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="op">(</span>i <span class="op">&lt;=</span> m <span class="kw">and</span> j <span class="op">&lt;=</span> r<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>v<span class="op">[</span>i<span class="op">]</span> <span class="op">&lt;=</span> v<span class="op">[</span>j<span class="op">])</span> b<span class="op">[</span>k<span class="op">++]</span> <span class="op">=</span> v<span class="op">[</span>i<span class="op">++];</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span> b<span class="op">[</span>k<span class="op">++]</span> <span class="op">=</span> v<span class="op">[</span>j<span class="op">++];</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="op">(</span>i <span class="op">&lt;=</span> m<span class="op">)</span> b<span class="op">[</span>k<span class="op">++]</span> <span class="op">=</span> v<span class="op">[</span>i<span class="op">++];</span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="op">(</span>j <span class="op">&lt;=</span> r<span class="op">)</span> b<span class="op">[</span>k<span class="op">++]</span> <span class="op">=</span> v<span class="op">[</span>j<span class="op">++];</span></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span>k <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> k <span class="op">&lt;=</span> r <span class="op">-</span> l<span class="op">;</span> <span class="op">++</span>k<span class="op">)</span> v<span class="op">[</span>l <span class="op">+</span> k<span class="op">]</span> <span class="op">=</span> b<span class="op">[</span>k<span class="op">];</span></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
+<p><strong>Quicksort</strong> was developed by British computer scientist Tony Hoare in 1959 and published in 1961. It is still a commonly used algorithm for sorting. Overall, it is slightly faster than merge sort and heapsort for randomized data, particularly on larger distributions.</p>
+<p>Quicksort is a type of divide-and-conquer algorithm for sorting an array, based on a partitioning routine; the details of this partitioning can vary somewhat, so that quicksort is really a family of closely related algorithms.</p>
+<p>Applied to a range of at least two elements, partitioning produces a division into two consecutive non empty sub-ranges, in such a way that no element of the first sub-range is greater than any element of the second sub-range. After applying this partition, quicksort then recursively sorts the sub-ranges, possibly after excluding from them an element at the point of division that is at this point known to be already in its final location. Due to its recursive nature, quicksort (like the partition routine) has to be formulated so as to be callable for a range within a larger array, even if the ultimate goal is to sort a complete array.</p>
+<p>The choice of partition routine (including the pivot selection) and other details can affect the algorithm’s performance, possibly to a great extent for specific input arrays.</p>
+<div class="columns">
+<div class="column" style="width:30%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Sorting_quicksort_animation.gif" class="img-fluid figure-img"></p>
+<figcaption>Animated visualization of the quicksort algorithm. The horizontal lines are pivot values.</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:4%;">
+
+</div><div class="column" style="width:66%;">
+<div class="sourceCode" id="cb4"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">template</span> <span class="op">&lt;</span><span class="kw">class</span> T<span class="op">&gt;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> partition<span class="op">(</span>vector<span class="op">&lt;</span>T<span class="op">&gt;&amp;</span> v<span class="op">,</span> <span class="dt">int</span> l<span class="op">,</span> <span class="dt">int</span> u<span class="op">,</span> <span class="dt">int</span><span class="op">&amp;</span> k<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> i <span class="op">=</span> l<span class="op">+</span><span class="dv">1</span><span class="op">;</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> j <span class="op">=</span> u<span class="op">;</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    T pv <span class="op">=</span> v<span class="op">[</span>i<span class="op">];</span> <span class="co">// simple choice for pivot</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="op">(</span>i <span class="op">&lt;</span> j<span class="op">+</span><span class="dv">1</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">while</span> <span class="op">(</span>i <span class="op">&lt;</span> j<span class="op">+</span><span class="dv">1</span> <span class="kw">and</span> v<span class="op">[</span>i<span class="op">]</span> <span class="op">&lt;=</span> pv<span class="op">)</span> <span class="op">++</span>i<span class="op">;</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">while</span> <span class="op">(</span>i <span class="op">&lt;</span> j<span class="op">+</span><span class="dv">1</span> <span class="kw">and</span> pv <span class="op">&lt;=</span> v<span class="op">[</span>j<span class="op">])</span> <span class="op">--</span>j<span class="op">;</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>i <span class="op">&lt;</span> j <span class="op">+</span> <span class="dv">1</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>            swap<span class="op">(</span>v<span class="op">[</span>i<span class="op">],</span> v<span class="op">[</span>j<span class="op">]);</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>            <span class="op">++</span>i<span class="op">;</span> </span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>            <span class="op">--</span>j<span class="op">;</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    swap<span class="op">(</span>v<span class="op">[</span>l<span class="op">],</span> v<span class="op">[</span>j<span class="op">]);</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    k <span class="op">=</span> j<span class="op">;</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> quicksort<span class="op">(</span>vector<span class="op">&lt;</span>T<span class="op">&gt;&amp;</span> v<span class="op">,</span> <span class="dt">int</span> l<span class="op">,</span> <span class="dt">int</span> u<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>u <span class="op">-</span>l <span class="op">+</span> <span class="dv">1</span> <span class="op">&gt;</span> M<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>        <span class="dt">int</span> k<span class="op">;</span></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>        partition<span class="op">(</span>v<span class="op">,</span> l<span class="op">,</span> u<span class="op">,</span> k<span class="op">);</span></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>        quicksort<span class="op">(</span>v<span class="op">,</span> l<span class="op">,</span> k<span class="op">-</span><span class="dv">1</span><span class="op">);</span></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>        quicksort<span class="op">(</span>v<span class="op">,</span> k<span class="op">+</span><span class="dv">1</span><span class="op">,</span> u<span class="op">);</span></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> quicksort<span class="op">(</span>vector<span class="op">&lt;</span>T<span class="op">&gt;&amp;</span> v<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>    quicksort<span class="op">(</span>v<span class="op">,</span> <span class="dv">0</span><span class="op">,</span> v<span class="op">.</span>size<span class="op">()-</span><span class="dv">1</span><span class="op">);</span></span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>    insertion_sort<span class="op">(</span>v<span class="op">,</span> <span class="dv">0</span><span class="op">,</span> v<span class="op">.</span>size<span class="op">()-</span><span class="dv">1</span><span class="op">);</span></span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<div id="tabset-1-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-5-tab">
+<p><strong>Heap-sort</strong> was invented by J. W. J. Williams in 1964 and it can be thought of as</p>
+<blockquote class="blockquote">
+<p>“<em>an implementation of selection sort using the right data structure</em>.”<br>
+(Skiena, Steven)</p>
+</blockquote>
+<p>Like selection sort, heapsort divides its input into a sorted and an unsorted region, and it iteratively shrinks the unsorted region by extracting the largest element from it and inserting it into the sorted region. Unlike selection sort, heapsort does not waste time with a linear-time scan of the unsorted region; rather, heap sort maintains the unsorted region in a <a href="../theory_bits/heaps.html">heap data structure</a> to efficiently find the largest element in each step.</p>
+<div class="columns">
+<div class="column" style="width:30%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Sorting_heapsort_animation.gif" class="img-fluid figure-img"></p>
+<figcaption>A run of heapsort sorting an array of randomly permuted values. In the first stage of the algorithm the array elements are reordered to satisfy the heap property. Before the actual sorting takes place, the heap tree structure is shown briefly for illustration.</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:4%;">
+
+</div><div class="column" style="width:66%;">
+<div class="sourceCode" id="cb5"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;queue&gt;</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="kw">template</span> <span class="op">&lt;</span><span class="kw">class</span> T<span class="op">&gt;</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> heapsort <span class="op">(</span>vector<span class="op">&lt;</span>T<span class="op">&gt;&amp;</span> v<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> n <span class="op">=</span> v<span class="op">.</span>size<span class="op">();</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    priority_queue<span class="op">&lt;</span>T<span class="op">&gt;</span> pq<span class="op">;</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> n<span class="op">;</span> <span class="op">++</span>i<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>        pq<span class="op">.</span>push<span class="op">(</span>v<span class="op">[</span>i<span class="op">]);</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> n<span class="op">-</span><span class="dv">1</span><span class="op">;</span> i <span class="op">&gt;=</span> <span class="dv">0</span><span class="op">;</span> <span class="op">--</span>i<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>        v<span class="op">[</span>i<span class="op">]</span> <span class="op">=</span> pq<span class="op">.</span>top<span class="op">();</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>        pq<span class="op">.</span>pop<span class="op">();</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span> </span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>The following table compares the running times in the worst, best and average case of the ordering algorithms above as functions of the number of elements <span class="math inline">n</span> of the input vector.</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 41%">
-<col style="width: 58%">
+<col style="width: 22%">
+<col style="width: 25%">
+<col style="width: 26%">
+<col style="width: 26%">
 </colgroup>
 <thead>
 <tr class="header">
-<th>Running time</th>
-<th></th>
+<th>Algorithm</th>
+<th>Worst case</th>
+<th>Best Case</th>
+<th>Average case</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Worst case</td>
+<td>Selection-sort</td>
+<td><span class="math inline">\Theta(n^2)</span></td>
+<td><span class="math inline">\Theta(n^2)</span></td>
 <td><span class="math inline">\Theta(n^2)</span></td>
 </tr>
 <tr class="even">
-<td>Best Case</td>
-<td><span class="math inline">\Theta(n)</span><br> (…for what vector the best case happens?)</td>
+<td>Insertion-sort</td>
+<td><span class="math inline">\Theta(n^2)</span></td>
+<td><span class="math inline">\Theta(n)</span> <br>(The best case input is a vector that is already sorted.)</td>
+<td><span class="math inline">\Theta(n^2)</span></td>
 </tr>
-</tbody>
-</table>
-</div>
-<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<div class="sourceCode" id="cb2"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">template</span> <span class="op">&lt;</span><span class="kw">class</span> T<span class="op">&gt;</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> mergesort <span class="op">(</span>vector<span class="op">&lt;</span>T<span class="op">&gt;&amp;</span> v<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    mergesort<span class="op">(</span>v<span class="op">,</span> <span class="dv">0</span><span class="op">,</span> v<span class="op">.</span>size<span class="op">()</span> <span class="op">-</span> <span class="dv">1</span><span class="op">);</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> mergesort <span class="op">(</span>vector<span class="op">&lt;</span>T<span class="op">&gt;&amp;</span> v<span class="op">,</span> <span class="dt">int</span> l<span class="op">,</span> <span class="dt">int</span> r<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>l <span class="op">&lt;</span> r<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>        <span class="dt">int</span> m <span class="op">=</span> <span class="op">(</span>l <span class="op">+</span> r<span class="op">)</span> <span class="op">/</span> <span class="dv">2</span><span class="op">;</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>        mergesort<span class="op">(</span>v<span class="op">,</span> l<span class="op">,</span> m<span class="op">);</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>        mergesort<span class="op">(</span>v<span class="op">,</span> m <span class="op">+</span> <span class="dv">1</span><span class="op">,</span> r<span class="op">);</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>        merge<span class="op">(</span>v<span class="op">,</span> l<span class="op">,</span> m<span class="op">,</span> r<span class="op">);</span></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span> </span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> merge <span class="op">(</span>vector<span class="op">&lt;</span>T<span class="op">&gt;&amp;</span> v<span class="op">,</span> <span class="dt">int</span> l<span class="op">,</span> <span class="dt">int</span> m<span class="op">,</span> <span class="dt">int</span> r<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    vector<span class="op">&lt;</span>T<span class="op">&gt;</span> b<span class="op">(</span>r <span class="op">-</span> l <span class="op">+</span> <span class="dv">1</span><span class="op">);</span></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> i <span class="op">=</span> l<span class="op">,</span> j <span class="op">=</span> m <span class="op">+</span> <span class="dv">1</span><span class="op">,</span> k <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="op">(</span>i <span class="op">&lt;=</span> m <span class="kw">and</span> j <span class="op">&lt;=</span> r<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>v<span class="op">[</span>i<span class="op">]</span> <span class="op">&lt;=</span> v<span class="op">[</span>j<span class="op">])</span> b<span class="op">[</span>k<span class="op">++]</span> <span class="op">=</span> v<span class="op">[</span>i<span class="op">++];</span></span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span> b<span class="op">[</span>k<span class="op">++]</span> <span class="op">=</span> v<span class="op">[</span>j<span class="op">++];</span></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="op">(</span>i <span class="op">&lt;=</span> m<span class="op">)</span> b<span class="op">[</span>k<span class="op">++]</span> <span class="op">=</span> v<span class="op">[</span>i<span class="op">++];</span></span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="op">(</span>j <span class="op">&lt;=</span> r<span class="op">)</span> b<span class="op">[</span>k<span class="op">++]</span> <span class="op">=</span> v<span class="op">[</span>j<span class="op">++];</span></span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span>k <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> k <span class="op">&lt;=</span> r <span class="op">-</span> l<span class="op">;</span> <span class="op">++</span>k<span class="op">)</span> v<span class="op">[</span>l <span class="op">+</span> k<span class="op">]</span> <span class="op">=</span> b<span class="op">[</span>k<span class="op">];</span></span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Running time</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
 <tr class="odd">
-<td>Worst case</td>
+<td>Merge-sort</td>
+<td><span class="math inline">\Theta(n\log n)</span></td>
+<td><span class="math inline">\Theta(n\log n)</span><br>Merge sort’s best case takes about half as many iterations as its worst case.</td>
+<td><span class="math inline">\Theta(n\log n)</span></td>
+</tr>
+<tr class="even">
+<td>Quick-sort</td>
+<td><span class="math inline">\Theta(n^2)</span></td>
+<td><span class="math inline">\Theta(n\log n)</span><br> (simple partition)</td>
+<td><span class="math inline">\Theta(n\log n)</span></td>
+</tr>
+<tr class="odd">
+<td>Heap-sort</td>
+<td><span class="math inline">\Theta(n\log n)</span></td>
+<td><span class="math inline">\Theta(n\log n)</span> <br> distinct keys</td>
 <td><span class="math inline">\Theta(n\log n)</span></td>
 </tr>
 </tbody>
 </table>
-</div>
-<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
-<div class="sourceCode" id="cb3"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">template</span> <span class="op">&lt;</span><span class="kw">class</span> T<span class="op">&gt;</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> partition<span class="op">(</span>vector<span class="op">&lt;</span>T<span class="op">&gt;&amp;</span> v<span class="op">,</span> <span class="dt">int</span> l<span class="op">,</span> <span class="dt">int</span> u<span class="op">,</span> <span class="dt">int</span><span class="op">&amp;</span> k<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> i <span class="op">=</span> l<span class="op">+</span><span class="dv">1</span><span class="op">;</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> j <span class="op">=</span> u<span class="op">;</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    T pv <span class="op">=</span> v<span class="op">[</span>i<span class="op">];</span> <span class="co">// simple choice for pivot</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="op">(</span>i <span class="op">&lt;</span> j<span class="op">+</span><span class="dv">1</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">while</span> <span class="op">(</span>i <span class="op">&lt;</span> j<span class="op">+</span><span class="dv">1</span> <span class="kw">and</span> v<span class="op">[</span>i<span class="op">]</span> <span class="op">&lt;=</span> pv<span class="op">)</span> <span class="op">++</span>i<span class="op">;</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">while</span> <span class="op">(</span>i <span class="op">&lt;</span> j<span class="op">+</span><span class="dv">1</span> <span class="kw">and</span> pv <span class="op">&lt;=</span> v<span class="op">[</span>j<span class="op">])</span> <span class="op">--</span>j<span class="op">;</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>i <span class="op">&lt;</span> j <span class="op">+</span> <span class="dv">1</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>            swap<span class="op">(</span>v<span class="op">[</span>i<span class="op">],</span> v<span class="op">[</span>j<span class="op">]);</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>            <span class="op">++</span>i<span class="op">;</span> </span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>            <span class="op">--</span>j<span class="op">;</span></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    swap<span class="op">(</span>v<span class="op">[</span>l<span class="op">],</span> v<span class="op">[</span>j<span class="op">]);</span></span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    k <span class="op">=</span> j<span class="op">;</span></span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> quicksort<span class="op">(</span>vector<span class="op">&lt;</span>T<span class="op">&gt;&amp;</span> v<span class="op">,</span> <span class="dt">int</span> l<span class="op">,</span> <span class="dt">int</span> u<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>u <span class="op">-</span>l <span class="op">+</span> <span class="dv">1</span> <span class="op">&gt;</span> M<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>        <span class="dt">int</span> k<span class="op">;</span></span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>        partition<span class="op">(</span>v<span class="op">,</span> l<span class="op">,</span> u<span class="op">,</span> k<span class="op">);</span></span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>        quicksort<span class="op">(</span>v<span class="op">,</span> l<span class="op">,</span> k<span class="op">-</span><span class="dv">1</span><span class="op">);</span></span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>        quicksort<span class="op">(</span>v<span class="op">,</span> k<span class="op">+</span><span class="dv">1</span><span class="op">,</span> u<span class="op">);</span></span>
-<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> quicksort<span class="op">(</span>vector<span class="op">&lt;</span>T<span class="op">&gt;&amp;</span> v<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>    quicksort<span class="op">(</span>v<span class="op">,</span> <span class="dv">0</span><span class="op">,</span> v<span class="op">.</span>size<span class="op">()-</span><span class="dv">1</span><span class="op">);</span></span>
-<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>    insertion_sort<span class="op">(</span>v<span class="op">,</span> <span class="dv">0</span><span class="op">,</span> v<span class="op">.</span>size<span class="op">()-</span><span class="dv">1</span><span class="op">);</span></span>
-<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Running time</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Worst case</td>
-<td><span class="math inline">\Theta(n^2)</span></td>
-</tr>
-<tr class="even">
-<td>Average case</td>
-<td><span class="math inline">\Theta(n\log n)</span><br>under the uniform distribution</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
-<div class="sourceCode" id="cb4"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;queue&gt;</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="kw">template</span> <span class="op">&lt;</span><span class="kw">class</span> T<span class="op">&gt;</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> heapsort <span class="op">(</span>vector<span class="op">&lt;</span>T<span class="op">&gt;&amp;</span> v<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> n <span class="op">=</span> v<span class="op">.</span>size<span class="op">();</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    priority_queue<span class="op">&lt;</span>T<span class="op">&gt;</span> pq<span class="op">;</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> n<span class="op">;</span> <span class="op">++</span>i<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>        pq<span class="op">.</span>push<span class="op">(</span>v<span class="op">[</span>i<span class="op">]);</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> n<span class="op">-</span><span class="dv">1</span><span class="op">;</span> i <span class="op">&gt;=</span> <span class="dv">0</span><span class="op">;</span> <span class="op">--</span>i<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>        v<span class="op">[</span>i<span class="op">]</span> <span class="op">=</span> pq<span class="op">.</span>top<span class="op">();</span></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>        pq<span class="op">.</span>pop<span class="op">();</span></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span> </span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Running time</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Worst case</td>
-<td><span class="math inline">\Theta(n\log n)</span></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">

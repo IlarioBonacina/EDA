@@ -192,8 +192,8 @@ window.Quarto = {
 </div>
       </div> <!-- /container-fluid -->
     </nav>
-  <div id="quarto-announcement" data-announcement-id="82f5b3bcfa48cd130ec83cdc3466ba01" class="alert alert-warning hidden"><i class="bi bi-exclamation-triangle-fill quarto-announcement-icon"></i><div class="quarto-announcement-content">
-<p>Por el momento esta página está disponible en Inglés. Si lo necesitas, puedes utilizar <a href="https://ilariobonacina-github-io.translate.goog/EDA/?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=ca&amp;_x_tr_pto=wapp">Google Translate</a> para traducir al castellano, al català, o al idioma que más te agrade. Ten en cuenta que Google Translate no funciona muy bien en páginas con mucha matemática.”</p>
+  <div id="quarto-announcement" data-announcement-id="df0a319c1a43838ae13e1dd1b4ee3b04" class="alert alert-warning hidden"><i class="bi bi-exclamation-triangle-fill quarto-announcement-icon"></i><div class="quarto-announcement-content">
+<p>Por el momento esta página está disponible en Inglés. Si lo necesitas, puedes utilizar <a href="https://ilariobonacina-github-io.translate.goog/EDA/?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=ca&amp;_x_tr_pto=wapp">Google Translate</a> para traducir al castellano, al català, o al idioma que más te agrade. Ten en cuenta que Google Translate no funciona muy bien en páginas con mucha matemática.</p>
 </div></div>
 </header>
 <!-- content -->
@@ -308,7 +308,7 @@ Proof
 </div>
 <div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>It is easier to see when the quasi-complete tree is stored in a vector. The last leaf of tree is the <span class="math inline">n</span>the element of the vector. Its father is in position <span class="math inline">\lfloor \frac{n}{2}\rfloor</span>. That is, all the <span class="math inline">n-\lfloor \frac{n}{2}\rfloor</span> many elements in the vector after the father of the last leaf must be leaves aswell. Since <span class="math inline">n-\lfloor \frac{n}{2}\rfloor=\lceil \frac{n}{2}\rceil</span> this concludes the proof.</p>
+<p>It is easier to see when the quasi-complete tree is stored in a vector. The last leaf of tree is the <span class="math inline">n</span>the element of the vector. Its father is in position <span class="math inline">\lfloor \frac{n}{2}\rfloor</span>. That is, all the <span class="math inline">n-\lfloor \frac{n}{2}\rfloor</span> many elements in the vector after the father of the last leaf must be leaves aswell, and all the elements before the one in position <span class="math inline">\lfloor \frac{n}{2}\rfloor</span> cannot be leaves. Since <span class="math inline">n-\lfloor \frac{n}{2}\rfloor=\lceil \frac{n}{2}\rceil</span> this concludes the proof.</p>
 </div>
 </div>
 </div>
@@ -355,6 +355,7 @@ Proof
 <h3 class="anchored" data-anchor-id="heapsort">Heapsort</h3>
 <p>The sorting algorithm <strong>Heapsort</strong> (Williams, 1964) sorts an array of <span class="math inline">n</span> elements building a min-heap with the <span class="math inline">n</span> elements and extracting them, one by one, from the heap.</p>
 <p>The originally given array is used to build the heap; heapsort works in-place and only some constant auxiliary memory space is needed. Since insertions and deletions in heaps have cost <span class="math inline">O(\log n)</span> the cost of the algorithm is <span class="math inline">O(n\log n)</span>.</p>
+<p>For a comparison of Heap-sort with other comparison-based sorting algorithms see <a href="../theory_bits/sorting_algorithms.html">this page</a>.</p>
 <p><a href="javascript:history.back()"><iconify-icon role="img" inline="" icon="twemoji:back-arrow" style="font-size: 2em;" aria-label="Icon back-arrow from twemoji Iconify.design set." title="Icon back-arrow from twemoji Iconify.design set."></iconify-icon></a></p>
 
 
