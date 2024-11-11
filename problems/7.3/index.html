@@ -38,14 +38,14 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-726ef2cf7ae90bf7bc9f0603b49b43d8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-90fda7b470b4773ea1634e0eb6ac8339.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-498371d99772968697fee56ad3a3cc4e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="../../site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
 <script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
+  "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
+  "panel-placement": "start",
+  "type": "textbox",
   "limit": 50,
   "keyboard-shortcut": [
     "f",
@@ -115,55 +115,16 @@ window.Quarto = {
 
 </head>
 
-<body class="nav-fixed">
+<body>
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
-      <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">EDA</span>
-    </a>
-  </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-  <span class="navbar-toggler-icon"></span>
-</button>
-          <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
-    <a class="nav-link" href="../../problems/index.html"> <i class="bi bi-body-text" role="img">
-</i> 
-<span class="menu-text">Problem Classes</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../labs/index.html"> <i class="bi bi-pc-display" role="img">
-</i> 
-<span class="menu-text">Lab Classes</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../references/index.html"> <i class="bi bi-book" role="img">
-</i> 
-<span class="menu-text">References</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../about.html"> <i class="bi bi-info-circle-fill" role="img">
-</i> 
-<span class="menu-text">Contacts</span></a>
-  </li>  
-</ul>
-          </div> <!-- /navcollapse -->
-            <div class="quarto-navbar-tools">
-</div>
-      </div> <!-- /container-fluid -->
-    </nav>
   <div id="quarto-announcement" data-announcement-id="df0a319c1a43838ae13e1dd1b4ee3b04" class="alert alert-warning hidden"><i class="bi bi-exclamation-triangle-fill quarto-announcement-icon"></i><div class="quarto-announcement-content">
 <p>Por el momento esta página está disponible en Inglés. Si lo necesitas, puedes utilizar <a href="https://ilariobonacina-github-io.translate.goog/EDA/?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=ca&amp;_x_tr_pto=wapp">Google Translate</a> para traducir al castellano, al català, o al idioma que más te agrade. Ten en cuenta que Google Translate no funciona muy bien en páginas con mucha matemática.</p>
-</div></div>
+</div><i class="bi bi-x-lg quarto-announcement-action"></i></div>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
@@ -195,20 +156,14 @@ window.Quarto = {
 
 <div class="no-row-height column-margin column-container"><div class="">
 <p><img src="directions.webp" class="img-fluid"></p>
-</div></div><p><span class="math display">
-\newcommand{\NP}{\mathsf{NP}}
-\newcommand{\SAT}{\mathsf{SAT}}
-\newcommand{\HAM}{\mathsf{HAM}}
-\newcommand{\EUL}{\mathsf{EUL}}
-</span></p>
-<p>The problems of Satisfiability of Boolean formulas (<span class="math inline">\SAT</span>) and of determining whether a given graph is Hamiltonian (<span class="math inline">\HAM</span>) are two well-known <span class="math inline">\NP</span>-complete problems.</p>
-<p>The problem of determining whether a given graph contains an Eulerian circuit (<span class="math inline">\EUL</span>) has a solution with cost <span class="math inline">\Theta(n + m)</span>, where <span class="math inline">n</span> is the number of vertices in the graph and <span class="math inline">m</span> is its number of edges.</p>
+</div></div><p>The problems of Satisfiability of Boolean formulas (<span class="math inline">\mathsf{SAT}</span>) and of determining whether a given graph is Hamiltonian (<span class="math inline">\mathsf{HAM}</span>) are two well-known <span class="math inline">\mathbf{NP}</span>-complete problems.</p>
+<p>The problem of determining whether a given graph contains an Eulerian circuit (<span class="math inline">\mathsf{EUL}</span>) has a solution with cost <span class="math inline">\Theta(n + m)</span>, where <span class="math inline">n</span> is the number of vertices in the graph and <span class="math inline">m</span> is its number of edges.</p>
 <p>Which one of the following sentences can we say it is true?</p>
 <ul>
-<li><span class="math inline">\SAT</span> reduces to <span class="math inline">\HAM</span> and <span class="math inline">\HAM</span> reduces to <span class="math inline">\EUL</span>.</li>
-<li><span class="math inline">\EUL</span> reduces to <span class="math inline">\SAT</span> and <span class="math inline">\SAT</span> reduces to <span class="math inline">\HAM</span>.</li>
-<li><span class="math inline">\SAT</span> and <span class="math inline">\HAM</span> reduce to each other; <span class="math inline">\EUL</span> only reduces to <span class="math inline">\HAM</span>.</li>
-<li><span class="math inline">\SAT</span> reduces to <span class="math inline">\EUL</span> and <span class="math inline">\EUL</span> reduces to <span class="math inline">\HAM</span>.</li>
+<li><span class="math inline">\mathsf{SAT}</span> reduces to <span class="math inline">\mathsf{HAM}</span> and <span class="math inline">\mathsf{HAM}</span> reduces to <span class="math inline">\mathsf{EUL}</span>.</li>
+<li><span class="math inline">\mathsf{EUL}</span> reduces to <span class="math inline">\mathsf{SAT}</span> and <span class="math inline">\mathsf{SAT}</span> reduces to <span class="math inline">\mathsf{HAM}</span>.</li>
+<li><span class="math inline">\mathsf{SAT}</span> and <span class="math inline">\mathsf{HAM}</span> reduce to each other; <span class="math inline">\mathsf{EUL}</span> only reduces to <span class="math inline">\mathsf{HAM}</span>.</li>
+<li><span class="math inline">\mathsf{SAT}</span> reduces to <span class="math inline">\mathsf{EUL}</span> and <span class="math inline">\mathsf{EUL}</span> reduces to <span class="math inline">\mathsf{HAM}</span>.</li>
 </ul>
 <p><a href="javascript:history.back()"><iconify-icon role="img" inline="" icon="twemoji:back-arrow" style="font-size: 2em;" aria-label="Icon back-arrow from twemoji Iconify.design set." title="Icon back-arrow from twemoji Iconify.design set."></iconify-icon></a></p>
 
