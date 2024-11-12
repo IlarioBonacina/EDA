@@ -73,10 +73,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-726ef2cf7ae90bf7bc9f0603b49b43d8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e98afea632462507d697cb13b4ece97d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-498371d99772968697fee56ad3a3cc4e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-005f9eea4e2fd0b9cf142d3e8b826c16.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/quarto-contrib/bootstrap-icons-1.11.1/all.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
@@ -455,7 +455,7 @@ window.Quarto = {
 </header>
 
 
-<p>In this lab we consider some of the problems from <a href="https://www.jutge.org">Jutge.org</a>, section EDA <span class="math inline">\rightarrow</span> <strong>Graph Algorithms</strong>. The problems in this section we see in this lab of three different types</p>
+<p>In this lab we consider some of the problems from <a href="https://www.jutge.org">Jutge.org</a>, section EDA <span class="math inline">\rightarrow</span> <strong>Graph Algorithms</strong>. The problems in this section we see in this lab are of three different types</p>
 <ul>
 <li>variations on Depth-First Search,</li>
 <li>variations on Breath-First Search,</li>
@@ -479,6 +479,7 @@ Possible workflow
 </div>
 <div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
+<p><br></p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -593,6 +594,7 @@ Step 4: I’m stuck. What can I do?
 </div>
 </div>
 </div>
+<p><br></p>
 </div>
 </div>
 </div>
@@ -652,44 +654,43 @@ A basic DFS implementation
 </div>
 <div id="callout-9" class="callout-9-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div class="sourceCode" id="cb1"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#include</span><span class="im">&lt;vector&gt;</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="pp">#include</span><span class="im">&lt;stack&gt;</span><span class="co">// only needed for the iterative implementation</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> <span class="kw">namespace</span> std<span class="op">;</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> graph <span class="op">=</span> vector<span class="op">&lt;</span> vector<span class="op">&lt;</span><span class="dt">int</span><span class="op">&gt;&gt;;</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> vertex <span class="op">=</span> <span class="dt">int</span><span class="op">;</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> DFS_rec <span class="op">(</span><span class="at">const</span> graph<span class="op">&amp;</span> G<span class="op">,</span> vertex u<span class="op">,</span> vector<span class="op">&lt;</span>boolean<span class="op">&gt;&amp;</span> visited<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="co">// recursive implementation</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="co">// DFS visit of the connected component of u in G</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span><span class="kw">not</span> vis<span class="op">[</span>u<span class="op">])</span> <span class="op">{</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>        visited<span class="op">[</span>u<span class="op">]</span> <span class="op">=</span> <span class="kw">true</span><span class="op">;</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>        <span class="co">// here we might want to "visit" u</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> <span class="op">(</span><span class="kw">auto</span> neighbor <span class="op">:</span> G<span class="op">[</span>u<span class="op">])</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>            DFS_rec<span class="op">(</span>G<span class="op">,</span> neighbor<span class="op">,</span> visited<span class="op">);</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> DFS_ite <span class="op">(</span><span class="at">const</span> graph<span class="op">&amp;</span> G<span class="op">,</span> vertex u<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="co">// iterative implementation</span></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    <span class="co">// DFS visit of the connected component of u in G</span></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> n <span class="op">=</span> G<span class="op">.</span>size<span class="op">();</span></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    stack<span class="op">&lt;</span><span class="dt">int</span><span class="op">&gt;</span> S<span class="op">;</span></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    vector<span class="op">&lt;</span><span class="dt">bool</span><span class="op">&gt;</span> visited<span class="op">(</span>n<span class="op">,</span> <span class="kw">false</span><span class="op">);</span></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>    S<span class="op">.</span>push<span class="op">(</span>u<span class="op">);</span></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="op">(</span><span class="kw">not</span> S<span class="op">.</span>empty<span class="op">())</span> <span class="op">{</span></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>        vertex v <span class="op">=</span> S<span class="op">.</span>top<span class="op">();</span> </span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>        S<span class="op">.</span>pop<span class="op">();</span></span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span><span class="kw">not</span> visited<span class="op">[</span>v<span class="op">])</span> <span class="op">{</span></span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>            vis<span class="op">[</span>v<span class="op">]</span> <span class="op">=</span> <span class="kw">true</span><span class="op">;</span> </span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>            <span class="co">// here we might want to "visit" u</span></span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> w <span class="op">:</span> G<span class="op">[</span>v<span class="op">])</span></span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>                S<span class="op">.</span>push<span class="op">(</span>w<span class="op">);</span></span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span> </span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span> </span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include</span><span class="im">&lt;vector&gt;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#include</span><span class="im">&lt;stack&gt;</span><span class="co">// only needed for the iterative implementation</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> <span class="kw">namespace</span> std<span class="op">;</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> graph <span class="op">=</span> vector<span class="op">&lt;</span>vector<span class="op">&lt;</span><span class="dt">int</span><span class="op">&gt;&gt;;</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> vertex <span class="op">=</span> <span class="dt">int</span><span class="op">;</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> DFS_rec <span class="op">(</span><span class="at">const</span> graph<span class="op">&amp;</span> G<span class="op">,</span> vertex u<span class="op">,</span> vector<span class="op">&lt;</span>boolean<span class="op">&gt;&amp;</span> visited<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="co">// recursive implementation</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="co">// DFS visit of the connected component of u in G</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span><span class="kw">not</span> vis<span class="op">[</span>u<span class="op">])</span> <span class="op">{</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>        visited<span class="op">[</span>u<span class="op">]</span> <span class="op">=</span> <span class="kw">true</span><span class="op">;</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>        <span class="co">// here we might want to "visit" u</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> <span class="op">(</span><span class="kw">auto</span> neighbor <span class="op">:</span> G<span class="op">[</span>u<span class="op">])</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>            DFS_rec<span class="op">(</span>G<span class="op">,</span> neighbor<span class="op">,</span> visited<span class="op">);</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> DFS_ite <span class="op">(</span><span class="at">const</span> graph<span class="op">&amp;</span> G<span class="op">,</span> vertex u<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    <span class="co">// iterative implementation</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="co">// DFS visit of the connected component of u in G</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> n <span class="op">=</span> G<span class="op">.</span>size<span class="op">();</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    stack<span class="op">&lt;</span><span class="dt">int</span><span class="op">&gt;</span> S<span class="op">;</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    vector<span class="op">&lt;</span><span class="dt">bool</span><span class="op">&gt;</span> visited<span class="op">(</span>n<span class="op">,</span> <span class="kw">false</span><span class="op">);</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    S<span class="op">.</span>push<span class="op">(</span>u<span class="op">);</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="op">(</span><span class="kw">not</span> S<span class="op">.</span>empty<span class="op">())</span> <span class="op">{</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>        vertex v <span class="op">=</span> S<span class="op">.</span>top<span class="op">();</span> </span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>        S<span class="op">.</span>pop<span class="op">();</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span><span class="kw">not</span> visited<span class="op">[</span>v<span class="op">])</span> <span class="op">{</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>            visited<span class="op">[</span>v<span class="op">]</span> <span class="op">=</span> <span class="kw">true</span><span class="op">;</span> </span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>            <span class="co">// here we might want to "visit" u</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> <span class="op">(</span><span class="kw">auto</span> neighbor <span class="op">:</span> G<span class="op">[</span>v<span class="op">])</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>                S<span class="op">.</span>push<span class="op">(</span>neighbor<span class="op">);</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span> </span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span> </span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -781,7 +782,7 @@ No matching items
 <h2 class="anchored" data-anchor-id="breadth-first-search">Breadth-First Search</h2>
 <p>In a <strong>Breadth-First Search</strong> (BFS) of a graph <span class="math inline">G=(V,E)</span> starting from some vertex <span class="math inline">s</span> we visit all vertices in the connected component of <span class="math inline">s</span> in increasing distance from <span class="math inline">s</span>.</p>
 <p>When a vertex is visited, all its adjacent non-visited vertices are put into a list of vertices yet to be visited.</p>
-<p>In BFS we keep a queue of vertices that have been not yet visited. All the vertices in the queue are at distance <span class="math inline">d</span> or <span class="math inline">d+ 1</span> from the starting vertex <span class="math inline">s</span>, where <span class="math inline">d</span> is the distance to <span class="math inline">s</span> of the last visited vertex. Moreover, all vertices at distance <span class="math inline">d</span> in the queue precede the vertices at distance <span class="math inline">d+ 1</span>, and all vertices of <span class="math inline">G</span> at distance <span class="math inline">d</span> from <span class="math inline">s</span> have already been visited or they are in the queue. The BFS thus visits the connected component of <span class="math inline">s</span> by traversing the levels or layers defined by the distance to <span class="math inline">s</span>.</p>
+<p>In BFS we keep a queue of vertices that have been not yet visited. All the vertices in the queue are at distance <span class="math inline">d</span> or <span class="math inline">d+ 1</span> from the starting vertex <span class="math inline">s</span>, where <span class="math inline">d</span> is the distance to <span class="math inline">s</span> of the last visited vertex. Moreover, all vertices at distance <span class="math inline">d</span> in the queue precede the vertices at distance <span class="math inline">d + 1</span>, and all vertices of <span class="math inline">G</span> at distance <span class="math inline">d</span> from <span class="math inline">s</span> have already been visited or they are in the queue. The BFS thus visits the connected component of <span class="math inline">s</span> by traversing the levels or layers defined by the distance to <span class="math inline">s</span>.</p>
 <div class="callout callout-style-simple callout-none no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
