@@ -662,7 +662,7 @@ A basic DFS implementation
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> graph <span class="op">=</span> vector<span class="op">&lt;</span>vector<span class="op">&lt;</span><span class="dt">int</span><span class="op">&gt;&gt;;</span></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> vertex <span class="op">=</span> <span class="dt">int</span><span class="op">;</span></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> DFS_rec <span class="op">(</span><span class="at">const</span> graph<span class="op">&amp;</span> G<span class="op">,</span> vertex u<span class="op">,</span> vector<span class="op">&lt;</span>boolean<span class="op">&gt;&amp;</span> visited<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> DFS_rec <span class="op">(</span><span class="at">const</span> graph<span class="op">&amp;</span> G<span class="op">,</span> vertex u<span class="op">,</span> vector<span class="op">&lt;</span><span class="dt">bool</span><span class="op">&gt;&amp;</span> visited<span class="op">)</span> <span class="op">{</span></span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="co">// recursive implementation</span></span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="co">// DFS visit of the connected component of u in G</span></span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span><span class="kw">not</span> visited<span class="op">[</span>u<span class="op">])</span> <span class="op">{</span></span>
@@ -806,7 +806,7 @@ A basic BFS implementation
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="dt">int</span> NOTVISITED <span class="op">=</span> <span class="op">-</span><span class="dv">1</span><span class="op">;</span></span>
 <span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>vector<span class="op">&lt;</span><span class="dt">int</span><span class="op">&gt;</span> bfs<span class="op">(</span><span class="at">const</span> graph<span class="op">&amp;</span> G<span class="op">,</span> vertex source<span class="op">){</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>vector<span class="op">&lt;</span>vector<span class="op">&lt;</span><span class="dt">int</span><span class="op">&gt;&gt;</span> bfs<span class="op">(</span><span class="at">const</span> graph<span class="op">&amp;</span> G<span class="op">,</span> vertex source<span class="op">){</span></span>
 <span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    <span class="co">// g is a graph given as an adjacency list</span></span>
 <span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    <span class="co">// source is a vertex in g</span></span>
 <span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    <span class="co">// the algorithm returns a vector D. D[v] is the distance of v from source, </span></span>
