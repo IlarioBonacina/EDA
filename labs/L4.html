@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -32,6 +66,8 @@ ul.task-list li input[type="checkbox"] {
 <meta name="quarto:offset" content="../">
 <link href="../labs/L5.html" rel="next">
 <link href="../labs/L3.html" rel="prev">
+<script src="../site_libs/quarto-listing/list.min.js"></script>
+<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -41,6 +77,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-005f9eea4e2fd0b9cf142d3e8b826c16.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/quarto-contrib/bootstrap-icons-1.11.1/all.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -68,6 +105,35 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script>
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-exercises-L4-dijkstra .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-image','listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-title","listing-author","listing-image","listing-description"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-exercises-L4-dijkstra'] = new List('listing-exercises-L4-dijkstra', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
 <style>html{ scroll-behavior: smooth; }</style>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
@@ -295,8 +361,14 @@ window.Quarto = {
     <h2 id="toc-title">In this lab</h2>
    
   <ul>
-  <li><a href="#dijkstras-algorithm" id="toc-dijkstras-algorithm" class="nav-link active" data-scroll-target="#dijkstras-algorithm">Dijkstra’s algorithm</a></li>
-  <li><a href="#prims-algorithm" id="toc-prims-algorithm" class="nav-link" data-scroll-target="#prims-algorithm">Prim’s algorithm</a></li>
+  <li><a href="#dijkstras-algorithm" id="toc-dijkstras-algorithm" class="nav-link active" data-scroll-target="#dijkstras-algorithm">Dijkstra’s Algorithm</a>
+  <ul class="collapse">
+  <li><a href="#jutge-exercises" id="toc-jutge-exercises" class="nav-link" data-scroll-target="#jutge-exercises">Jutge exercises</a></li>
+  </ul></li>
+  <li><a href="#minimum-spanning-trees" id="toc-minimum-spanning-trees" class="nav-link" data-scroll-target="#minimum-spanning-trees">Minimum Spanning Trees</a>
+  <ul class="collapse">
+  <li><a href="#jutge-exercises-1" id="toc-jutge-exercises-1" class="nav-link" data-scroll-target="#jutge-exercises-1">Jutge exercises</a></li>
+  </ul></li>
   </ul>
 <div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="https://en.cppreference.com/w/"><i class="bi bi-code-slash"></i>cppreference.com</a></li><li><a href="https://jutge.org"><i class="bi bi-link-45deg"></i>Jutge.org</a></li><li><a href="https://www.cs.upc.edu/eda/"><i class="bi bi-link-45deg"></i>EDA Main Page</a></li><li><a href="https://www.cs.upc.edu/eda/data/uploads/eda-problem-set.cat.pdf"><i class="bi bi-book"></i>EDA Problem Set</a></li><li><a href="https://www.cs.upc.edu/~oliveras/examens.cat.pdf"><i class="bi bi-book"></i>Collection of Solved Exams</a></li><li><a href="https://www.cs.upc.edu/eda/data/uploads/eda-codis.pdf"><i class="bi bi-book"></i>Algorithms in C++</a></li></ul></div></nav>
     </div>
@@ -465,41 +537,161 @@ Step 4: I’m stuck. What can I do?
 </div>
 </div>
 <section id="dijkstras-algorithm" class="level2">
-<h2 class="anchored" data-anchor-id="dijkstras-algorithm">Dijkstra’s algorithm</h2>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
+<h2 class="anchored" data-anchor-id="dijkstras-algorithm">Dijkstra’s Algorithm</h2>
+<p>Given a weighted directed graph <span class="math inline">G= (V,E)</span>, <em>Dijkstra’s algorithm</em> (1959) finds all shortest paths from a given vertex (the source) to all other vertices in the directed graph. The weights on the edges are given by a function <span class="math inline">w\colon E\to \mathbb R^+</span>.</p>
+<p>Given two vertices <span class="math inline">u,v</span> in <span class="math inline">G</span>, their <em>distance</em><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> <span class="math inline">d_G(u,v)</span> in the weighted directed graph <span class="math inline">G</span> is the minimum weight of a path from <span class="math inline">u</span> to <span class="math inline">v</span>, where the weight of a path is taken as the sum of the weights of the edges in it.</p>
+<div class="callout callout-style-simple callout-none no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Important
+Why do we assume the weights to be non-negative?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>If weights were allowed to be negative then the directed graph can contain negative weight cycles, and then shortest paths are not well defined.</p>
+</div>
+</div>
+</div>
+<p>Dijkstra’s algorithm works iteratively. The input is a weighted directed graph <span class="math inline">G=(V,E)</span> and a vertex <span class="math inline">s</span>. The algorithm will return a vector <span class="math inline">D</span>, where <span class="math inline">D[u]</span> is the minimum distance of <span class="math inline">u</span> from the starting point <span class="math inline">s</span>.</p>
+<p>On each iteration the set of vertices is partitioned in two parts: the vertices that we have <strong>visited</strong> and those that haven’t been visited yet, also called <strong>candidates</strong>. The invariant of the loop establishes that</p>
+<ol type="1">
+<li>For all <em>visited</em> vertices <span class="math inline">u</span>, <span class="math inline">D[u]</span> is the minimum weight of a path from <span class="math inline">s</span> to <span class="math inline">u</span>,</li>
+<li>For all <em>candidate</em> vertices <span class="math inline">u</span>, <span class="math inline">D[u]</span> is the weight of the shortest path from <span class="math inline">s</span> to <span class="math inline">u</span> which passes exclusively through visited vertices, <em>i.e.</em>, only the last vertex in the path, <span class="math inline">u</span>, is a candidate.</li>
+</ol>
+<p>Each iteration of the main loop selects a candidate vertex <span class="math inline">u</span>, updates <span class="math inline">D</span> and marks <span class="math inline">u</span> as visited. When all vertices have been visited, we have the desired answer.</p>
+<p><strong>Which candidate vertex do we need to select on each iteration of Dijkstra’s algorithm?</strong></p>
+<p>Intuitively, the candidate to choose is the one with minimal <span class="math inline">D</span>. Let <span class="math inline">u</span> be that vertex. According to the invariant, <span class="math inline">D[u]</span> is minimal among all paths passing only through visited vertices. But it must also be the minimal weight for all paths. If there were a shortest path going through a candidate vertex <span class="math inline">x</span>, the weight of that path would be <span class="math inline">D[x] + d_G(x,u) &lt; D[u]</span>. Since <span class="math inline">d_G(x,u) \geq 0</span> we would have <span class="math inline">D[x] &lt; D[u]</span>, and that’s a contradiction since by assumption <span class="math inline">D[u]</span> is minimal among all candidate vertices.</p>
+<p>As we have just seen <span class="math inline">D[v]</span> is the minimum weight of a path from <span class="math inline">s</span> to <span class="math inline">v</span>, for all visited vertices <span class="math inline">v</span>, and for the vertex <span class="math inline">u</span> to be visited.</p>
+<p>We need now to consider how to maintain the second part of the invariant. Consider a candidate vertex <span class="math inline">v</span>. Since <span class="math inline">u</span> becomes a visited vertex in the current iteration, we may have a new shortest path from <span class="math inline">s</span> to <span class="math inline">v</span> going only through visited vertices that now include <span class="math inline">u</span>. A simple reasoning shows that if such shortest path includes <span class="math inline">u</span> then <span class="math inline">u</span> must be the immediate predecessor of <span class="math inline">v</span> in the path (assuming the contrary leads to a contradiction).</p>
+<p>It follows that <span class="math inline">D[v]</span> can change if and only if <span class="math inline">v</span> is a successor of <span class="math inline">u</span>; in particular, if <span class="math display">
+D[v] &gt;D[u] + w\ ,</span> where <span class="math inline">w</span> is the weight of the edge <span class="math inline">(u,v)</span>, then <span class="math inline">D[v]</span> must be updated <span class="math inline">D[v] := D[u] + w</span>. The condition above is never true if <span class="math inline">v</span> has already been visited.</p>
+<p><i class="bi-eye-fill " style="" role="img" aria-hidden="true"></i> <a href="https://www.cs.usfca.edu/~galles/visualization/Dijkstra.html">See an animation of a run of Dijkstra’s algorithm!</a></p>
+<p>Or also this animation from wikipedia:</p>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/5/57/Dijkstra_Animation.gif" class="img-fluid"></p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Cost of Dijkstra’s Algorithm
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This section will be available closer to the class.</p>
+<p>Let <span class="math inline">n= |V(G)|</span> and <span class="math inline">m= |E(G)|</span>, as usual. Assume that the digraph is implemented with an <strong>adjacency matrix</strong>. Then the cost of the algorithm is <span class="math inline">Ω\Omega(n^2)</span> since there are <span class="math inline">n</span> iterations, and we incur a cost <span class="math inline">\Omega(n)</span> to go through the successors <span class="math inline">v</span> of the chosen candidate (because we are scanning the corresponding row in the matrix). Finding the minimum <span class="math inline">D</span> at each iteration is <span class="math inline">O(n)</span> and therefore the cost of the algorithm is actually <span class="math inline">\Theta(n^2)</span>.</p>
+<p>If the graph is implemented <strong>with adjancecy lists</strong>. Then the cost of the internal loop that goes through the successors of <span class="math inline">u</span> is <span class="math inline">\Theta(\mathrm{deg}(u)\cdot \text{cost of updating }D)</span>.</p>
+<p>If the set of candidates and the table <span class="math inline">D</span> are implemented as simple arrays ( <code>cand[i] = true</code> if and only if <span class="math inline">i</span> is a candidate) then the cost of the algorithm is <span class="math inline">\Theta(n^2 + m) = \Theta(n^2)</span>, since we have cost <span class="math inline">\Theta(i+ \mathrm{deg}(u))</span> during the iteration in which we have still <span class="math inline">i</span> candidates and <span class="math inline">u</span> is selected to be visited.</p>
+<p>To improve the efficiency we need to convert <code>cand</code>/<code>D</code> to a <strong>priority queue</strong>; the elements are the candidate vertices and the priority of candidate <span class="math inline">v</span> is its <span class="math inline">D[v]</span>. This will give (see theory slides) a worst case cost of <span class="math inline">\Theta((n+m)\log n)</span>.</p>
+</div>
+</div>
+<section id="jutge-exercises" class="level3">
+<h3 class="anchored" data-anchor-id="jutge-exercises">Jutge exercises</h3>
+<p>The Jutge exercises that can be thought as <em>variations on Dijkstra’s algorithm</em> are the following:</p>
+<ul>
+<li><a href="https://jutge.org/problems/P43859_en">P43859 Weighted shortest path (1)</a></li>
+<li><a href="https://jutge.org/problems/P13994_en">P13994 Weighted shortest path (2)</a></li>
+<li><a href="https://jutge.org/problems/P25235_en">P25235 Weighted shortest path (3)</a></li>
+<li><a href="https://jutge.org/problems/P39586_en">P39586 Weighted shortest path (4)</a> <span class="emoji" data-emoji="exclamation">❗</span></li>
+</ul>
+<p>From this block of exercises, in class we solve together first <a href="https://jutge.org/problems/P43859_en">P43859 Weighted shortest path (1)</a> and then we see how to modify the construction to solve the others.</p>
+<div id="listing-exercises-L4-dijkstra" class="quarto-listing quarto-listing-container-grid">
+<div class="list grid quarto-listing-cols-3">
+<div class="g-col-1" data-index="0" data-categories="L4,Graph Algorithms,Dijkstra" data-listing-file-modified-sort="1731943827076" data-listing-reading-time-sort="2" data-listing-word-count-sort="255">
+<a href="../labs/L4-P43859/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="../labs/L4-P43859/dijkstra.jpg" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Weighted shortest path (1)
+</h5>
+</div>
+</div>
+</a>
+</div>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
 </div>
 </div>
 </section>
-<section id="prims-algorithm" class="level2">
-<h2 class="anchored" data-anchor-id="prims-algorithm">Prim’s algorithm</h2>
-<div class="callout callout-style-default callout-important callout-titled">
+</section>
+<section id="minimum-spanning-trees" class="level2">
+<h2 class="anchored" data-anchor-id="minimum-spanning-trees">Minimum Spanning Trees</h2>
+<p>Given a weighted undirected connected graph <span class="math inline">G = (V,E)</span>, with weights <span class="math inline">w\colon E \to\mathbb R</span>, a <strong>minimum spanning tree</strong> (MST) of <span class="math inline">G</span> is a spanning tree <span class="math inline">T</span> and its total weight <span class="math display">
+w(T) = \sum_{e\in E(T)} w(e)
+</span> is minimum among all possible spanning trees of <span class="math inline">G</span>.</p>
+<p><strong>Jarník-Prim algorithm</strong> is a greedy algorithm that given an input a weighted undirected connected graph finds a minimum spanning tree in it. In this algorithm we maintain a subset of <strong>visited</strong> vertices; each iteration of the algorithm selects the edge of minimum weight that joins a visited vertex <span class="math inline">u</span> with a non-visited vertex <span class="math inline">v</span>. Such edge cannot create a cycle, and it is added to the current set of edges for the spanning tree; furthermore vertex <span class="math inline">v</span> is marked as visited. The set of edges so far is a spanning tree of the visited vertices. Since at each step we select the edge of minimum weight crossing the visited and non-visited vertices at the end the resulting set of edges will be a tree of minimum weight.</p>
+<p><i class="bi-eye-fill " style="" role="img" aria-hidden="true"></i> <a href="https://www.cs.usfca.edu/~galles/visualization/Prim.html">See an animation of a run of Jarník-Prim’s algorithm!</a></p>
+<p>A possible C++ implementation of Jarník-Prim algorithm is the following:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include</span><span class="im">&lt;vector&gt;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#include</span><span class="im">&lt;queue&gt;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> edge <span class="op">=</span> pair<span class="op">&lt;</span><span class="dt">int</span><span class="op">,</span><span class="dt">int</span><span class="op">&gt;;</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> wedge <span class="op">=</span> pair<span class="op">&lt;</span><span class="dt">double</span><span class="op">,</span>edge<span class="op">&gt;;</span><span class="co">//weighted edge</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> graph <span class="op">=</span> vector<span class="op">&lt;</span>list<span class="op">&lt;</span>weighted_edge<span class="op">&gt;&gt;;</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> Prim<span class="op">(</span><span class="at">const</span> graph<span class="op">&amp;</span> G<span class="op">,</span> list<span class="op">&lt;</span>edge<span class="op">&gt;&amp;</span> MST<span class="op">,</span> <span class="dt">double</span><span class="op">&amp;</span> MST_weight<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> n <span class="op">=</span> G<span class="op">.</span>size<span class="op">();</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  vector<span class="op">&lt;</span><span class="dt">bool</span><span class="op">&gt;</span> visited<span class="op">(</span>n<span class="op">,</span> <span class="kw">false</span><span class="op">);</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  priority_queue<span class="op">&lt;</span>wedge<span class="op">,</span>vector<span class="op">&lt;</span>wedge<span class="op">&gt;,</span>greater<span class="op">&lt;</span>wedge<span class="op">&gt;&gt;</span> Candidates<span class="op">;</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  visited<span class="op">[</span><span class="dv">0</span><span class="op">]</span> <span class="op">=</span> <span class="kw">true</span><span class="op">;</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  MST_weight <span class="op">=</span> <span class="fl">0.0</span><span class="op">;</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> <span class="op">(</span>wedge e <span class="op">:</span> G<span class="op">[</span><span class="dv">0</span><span class="op">])</span> Candidates<span class="op">.</span>push<span class="op">(</span>e<span class="op">);</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="cf">while</span> <span class="op">(</span>MST<span class="op">.</span>size<span class="op">()</span> <span class="op">&lt;</span> n<span class="op">-</span><span class="dv">1</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> weight <span class="op">=</span> Candidates<span class="op">.</span>top<span class="op">().</span>first<span class="op">;</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    edge uv <span class="op">=</span> Candidates<span class="op">.</span>top<span class="op">().</span>second<span class="op">;</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    Candidates<span class="op">.</span>pop<span class="op">();</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> v <span class="op">=</span> uv<span class="op">.</span>second<span class="op">;</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span><span class="kw">not</span> visited<span class="op">[</span>v<span class="op">])</span> <span class="op">{</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>      visited<span class="op">[</span>v<span class="op">]</span> <span class="op">=</span> <span class="kw">true</span><span class="op">;</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>      MST<span class="op">.</span>push_back<span class="op">(</span>uv<span class="op">);</span> </span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>      MST_weight <span class="op">+=</span> weight<span class="op">;</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>      <span class="cf">for</span> <span class="op">(</span>wedge e <span class="op">:</span> G<span class="op">[</span>e<span class="op">])</span> Candidates<span class="op">.</span>push<span class="op">(</span>e<span class="op">);</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Important
+Cost of Jarník-Prim’s Algorithm
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This section will be available closer to the class.</p>
+<p>The cost of Jarník-Prim’s algorithm depends how do we implement the selection of the minimum weight edge. If we use a priority queue, the selection of the edge to add at each step can be done in time <span class="math inline">\Theta(\log m) = \Theta(\log n)</span>. We incur an additional <span class="math inline">\Theta(1)</span> for the visit of a vertex on each iteration. The internal loop through the adjacent vertices, adding new candidate edges and removing edges that connect the just visited vertex with previously visited vertices has cost <span class="math inline">\Theta(\mathrm{deg}(v)\cdot \log m) = \Theta(\mathrm{deg}(v)\cdot \log n)</span> when the currently visited vertex is <span class="math inline">v</span>.</p>
+<p>If we add the contributions of the costs for all vertices <span class="math inline">v</span> (the main loop visits one vertex on each iteration) we get <span class="math inline">\Theta(m\log n)</span>.</p>
 </div>
 </div>
+<section id="jutge-exercises-1" class="level3">
+<h3 class="anchored" data-anchor-id="jutge-exercises-1">Jutge exercises</h3>
+<p>The Jutge exercises that can be thought as <em>variations on Jarník-Prim’s algorithm</em> are the following:</p>
+<ul>
+<li><a href="https://jutge.org/problems/P12887_en">P12887 Minimum spanning trees</a></li>
+</ul>
+
 
 
 </section>
+</section>
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>This is not really a distance because in general it is not symmetric.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

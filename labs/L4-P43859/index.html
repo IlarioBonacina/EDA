@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Topological sort – EDA</title>
+<title>Weighted shortest path (1) – EDA</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -169,8 +169,8 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Topological sort</h1>
-<p class="subtitle lead"><a href="https://jutge.org/problems/P14952_en">Go to the Jutge statement of the problem</a></p>
+<h1 class="title">Weighted shortest path (1)</h1>
+<p class="subtitle lead"><a href="https://jutge.org/problems/P43859_en">Go to the Jutge statement of the problem</a></p>
   </div>
 
 
@@ -187,12 +187,19 @@ window.Quarto = {
 </header>
 
 
+<p>Write a program that, given a directed graph with positive costs at the arcs, and two vertices <span class="math inline">x</span> and <span class="math inline">y</span>, computes the minimum cost to go from <span class="math inline">x</span> to <span class="math inline">y</span>.</p>
 
 <div class="no-row-height column-margin column-container"><div class="">
-<p><img src="topological_sort.png" class="img-fluid"></p>
-</div></div><p>We must perform <span class="math inline">n</span> tasks, one at a time. Furthermore, some tasks must be done before others: there are <span class="math inline">m</span> precedence relations between tasks. Write a program to print a way to sort the <span class="math inline">n</span> tasks satisfying the <span class="math inline">m</span> given precedences.</p>
-<p><strong>Input:</strong> Input consists of several cases. Every case begins with <code>n</code>, followed by <code>m</code>, followed by <span class="math inline">m</span> ‍distinct pairs <code>x y</code> that indicate that task <span class="math inline">x</span> must be done before task <span class="math inline">y</span>. You can assume <span class="math inline">1 \leq  n \leq 10^4</span>, <span class="math inline">0 \leq m \leq 10n</span>, and that the tasks are numbered from <span class="math inline">0</span> to <span class="math inline">n − 1</span>.</p>
-<p><strong>Output:</strong> For every case, print the lexicographically smallest order of the <span class="math inline">n</span> tasks that fulfills the <span class="math inline">m</span> ‍given precedences. There will always be, at least, one solution.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="dijkstra.jpg" class="img-fluid figure-img"></p>
+<figcaption><a href="https://en.wikipedia.org/wiki/Edsger_W._Dijkstra">Edsger Dijkstra</a></figcaption>
+</figure>
+</div>
+<p><em>“I don’t know how many of you have ever met Dijkstra, but you probably know that arrogance in computer science is measured in nano-Dijkstras.”</em> - Alan Kay</p>
+<p>(<a href="https://news.ycombinator.com/item?id=11796926">some context</a> for the quotation)</p>
+</div></div><p><strong>Input:</strong> Input consists of several cases. Every case begins with the number of vertices <span class="math inline">n</span> and the number of arcs <span class="math inline">m</span>. Follow <span class="math inline">m</span> triples <span class="math inline">u\ v\ c</span>, indicating that there is an arc <span class="math inline">u \rightarrow v</span> of cost <span class="math inline">c</span>, where <span class="math inline">u \neq v</span> and <span class="math inline">1 \leq c \leq 10^4</span>. Finally, we have <span class="math inline">x</span> and <span class="math inline">y</span>.<br> Assume <span class="math inline">1 \leq  n \leq  10^4</span>, <span class="math inline">0 \leq m \leq 5n</span>, and that for every pair of vertices <span class="math inline">u</span> and <span class="math inline">v</span> there is at most one arc of the kind <span class="math inline">u \rightarrow v</span>. All numbers are integers. Vertices are numbered from <span class="math inline">0</span> to <span class="math inline">n−1</span>.</p>
+<p><strong>Output:</strong> For every case, print the minimum cost to go from <span class="math inline">x</span> to <span class="math inline">y</span>, if this is possible. If there is no path from <span class="math inline">x</span> to <span class="math inline">y</span>, state so.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -336,7 +343,7 @@ Hint
 </div>
 <div id="callout-10" class="callout-10-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>This problem is related to <a href="../../problems/5.12-5.13-5.14/index.html">Problem 5.12</a> you will see in Problem class P6.</p>
+<p>For this exercise a basic implementation of Dijkstra’s algorithm is enough.</p>
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -349,42 +356,44 @@ A possible C++ code to start the problem
 </div>
 <div id="callout-9" class="callout-9-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div class="sourceCode" id="cb1"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Topological sort</span></span>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">//Weighted Shortest path - 1</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#include</span><span class="im">&lt;iostream&gt;</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="pp">#include</span><span class="im">&lt;vector&gt;</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="pp">#include</span><span class="im">&lt;queue&gt;</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> <span class="kw">namespace</span> std<span class="op">;</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> graph <span class="op">=</span> vector<span class="op">&lt;</span>vector<span class="op">&lt;</span><span class="dt">int</span><span class="op">&gt;&gt;;</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> VI <span class="op">=</span> vector<span class="op">&lt;</span><span class="dt">int</span><span class="op">&gt;;</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>VI compute_ordering<span class="op">(</span><span class="at">const</span> graph<span class="op">&amp;</span> g<span class="op">,</span> VI<span class="op">&amp;</span> indegree<span class="op">){</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>   <span class="co">// suggestion: use a priority_queue</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> write<span class="op">(</span><span class="at">const</span> VI<span class="op">&amp;</span> v<span class="op">){</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    cout <span class="op">&lt;&lt;</span> v<span class="op">[</span><span class="dv">0</span><span class="op">];</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> i <span class="op">&lt;</span> v<span class="op">.</span>size<span class="op">();</span> <span class="op">++</span>i<span class="op">)</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>        cout  <span class="op">&lt;&lt;</span> <span class="ch">' '</span> <span class="op">&lt;&lt;</span> v<span class="op">[</span>i<span class="op">];</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    cout <span class="op">&lt;&lt;</span> endl<span class="op">;</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">(){</span></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> n<span class="op">,</span> m<span class="op">;</span></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span><span class="op">(</span>cin <span class="op">&gt;&gt;</span> n <span class="op">&gt;&gt;</span> m<span class="op">){</span></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>        graph g<span class="op">(</span>n<span class="op">);</span></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>        VI indegree<span class="op">(</span>n<span class="op">,</span> <span class="dv">0</span><span class="op">);</span></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> m<span class="op">;</span> <span class="op">++</span>i<span class="op">){</span></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>            <span class="dt">int</span> u<span class="op">,</span> v<span class="op">;</span></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>            cin <span class="op">&gt;&gt;</span> u <span class="op">&gt;&gt;</span> v<span class="op">;</span></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>            g<span class="op">[</span>u<span class="op">].</span>push_back<span class="op">(</span>v<span class="op">);</span></span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>            <span class="op">++</span>indegree<span class="op">[</span>v<span class="op">];</span><span class="co">//why could be useful to remember the in-degree of vertices?</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="pp">#include</span><span class="im">&lt;limits.h&gt;</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> <span class="kw">namespace</span> std<span class="op">;</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> vertex <span class="op">=</span> <span class="dt">int</span><span class="op">;</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> graph <span class="op">=</span> vector<span class="op">&lt;</span>vector<span class="op">&lt;</span>pair<span class="op">&lt;</span>vertex<span class="op">,</span><span class="dt">int</span><span class="op">&gt;&gt;&gt;;</span><span class="co">// for the adjacency list of a weighted directed graph</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> P <span class="op">=</span> pair<span class="op">&lt;</span><span class="dt">int</span><span class="op">,</span>vertex<span class="op">&gt;;</span> <span class="co">//distance, vertex</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>vector<span class="op">&lt;</span><span class="dt">int</span><span class="op">&gt;</span> dijkstra<span class="op">(</span><span class="at">const</span> graph<span class="op">&amp;</span> g<span class="op">,</span> vertex s<span class="op">){</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> n <span class="op">=</span> g<span class="op">.</span>size<span class="op">();</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    vector<span class="op">&lt;</span><span class="dt">int</span><span class="op">&gt;</span> D<span class="op">(</span>n<span class="op">,</span> INT_MAX<span class="op">);</span><span class="co">//for all the distances from s</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    vector<span class="op">&lt;</span><span class="dt">bool</span><span class="op">&gt;</span> marked<span class="op">(</span>n<span class="op">,</span><span class="kw">false</span><span class="op">);</span><span class="co">//for the visited vertices</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="co">// here goes Dijkstra</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> D<span class="op">;</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> </span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">(){</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> n<span class="op">,</span> m<span class="op">;</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span><span class="op">(</span>cin <span class="op">&gt;&gt;</span> n <span class="op">&gt;&gt;</span> m<span class="op">){</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>        graph g<span class="op">(</span>n<span class="op">);</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> k <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> k <span class="op">&lt;</span> m<span class="op">;</span> <span class="op">++</span>k<span class="op">){</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>            <span class="dt">int</span> u<span class="op">,</span> v<span class="op">,</span> c<span class="op">;</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>            cin <span class="op">&gt;&gt;</span> u <span class="op">&gt;&gt;</span> v <span class="op">&gt;&gt;</span> c<span class="op">;</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>            g<span class="op">[</span>u<span class="op">].</span>push_back<span class="op">({</span>v<span class="op">,</span>c<span class="op">});</span></span>
 <span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>    VI ord <span class="op">=</span> compute_ordering<span class="op">(</span>g<span class="op">,</span>indegree<span class="op">);</span></span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>    write<span class="op">(</span>ord<span class="op">);</span></span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>        vertex x<span class="op">,</span> y<span class="op">;</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>        cin <span class="op">&gt;&gt;</span> x <span class="op">&gt;&gt;</span> y<span class="op">;</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>        vector<span class="op">&lt;</span><span class="dt">int</span><span class="op">&gt;</span> D <span class="op">=</span> dijkstra<span class="op">(</span>g<span class="op">,</span> x<span class="op">);</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>D<span class="op">[</span>y<span class="op">]</span> <span class="op">==</span> INT_MAX<span class="op">)</span> cout <span class="op">&lt;&lt;</span> <span class="st">"no path from "</span> <span class="op">&lt;&lt;</span> x <span class="op">&lt;&lt;</span> <span class="st">" to "</span> <span class="op">&lt;&lt;</span> y <span class="op">&lt;&lt;</span> endl<span class="op">;</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span> cout <span class="op">&lt;&lt;</span> D<span class="op">[</span>y<span class="op">]</span> <span class="op">&lt;&lt;</span> endl<span class="op">;</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -392,73 +401,6 @@ A possible C++ code to start the problem
 </div>
 </div>
 <p>A couple of days after the class you should also see here a possible solution (if this is not the case please send me a reminder by <a href="mailto:ilario.bonacina+EDA@upc.edu">email</a>).</p>
-<div class="callout callout-style-default callout-caution callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-A possible solution
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-11" class="callout-11-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<div class="sourceCode" id="cb2"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Topological sort</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#include</span><span class="im">&lt;iostream&gt;</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="pp">#include</span><span class="im">&lt;vector&gt;</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="pp">#include</span><span class="im">&lt;queue&gt;</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> <span class="kw">namespace</span> std<span class="op">;</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> graph <span class="op">=</span> vector<span class="op">&lt;</span>vector<span class="op">&lt;</span><span class="dt">int</span><span class="op">&gt;&gt;;</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> VI <span class="op">=</span> vector<span class="op">&lt;</span><span class="dt">int</span><span class="op">&gt;;</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>VI compute_ordering<span class="op">(</span><span class="at">const</span> graph<span class="op">&amp;</span> g<span class="op">,</span> VI<span class="op">&amp;</span> indegree<span class="op">){</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> n <span class="op">=</span> g<span class="op">.</span>size<span class="op">();</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    priority_queue<span class="op">&lt;</span><span class="dt">int</span><span class="op">,</span> vector<span class="op">&lt;</span><span class="dt">int</span><span class="op">&gt;,</span> greater<span class="op">&lt;</span><span class="dt">int</span><span class="op">&gt;&gt;</span> pq<span class="op">;</span></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> u <span class="op">=</span><span class="dv">0</span><span class="op">;</span> u <span class="op">&lt;</span> n<span class="op">;</span> <span class="op">++</span>u<span class="op">){</span></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>indegree<span class="op">[</span>u<span class="op">]==</span><span class="dv">0</span><span class="op">)</span> pq<span class="op">.</span>push<span class="op">(</span>u<span class="op">);</span></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    VI ord<span class="op">;</span></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span><span class="op">(</span><span class="kw">not</span> pq<span class="op">.</span>empty<span class="op">()){</span></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>        <span class="dt">int</span> u <span class="op">=</span> pq<span class="op">.</span>top<span class="op">();</span></span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>        pq<span class="op">.</span>pop<span class="op">();</span></span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>        ord<span class="op">.</span>push_back<span class="op">(</span>u<span class="op">);</span></span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> k <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> k <span class="op">&lt;</span> g<span class="op">[</span>u<span class="op">].</span>size<span class="op">();</span> <span class="op">++</span>k<span class="op">){</span></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>            <span class="dt">int</span> v <span class="op">=</span> g<span class="op">[</span>u<span class="op">][</span>k<span class="op">];</span></span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>            <span class="op">--</span>indegree<span class="op">[</span>v<span class="op">];</span></span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> <span class="op">(</span>indegree<span class="op">[</span>v<span class="op">]==</span><span class="dv">0</span><span class="op">)</span> pq<span class="op">.</span>push<span class="op">(</span>v<span class="op">);</span></span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> ord<span class="op">;</span></span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> write<span class="op">(</span><span class="at">const</span> VI<span class="op">&amp;</span> v<span class="op">){</span></span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>    cout <span class="op">&lt;&lt;</span> v<span class="op">[</span><span class="dv">0</span><span class="op">];</span></span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> i <span class="op">&lt;</span> v<span class="op">.</span>size<span class="op">();</span> <span class="op">++</span>i<span class="op">)</span></span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>        cout  <span class="op">&lt;&lt;</span> <span class="ch">' '</span> <span class="op">&lt;&lt;</span> v<span class="op">[</span>i<span class="op">];</span></span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>    cout <span class="op">&lt;&lt;</span> endl<span class="op">;</span></span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">(){</span></span>
-<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> n<span class="op">,</span> m<span class="op">;</span></span>
-<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span><span class="op">(</span>cin <span class="op">&gt;&gt;</span> n <span class="op">&gt;&gt;</span> m<span class="op">){</span></span>
-<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>        graph g<span class="op">(</span>n<span class="op">);</span></span>
-<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>        VI indegree<span class="op">(</span>n<span class="op">,</span> <span class="dv">0</span><span class="op">);</span></span>
-<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> m<span class="op">;</span> <span class="op">++</span>i<span class="op">){</span></span>
-<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>            <span class="dt">int</span> u<span class="op">,</span> v<span class="op">;</span></span>
-<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>            cin <span class="op">&gt;&gt;</span> u <span class="op">&gt;&gt;</span> v<span class="op">;</span></span>
-<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>            g<span class="op">[</span>u<span class="op">].</span>push_back<span class="op">(</span>v<span class="op">);</span></span>
-<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>            <span class="op">++</span>indegree<span class="op">[</span>v<span class="op">];</span></span>
-<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
-<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>    VI ord <span class="op">=</span> compute_ordering<span class="op">(</span>g<span class="op">,</span>indegree<span class="op">);</span></span>
-<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>    write<span class="op">(</span>ord<span class="op">);</span></span>
-<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</div>
 <p><a href="javascript:history.back()"><iconify-icon role="img" inline="" icon="twemoji:back-arrow" style="font-size: 2em;" aria-label="Icon back-arrow from twemoji Iconify.design set." title="Icon back-arrow from twemoji Iconify.design set."></iconify-icon></a></p>
 
 
