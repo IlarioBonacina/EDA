@@ -101,5 +101,14 @@
       "/problems/7.3/index.html",
       "/problems/7.4/index.html"
     ]
+  },
+  {
+    "listing": "/labs/L5.html",
+    "items": [
+      "/labs/L5-P12828/index.html",
+      "/labs/L5-P24674/index.html",
+      "/labs/L5-P49889/index.html",
+      "/labs/L5-P62113/index.html"
+    ]
   }
 ]
