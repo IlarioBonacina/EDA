@@ -40,9 +40,12 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-91ed88c7edbeee7407b1343320cd4003.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/jquery-3.6.3/jquery-3.6.3.min.js"></script>
+<script src="site_libs/quarto-contrib/code-fullscreen-1.0.0/code-fullscreen.js" defer="true"></script>
+<link href="site_libs/quarto-contrib/code-fullscreen-1.0.0/code-fullscreen.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/bootstrap-icons-1.11.1/all.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/fontawesome6-1.2.0/all.min.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/fontawesome6-1.2.0/latex-fontsize.css" rel="stylesheet">
-<link href="site_libs/quarto-contrib/bootstrap-icons-1.11.1/all.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -112,6 +115,9 @@ ul.task-list li input[type="checkbox"] {
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+ <span class="menu-text">Last update: December 08<br><br></span>
+  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link active">
@@ -237,13 +243,6 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text"><em>References</em></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./about.html" class="sidebar-item-text sidebar-link"><i class="bi bi-person-rolodex" role="img">
-</i> 
- <span class="menu-text"><em>Contacts</em></span></a>
-  </div>
-</li>
     </ul>
     </div>
 </nav>
@@ -273,41 +272,27 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Welcome to <span class="emph">Data Structures and Algorithmics</span> (aka <strong>EDA</strong>)!</p>
-<div class="columns">
-<div class="column" style="width:49%;">
-<div class="callout callout-style-default callout-note no-icon callout-titled">
+<p>Welcome to <span class="emph">Data Structures and Algorithmics</span> (aka <span class="emph">EDA</span>)!</p>
+<p>I’m <span class="emph">Ilario Bonacina</span> and if you are a student of the <span class="emph">groups P/L11 or P/L31 or L43 or L53</span> then I’m one of your instructors for this semester. This is the webpage I’ll use as a support for the EDA problems/lab classes.</p>
+<p><a href="./labs/L6.html"><i class="bi-arrow-right-circle-fill " style="" role="img" aria-hidden="true"></i> <span class="emph">Upcoming problem/lab class</span></a></p>
+<div class="grid">
+<div class="g-col-10 g-col-md-6">
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Upcoming problem/lab class
+<i class="bi-person-rolodex " style="" role="img" aria-hidden="true"></i> Contacts
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><a href="./labs/L5.html">L5: Exhaustive Search and Generation I</a></p>
+<p>The person in charge of the whole course is <span class="emph">Albert Oliveras Llunell</span> (<a href="mailto:oliveras@cs.upc.edu">email</a>). For administrative questions (or <strong>any</strong> question on the EDA Game) please ask him directly.</p>
+<p>My email for this course is <a href="mailto:ilario.bonacina+EDA@upc.edu">ilario.bonacina+EDA@upc.edu</a>. The last possible day to ask questions by email is <strong><span style="color:#880808;">6 days before the partial/final exam</span></strong>.</p>
 </div>
 </div>
-<div class="callout callout-style-default callout-important no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
 </div>
-<div class="callout-title-container flex-fill">
-<i class="fa-solid fa-file-pen" aria-label="file-pen"></i> UPC survey and internal poll
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ul>
-<li><p>Please fill the <a href="https://e-enquestes.upc.edu/">UPC survey</a> on the quality of teaching in the EDA course.</p></li>
-<li><p>Please also fill the <a href="https://docs.google.com/forms/d/e/1FAIpQLSe0DP4U98emsvshVf5kr_8Jw773_EuuMrrjgH6UAcelK6NGqw/viewform?usp=sf_link">internal <strong>anonymous</strong> google form</a> to give me some more immediate feedback on this webpage and my teaching during this semester.</p></li>
-</ul>
-</div>
-</div>
-</div><div class="column" style="width:2%;">
-
-</div><div class="column" style="width:49%;">
+<div class="g-col-10 g-col-md-6">
 <div class="callout callout-style-default callout-warning no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -319,13 +304,28 @@ Upcoming problem/lab class
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li>[16 Oct 2024] At the moment <strong>the english version of the EDA website is down</strong>, please use <a href="https://www.cs.upc.edu/eda/">the spanish version</a>. Some of the links to the problems sets and solved exams on this page might be broken. I’ll fix it soon.</li>
+<li>[16 Oct 2024] At the moment the english version of the EDA main page is down, please use <a href="https://www.cs.upc.edu/eda/">the spanish version</a>.</li>
+</ul>
+</div>
+</div>
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<i class="fa-solid fa-pen" aria-label="pen"></i> UPC survey and internal poll
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>Please fill the <a href="https://e-enquestes.upc.edu/">official UPC survey</a> on the quality of teaching.</p></li>
+<li><p>Please also fill the <a href="https://docs.google.com/forms/d/e/1FAIpQLSe0DP4U98emsvshVf5kr_8Jw773_EuuMrrjgH6UAcelK6NGqw/viewform?usp=sf_link">internal <strong>anonymous</strong> google form</a> to give me some more immediate feedback on this webpage and my teaching during this semester.</p></li>
 </ul>
 </div>
 </div>
 </div>
 </div>
-<p><br> <br> <br> <br> <br> <br> This page is just a support for the problem/lab classes I’m giving. Please refer to the <a href="https://www.cs.upc.edu/eda/">main webpage of EDA</a> for news, course material, etc and to the official UPC page for the <a href="https://www.fib.upc.edu/es/estudios/grados/grado-en-ingenieria-informatica/plan-de-estudios/asignaturas/EDA">course syllabus</a>.</p>
 
 
 

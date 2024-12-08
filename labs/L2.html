@@ -43,6 +43,9 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-91ed88c7edbeee7407b1343320cd4003.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/jquery-3.6.3/jquery-3.6.3.min.js"></script>
+<script src="../site_libs/quarto-contrib/code-fullscreen-1.0.0/code-fullscreen.js" defer="true"></script>
+<link href="../site_libs/quarto-contrib/code-fullscreen-1.0.0/code-fullscreen.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -241,6 +244,9 @@ window.Quarto = {
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
+ <span class="menu-text">Last update: December 08<br><br></span>
+  </li>
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><em>Course Info</em></span></a>
@@ -365,13 +371,6 @@ window.Quarto = {
  <span class="menu-text"><em>References</em></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../about.html" class="sidebar-item-text sidebar-link"><i class="bi bi-person-rolodex" role="img">
-</i> 
- <span class="menu-text"><em>Contacts</em></span></a>
-  </div>
-</li>
     </ul>
     </div>
 </nav>
@@ -416,11 +415,14 @@ window.Quarto = {
 <li>efficient exponentiation, and</li>
 <li>few others that don’t fit with a pattern.</li>
 </ul>
-<p>As usual, once you have chosen a problem to solve, dowload the .zip archive of the problem and <code>unzip</code> it. In the obtained folder there are:</p>
+<section id="variations-on-dichotomic-search" class="level3">
+<h3 class="anchored" data-anchor-id="variations-on-dichotomic-search">Variations on Dichotomic Search</h3>
+<p>There is a first line of exercises that can be thought as <em>variations on Dichotomic Search</em>, and some of them we saw already in the problem class P2. They are the following:</p>
 <ul>
-<li>a file .pdf with the <strong>official</strong> problem statement</li>
-<li>one or more text files with examples of input <code>sample.inp</code></li>
-<li>the corresponding correct outputs <code>sample.cor</code></li>
+<li><a href="https://jutge.org/problems/P81966_en">P81966 Dichotomic search</a></li>
+<li><a href="https://jutge.org/problems/P84219_en">P84219 First occurrence</a> <span class="emoji" data-emoji="large_orange_diamond">🔶</span></li>
+<li><a href="https://jutge.org/problems/P33412_en">P33412 Resistant dichotomic search</a> <span class="emoji" data-emoji="large_orange_diamond">🔶</span> (similar to <a href="../problems/2.12/">Problem 2.12</a> from problem class P3)</li>
+<li><a href="https://jutge.org/problems/X82938_en">X82938 Search in a unimodal vector</a> (similar to <a href="../problems/2.9/">Problem 2.9</a> from problem class P3)</li>
 </ul>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
@@ -428,13 +430,18 @@ window.Quarto = {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Possible workflow
+Suggested workflow
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p><br></p>
+<p>Once you have chosen a problem to solve, download the .zip archive <img src="../assets/zip.png" class="img-fluid" width="30"> of the problem and <code>unzip</code> it. In the obtained folder there are:</p>
+<ul>
+<li>a file .pdf with the <strong>official</strong> problem statement</li>
+<li>one or more text files with examples of input <code>sample.inp</code></li>
+<li>the corresponding correct outputs <code>sample.cor</code></li>
+</ul>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -553,19 +560,10 @@ Step 4: I’m stuck. What can I do?
 </div>
 </div>
 </div>
-<section id="variations-on-dichotomic-search" class="level3">
-<h3 class="anchored" data-anchor-id="variations-on-dichotomic-search">Variations on Dichotomic Search</h3>
-<p>There is a first line of exercises that can be thought as <em>variations on Dichotomic Search</em>, and some of them we saw already in the problem class P2. They are the following:</p>
-<ul>
-<li><a href="https://jutge.org/problems/P81966_en">P81966 Dichotomic search</a></li>
-<li><a href="https://jutge.org/problems/P84219_en">P84219 First occurrence</a> <span class="emoji" data-emoji="large_orange_diamond">🔶</span></li>
-<li><a href="https://jutge.org/problems/P33412_en">P33412 Resistant dichotomic search</a> <span class="emoji" data-emoji="large_orange_diamond">🔶</span> (similar to <a href="../problems/2.12/">Problem 2.12</a> from problem class P3)</li>
-<li><a href="https://jutge.org/problems/X82938_en">X82938 Search in a unimodal vector</a> (similar to <a href="../problems/2.9/">Problem 2.9</a> from problem class P3)</li>
-</ul>
-<p>From this block of exercises, in class we solve together the ones marked with <span class="emoji" data-emoji="large_orange_diamond">🔶</span>. They are the same as the one listed below.</p>
+<p>From this block of exercises, in class we solve together the ones marked with <span class="emoji" data-emoji="large_orange_diamond">🔶</span>. They are the same as the one listed below.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
 <div id="listing-exercises-L2-dichotomic-search" class="quarto-listing quarto-listing-container-grid">
 <div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-listing-file-modified-sort="1728549282183" data-listing-reading-time-sort="1" data-listing-word-count-sort="112">
+<div class="g-col-1" data-index="0" data-listing-file-modified-sort="1733683373194" data-listing-reading-time-sort="1" data-listing-word-count-sort="49">
 <a href="../labs/L2-P84219/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -579,7 +577,7 @@ First occurrence
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="1" data-listing-file-modified-sort="1728550223193" data-listing-reading-time-sort="1" data-listing-word-count-sort="128">
+<div class="g-col-1" data-index="1" data-listing-file-modified-sort="1733683439922" data-listing-reading-time-sort="1" data-listing-word-count-sort="65">
 <a href="../labs/L2-P33412/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -674,10 +672,146 @@ F_{n-1}&amp; F_{n-2}
 </div>
 </div>
 </div>
-<p>From this block of exercises, in class we solve together the ones marked with <span class="emoji" data-emoji="large_orange_diamond">🔶</span>. They are the same as the one listed below.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Suggested workflow
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-17" class="callout-17-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Once you have chosen a problem to solve, download the .zip archive <img src="../assets/zip.png" class="img-fluid" width="30"> of the problem and <code>unzip</code> it. In the obtained folder there are:</p>
+<ul>
+<li>a file .pdf with the <strong>official</strong> problem statement</li>
+<li>one or more text files with examples of input <code>sample.inp</code></li>
+<li>the corresponding correct outputs <code>sample.cor</code></li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Step 1: Getting the C++ code to compile
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>After creating a C++ source file to solve the problem, compile it with <code>g++ -std=c++11</code>.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Common error(s)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Not using the flag <code>-std=c++11</code>.</p>
+</div>
+</div>
+<p>Possible useful flags are <code>-Wall -Wextra -Wno-overflow -Wpedantic -Werror -D_GLIBCXX_DEBUG</code></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Step 2: Testing testing testing
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Test the executable file obtained on the given example(s), for instance with <code>./a.out &lt; sample.inp &gt; output</code>. Also, test your code against simple/trivial inputs, e.g.&nbsp;a graph with no-edges.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Common error(s)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Writing the input by hand.<br>
+Not checking the exact formatting of the output.</p>
+</div>
+</div>
+<p>To see whether the <code>output</code> is the same as <code>sample.cor</code> a way is to use <code>diff output sample.cor</code></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Step 3: Submitting the solution to the Jutge
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-15" class="callout-15-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Once the code compiles and on the given samples it gives the correct output submit it to the Jutge for automatic evaluation.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Common error(s)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Sending to the Jutge code that was not even compiled locally.<br>
+Not checking if the output was correct on the given inputs.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Step 4: I’m stuck. What can I do?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-16" class="callout-16-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>You are “stuck” on a problem if you spent <strong>around 1 hour</strong> trying to solve it but still the Jutge is rejecting your solution.</p>
+<p>Possible approaches to getting “un-stuck” are:</p>
+<ul>
+<li><p>do not think about that problem for some time and come back to your code with fresh eyes</p></li>
+<li><p>look again at the theory</p></li>
+<li><p>try to explain your code to another student</p></li>
+<li><p>ask for hints, e.g.&nbsp;by <a href="mailto:ilario.bonacina+EDA@upc.edu">email</a>. <strong>Be specific on the type of help you need.</strong> Include in the email the code of your approach.</p></li>
+</ul>
+</div>
+</div>
+</div>
+<p><br></p>
+</div>
+</div>
+</div>
+<p>From this block of exercises, in class we solve together the ones marked with <span class="emoji" data-emoji="large_orange_diamond">🔶</span>. They are the same as the one listed below.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
 <div id="listing-exercises-L2-exponentiation" class="quarto-listing quarto-listing-container-grid">
 <div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="TDIlMkNEaXZpZGUlMjBhbmQlMjBDb25xdWVy" data-listing-file-modified-sort="1728550559951" data-listing-reading-time-sort="1" data-listing-word-count-sort="114">
+<div class="g-col-1" data-index="0" data-categories="TDIlMkNEaXZpZGUlMjBhbmQlMjBDb25xdWVy" data-listing-file-modified-sort="1733683461168" data-listing-reading-time-sort="1" data-listing-word-count-sort="51">
 <a href="../labs/L2-P29212/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -691,7 +825,7 @@ Modular exponentiation
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="1" data-categories="TDIlMkNEaXZpZGUlMjBhbmQlMjBDb25xdWVy" data-listing-file-modified-sort="1728551964027" data-listing-reading-time-sort="1" data-listing-word-count-sort="171">
+<div class="g-col-1" data-index="1" data-categories="TDIlMkNEaXZpZGUlMjBhbmQlMjBDb25xdWVy" data-listing-file-modified-sort="1733683393571" data-listing-reading-time-sort="1" data-listing-word-count-sort="108">
 <a href="../labs/L2-P61833/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -705,7 +839,7 @@ Powers of a matrix
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="2" data-categories="TDIlMkNEaXZpZGUlMjBhbmQlMjBDb25xdWVy" data-listing-file-modified-sort="1728553751067" data-listing-reading-time-sort="2" data-listing-word-count-sort="297">
+<div class="g-col-1" data-index="2" data-categories="TDIlMkNEaXZpZGUlMjBhbmQlMjBDb25xdWVy" data-listing-file-modified-sort="1733683338248" data-listing-reading-time-sort="2" data-listing-word-count-sort="234">
 <a href="../labs/L2-X39049/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -734,10 +868,146 @@ No matching items
 <li><a href="https://jutge.org/problems/P58512_en">P58512 Interest rates</a> <span class="emoji" data-emoji="exclamation">❗</span></li>
 <li><a href="https://jutge.org/problems/P34682_en">P34682 Fixed points</a> <span class="emoji" data-emoji="large_orange_diamond">🔶</span> <span class="emoji" data-emoji="exclamation">❗</span></li>
 </ul>
-<p>From this block of exercises, in class we solve together the ones marked with <span class="emoji" data-emoji="large_orange_diamond">🔶</span>. They are the same as the one listed below.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-25-contents" aria-controls="callout-25" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Suggested workflow
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-25" class="callout-25-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Once you have chosen a problem to solve, download the .zip archive <img src="../assets/zip.png" class="img-fluid" width="30"> of the problem and <code>unzip</code> it. In the obtained folder there are:</p>
+<ul>
+<li>a file .pdf with the <strong>official</strong> problem statement</li>
+<li>one or more text files with examples of input <code>sample.inp</code></li>
+<li>the corresponding correct outputs <code>sample.cor</code></li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-19-contents" aria-controls="callout-19" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Step 1: Getting the C++ code to compile
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-19" class="callout-19-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>After creating a C++ source file to solve the problem, compile it with <code>g++ -std=c++11</code>.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Common error(s)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Not using the flag <code>-std=c++11</code>.</p>
+</div>
+</div>
+<p>Possible useful flags are <code>-Wall -Wextra -Wno-overflow -Wpedantic -Werror -D_GLIBCXX_DEBUG</code></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-21-contents" aria-controls="callout-21" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Step 2: Testing testing testing
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-21" class="callout-21-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Test the executable file obtained on the given example(s), for instance with <code>./a.out &lt; sample.inp &gt; output</code>. Also, test your code against simple/trivial inputs, e.g.&nbsp;a graph with no-edges.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Common error(s)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Writing the input by hand.<br>
+Not checking the exact formatting of the output.</p>
+</div>
+</div>
+<p>To see whether the <code>output</code> is the same as <code>sample.cor</code> a way is to use <code>diff output sample.cor</code></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-23-contents" aria-controls="callout-23" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Step 3: Submitting the solution to the Jutge
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-23" class="callout-23-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Once the code compiles and on the given samples it gives the correct output submit it to the Jutge for automatic evaluation.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Common error(s)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Sending to the Jutge code that was not even compiled locally.<br>
+Not checking if the output was correct on the given inputs.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-24-contents" aria-controls="callout-24" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Step 4: I’m stuck. What can I do?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-24" class="callout-24-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>You are “stuck” on a problem if you spent <strong>around 1 hour</strong> trying to solve it but still the Jutge is rejecting your solution.</p>
+<p>Possible approaches to getting “un-stuck” are:</p>
+<ul>
+<li><p>do not think about that problem for some time and come back to your code with fresh eyes</p></li>
+<li><p>look again at the theory</p></li>
+<li><p>try to explain your code to another student</p></li>
+<li><p>ask for hints, e.g.&nbsp;by <a href="mailto:ilario.bonacina+EDA@upc.edu">email</a>. <strong>Be specific on the type of help you need.</strong> Include in the email the code of your approach.</p></li>
+</ul>
+</div>
+</div>
+</div>
+<p><br></p>
+</div>
+</div>
+</div>
+<p>From this block of exercises, in class we solve together the ones marked with <span class="emoji" data-emoji="large_orange_diamond">🔶</span>. They are the same as the one listed below.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
 <div id="listing-exercises-L2-wild" class="quarto-listing quarto-listing-container-grid">
 <div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="TDIlMkNEaXZpZGUlMjBhbmQlMjBDb25xdWVy" data-listing-file-modified-sort="1728554488795" data-listing-reading-time-sort="2" data-listing-word-count-sort="208">
+<div class="g-col-1" data-index="0" data-categories="TDIlMkNEaXZpZGUlMjBhbmQlMjBDb25xdWVy" data-listing-file-modified-sort="1733683417838" data-listing-reading-time-sort="1" data-listing-word-count-sort="145">
 <a href="../labs/L2-P34682/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -756,25 +1026,21 @@ Fixed points
 No matching items
 </div>
 </div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-After class
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Try to solve all the exercises of this section we didn’t solve in class.</p>
-</div>
-</div>
+<p>Remember that for any doubt on the exercises you can ask me by <a href="mailto:ilario.bonacina+EDA@upc.edu">email</a> too until <span style="color:#880808;"><strong>6 days before the lab exam</strong></span>.</p>
 
 
 
 </section>
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Recall that <span class="emoji" data-emoji="exclamation">❗</span> marks possibly harder problems.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Recall that <span class="emoji" data-emoji="exclamation">❗</span> marks possibly harder problems.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Recall that <span class="emoji" data-emoji="exclamation">❗</span> marks possibly harder problems.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

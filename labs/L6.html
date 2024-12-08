@@ -32,6 +32,8 @@ ul.task-list li input[type="checkbox"] {
 <meta name="quarto:offset" content="../">
 <link href="../references/index.html" rel="next">
 <link href="../labs/L5.html" rel="prev">
+<script src="../site_libs/quarto-listing/list.min.js"></script>
+<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -41,6 +43,9 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-91ed88c7edbeee7407b1343320cd4003.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/jquery-3.6.3/jquery-3.6.3.min.js"></script>
+<script src="../site_libs/quarto-contrib/code-fullscreen-1.0.0/code-fullscreen.js" defer="true"></script>
+<link href="../site_libs/quarto-contrib/code-fullscreen-1.0.0/code-fullscreen.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -68,6 +73,35 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script>
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-exercises-L6 .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-image','listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-title","listing-author","listing-image","listing-description"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-exercises-L6'] = new List('listing-exercises-L6', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
 <style>html{ scroll-behavior: smooth; }</style>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
@@ -153,6 +187,9 @@ window.Quarto = {
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+ <span class="menu-text">Last update: December 08<br><br></span>
+  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../index.html" class="sidebar-item-text sidebar-link">
@@ -278,13 +315,6 @@ window.Quarto = {
  <span class="menu-text"><em>References</em></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../about.html" class="sidebar-item-text sidebar-link"><i class="bi bi-person-rolodex" role="img">
-</i> 
- <span class="menu-text"><em>Contacts</em></span></a>
-  </div>
-</li>
     </ul>
     </div>
 </nav>
@@ -292,7 +322,7 @@ window.Quarto = {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">In this lab</h2>
    
   <ul>
   <li><a href="#jutge-exercises" id="toc-jutge-exercises" class="nav-link active" data-scroll-target="#jutge-exercises">Jutge exercises</a></li>
@@ -322,11 +352,19 @@ window.Quarto = {
 
 
 <p>This is the last lab of the course. We consider some the remaining problems from <a href="https://www.jutge.org">Jutge.org</a>, section EDA <span class="math inline">\rightarrow</span> <strong>Exhaustive search and generation</strong>.</p>
-<p>As usual, once you have chosen a problem to solve, dowload the .zip archive of the problem and <code>unzip</code> it. In the obtained folder there are:</p>
+<section id="jutge-exercises" class="level2">
+<h2 class="anchored" data-anchor-id="jutge-exercises">Jutge exercises</h2>
+<p>In this lab we consider the following Jutge exercises.</p>
 <ul>
-<li>a file .pdf with the <strong>official</strong> problem statement</li>
-<li>one or more text files with examples of input <code>sample.inp</code></li>
-<li>the corresponding correct outputs <code>sample.cor</code></li>
+<li><a href="https://jutge.org/problems/X92609_en">X92609 Two coins of each kind (3)</a> <span class="emoji" data-emoji="large_orange_diamond">🔶</span></li>
+<li><a href="https://jutge.org/problems/P62138_en">P62138 Topological orderings</a> <span class="emoji" data-emoji="large_orange_diamond">🔶</span></li>
+<li><a href="https://jutge.org/problems/P37197_en">P37197 Incompatible species</a> <span class="emoji" data-emoji="large_orange_diamond">🔶</span></li>
+<li><a href="https://jutge.org/problems/P76807_en">P76807 Sudoku</a></li>
+<li><a href="https://jutge.org/problems/P70756_en">P70756 Partitions</a></li>
+<li><a href="https://jutge.org/problems/P40685_en">P40685 Equal sums (1)</a> <span class="emoji" data-emoji="large_orange_diamond">🔶</span></li>
+<li><a href="https://jutge.org/problems/P82660_en">P82660 Equal sums (2)</a></li>
+<li><a href="https://jutge.org/problems/P11655_en">P11655 Equal sums (3)</a> <span class="emoji" data-emoji="large_orange_diamond">🔶</span></li>
+<li><a href="https://jutge.org/problems/P93741_en">P93741 Satisfiability</a> <span class="emoji" data-emoji="exclamation">❗</span></li>
 </ul>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
@@ -334,13 +372,18 @@ window.Quarto = {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Possible workflow
+Suggested workflow
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p><br></p>
+<p>Once you have chosen a problem to solve, download the .zip archive <img src="../assets/zip.png" class="img-fluid" width="30"> of the problem and <code>unzip</code> it. In the obtained folder there are:</p>
+<ul>
+<li>a file .pdf with the <strong>official</strong> problem statement</li>
+<li>one or more text files with examples of input <code>sample.inp</code></li>
+<li>the corresponding correct outputs <code>sample.cor</code></li>
+</ul>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -459,42 +502,97 @@ Step 4: I’m stuck. What can I do?
 </div>
 </div>
 </div>
-<section id="jutge-exercises" class="level2">
-<h2 class="anchored" data-anchor-id="jutge-exercises">Jutge exercises</h2>
-<p>In this lab we consider the following Jutge exercises.</p>
-<ul>
-<li><a href="https://jutge.org/problems/X92609_en">X92609 Two coins of each kind (3)</a> <span class="emoji" data-emoji="large_orange_diamond">🔶</span></li>
-<li><a href="https://jutge.org/problems/P62138_en">P62138 Topological orderings</a> <span class="emoji" data-emoji="large_orange_diamond">🔶</span></li>
-<li><a href="https://jutge.org/problems/P37197_en">P37197 Incompatible species</a> <span class="emoji" data-emoji="large_orange_diamond">🔶</span></li>
-<li><a href="https://jutge.org/problems/P76807_en">P76807 Sudoku</a></li>
-<li><a href="https://jutge.org/problems/P70756_en">P70756 Partitions</a></li>
-<li><a href="https://jutge.org/problems/P40685_en">P40685 Equal sums (1)</a> <span class="emoji" data-emoji="large_orange_diamond">🔶</span></li>
-<li><a href="https://jutge.org/problems/P82660_en">P82660 Equal sums (2)</a></li>
-<li><a href="https://jutge.org/problems/P11655_en">P11655 Equal sums (3)</a></li>
-<li><a href="https://jutge.org/problems/P93741_en">P93741 Satisfiability</a></li>
-</ul>
-<p>From this block of exercises, in class we solve together the ones marked with <span class="emoji" data-emoji="large_orange_diamond">🔶</span>. They are the same exercise listed below.</p>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Important
+<p>From this block of exercises, in class we solve together the ones marked with <span class="emoji" data-emoji="large_orange_diamond">🔶</span>. They are the same as the one listed below.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<div id="listing-exercises-L6" class="quarto-listing quarto-listing-container-grid">
+<div class="list grid quarto-listing-cols-3">
+<div class="g-col-1" data-index="0" data-categories="TDYlMkNCYWNrdHJhY2tpbmc=" data-listing-file-modified-sort="1733682771494" data-listing-reading-time-sort="1" data-listing-word-count-sort="186">
+<a href="../labs/L6-X92609/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="../labs/L6-X92609/coins.webp" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Two coins of each kind (3)
+</h5>
 </div>
 </div>
-<div class="callout-body-container callout-body">
-<p>The list of exercises we solve together in class is temporary. More details on them will be available closer to the class.</p>
+</a>
+</div>
+<div class="g-col-1" data-index="1" data-categories="TDYlMkNCYWNrdHJhY2tpbmc=" data-listing-file-modified-sort="1733682860241" data-listing-reading-time-sort="1" data-listing-word-count-sort="126">
+<a href="../labs/L6-P62138/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="../labs/L6-P62138/topological.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Topological orderings
+</h5>
 </div>
 </div>
-<div id="exercises-L6">
+</a>
+</div>
+<div class="g-col-1" data-index="2" data-categories="TDYlMkNCYWNrdHJhY2tpbmc=" data-listing-file-modified-sort="1733682947258" data-listing-reading-time-sort="1" data-listing-word-count-sort="181">
+<a href="../labs/L6-P37197/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="../labs/L6-P37197/species.webp" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Incompatible species
+</h5>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="3" data-categories="TDYlMkNCYWNrdHJhY2tpbmc=" data-listing-file-modified-sort="1733682895512" data-listing-reading-time-sort="1" data-listing-word-count-sort="102">
+<a href="../labs/L6-P40685/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="../labs/L6-P40685/knapsack.jxl" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Equal sums (1)
+</h5>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="4" data-categories="TDYlMkNCYWNrdHJhY2tpbmc=" data-listing-file-modified-sort="1733682979218" data-listing-reading-time-sort="1" data-listing-word-count-sort="105">
+<a href="../labs/L6-P11655/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="../labs/L6-P11655/knapsack.jxl" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Equal sums (3)
+</h5>
+</div>
+</div>
+</a>
+</div>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div>
+<p>Remember that for any doubt on the exercises you can ask me by <a href="mailto:ilario.bonacina+EDA@upc.edu">email</a> too until <span style="color:#880808;"><strong>6 days before the lab exam</strong></span>.</p>
 
-</div>
 
 
 </section>
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Recall that <span class="emoji" data-emoji="exclamation">❗</span> marks possibly harder problems.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

@@ -43,6 +43,9 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-91ed88c7edbeee7407b1343320cd4003.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/jquery-3.6.3/jquery-3.6.3.min.js"></script>
+<script src="../site_libs/quarto-contrib/code-fullscreen-1.0.0/code-fullscreen.js" defer="true"></script>
+<link href="../site_libs/quarto-contrib/code-fullscreen-1.0.0/code-fullscreen.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -185,6 +188,9 @@ window.Quarto = {
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
+ <span class="menu-text">Last update: December 08<br><br></span>
+  </li>
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><em>Course Info</em></span></a>
@@ -309,13 +315,6 @@ window.Quarto = {
  <span class="menu-text"><em>References</em></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../about.html" class="sidebar-item-text sidebar-link"><i class="bi bi-person-rolodex" role="img">
-</i> 
- <span class="menu-text"><em>Contacts</em></span></a>
-  </div>
-</li>
     </ul>
     </div>
 </nav>
@@ -354,12 +353,23 @@ window.Quarto = {
 
 <p><strong>Welcome to the first lab class of EDA!</strong></p>
 <p>In this class we consider the problems from <a href="https://www.jutge.org">Jutge.org</a>, section EDA <span class="math inline">\rightarrow</span> <strong>Use of STL data structures</strong>.</p>
-<p>Before doing exercises we revise some aspects of <a href="../theory_bits/STL/index.html">The C++ Standard Template Library (STL)</a>. A way more comprehensive treatment of the STL is in <a href="https://en.cppreference.com/w/">cppreference.com</a>.</p>
-<p>Once you have chosen a problem to solve, dowload the .zip archive of the problem and <code>unzip</code> it. In the obtained folder there are:</p>
+<p>First revise some aspects of <a href="../theory_bits/STL/index.html">The C++ Standard Template Library (STL)</a>.</p>
+<p>A way more comprehensive treatment of the STL is in <a href="https://en.cppreference.com/w/">cppreference.com</a>.</p>
+<section id="jutge-exercises" class="level2">
+<h2 class="anchored" data-anchor-id="jutge-exercises">Jutge exercises</h2>
+<p>In this lab we consider the following Jutge exercises.</p>
 <ul>
-<li>a file .pdf with the <strong>official</strong> problem statement</li>
-<li>one or more text files with examples of input <code>sample.inp</code></li>
-<li>the corresponding correct outputs <code>sample.cor</code></li>
+<li><a href="https://jutge.org/problems/P50709_en">P50709 Collection of numbers</a></li>
+<li><a href="https://jutge.org/problems/P50709_en">P40902 Casino</a></li>
+<li><a href="https://jutge.org/problems/P69781_en">P69781 Collatz pseudo-sequences (2)</a> <span class="emoji" data-emoji="exclamation">❗</span></li>
+<li><a href="https://jutge.org/problems/P84415_en">P84415 Bag of words</a></li>
+<li><a href="https://jutge.org/problems/P37064_en">P37064 Dynamic median</a> <span class="emoji" data-emoji="exclamation">❗</span></li>
+<li><a href="https://jutge.org/problems/P59282_en">P59282 Statistical measures</a> <span class="emoji" data-emoji="large_orange_diamond">🔶</span></li>
+<li><a href="https://jutge.org/problems/P69932_en">P69932 The longest sequence</a> <span class="emoji" data-emoji="exclamation">❗</span></li>
+<li><a href="https://jutge.org/problems/P60296_en">P60296 Role classification</a> <span class="emoji" data-emoji="large_orange_diamond">🔶</span></li>
+<li><a href="https://jutge.org/problems/P60219_en">P60219 Easy game?</a></li>
+<li><a href="https://jutge.org/problems/P62653_en">P62653 Ticket distribution</a> <span class="emoji" data-emoji="large_orange_diamond">🔶</span></li>
+<li><a href="https://jutge.org/problems/P63584_en">P63584 K-th element</a> (~ <a href="../problems/4.11/">Problem 4.11</a> you will see in the problem class P5)</li>
 </ul>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
@@ -367,13 +377,18 @@ window.Quarto = {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Possible workflow
+Suggested workflow
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p><br></p>
+<p>Once you have chosen a problem to solve, download the .zip archive <img src="../assets/zip.png" class="img-fluid" width="30"> of the problem and <code>unzip</code> it. In the obtained folder there are:</p>
+<ul>
+<li>a file .pdf with the <strong>official</strong> problem statement</li>
+<li>one or more text files with examples of input <code>sample.inp</code></li>
+<li>the corresponding correct outputs <code>sample.cor</code></li>
+</ul>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -492,26 +507,10 @@ Step 4: I’m stuck. What can I do?
 </div>
 </div>
 </div>
-<section id="jutge-exercises" class="level2">
-<h2 class="anchored" data-anchor-id="jutge-exercises">Jutge exercises</h2>
-<p>In this lab we consider the following Jutge exercises.</p>
-<ul>
-<li><a href="https://jutge.org/problems/P50709_en">P50709 Collection of numbers</a></li>
-<li><a href="https://jutge.org/problems/P50709_en">P40902 Casino</a></li>
-<li><a href="https://jutge.org/problems/P69781_en">P69781 Collatz pseudo-sequences (2)</a> <span class="emoji" data-emoji="exclamation">❗</span></li>
-<li><a href="https://jutge.org/problems/P84415_en">P84415 Bag of words</a></li>
-<li><a href="https://jutge.org/problems/P37064_en">P37064 Dynamic median</a> <span class="emoji" data-emoji="exclamation">❗</span></li>
-<li><a href="https://jutge.org/problems/P59282_en">P59282 Statistical measures</a> <span class="emoji" data-emoji="large_orange_diamond">🔶</span></li>
-<li><a href="https://jutge.org/problems/P69932_en">P69932 The longest sequence</a> <span class="emoji" data-emoji="exclamation">❗</span></li>
-<li><a href="https://jutge.org/problems/P60296_en">P60296 Role classification</a> <span class="emoji" data-emoji="large_orange_diamond">🔶</span></li>
-<li><a href="https://jutge.org/problems/P60219_en">P60219 Easy game?</a></li>
-<li><a href="https://jutge.org/problems/P62653_en">P62653 Ticket distribution</a> <span class="emoji" data-emoji="large_orange_diamond">🔶</span></li>
-<li><a href="https://jutge.org/problems/P63584_en">P63584 K-th element</a> (~ <a href="../problems/4.11/">Problem 4.11</a> you will see in the problem class P5)</li>
-</ul>
-<p>From this block of exercises, in class we solve together the ones marked with <span class="emoji" data-emoji="large_orange_diamond">🔶</span>. They are the same as the one listed below. Recall that <span class="emoji" data-emoji="exclamation">❗</span> marks possibly harder problems.</p>
+<p>From this block of exercises, in class we solve together the ones marked with <span class="emoji" data-emoji="large_orange_diamond">🔶</span>. They are the same as the one listed below.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
 <div id="listing-exercises-L1" class="quarto-listing quarto-listing-container-grid">
 <div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-listing-file-modified-sort="1725809864614" data-listing-reading-time-sort="2" data-listing-word-count-sort="306">
+<div class="g-col-1" data-index="0" data-listing-file-modified-sort="1733683531228" data-listing-reading-time-sort="2" data-listing-word-count-sort="243">
 <a href="../labs/L1-P60296/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -525,7 +524,7 @@ Role Classification
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="1" data-listing-file-modified-sort="1725809859304" data-listing-reading-time-sort="1" data-listing-word-count-sort="183">
+<div class="g-col-1" data-index="1" data-listing-file-modified-sort="1733683556414" data-listing-reading-time-sort="1" data-listing-word-count-sort="120">
 <a href="../labs/L1-P59282/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -539,7 +538,7 @@ Statistical measures
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="2" data-listing-file-modified-sort="1725957713819" data-listing-reading-time-sort="2" data-listing-word-count-sort="354">
+<div class="g-col-1" data-index="2" data-categories="TDElMkNTVEw=" data-listing-file-modified-sort="1733683499511" data-listing-reading-time-sort="2" data-listing-word-count-sort="291">
 <a href="../labs/L1-P62653/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -558,12 +557,19 @@ Ticket distribution
 No matching items
 </div>
 </div>
+<p>Remember that for any doubt on the exercises you can ask me by <a href="mailto:ilario.bonacina+EDA@upc.edu">email</a> too until <span style="color:#880808;"><strong>6 days before the lab exam</strong></span>.</p>
 
 
 
 </section>
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Recall that <span class="emoji" data-emoji="exclamation">❗</span> marks possibly harder problems.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

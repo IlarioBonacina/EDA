@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Initial Self-Assesment Test – EDA</title>
+<title>index – EDA</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -73,9 +73,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-91ed88c7edbeee7407b1343320cd4003.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script src="../site_libs/quarto-contrib/countdown-0.5.0/countdown.js"></script>
-<link href="../site_libs/quarto-contrib/countdown-0.5.0/countdown.css" rel="stylesheet">
-<script src="../site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
+<script src="../site_libs/quarto-contrib/jquery-3.6.3/jquery-3.6.3.min.js"></script>
+<script src="../site_libs/quarto-contrib/code-fullscreen-1.0.0/code-fullscreen.js" defer="true"></script>
+<link href="../site_libs/quarto-contrib/code-fullscreen-1.0.0/code-fullscreen.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -124,35 +124,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         
     <div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="https://en.cppreference.com/w/"><i class="bi bi-code-slash"></i>cppreference.com</a></li><li><a href="https://jutge.org"><i class="bi bi-link-45deg"></i>Jutge.org</a></li><li><a href="https://www.cs.upc.edu/eda/"><i class="bi bi-link-45deg"></i>EDA Main Page</a></li><li><a href="https://www.cs.upc.edu/eda/data/uploads/eda-problem-set.cat.pdf"><i class="bi bi-book"></i>EDA Problem Set</a></li><li><a href="https://www.cs.upc.edu/~oliveras/examens.cat.pdf"><i class="bi bi-book"></i>Collection of Solved Exams</a></li><li><a href="https://www.cs.upc.edu/eda/data/uploads/eda-codis.pdf"><i class="bi bi-book"></i>Algorithms in C++</a></li></ul></div></div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Initial Self-Assesment Test<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></h1>
-</div>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
 
-<div class="quarto-title-meta">
 
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<p>Please dedicate the next <strong>10 minutes</strong> to the following self assesment test.</p>
-<div id="timer_6d38024ae78b810e02056faa163abf77d089420a" class="countdown" data-warn-when="0" data-update-every="15" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
-  <div class="countdown-controls">
-    <button class="countdown-bump-down">−</button>
-    <button class="countdown-bump-up">+</button>
- </div>
- <code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
- </div>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -497,42 +473,42 @@ Question
 </div>
 <div class="callout-body-container callout-body">
 <p>When I compile my program <code>program.cc</code> I get the output below. Where is the error?</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">user@machine:$</span> g++ program.cc</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>   <span class="ex">program.cc:</span> In function ‘int main<span class="er">(</span><span class="kw">)</span><span class="ex">’:</span></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>   <span class="ex">program.cc:10:8:</span> error: no match for ‘operator<span class="op">&lt;&lt;’</span> <span class="er">(</span><span class="ex">operand</span> types are ‘std::ostream</span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>   <span class="ex">{aka</span> std::basic_ostream<span class="op">&lt;</span>char<span class="op">&gt;</span>}’ and ‘std::vector<span class="op">&lt;</span>int<span class="op">&gt;</span>’<span class="kw">)</span></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="st">      cout &lt;&lt; v &lt;&lt; endl;</span></span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="st">           ^</span></span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="st">   In file included from /usr/include/c++/5/iostream:39:0,</span></span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="st">                    from program.cc:1:</span></span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="st">   /usr/include/c++/5/ostream:108:7: note: candidate: std::basic_ostream&lt;_CharT,</span></span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="st">   _Traits&gt;::__ostream_type&amp; std::basic_ostream&lt;_CharT, _Traits&gt;::operator&lt;&lt;(std::basic_ostream&lt;_</span></span>
-<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="st">   _Traits&gt;::__ostream_type&amp; (*)(std::basic_ostream&lt;_CharT, _Traits&gt;::__ostream_type&amp;))</span></span>
-<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a><span class="st">   [with _CharT = char; _Traits = std::char_traits&lt;char&gt;; std::basic_ostream&lt;_CharT,</span></span>
-<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="st">   _Traits&gt;::__ostream_type = std::basic_ostream&lt;char&gt;]</span></span>
-<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a><span class="st">          operator&lt;&lt;(__ostream_type&amp; (*__pf)(__ostream_type&amp;))</span></span>
-<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a><span class="st">          ^</span></span>
-<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a><span class="st">   /usr/include/c++/5/ostream:108:7: note:   no known conversion for argument</span></span>
-<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a><span class="st">   1 from ‘std::vector&lt;int&gt;’ to ‘std::basic_ostream&lt;char&gt;::__ostream_type&amp;</span></span>
-<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a><span class="st">   (*)(std::basic_ostream&lt;char&gt;::__ostream_type&amp;) {aka std::basic_ostream&lt;char&gt;&amp;</span></span>
-<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a><span class="st">   (*)(std::basic_ostream&lt;char&gt;&amp;)}’</span></span>
-<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a><span class="st">   /usr/include/c++/5/ostream:117:7: note: candidate: std::basic_ostream&lt;_CharT,</span></span>
-<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a><span class="st">   _Traits&gt;::__ostream_type&amp; std::basic_ostream&lt;_CharT, _Traits&gt;::operator&lt;&lt;(std::basic_ostream&lt;_</span></span>
-<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a><span class="st">   _Traits&gt;::__ios_type&amp; (*)(std::basic_ostream&lt;_CharT, _Traits&gt;::__ios_type&amp;))</span></span>
-<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a><span class="st">   [with _CharT = char; _Traits = std::char_traits&lt;char&gt;; std::basic_ostream&lt;_CharT,</span></span>
-<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a><span class="st">   _Traits&gt;::__ostream_type = std::basic_ostream&lt;char&gt;; std::basic_ostream&lt;_CharT,</span></span>
-<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a><span class="st">   _Traits&gt;::__ios_type = std::basic_ios&lt;char&gt;]</span></span>
-<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a><span class="st">          operator&lt;&lt;(__ios_type&amp; (*__pf)(__ios_type&amp;))</span></span>
-<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a><span class="st">          ^</span></span>
-<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a><span class="st">   /usr/include/c++/5/ostream:117:7: note:   no known conversion for argument</span></span>
-<span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a><span class="st">   1 from ‘std::vector&lt;int&gt;’ to ‘std::basic_ostream&lt;char&gt;::__ios_type&amp; (*)(std::basic_ostream&lt;cha</span></span>
-<span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a><span class="st">   {aka std::basic_ios&lt;char&gt;&amp; (*)(std::basic_ios&lt;char&gt;&amp;)}’</span></span>
-<span id="cb14-31"><a href="#cb14-31" aria-hidden="true" tabindex="-1"></a><span class="st">   /usr/include/c++/5/ostream:127:7: note: candidate: std::basic_ostream&lt;_CharT,</span></span>
-<span id="cb14-32"><a href="#cb14-32" aria-hidden="true" tabindex="-1"></a><span class="st">   _Traits&gt;::__ostream_type&amp; std::basic_ostream&lt;_CharT, _Traits&gt;::operator&lt;&lt;(std::ios_base&amp;</span></span>
-<span id="cb14-33"><a href="#cb14-33" aria-hidden="true" tabindex="-1"></a><span class="st">   (*)(std::ios_base&amp;)) [with _CharT = char; _Traits = std::char_traits&lt;char&gt;;</span></span>
-<span id="cb14-34"><a href="#cb14-34" aria-hidden="true" tabindex="-1"></a><span class="st">   std::basic_ostream&lt;_CharT, _Traits&gt;::__ostream_type = std::basic_ostream&lt;char&gt;]</span></span>
-<span id="cb14-35"><a href="#cb14-35" aria-hidden="true" tabindex="-1"></a><span class="st">          operator&lt;&lt;(ios_base&amp; (*__pf) (ios_base&amp;))</span></span>
-<span id="cb14-36"><a href="#cb14-36" aria-hidden="true" tabindex="-1"></a><span class="st">  ...</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">user@machine:$</span> g++ program.cc</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>   <span class="ex">program.cc:</span> In function ‘int main<span class="pp">()</span>’:</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>   <span class="ex">program.cc:10:8:</span> error: no match for ‘operator<span class="op">&lt;&lt;’</span> <span class="op">(oper</span>and types are ‘std::ostream</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>   {aka std::basic_ostream&lt;char&gt;}’ and ‘std::vector&lt;int&gt;’)</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>      cout &lt;&lt; v &lt;&lt; endl;</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>           ^</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>   In file included from /usr/include/c++/5/iostream:39:0,</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>                    from program.cc:1:</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>   /usr/include/c++/5/ostream:108:7: note: candidate: std::basic_ostream&lt;_CharT,</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>   _Traits&gt;::__ostream_type&amp; std::basic_ostream&lt;_CharT, _Traits&gt;::operator&lt;&lt;(std::basic_ostream&lt;_</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>   _Traits&gt;::__ostream_type&amp; (*)(std::basic_ostream&lt;_CharT, _Traits&gt;::__ostream_type&amp;))</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>   [with _CharT = char; _Traits = std::char_traits&lt;char&gt;; std::basic_ostream&lt;_CharT,</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>   _Traits&gt;::__ostream_type = std::basic_ostream&lt;char&gt;]</span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>          operator&lt;&lt;(__ostream_type&amp; (*__pf)(__ostream_type&amp;))</span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>          ^</span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>   /usr/include/c++/5/ostream:108:7: note:   no known conversion for argument</span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>   1 from ‘std::vector&lt;int&gt;’ to ‘std::basic_ostream&lt;char&gt;::__ostream_type&amp;</span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>   (*)(std::basic_ostream&lt;char&gt;::__ostream_type&amp;) {aka std::basic_ostream&lt;char&gt;&amp;</span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>   (*)(std::basic_ostream&lt;char&gt;&amp;)}’</span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>   /usr/include/c++/5/ostream:117:7: note: candidate: std::basic_ostream&lt;_CharT,</span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>   _Traits&gt;::__ostream_type&amp; std::basic_ostream&lt;_CharT, _Traits&gt;::operator&lt;&lt;(std::basic_ostream&lt;_</span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a>   _Traits&gt;::__ios_type&amp; (*)(std::basic_ostream&lt;_CharT, _Traits&gt;::__ios_type&amp;))</span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>   [with _CharT = char; _Traits = std::char_traits&lt;char&gt;; std::basic_ostream&lt;_CharT,</span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a>   _Traits&gt;::__ostream_type = std::basic_ostream&lt;char&gt;; std::basic_ostream&lt;_CharT,</span>
+<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a>   _Traits&gt;::__ios_type = std::basic_ios&lt;char&gt;]</span>
+<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a>          operator&lt;&lt;(__ios_type&amp; (*__pf)(__ios_type&amp;))</span>
+<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a>          ^</span>
+<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a>   /usr/include/c++/5/ostream:117:7: note:   no known conversion for argument</span>
+<span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a>   1 from ‘std::vector&lt;int&gt;’ to ‘std::basic_ostream&lt;char&gt;::__ios_type&amp; (*)(std::basic_ostream&lt;cha</span>
+<span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a>   {aka std::basic_ios&lt;char&gt;&amp; (*)(std::basic_ios&lt;char&gt;&amp;)}’</span>
+<span id="cb14-31"><a href="#cb14-31" aria-hidden="true" tabindex="-1"></a>   /usr/include/c++/5/ostream:127:7: note: candidate: std::basic_ostream&lt;_CharT,</span>
+<span id="cb14-32"><a href="#cb14-32" aria-hidden="true" tabindex="-1"></a>   _Traits&gt;::__ostream_type&amp; std::basic_ostream&lt;_CharT, _Traits&gt;::operator&lt;&lt;(std::ios_base&amp;</span>
+<span id="cb14-33"><a href="#cb14-33" aria-hidden="true" tabindex="-1"></a>   (*)(std::ios_base&amp;)) [with _CharT = char; _Traits = std::char_traits&lt;char&gt;;</span>
+<span id="cb14-34"><a href="#cb14-34" aria-hidden="true" tabindex="-1"></a>   std::basic_ostream&lt;_CharT, _Traits&gt;::__ostream_type = std::basic_ostream&lt;char&gt;]</span>
+<span id="cb14-35"><a href="#cb14-35" aria-hidden="true" tabindex="-1"></a>          operator&lt;&lt;(ios_base&amp; (*__pf) (ios_base&amp;))</span>
+<span id="cb14-36"><a href="#cb14-36" aria-hidden="true" tabindex="-1"></a>  ...</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div class="callout callout-style-simple callout-caution no-icon callout-titled">
@@ -555,17 +531,10 @@ Answer
 </div>
 </div>
 </div>
-<p><a href="javascript:history.back()"><iconify-icon role="img" inline="" icon="twemoji:back-arrow" style="font-size: 2em;" aria-label="Icon back-arrow from twemoji Iconify.design set." title="Icon back-arrow from twemoji Iconify.design set."></iconify-icon></a></p>
 
 
 
-
-<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
-
-<ol>
-<li id="fn1"><p>This test is an html version of <a href="https://www.cs.upc.edu/eda/data/uploads/test.eng.pdf">this pdf</a>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
-</section></div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
