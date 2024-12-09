@@ -210,7 +210,23 @@ Hint
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>This will be available closer to the class.</p>
+<p>The exercise asks to compute the size of the set</p>
+<p><span class="math display">
+A=\left\{(b_0,\dots,b_{n-1})\in \{0,1,2\}^n : \sum_{i=0}^{n-1} b_i c_i =x\right\}\ ,
+</span> where <span class="math inline">c_0</span>, …, <span class="math inline">c_{n-1}</span> and <span class="math inline">x</span> are as in the problem statement.</p>
+<p>Let <span class="math inline">A_{s,k}</span> be the set</p>
+<p><span class="math display">
+A_{s,k}=\left\{(b_k,\dots,b_{n-1})\in \{0,1,2\}^n : s+\sum_{i=k}^{n-1} b_i c_i =x\right\}\ ,
+</span></p>
+<p>In other words, since <span class="math inline">A=A_{0,0}</span> we want to compute <span class="math inline">|A_{0,0}|</span>. Notice that</p>
+<p><span class="math display">
+A_{s,k} = A_{s,k+1} \cup A_{s+c_k, k+1} \cup A_{s+2c_k, k+1}\ .
+</span> Since the sets are disjoint then</p>
+<p><span class="math display">
+|A_{s,k}| = |A_{s,k+1}| + |A_{s+c_k, k+1}| + |A_{s+2c_k, k+1}|\ .
+</span></p>
+<p>Moreover, <span class="math inline">|A_{s,k}| =0</span> whenever <span class="math inline">s&gt; x</span>, and <span class="math inline">|A_{s,n}|=1</span> if <span class="math inline">s=x</span> and otherwise <span class="math inline">|A_{s,n}|=0</span>.</p>
+<p>Use the facts above to construct a function <code>int backtracking(int k, int s)</code> that computes <span class="math inline">|A_{s,k}|</span>.</p>
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">

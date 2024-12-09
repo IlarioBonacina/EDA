@@ -71,6 +71,49 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -95,7 +138,23 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p>This will be available closer to the class.</p>
+<p>The exercise asks to compute the size of the set</p>
+<p><span class="math display">
+A=\left\{(b_0,\dots,b_{n-1})\in \{0,1,2\}^n : \sum_{i=0}^{n-1} b_i c_i =x\right\}\ ,
+</span> where <span class="math inline">c_0</span>, …, <span class="math inline">c_{n-1}</span> and <span class="math inline">x</span> are as in the problem statement.</p>
+<p>Let <span class="math inline">A_{s,k}</span> be the set</p>
+<p><span class="math display">
+A_{s,k}=\left\{(b_k,\dots,b_{n-1})\in \{0,1,2\}^n : s+\sum_{i=k}^{n-1} b_i c_i =x\right\}\ ,
+</span></p>
+<p>In other words, since <span class="math inline">A=A_{0,0}</span> we want to compute <span class="math inline">|A_{0,0}|</span>. Notice that</p>
+<p><span class="math display">
+A_{s,k} = A_{s,k+1} \cup A_{s+c_k, k+1} \cup A_{s+2c_k, k+1}\ .
+</span> Since the sets are disjoint then</p>
+<p><span class="math display">
+|A_{s,k}| = |A_{s,k+1}| + |A_{s+c_k, k+1}| + |A_{s+2c_k, k+1}|\ .
+</span></p>
+<p>Moreover, <span class="math inline">|A_{s,k}| =0</span> whenever <span class="math inline">s&gt; x</span>, and <span class="math inline">|A_{s,n}|=1</span> if <span class="math inline">s=x</span> and otherwise <span class="math inline">|A_{s,n}|=0</span>.</p>
+<p>Use the facts above to construct a function <code>int backtracking(int k, int s)</code> that computes <span class="math inline">|A_{s,k}|</span>.</p>
 
 
 
