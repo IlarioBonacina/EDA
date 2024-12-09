@@ -296,7 +296,7 @@
     "href": "labs/L6.html",
     "title": "L6: Exhaustive Search and Generation II",
     "section": "",
-    "text": "This is the last lab of the course. We consider some the remaining problems from Jutge.org, section EDA \\rightarrow Exhaustive search and generation.",
+    "text": "This is the last lab of the course. We consider the remaining problems from Jutge.org, section EDA \\rightarrow Exhaustive search and generation.",
     "crumbs": [
       "*Lab Classes*",
       "L6: Exhaustive algorithms II"
@@ -629,25 +629,11 @@
     "text": "Try to use a priority_queue with first element the smallest among the ones seen so far.\nTo output a double x with 4 digits of precision you can use #include&lt;iomanip&gt; and cout &lt;&lt; fixed &lt;&lt; setprecision(4) &lt;&lt; the double you want to output.\n#include&lt;limits&gt; allows you to access e.g. the smallest int with numeric_limits&lt;int&gt;::lowest()."
   },
   {
-    "objectID": "b.html",
-    "href": "b.html",
-    "title": "EDA",
-    "section": "",
-    "text": "b"
-  },
-  {
-    "objectID": "a.html",
-    "href": "a.html",
-    "title": "EDA",
-    "section": "",
-    "text": "a"
-  },
-  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Data Structures and Algorithmics",
     "section": "",
-    "text": "Welcome to Data Structures and Algorithmics (aka EDA)!\nI’m Ilario Bonacina and if you are a student of the groups P/L11 or P/L31 or L43 or L53 then I’m one of your instructors for this semester. This is the webpage I’ll use as a support for the EDA problems/lab classes.\n Upcoming problem/lab class\n\n\n\n\n\n\n\n\n Contacts\n\n\n\nThe person in charge of the whole course is Albert Oliveras Llunell (email). For administrative questions (or any question on the EDA Game) please ask him directly.\nMy email for this course is ilario.bonacina+EDA@upc.edu. The last possible day to ask questions by email is 6 days before the partial/final exam.\n\n\n\n\n\n\n\n\n\n\n Announcements\n\n\n\n\n[16 Oct 2024] At the moment the english version of the EDA main page is down, please use the spanish version.\n\n\n\n\n\n\n\n\n\n UPC survey and internal poll\n\n\n\n\nPlease fill the official UPC survey on the quality of teaching.\nPlease also fill the internal anonymous google form to give me some more immediate feedback on this webpage and my teaching during this semester.",
+    "text": "Welcome to Data Structures and Algorithmics (aka EDA)!\nI’m Ilario Bonacina and if you are a student of the groups P/L11 or P/L31 or L43 or L53 then I’m one of your instructors for this semester. This is the webpage I’ll use as a support for the EDA problems/lab classes.\n Upcoming problem/lab class\n\n\n\n\n\n\n\n\n Contacts\n\n\n\nThe person in charge of the whole course is Albert Oliveras Llunell (email). For administrative questions (or any question on the EDA Game) please ask him directly.\nMy email for this course is ilario.bonacina+EDA@upc.edu. The last possible day to ask questions by email is 6 days before the partial/final exam.\n\n\n\n\n\n\n\n\n\n\n UPC survey and internal poll\n\n\n\n\nPlease fill the official UPC survey on the quality of teaching.\nPlease also fill the internal anonymous google form to give me some more immediate feedback on this webpage and my teaching during this semester.",
     "crumbs": [
       "*Course Info*"
     ]
