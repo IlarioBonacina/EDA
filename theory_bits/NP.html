@@ -38,7 +38,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-f2a1071e85750ec973bbb8a8f120da0f.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-91ed88c7edbeee7407b1343320cd4003.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-b35821a9a84761351c7a3447c41b25a6.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="../site_libs/quarto-contrib/jquery-3.6.3/jquery-3.6.3.min.js"></script>
 <script src="../site_libs/quarto-contrib/code-fullscreen-1.0.0/code-fullscreen.js" defer="true"></script>
 <link href="../site_libs/quarto-contrib/code-fullscreen-1.0.0/code-fullscreen.css" rel="stylesheet">
@@ -135,7 +135,10 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#nondeterminism-and-mathsfnp" id="toc-nondeterminism-and-mathsfnp" class="nav-link active" data-scroll-target="#nondeterminism-and-mathsfnp">Nondeterminism and <span class="math inline">\mathsf{NP}</span></a></li>
+  <li><a href="#nondeterminism-and-mathsfnp" id="toc-nondeterminism-and-mathsfnp" class="nav-link active" data-scroll-target="#nondeterminism-and-mathsfnp">Nondeterminism and <span class="math inline">\mathsf{NP}</span></a>
+  <ul class="collapse">
+  <li><a href="#mathsfp-vs-mathsfnp-problem" id="toc-mathsfp-vs-mathsfnp-problem" class="nav-link" data-scroll-target="#mathsfp-vs-mathsfnp-problem"><span class="math inline">\mathsf{P}</span> vs <span class="math inline">\mathsf{NP}</span> problem</a></li>
+  </ul></li>
   <li><a href="#polynomial-time-reductions" id="toc-polynomial-time-reductions" class="nav-link" data-scroll-target="#polynomial-time-reductions">Polynomial-time reductions</a></li>
   <li><a href="#mathsfsat-and-mathsfnp-completeness" id="toc-mathsfsat-and-mathsfnp-completeness" class="nav-link" data-scroll-target="#mathsfsat-and-mathsfnp-completeness"><span class="math inline">\mathsf{SAT}</span> and <span class="math inline">\mathsf{NP}</span>-completeness</a></li>
   </ul>
@@ -163,42 +166,116 @@ window.Quarto = {
 </header>
 
 
-<p>Given a set of inputs <span class="math inline">I</span>, a <span class="emph">decision problem</span> <span class="math inline">A</span> is a subset of <span class="math inline">I</span>. (The problem associated with <span class="math inline">A</span> is the problem of deciding wether a given input <span class="math inline">x</span> is in <span class="math inline">A</span> or not.)</p>
-<p>Given a function <span class="math inline">f\colon \mathbb N\to\mathbb N</span>, a decision problem <span class="math inline">P</span> with input set <span class="math inline">I</span> is <span class="emph">decidable in time <span class="math inline">f</span></span> if there exists an algorithm <span class="math inline">A\colon I\to\{0,1\}</span> such that for all <span class="math inline">x\in I</span>,</p>
+<div id="def-" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1 (Decision problem)</strong></span> Given a set of inputs <span class="math inline">I</span>, a <span class="emph">decision problem</span> <span class="math inline">A</span> is a subset of <span class="math inline">I</span>. (The problem associated with <span class="math inline">A</span> is the problem of deciding wether a given input <span class="math inline">x</span> is in <span class="math inline">A</span> or not.)</p>
+</div>
+<div id="def-" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 2 (decidable in time <span class="math inline">f</span>)</strong></span> Given a function <span class="math inline">f\colon \mathbb N\to\mathbb N</span>, a decision problem <span class="math inline">P</span> with input set <span class="math inline">I</span> is <span class="emph">decidable in time <span class="math inline">f</span></span> if there exists an algorithm <span class="math inline">A\colon I\to\{0,1\}</span> such that for all <span class="math inline">x\in I</span>,</p>
 <ul>
 <li>the cost of <span class="math inline">A(x)</span> is <span class="math inline">O(f(|x|))</span>, where <span class="math inline">|x|</span> is the number of symbols (e.g., bits) of a standard encoding of <span class="math inline">x</span>. and</li>
 <li><span class="math inline">x\in P \iff A(x)=1</span>.</li>
 </ul>
+</div>
+<p>Some important deterministic time complexity classes are the following.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true"><span class="math inline">\mathsf{TIME}(f)</span></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false"><span class="math inline">\mathsf{P}</span></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false"><span class="math inline">\mathsf{EXP}</span></a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <p>Given a function <span class="math inline">f\colon \mathbb N\to \mathbb N</span>, the class <span class="math inline">\mathsf{TIME}(f)</span> is the set of decision problems <span class="math inline">P</span> that are decidable in time <span class="math inline">f</span>:</p>
 <p><span class="math display">
 \mathsf{TIME}(f) = \{P \mid P \text{ is decidable in time } f\}
 </span></p>
-<p>It is known that <span class="math inline">\mathsf{TIME}(n^a)\subsetneq \mathsf{TIME}(n^b)</span> if and only if <span class="math inline">a &lt; b</span>. (This is a special case of the Time Hierarchy Theorem that you might see in some more advanced courses, perhaps.)</p>
+<p>It is known that <span class="math inline">\mathsf{TIME}(n^a)\subsetneq \mathsf{TIME}(n^b)</span> if and only if <span class="math inline">a &lt; b</span>. (This is a special case of the <span class="emph">Time Hierarchy Theorem</span> that you might see in some more advanced courses, perhaps.)</p>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
 <p>The class <span class="math inline">\mathsf{PTIME}</span>, or <span class="math inline">\mathsf{P}</span>, (polynomial time) is the union of all polynomial time classes: <span class="math display">
 \mathsf{PTIME} = \bigcup_{k\in \mathbb N} \mathsf{TIME}(n^k)\ .
 </span></p>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
 <p>The class <span class="math inline">\mathsf{EXP}</span> (exponential time) is the union of all exponential classes:</p>
 <p><span class="math display">
 \mathsf{EXP} = \bigcup_{k\in \mathbb N} \mathsf{TIME}(2^{n^k})\ .
 </span></p>
+</div>
+</div>
+</div>
 <section id="nondeterminism-and-mathsfnp" class="level2">
 <h2 class="anchored" data-anchor-id="nondeterminism-and-mathsfnp">Nondeterminism and <span class="math inline">\mathsf{NP}</span></h2>
-<p>The class <span class="math inline">\mathsf{NP}</span> (nondeterministic polynomial time) is the set of all problems which can be decided in nondeterministic polynomial time.</p>
-<p>It is not difficult to see that <span class="math display">
-\mathsf{P}\subseteq \mathsf{NP}\subseteq \mathsf{EXP}
-</span></p>
-<p>On the other hand, again by the Time Hierarchy Theorem, we know that <span class="math inline">\mathsf{P}\subsetneq \mathsf{EXP}</span>. So either <span class="math inline">\mathsf{P}\subsetneq \mathsf{NP}</span> or <span class="math inline">\mathsf{NP}\subsetneq \mathsf{EXP}</span> or both. But, which is the case? With the current knowledge all three scenarios<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> are perfectly possible:</p>
+<p>The class <span class="math inline">\mathsf{NP}</span> (nondeterministic polynomial time) is the set of all problems which can be <em>verified</em> in deterministic polynomial time.</p>
+<div id="def-" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 3 (<span class="math inline">\mathsf{NP}</span>)</strong></span> A decision problem <span class="math inline">A</span> is in <span class="emph"><span class="math inline">\mathsf{NP}</span></span> if and only is there is an integer <span class="math inline">k\in \mathbb N</span> and an algorithm <span class="math inline">V</span> (called <span class="emph">verifier</span>) such that</p>
 <ul>
-<li><span class="math inline">\mathsf{P}\subsetneq \mathsf{NP}</span> and <span class="math inline">\mathsf{NP}\subsetneq \mathsf{EXP}</span>,</li>
-<li><span class="math inline">\mathsf{P}\subsetneq \mathsf{NP}</span> and <span class="math inline">\mathsf{NP}= \mathsf{EXP}</span>,</li>
-<li><span class="math inline">\mathsf{P}= \mathsf{NP}</span> and <span class="math inline">\mathsf{NP}\subsetneq \mathsf{EXP}</span>.</li>
+<li>The output of <span class="math inline">V</span> is Boolean (<em>true</em>/<em>false</em>), <span class="math inline">V</span> takes as input strings of the form <span class="math inline">(x,y)</span> and runs in polynomial time (w.r.t. <span class="math inline">|x|+|y|</span>);</li>
+<li>if <span class="math inline">x\in A</span> then there is a string <span class="math inline">c</span> (called <span class="emph">certificate</span>) such that <span class="math inline">|c|\leq |x|^k</span> and <span class="math inline">V</span> with input <span class="math inline">(x,c)</span> returns <em>true</em>;</li>
+<li>if <span class="math inline">x \notin A</span>, for every string <span class="math inline">c</span> with <span class="math inline">|c|\leq |x|^k</span>, <span class="math inline">V</span> on input <span class="math inline">(x,c)</span> returns <em>false</em> .</li>
 </ul>
-<p>Which is the case? Most computer scientist believe that the first scenario is likely to be the true one, but no-one has any idea on how to prove it.</p>
+</div>
+<section id="mathsfp-vs-mathsfnp-problem" class="level3">
+<h3 class="anchored" data-anchor-id="mathsfp-vs-mathsfnp-problem"><span class="math inline">\mathsf{P}</span> vs <span class="math inline">\mathsf{NP}</span> problem</h3>
+<p>It is not too difficult to see that <span class="math display">
+\mathsf{P}\subseteq \mathsf{NP}\subseteq \mathsf{EXP}\ .
+</span></p>
+<p>On the other hand, again by the <span class="emph">Time Hierarchy Theorem</span>, we know that <span class="math inline">\mathsf{P}\neq \mathsf{EXP}</span>. So either <span class="math inline">\mathsf{P}\neq \mathsf{NP}</span> or <span class="math inline">\mathsf{NP}\neq \mathsf{EXP}</span> or both. But, which is the case? With the current knowledge the following scenarios below are perfectly possible:</p>
+<ol type="1">
+<li><span class="math inline">\mathsf{P}\neq \mathsf{NP}</span> and <span class="math inline">\mathsf{NP}\neq \mathsf{EXP}</span>,</li>
+<li><span class="math inline">\mathsf{P}\neq \mathsf{NP}</span> and <span class="math inline">\mathsf{NP}= \mathsf{EXP}</span>,</li>
+<li><span class="math inline">\mathsf{P}= \mathsf{NP}</span> and <span class="math inline">\mathsf{NP}\neq \mathsf{EXP}</span>,</li>
+</ol>
+<p>It is also possible that <span class="math inline">\mathsf{P}=\mathsf{NP}</span> and <span class="math inline">\mathsf{P}\neq \mathsf{NP}</span> are both perfectly coherent with all the commonly accepted axioms of mathematics…</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Which is the case? The <span class="math inline">\mathsf{P}</span> vs <span class="math inline">\mathsf{NP}</span> problem
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Most computer scientist believe that <span class="math inline">\mathsf{P}\neq \mathsf{NP}</span> is likely to be true (actually most computer scientists believe something stronger, see below). In any case no-one has any idea on how to prove it.</p>
+<p>Deciding whether <span class="math inline">\mathsf{P}= \mathsf{NP}</span> or <span class="math inline">\mathsf{P}\neq \mathsf{NP}</span> is known as the <span class="emph"><span class="math inline">\mathsf{P}</span> vs <span class="math inline">\mathsf{NP}</span> problem</span>. It is one of the <span class="emph">Millennium Problems</span> of the <a href="https://www.google.com/url?sa=t&amp;source=web&amp;rct=j&amp;opi=89978449&amp;url=https://www.claymath.org/millennium/p-vs-np/&amp;ved=2ahUKEwjR1P_fyamKAxWVcKQEHTxvFqEQFnoECBIQAQ&amp;usg=AOvVaw2livHldwZvuMeNiAw-W6sX">Clay Mathematics Institute</a>.</p>
+<p>Related to the <span class="math inline">\mathsf{P}</span> vs <span class="math inline">\mathsf{NP}</span> problem are the <span class="emph">5 worlds</span> by Russell Impagliazzo:</p>
+<dl>
+<dt>Algorithmica</dt>
+<dd>
+<span class="math inline">\mathsf{P} = \mathsf{NP}</span> via some explicit algorithm or something <em>morally equivalent</em> like fast probabilistic algorithms for <span class="math inline">\mathsf{NP}</span>.
+</dd>
+<dt>Heuristica</dt>
+<dd>
+<span class="math inline">\mathsf{NP}</span> problems are hard in the worst case but easy on average.
+</dd>
+<dt>Pessiland</dt>
+<dd>
+<span class="math inline">\mathsf{NP}</span> problems hard on average but no one-way functions exist. We can easily create hard <span class="math inline">\mathsf{NP}</span> problems, but not hard <span class="math inline">\mathsf{NP}</span> problems where we know the solution. This is the worst of all possible worlds, since not only can we not solve hard problems on average but we apparently do not get any cryptographic advantage from the hardness of these problems.
+</dd>
+<dt>Minicrypt</dt>
+<dd>
+One-way functions exist but we do not have public-key cryptography.
+</dd>
+<dt>Cryptomania</dt>
+<dd>
+Public-key cryptography is possible, i.e.&nbsp;two parties can exchange secret messages over open channels.
+</dd>
+</dl>
+<p>Impagliazzo does not guess which world we live in. Most computer scientists would say Cryptomania or Minicrypt.</p>
+</div>
+</div>
+</div>
+</section>
 </section>
 <section id="polynomial-time-reductions" class="level2">
 <h2 class="anchored" data-anchor-id="polynomial-time-reductions">Polynomial-time reductions</h2>
 <div id="def-" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 1</strong></span> Let <span class="math inline">A</span> and <span class="math inline">B</span> be two decisional problems with input sets <span class="math inline">I</span> and <span class="math inline">I'</span>, respectively. We say that <span class="emph"><span class="math inline">A</span> reduces to <span class="math inline">B</span> in polynomial time</span> (<span class="math inline">A\leq_p B</span>) if there exists a polynomial time algorithm that computes a function <span class="math inline">f : I \to I'</span> such that <span class="math inline">x\in A \iff  f(x) \in B</span>.</p>
+<p><span class="theorem-title"><strong>Definition 4</strong></span> Let <span class="math inline">A</span> and <span class="math inline">B</span> be two decisional problems with input sets <span class="math inline">I</span> and <span class="math inline">I'</span>, respectively. We say that <span class="emph"><span class="math inline">A</span> reduces to <span class="math inline">B</span> in polynomial time</span> (<span class="math inline">A\leq_p B</span>) if there exists a polynomial time algorithm that computes a function <span class="math inline">f : I \to I'</span> such that <span class="math inline">x\in A \iff  f(x) \in B</span>.</p>
+</div>
+<p>Schematically a polynomial (many-one) reduction between <span class="math inline">A_1</span> and and <span class="math inline">A_2</span> can be though as follows. Let Problem <span class="math inline">i</span> be the problem of deciding whether an input is in <span class="math inline">A_i</span>. A many-one reduction gives a way to construct an algorithm to solve Problem 1 given an algorithm for Problem 2 and a polynomial-time function <span class="math inline">f</span> to convert inputs.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="reductions.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%"></p>
+</figure>
 </div>
 <div id="thm-" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 1</strong></span> &nbsp;</p>
@@ -210,11 +287,16 @@ window.Quarto = {
 </section>
 <section id="mathsfsat-and-mathsfnp-completeness" class="level2">
 <h2 class="anchored" data-anchor-id="mathsfsat-and-mathsfnp-completeness"><span class="math inline">\mathsf{SAT}</span> and <span class="math inline">\mathsf{NP}</span>-completeness</h2>
-<p>A <span class="emph">propositional formula</span> is an expression involving parentheses, the constants <em>true</em> and <em>false</em>, Boolean variables <span class="math inline">x_1</span>,…,<span class="math inline">x_n</span> which might take values <em>true</em> or <em>false</em>, their negations <span class="math inline">\bar x_1</span>,…,<span class="math inline">\bar x_n</span> and the connectives <span class="math inline">\lor</span>(or, disjunction) and <span class="math inline">\land</span> (and, conjunction). For example,</p>
+<div id="def-" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 5 (Propositional formula)</strong></span> A <span class="emph">propositional formula</span> is an expression involving parentheses, the constants <em>true</em> and <em>false</em>, Boolean variables <span class="math inline">x_1</span>,…,<span class="math inline">x_n</span> which might take values <em>true</em> or <em>false</em>, their negations <span class="math inline">\bar x_1</span>,…,<span class="math inline">\bar x_n</span> and the connectives <span class="math inline">\lor</span>(or, disjunction) and <span class="math inline">\land</span> (and, conjunction).</p>
+</div>
+<p>For example,</p>
 <p><span class="math display">
 (x\lor y\lor z) \land (\bar x\lor \bar z)
 </span> is a propositional formula.</p>
-<p>A propositional formula F is <span class="emph">satisfiable</span> iff there exists an assignment of truth values to its variables such that the formula evaluates to true. For instance, the formula above is satisfiable for instance setting <span class="math inline">x=</span> <em>true</em> and <span class="math inline">z=</span> <em>false</em> (and <span class="math inline">y</span> arbitrarily).</p>
+<div id="def-" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 6 (satisfiable)</strong></span> A propositional formula F is <span class="emph">satisfiable</span> iff there exists an assignment of truth values to its variables such that the formula evaluates to true. For instance, the formula above is satisfiable for instance setting <span class="math inline">x=</span> <em>true</em> and <span class="math inline">z=</span> <em>false</em> (and <span class="math inline">y</span> arbitrarily).</p>
+</div>
 <p>Not every propositional formula is satisfiable, for instance <span class="math inline">x\land \bar x</span> is not satisfiable. The set of all satisfiable propositional formulas is</p>
 <p><span class="math display">
 \mathsf{SAT} = \{\varphi \mid \varphi \text{ is a satisfiable propositional formula}\}\ .
@@ -224,25 +306,35 @@ window.Quarto = {
 \mathsf{NP} = \{A\mid A\leq_p \mathsf{SAT}\}\ .
 </span></p>
 </div>
+<p><br></p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true"><span class="math inline">\mathsf{NP}</span>-complete</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false"><span class="math inline">\mathsf{NP}</span>-hard</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
 <p>A decision problem <span class="math inline">B</span> is <span class="emph"><span class="math inline">\mathsf{NP}</span>-complete</span> if <span class="math inline">\mathsf{NP} = \{A\mid A\leq_p B\}</span>. In other words, Cook-Levin’s Theorem says that <span class="math inline">\mathsf{SAT}</span> is <span class="math inline">\mathsf{NP}</span>-complete.</p>
 <p>The class of all <span class="math inline">\mathsf{NP}</span>-complete problems is called <span class="math inline">\mathsf{NPC}</span>.</p>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
 <p>If we only know that <span class="math inline">\mathsf{NP} \subseteq \{A\mid A\leq_p B\}</span>, then <span class="math inline">B</span> is <span class="emph"><span class="math inline">\mathsf{NP}</span>-hard</span>. In particular, <span class="math inline">B</span> is <span class="math inline">\mathsf{NP}</span>-complete if and only if <span class="math inline">B</span> is <span class="math inline">\mathsf{NP}</span>-hard and <span class="math inline">B\in \mathsf{NP}</span>.</p>
+</div>
+</div>
+</div>
+<p>If we believe that <span class="math inline">\mathsf{P}\neq  \mathsf{NP}</span>, then we must also believe that there are problems in <span class="math inline">\mathsf{NP}</span> which are neither in <span class="math inline">\mathsf{P}</span> nor <span class="math inline">\mathsf{NP}</span>-complete. This is the statement of the following theorem.</p>
 <div id="thm-" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 3 (Ladner’s theorem)</strong></span> If <span class="math inline">\mathsf{P}\neq  \mathsf{NP}</span>, then <span class="math inline">\mathsf{NP}\setminus (\mathsf{P}\cup\mathsf{NPC})\neq \emptyset</span>.</p>
 </div>
-<p>Decision versions of factoring, the discrete logarithm and other common cryptographic assumption we know are in <span class="math inline">\mathsf{NP}</span> but for them we do not know any polynomial-time algorithm and at the same time we do not know whether they are <span class="math inline">\mathsf{NP}</span>-complete (probably they are not).</p>
+<p><br> Typical problems that are in <span class="math inline">\mathsf{NP}</span> but for which we do not know any polynomial-time algorithm and at the same time we do not know whether they are <span class="math inline">\mathsf{NP}</span>-complete (probably they are not) are the following:</p>
+<ul>
+<li>decision versions of factoring,</li>
+<li>the discrete logarithm</li>
+<li>other common cryptographic assumptions.</li>
+</ul>
 <p><a href="javascript:history.back()"><iconify-icon role="img" inline="" icon="twemoji:back-arrow" style="font-size: 2em;" aria-label="Icon back-arrow from twemoji Iconify.design set." title="Icon back-arrow from twemoji Iconify.design set."></iconify-icon></a></p>
 
 
 </section>
 
-
-<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
-
-<ol>
-<li id="fn1"><p>There is also a fourth scenario, which is that both <span class="math inline">\mathsf{P}=\mathsf{NP}</span> and <span class="math inline">\mathsf{P}\neq \mathsf{NP}</span> are perfectly coherent with all the commonly accepted axioms of mathematics.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
-</section></div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
