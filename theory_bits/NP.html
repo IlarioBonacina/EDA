@@ -281,7 +281,9 @@ Public-key cryptography is possible, i.e.&nbsp;two parties can exchange secret m
 <p><span class="theorem-title"><strong>Theorem 1</strong></span> &nbsp;</p>
 <ul>
 <li>The binary relation <span class="math inline">\leq_p</span> is a preorder (<em>i.e.</em> it is reflexive and transitive).</li>
-<li>If <span class="math inline">A\leq_p B</span> and <span class="math inline">B\in \mathsf{NP}</span>, then <span class="math inline">A\in \mathsf{NP}</span>.</li>
+<li><span class="math inline">\mathsf{P}</span> is closed downwards w.r.t. <span class="math inline">\leq_p</span>, that is if <span class="math inline">A\leq_p B</span> and <span class="math inline">B\in \mathsf{NP}</span>, then <span class="math inline">A\in \mathsf{NP}</span>.</li>
+<li><span class="math inline">\mathsf{NP}</span> is closed downwards w.r.t. <span class="math inline">\leq_p</span>, that is if <span class="math inline">A\leq_p B</span> and <span class="math inline">B\in \mathsf{P}</span>, then <span class="math inline">A\in \mathsf{P}</span>.</li>
+<li>The problems in <span class="math inline">\mathsf{P}</span> are the easiest w.r.t. <span class="math inline">\leq_p</span>, that is if <span class="math inline">A\in \mathsf{P}</span>, then for any decision problem <span class="math inline">B</span> it holds that <span class="math inline">A\leq_p B</span>.</li>
 </ul>
 </div>
 </section>
@@ -329,7 +331,7 @@ Public-key cryptography is possible, i.e.&nbsp;two parties can exchange secret m
 <p><br> Typical problems that are in <span class="math inline">\mathsf{NP}</span> but for which we do not know any polynomial-time algorithm and at the same time we do not know whether they are <span class="math inline">\mathsf{NP}</span>-complete (probably they are not) are the following:</p>
 <ul>
 <li>decision versions of factoring,</li>
-<li>the discrete logarithm</li>
+<li>the discrete logarithm,</li>
 <li>other common cryptographic assumptions.</li>
 </ul>
 <p><a href="javascript:history.back()"><iconify-icon role="img" inline="" icon="twemoji:back-arrow" style="font-size: 2em;" aria-label="Icon back-arrow from twemoji Iconify.design set." title="Icon back-arrow from twemoji Iconify.design set."></iconify-icon></a></p>
