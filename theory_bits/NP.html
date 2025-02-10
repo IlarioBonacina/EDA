@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.39">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>On NP and related concepts – EDA</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-f2a1071e85750ec973bbb8a8f120da0f.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-557aace189c874196b1faf1171d48a8d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/jquery-3.6.3/jquery-3.6.3.min.js"></script>
+<script src="../site_libs/quarto-contrib/code-fullscreen-1.0.0/code-fullscreen.js" defer="true"></script>
+<link href="../site_libs/quarto-contrib/code-fullscreen-1.0.0/code-fullscreen.css" rel="stylesheet">
+<script src="../site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <div id="quarto-announcement" data-announcement-id="df0a319c1a43838ae13e1dd1b4ee3b04" class="alert alert-warning hidden"><i class="bi bi-exclamation-triangle-fill quarto-announcement-icon"></i><div class="quarto-announcement-content">
+<p>Por el momento esta página está disponible en Inglés. Si lo necesitas, puedes utilizar <a href="https://ilariobonacina-github-io.translate.goog/EDA/?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=ca&amp;_x_tr_pto=wapp">Google Translate</a> para traducir al castellano, al català, o al idioma que más te agrade. Ten en cuenta que Google Translate no funciona muy bien en páginas con mucha matemática.</p>
+</div><i class="bi bi-x-lg quarto-announcement-action"></i></div>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#nondeterminism-and-mathsfnp" id="toc-nondeterminism-and-mathsfnp" class="nav-link active" data-scroll-target="#nondeterminism-and-mathsfnp">Nondeterminism and <span class="math inline">\mathsf{NP}</span></a>
+  <ul class="collapse">
+  <li><a href="#mathsfp-vs-mathsfnp-problem" id="toc-mathsfp-vs-mathsfnp-problem" class="nav-link" data-scroll-target="#mathsfp-vs-mathsfnp-problem"><span class="math inline">\mathsf{P}</span> vs <span class="math inline">\mathsf{NP}</span> problem</a></li>
+  </ul></li>
+  <li><a href="#polynomial-time-reductions" id="toc-polynomial-time-reductions" class="nav-link" data-scroll-target="#polynomial-time-reductions">Polynomial-time reductions</a></li>
+  <li><a href="#mathsfsat-and-mathsfnp-completeness" id="toc-mathsfsat-and-mathsfnp-completeness" class="nav-link" data-scroll-target="#mathsfsat-and-mathsfnp-completeness"><span class="math inline">\mathsf{SAT}</span> and <span class="math inline">\mathsf{NP}</span>-completeness</a></li>
+  </ul>
+<div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="https://www.cs.upc.edu/eda/"><i class="bi bi-link-45deg"></i>EDA Main Page</a></li><li><a href="https://jutge.org"><i class="bi bi-link-45deg"></i>Jutge.org</a></li><li><a href="https://en.cppreference.com/w/"><i class="bi bi-code-slash"></i>cppreference.com</a></li><li><a href="https://www.fib.upc.edu/en/studies/bachelors-degrees/bachelor-degree-informatics-engineering/curriculum/syllabus/EDA"><i class="bi bi-link-45deg"></i>Official Syllabus</a></li><li><a href="https://www.cs.upc.edu/eda/data/uploads/eda-problem-set.cat.pdf"><i class="bi bi-book"></i>EDA Problem Set</a></li><li><a href="https://www.cs.upc.edu/~oliveras/examens.cat.pdf"><i class="bi bi-book"></i>Collection of Solved Exams</a></li><li><a href="https://www.cs.upc.edu/eda/data/uploads/eda-codis.pdf"><i class="bi bi-book"></i>Algorithms in C++</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">On NP and related concepts</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div id="def-" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1 (Decision problem)</strong></span> Given a set of inputs <span class="math inline">I</span>, a <span class="emph">decision problem</span> <span class="math inline">A</span> is a subset of <span class="math inline">I</span>. (The problem associated with <span class="math inline">A</span> is the problem of deciding wether a given input <span class="math inline">x</span> is in <span class="math inline">A</span> or not.)</p>
+</div>
+<div id="def-" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 2 (decidable in time <span class="math inline">f</span>)</strong></span> Given a function <span class="math inline">f\colon \mathbb N\to\mathbb N</span>, a decision problem <span class="math inline">P</span> with input set <span class="math inline">I</span> is <span class="emph">decidable in time <span class="math inline">f</span></span> if there exists an algorithm <span class="math inline">A\colon I\to\{0,1\}</span> such that for all <span class="math inline">x\in I</span>,</p>
+<ul>
+<li>the cost of <span class="math inline">A(x)</span> is <span class="math inline">O(f(|x|))</span>, where <span class="math inline">|x|</span> is the number of symbols (e.g., bits) of a standard encoding of <span class="math inline">x</span>. and</li>
+<li><span class="math inline">x\in P \iff A(x)=1</span>.</li>
+</ul>
+</div>
+<p>Some important deterministic time complexity classes are the following.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true"><span class="math inline">\mathsf{TIME}(f)</span></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false"><span class="math inline">\mathsf{P}</span></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false"><span class="math inline">\mathsf{EXP}</span></a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p>Given a function <span class="math inline">f\colon \mathbb N\to \mathbb N</span>, the class <span class="math inline">\mathsf{TIME}(f)</span> is the set of decision problems <span class="math inline">P</span> that are decidable in time <span class="math inline">f</span>:</p>
+<p><span class="math display">
+\mathsf{TIME}(f) = \{P \mid P \text{ is decidable in time } f\}
+</span></p>
+<p>It is known that <span class="math inline">\mathsf{TIME}(n^a)\subsetneq \mathsf{TIME}(n^b)</span> if and only if <span class="math inline">a &lt; b</span>. (This is a special case of the <span class="emph">Time Hierarchy Theorem</span> that you might see in some more advanced courses, perhaps.)</p>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p>The class <span class="math inline">\mathsf{PTIME}</span>, or <span class="math inline">\mathsf{P}</span>, (polynomial time) is the union of all polynomial time classes: <span class="math display">
+\mathsf{PTIME} = \bigcup_{k\in \mathbb N} \mathsf{TIME}(n^k)\ .
+</span></p>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<p>The class <span class="math inline">\mathsf{EXP}</span> (exponential time) is the union of all exponential classes:</p>
+<p><span class="math display">
+\mathsf{EXP} = \bigcup_{k\in \mathbb N} \mathsf{TIME}(2^{n^k})\ .
+</span></p>
+</div>
+</div>
+</div>
+<section id="nondeterminism-and-mathsfnp" class="level2">
+<h2 class="anchored" data-anchor-id="nondeterminism-and-mathsfnp">Nondeterminism and <span class="math inline">\mathsf{NP}</span></h2>
+<p>The class <span class="math inline">\mathsf{NP}</span> (nondeterministic polynomial time) is the set of all problems which can be <em>verified</em> in deterministic polynomial time.</p>
+<div id="def-" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 3 (<span class="math inline">\mathsf{NP}</span>)</strong></span> A decision problem <span class="math inline">A</span> is in <span class="emph"><span class="math inline">\mathsf{NP}</span></span> if and only is there is an integer <span class="math inline">k\in \mathbb N</span> and an algorithm <span class="math inline">V</span> (called <span class="emph">verifier</span>) such that</p>
+<ul>
+<li>The output of <span class="math inline">V</span> is Boolean (<em>true</em>/<em>false</em>), <span class="math inline">V</span> takes as input strings of the form <span class="math inline">(x,y)</span> and runs in polynomial time (w.r.t. <span class="math inline">|x|+|y|</span>);</li>
+<li>if <span class="math inline">x\in A</span> then there is a string <span class="math inline">c</span> (called <span class="emph">certificate</span>) such that <span class="math inline">|c|\leq |x|^k</span> and <span class="math inline">V</span> with input <span class="math inline">(x,c)</span> returns <em>true</em>;</li>
+<li>if <span class="math inline">x \notin A</span>, for every string <span class="math inline">c</span> with <span class="math inline">|c|\leq |x|^k</span>, <span class="math inline">V</span> on input <span class="math inline">(x,c)</span> returns <em>false</em> .</li>
+</ul>
+</div>
+<section id="mathsfp-vs-mathsfnp-problem" class="level3">
+<h3 class="anchored" data-anchor-id="mathsfp-vs-mathsfnp-problem"><span class="math inline">\mathsf{P}</span> vs <span class="math inline">\mathsf{NP}</span> problem</h3>
+<p>It is not too difficult to see that <span class="math display">
+\mathsf{P}\subseteq \mathsf{NP}\subseteq \mathsf{EXP}\ .
+</span></p>
+<p>On the other hand, again by the <span class="emph">Time Hierarchy Theorem</span>, we know that <span class="math inline">\mathsf{P}\neq \mathsf{EXP}</span>. So either <span class="math inline">\mathsf{P}\neq \mathsf{NP}</span> or <span class="math inline">\mathsf{NP}\neq \mathsf{EXP}</span> or both. But, which is the case? With the current knowledge the following scenarios below are perfectly possible:</p>
+<ol type="1">
+<li><span class="math inline">\mathsf{P}\neq \mathsf{NP}</span> and <span class="math inline">\mathsf{NP}\neq \mathsf{EXP}</span>,</li>
+<li><span class="math inline">\mathsf{P}\neq \mathsf{NP}</span> and <span class="math inline">\mathsf{NP}= \mathsf{EXP}</span>,</li>
+<li><span class="math inline">\mathsf{P}= \mathsf{NP}</span> and <span class="math inline">\mathsf{NP}\neq \mathsf{EXP}</span>,</li>
+</ol>
+<p>It is also possible that <span class="math inline">\mathsf{P}=\mathsf{NP}</span> and <span class="math inline">\mathsf{P}\neq \mathsf{NP}</span> are both perfectly coherent with all the commonly accepted axioms of mathematics…</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Which is the case? The <span class="math inline">\mathsf{P}</span> vs <span class="math inline">\mathsf{NP}</span> problem
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Most computer scientist believe that <span class="math inline">\mathsf{P}\neq \mathsf{NP}</span> is likely to be true (actually most computer scientists believe something stronger, see below). In any case no-one has any idea on how to prove it.</p>
+<p>Deciding whether <span class="math inline">\mathsf{P}= \mathsf{NP}</span> or <span class="math inline">\mathsf{P}\neq \mathsf{NP}</span> is known as the <span class="emph"><span class="math inline">\mathsf{P}</span> vs <span class="math inline">\mathsf{NP}</span> problem</span>. It is one of the <span class="emph">Millennium Problems</span> of the <a href="https://www.google.com/url?sa=t&amp;source=web&amp;rct=j&amp;opi=89978449&amp;url=https://www.claymath.org/millennium/p-vs-np/&amp;ved=2ahUKEwjR1P_fyamKAxWVcKQEHTxvFqEQFnoECBIQAQ&amp;usg=AOvVaw2livHldwZvuMeNiAw-W6sX">Clay Mathematics Institute</a>.</p>
+<p>Related to the <span class="math inline">\mathsf{P}</span> vs <span class="math inline">\mathsf{NP}</span> problem are the <span class="emph">5 worlds</span> by Russell Impagliazzo:</p>
+<dl>
+<dt>Algorithmica</dt>
+<dd>
+<span class="math inline">\mathsf{P} = \mathsf{NP}</span> via some explicit algorithm or something <em>morally equivalent</em> like fast probabilistic algorithms for <span class="math inline">\mathsf{NP}</span>.
+</dd>
+<dt>Heuristica</dt>
+<dd>
+<span class="math inline">\mathsf{NP}</span> problems are hard in the worst case but easy on average.
+</dd>
+<dt>Pessiland</dt>
+<dd>
+<span class="math inline">\mathsf{NP}</span> problems hard on average but no one-way functions exist. We can easily create hard <span class="math inline">\mathsf{NP}</span> problems, but not hard <span class="math inline">\mathsf{NP}</span> problems where we know the solution. This is the worst of all possible worlds, since not only can we not solve hard problems on average but we apparently do not get any cryptographic advantage from the hardness of these problems.
+</dd>
+<dt>Minicrypt</dt>
+<dd>
+One-way functions exist but we do not have public-key cryptography.
+</dd>
+<dt>Cryptomania</dt>
+<dd>
+Public-key cryptography is possible, i.e.&nbsp;two parties can exchange secret messages over open channels.
+</dd>
+</dl>
+<p>Impagliazzo does not guess which world we live in. Most computer scientists would say Cryptomania or Minicrypt.</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="polynomial-time-reductions" class="level2">
+<h2 class="anchored" data-anchor-id="polynomial-time-reductions">Polynomial-time reductions</h2>
+<div id="def-" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 4</strong></span> Let <span class="math inline">A</span> and <span class="math inline">B</span> be two decisional problems with input sets <span class="math inline">I</span> and <span class="math inline">I'</span>, respectively. We say that <span class="emph"><span class="math inline">A</span> reduces to <span class="math inline">B</span> in polynomial time</span> (<span class="math inline">A\leq_p B</span>) if there exists a polynomial time algorithm that computes a function <span class="math inline">f : I \to I'</span> such that <span class="math inline">x\in A \iff  f(x) \in B</span>.</p>
+</div>
+<p>Schematically a polynomial (many-one) reduction between <span class="math inline">A_1</span> and and <span class="math inline">A_2</span> can be though as follows. Let Problem <span class="math inline">i</span> be the problem of deciding whether an input is in <span class="math inline">A_i</span>. A many-one reduction gives a way to construct an algorithm to solve Problem 1 given an algorithm for Problem 2 and a polynomial-time function <span class="math inline">f</span> to convert inputs.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="reductions.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%"></p>
+</figure>
+</div>
+<div id="thm-" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 1</strong></span> &nbsp;</p>
+<ul>
+<li>The binary relation <span class="math inline">\leq_p</span> is a preorder (<em>i.e.</em> it is reflexive and transitive).</li>
+<li><span class="math inline">\mathsf{P}</span> is closed downwards w.r.t. <span class="math inline">\leq_p</span>, that is if <span class="math inline">A\leq_p B</span> and <span class="math inline">B\in \mathsf{NP}</span>, then <span class="math inline">A\in \mathsf{NP}</span>.</li>
+<li><span class="math inline">\mathsf{NP}</span> is closed downwards w.r.t. <span class="math inline">\leq_p</span>, that is if <span class="math inline">A\leq_p B</span> and <span class="math inline">B\in \mathsf{P}</span>, then <span class="math inline">A\in \mathsf{P}</span>.</li>
+<li>The problems in <span class="math inline">\mathsf{P}</span> are the easiest w.r.t. <span class="math inline">\leq_p</span>, that is if <span class="math inline">A\in \mathsf{P}</span>, then for any decision problem <span class="math inline">B</span> it holds that <span class="math inline">A\leq_p B</span>.</li>
+</ul>
+</div>
+</section>
+<section id="mathsfsat-and-mathsfnp-completeness" class="level2">
+<h2 class="anchored" data-anchor-id="mathsfsat-and-mathsfnp-completeness"><span class="math inline">\mathsf{SAT}</span> and <span class="math inline">\mathsf{NP}</span>-completeness</h2>
+<div id="def-" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 5 (Propositional formula)</strong></span> A <span class="emph">propositional formula</span> is an expression involving parentheses, the constants <em>true</em> and <em>false</em>, Boolean variables <span class="math inline">x_1</span>,…,<span class="math inline">x_n</span> which might take values <em>true</em> or <em>false</em>, their negations <span class="math inline">\bar x_1</span>,…,<span class="math inline">\bar x_n</span> and the connectives <span class="math inline">\lor</span>(or, disjunction) and <span class="math inline">\land</span> (and, conjunction).</p>
+</div>
+<p>For example,</p>
+<p><span class="math display">
+(x\lor y\lor z) \land (\bar x\lor \bar z)
+</span> is a propositional formula.</p>
+<div id="def-" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 6 (satisfiable)</strong></span> A propositional formula F is <span class="emph">satisfiable</span> iff there exists an assignment of truth values to its variables such that the formula evaluates to true. For instance, the formula above is satisfiable for instance setting <span class="math inline">x=</span> <em>true</em> and <span class="math inline">z=</span> <em>false</em> (and <span class="math inline">y</span> arbitrarily).</p>
+</div>
+<p>Not every propositional formula is satisfiable, for instance <span class="math inline">x\land \bar x</span> is not satisfiable. The set of all satisfiable propositional formulas is</p>
+<p><span class="math display">
+\mathsf{SAT} = \{\varphi \mid \varphi \text{ is a satisfiable propositional formula}\}\ .
+</span></p>
+<div id="thm-" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 2 (Cook-Levin’s Theorem)</strong></span> <span class="math display">
+\mathsf{NP} = \{A\mid A\leq_p \mathsf{SAT}\}\ .
+</span></p>
+</div>
+<p><br></p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true"><span class="math inline">\mathsf{NP}</span>-complete</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false"><span class="math inline">\mathsf{NP}</span>-hard</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<p>A decision problem <span class="math inline">B</span> is <span class="emph"><span class="math inline">\mathsf{NP}</span>-complete</span> if <span class="math inline">\mathsf{NP} = \{A\mid A\leq_p B\}</span>. In other words, Cook-Levin’s Theorem says that <span class="math inline">\mathsf{SAT}</span> is <span class="math inline">\mathsf{NP}</span>-complete.</p>
+<p>The class of all <span class="math inline">\mathsf{NP}</span>-complete problems is called <span class="math inline">\mathsf{NPC}</span>.</p>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<p>If we only know that <span class="math inline">\mathsf{NP} \subseteq \{A\mid A\leq_p B\}</span>, then <span class="math inline">B</span> is <span class="emph"><span class="math inline">\mathsf{NP}</span>-hard</span>. In particular, <span class="math inline">B</span> is <span class="math inline">\mathsf{NP}</span>-complete if and only if <span class="math inline">B</span> is <span class="math inline">\mathsf{NP}</span>-hard and <span class="math inline">B\in \mathsf{NP}</span>.</p>
+</div>
+</div>
+</div>
+<div id="thm-" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 3</strong></span> If <span class="math inline">A\leq_p B</span> and <span class="math inline">A</span> is <span class="math inline">\mathsf{NP}</span>-hard, then <span class="math inline">B</span> is <span class="math inline">\mathsf{NP}</span>-hard.</p>
+</div>
+<p>If we believe that <span class="math inline">\mathsf{P}\neq  \mathsf{NP}</span>, then we must also believe that there are problems in <span class="math inline">\mathsf{NP}</span> which are neither in <span class="math inline">\mathsf{P}</span> nor <span class="math inline">\mathsf{NP}</span>-complete. This is the statement of the following theorem.</p>
+<div id="thm-" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 4 (Ladner’s theorem)</strong></span> If <span class="math inline">\mathsf{P}\neq  \mathsf{NP}</span>, then <span class="math inline">\mathsf{NP}\setminus (\mathsf{P}\cup\mathsf{NPC})\neq \emptyset</span>.</p>
+</div>
+<p><br> Typical problems that are in <span class="math inline">\mathsf{NP}</span> but for which we do not know any polynomial-time algorithm and at the same time we do not know whether they are <span class="math inline">\mathsf{NP}</span>-complete (probably they are not) are the following:</p>
+<ul>
+<li>decision versions of factoring,</li>
+<li>the discrete logarithm,</li>
+<li>other common cryptographic assumptions.</li>
+</ul>
+<p><a href="javascript:history.back()"><iconify-icon role="img" inline="" icon="twemoji:back-arrow" style="font-size: 2em;" aria-label="Icon back-arrow from twemoji Iconify.design set." title="Icon back-arrow from twemoji Iconify.design set."></iconify-icon></a></p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

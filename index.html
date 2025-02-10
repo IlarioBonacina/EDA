@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>I’m working on updating this page</title>
+<title>Data Structures and Algorithmics – EDA</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -24,20 +24,28 @@ ul.task-list li input[type="checkbox"] {
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./theory/T1.html" rel="next">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-f2a1071e85750ec973bbb8a8f120da0f.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-79108a0fc1995748cbd19a5b0e3e3e7c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-557aace189c874196b1faf1171d48a8d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/jquery-3.6.3/jquery-3.6.3.min.js"></script>
+<script src="site_libs/quarto-contrib/code-fullscreen-1.0.0/code-fullscreen.js" defer="true"></script>
+<link href="site_libs/quarto-contrib/code-fullscreen-1.0.0/code-fullscreen.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/bootstrap-icons-1.11.1/all.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/fontawesome6-1.2.0/all.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/fontawesome6-1.2.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -65,26 +73,269 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<style>html{ scroll-behavior: smooth; }</style>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
 
-<link rel="stylesheet" href="styles.css">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
 </head>
 
-<body class="fullcontent">
+<body class="nav-sidebar docked">
 
 <div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Course Info<br><br></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+  <div id="quarto-announcement" data-announcement-id="df0a319c1a43838ae13e1dd1b4ee3b04" class="alert alert-warning hidden"><i class="bi bi-exclamation-triangle-fill quarto-announcement-icon"></i><div class="quarto-announcement-content">
+<p>Por el momento esta página está disponible en Inglés. Si lo necesitas, puedes utilizar <a href="https://ilariobonacina-github-io.translate.goog/EDA/?_x_tr_sl=en&amp;_x_tr_tl=es&amp;_x_tr_hl=ca&amp;_x_tr_pto=wapp">Google Translate</a> para traducir al castellano, al català, o al idioma que más te agrade. Ten en cuenta que Google Translate no funciona muy bien en páginas con mucha matemática.</p>
+</div><i class="bi bi-x-lg quarto-announcement-action"></i></div>
+</header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-center sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">EDA</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+ <span class="menu-text">Last update: February 10<br><br></span>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link active"><i class="bi bi-info-circle-fill" role="img">
+</i> 
+ <span class="menu-text">Course Info<br><br></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+ <span class="menu-text"><em>Analysis of Algorithms</em></span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./theory/T1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">T1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./theory/T2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">T2</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+ <span class="menu-text"><em>Divide and Conquer</em></span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./theory/T3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">T3</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./theory/T4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">T4</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+ <span class="menu-text"><em>Dictionaries</em></span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./theory/T5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">T5</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+ <span class="menu-text"><em>Priority Queues</em></span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./theory/T6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">T6</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
+ <span class="menu-text"><em>Graphs</em></span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./theory/T7.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">T7</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./theory/T8.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">T8</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false">
+ <span class="menu-text"><em>Exhaustive Search and Generation</em></span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./theory/T9.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">T9</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./theory/T10.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">T10</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false">
+ <span class="menu-text"><em>Notions of Intractability</em></span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./theory/T11.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">T11</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./theory/T12.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">T12</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./theory/T13.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">T13</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    <div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="https://www.cs.upc.edu/eda/"><i class="bi bi-link-45deg"></i>EDA Main Page</a></li><li><a href="https://jutge.org"><i class="bi bi-link-45deg"></i>Jutge.org</a></li><li><a href="https://en.cppreference.com/w/"><i class="bi bi-code-slash"></i>cppreference.com</a></li><li><a href="https://www.fib.upc.edu/en/studies/bachelors-degrees/bachelor-degree-informatics-engineering/curriculum/syllabus/EDA"><i class="bi bi-link-45deg"></i>Official Syllabus</a></li><li><a href="https://www.cs.upc.edu/eda/data/uploads/eda-problem-set.cat.pdf"><i class="bi bi-book"></i>EDA Problem Set</a></li><li><a href="https://www.cs.upc.edu/~oliveras/examens.cat.pdf"><i class="bi bi-book"></i>Collection of Solved Exams</a></li><li><a href="https://www.cs.upc.edu/eda/data/uploads/eda-codis.pdf"><i class="bi bi-book"></i>Algorithms in C++</a></li></ul></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">I’m working on updating this page</h1>
-<p class="subtitle lead">Please try again closer to <span class="emph">February 10, 2025</span></p>
+<h1 class="title">Data Structures and Algorithmics</h1>
 </div>
 
 
@@ -101,11 +352,171 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="update.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:20.0%"></p>
-</figure>
+<p>Welcome to <span class="emph">Data Structures and Algorithmics</span> (aka <span class="emph">EDA</span>)!</p>
+<p>I’m <span class="emph">Ilario Bonacina</span> and if you are a student of the <span class="emph">group T40</span> then I’m one of your instructors for this semester. This is the webpage I’ll use as a support for the EDA theory classes for the group T40.</p>
+<p><strong>All the announcements will be done through the <em>racó</em>.</strong> <!-- 
+There is also material from previous years on Plems/L classes **but** for this course please refer to the material provided by the professors in charge of the Plems/Ls classes.
+--></p>
+<p><a href="./theory/T1.html"><i class="bi-arrow-right-circle-fill " style="" role="img" aria-hidden="true"></i> <span class="emph">Upcoming (theory) class</span></a></p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
 </div>
+<div class="callout-title-container flex-fill">
+<i class="bi-person-rolodex " style="" role="img" aria-hidden="true"></i> Contacts
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The person in charge of the whole course is <span class="emph">Albert Oliveras Llunell</span> (<a href="mailto:oliveras@cs.upc.edu">email</a>). For administrative questions (or <strong>any</strong> question on the EDA Game) please ask him directly.</p>
+<p>My email for this course is <a href="mailto:ilario.bonacina+EDA@upc.edu">ilario.bonacina+EDA@upc.edu</a>. The last possible day to ask questions is <strong><span style="color:#880808;">6 days before the partial/final/lab exam</span></strong>.</p>
+<p>The person in charge of the Problem/Lab groups P41/L41 is <strong>Salvator Roura</strong> (<a href="mailto:roura@cs.upc.edu">email</a>). The person in charge of the Problem/Lab groups P42/L42 is <strong>Elisabeth Burjons</strong> (<a href="mailto:elisabet.burjons@upc.edu">email</a>). The person in charge of the Lab group L43 is <strong>Daniel Benedí</strong> (<a href="mailto:daniel.benedi@upc.edu">email</a>). You can also email them directly for questions more related to the problems/lab classes.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<i class="bi-calendar " style="" role="img" aria-hidden="true"></i> Calendar
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Theory (“T”) classes are on Mondays and Problems/Lab classes (“P”/“L”) are on Wednesdays (unless stated otherwise).</p>
+<div class="columns">
+<div class="column" style="width:49%;">
+<p><strong>Week 1</strong><br>
+<a href="./theory/T1.html">T1 — Analysis of Algorithms</a><br>
+L1 — The C++ Standard Library</p>
+<p><strong>Week 2</strong><br>
+T2 — Analysis of Algorithms<br>
+P1 — Analysis of Algorithms</p>
+<p><strong>Week 3</strong><br>
+T3 — Divide and Conquer<br>
+P2 — Analysis of Algorithms</p>
+<p><strong>Week 4</strong><br>
+T4 — Divide and Conquer<br>
+P3 — Divide and Conquer</p>
+<p><strong>Week 5</strong><br>
+T5 — Dictionaries<br>
+L2 — Divide and Conquer</p>
+<p><strong>Week 6</strong><br>
+T6 — Dictionaries + Priority queues<br>
+P4 — Dictionaries</p>
+<p><strong>Week 7</strong><br>
+T7 — Graphs<br>
+P5 — Priority queues</p>
+<p><strong>Week 8</strong><br>
+T8 — Graphs<br>
+<span class="red">Partial Exam</span> (April 3, 18:00 — 20:00)</p>
+</div><div class="column" style="width:2%;">
+
+</div><div class="column" style="width:49%;">
+<p><strong>“Week” 9</strong><br>
+L3 — Graphs (April 9)<br>
+L4 — Graphs (April 23)<br>
+<span class="red">EDA Game</span> (April 24, see <em>EDA Curs 2024/2025 Q2</em> on <a href="https://jutge.org">jutge.org</a> for the statement)</p>
+<p><strong>Week 10</strong><br>
+T9 — Exhaustive search and generation<br>
+P6 — Graphs</p>
+<p><strong>Week 11</strong><br>
+T10 — Exhaustive search and generation<br>
+L5 — Exhaustive search and generation</p>
+<p><strong>Week 12</strong><br>
+T11 — Notions of intractability<br>
+<span class="red">Competència Transversal</span> (May 12, see <em>racó</em> for the statement)<br>
+L6 — Exhaustive search and generation</p>
+<p><strong>Week 13</strong><br>
+T12 — Notions of intractability<br>
+P7 — Notions of intractability</p>
+<p><strong>Week 14</strong><br>
+T13 — Notions of intractability<br>
+P8 — Notions of intractability</p>
+<p><strong>Week 15</strong><br>
+<span class="red">Final Exam</span> (June 4, 15:00 — 18:00)<br>
+<span class="red">Lab Exam</span> (June 13, 08:30 — 11:00)</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!--
+:::{.callout-note icon="false"}
+
+##  Bibliography
+
+Introduction to algorithms  
+Cormen, T.H. *et al.*  
+MIT Press, 2022. 
+
+Fundamentos de algoritmia - Brassard, G.; Bratley, P, Prentice Hall, 1997. ISBN: 848966000X
+https://discovery.upc.edu/discovery/fulldisplay?docid=alma991001484479706711&context=L&vid=34CSUC_UPC:VU1&lang=ca
+Data structures and algorithm analysis in C++ - Weiss, M.A, Pearson, 2014. ISBN: 0273769383
+https://discovery.upc.edu/discovery/fulldisplay?docid=alma991004000539706711&context=L&vid=34CSUC_UPC:VU1&lang=ca
+Combinatorial algorithms: generation, enumeration and search - Kreher, D.L.; Stinson, D.R, CRC Press, 1999. ISBN: 084933988X
+https://discovery.upc.edu/discovery/fulldisplay?docid=alma991001878419706711&context=L&vid=34CSUC_UPC:VU1&lang=ca
+Computers and intractability: a guide to the theory of NP-Completeness - Garey, M.R.; Johnson, D.S, W.H. Freeman, 1979. ISBN: 0716710447
+https://discovery.upc.edu/discovery/fulldisplay?docid=alma991000087999706711&context=L&vid=34CSUC_UPC:VU1&lang=ca
+The C++ programming language - Stroustrup, B, Addison-Wesley, 2013. ISBN: 9780321563842
+https://discovery.upc.edu/discovery/fulldisplay?docid=alma991004038849706711&context=L&vid=34CSUC_UPC:VU1&lang=ca
+Foundations of algorithms - Neapolitan, R.E, Jones and Bartlett Learning, 2015. ISBN: 9781284049190
+https://discovery.upc.edu/discovery/fulldisplay?docid=alma991004097269706711&context=L&vid=34CSUC_UPC:VU1&lang=ca
+Complementary:
+
+Introduction to algorithms: a creative approach - Manber, U, Addison-Wesley , 1989. ISBN: 0201120372
+https://discovery.upc.edu/discovery/fulldisplay?docid=alma991000704999706711&context=L&vid=34CSUC_UPC:VU1&lang=ca
+Algorithmics: the spirit of computing - Harel, D.; Feldman, Y, Springer , 2012. ISBN: 9783642441356
+https://discovery.upc.edu/discovery/fulldisplay?docid=alma991004154489706711&context=L&vid=34CSUC_UPC:VU1&lang=ca
+Algorithms - Dasgupta, S.; Papadimitriou, C.; Vazirani, U, Mc Graw Hill Higher Education , 2008. ISBN: 9780073523408
+https://discovery.upc.edu/discovery/fulldisplay?docid=alma991003202339706711&context=L&vid=34CSUC_UPC:VU1&lang=ca
+Algorithms - Sedgewick, R; Wayne, K, Addison-Wesley , 2011. ISBN: 9780321573513
+https://discovery.upc.edu/discovery/fulldisplay?docid=alma991004156419706711&context=L&vid=34CSUC_UPC:VU1&lang=ca
+Algorithms in C++ (Vol. 2) - Sedgewick, Robert; Wyk, Christopher J. Van, Addison-Wesley , 1998-2002. ISBN: 9780201361186
+http://cataleg.upc.edu/record=b1211994~S1*cat
+:::
+-->
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<i class="bi-pen " style="" role="img" aria-hidden="true"></i> Evaluation
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><span class="math inline">NPP</span> = written mid-semester exam grade (0 to 10)<br>
+<span class="math inline">NO</span> = computer-based lab exam grade (0 to 10)<br>
+<span class="math inline">NF</span> = final exam grade (0 to 10)<br>
+<span class="math inline">NJ</span> = game grade (0 to 10)</p>
+<p><span class="math display">
+\begin{align*}
+\text{GRADE}=\min\{10,\ \max\{&amp;22.5\%NPP + 22.5\%NF + 45\%NO + 20\%NJ,\\
+&amp; 45\%NF + 45\%NO + 20\%NJ\}\}
+\end{align*}
+</span> (source: <a href="https://www.fib.upc.edu/en/studies/bachelors-degrees/bachelor-degree-informatics-engineering/curriculum/syllabus/EDA">the EDA Official syllabus</a>)</p>
+</div>
+</div>
+</div>
+<!--
+:::{.callout-important icon="false"}
+
+##  UPC survey and internal poll
+
+- Please fill the [official UPC survey](https://e-enquestes.upc.edu/) on the quality of teaching.
+
+- Please also fill the [internal **anonymous** google form](https://docs.google.com/forms/d/e/1FAIpQLSe0DP4U98emsvshVf5kr_8Jw773_EuuMrrjgH6UAcelK6NGqw/viewform?usp=sf_link) to give me some more immediate feedback on this webpage and my teaching during this semester.
+
+:::
+-->
 
 
 
@@ -527,9 +938,19 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./theory/T1.html" class="pagination-link" aria-label="T1">
+        <span class="nav-page-text">T1</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 
 
 
 
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>
