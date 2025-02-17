@@ -743,7 +743,7 @@ T(n)&amp;= T(n/2)+\Theta(1)\\
 </section>
 <section id="common-recurrence-types" class="slide level2">
 <h2>Common recurrence types</h2>
-<p>Recurrences appear often in one of the two following forms: (<span class="math inline">a,b,c</span> constants and <span class="math inline">f</span> is a function)</p>
+<p>Recurrences appear <strong>often</strong> (but <span class="alert">not always!</span>) in one of the two following forms: (<span class="math inline">a,b,c</span> constants and <span class="math inline">f</span> is a function)</p>
 <div class="columns">
 <div class="column" style="width:50%;">
 <dl>
@@ -896,7 +896,7 @@ T(n)&amp;=\Theta(n^{\ln(a)/\ln(c)})+n^k\Theta\left(\frac{1-(a/c^k)^{j}}{1-(a/c^k
 </details>
 </div>
 <div class="smaller">
-<p>The statement above still holds if instead of <span class="math inline">\frac{n}{c}</span> in the recurrence, there is any function in <span class="math inline">\frac{n}{c}+O(1)</span>, for instance <span class="math inline">\lceil \frac{n}{c}\rceil</span> or <span class="math inline">\lfloor \frac{n}{c}\rfloor</span>. An example of the second case is binary search (<span class="alert">check!</span>). <!--This is a consequence of the [Akra-Bazzi Theorem](https://en.wikipedia.org/wiki/Akra–Bazzi_method), a generalization of the Master Theorem used to handle much more general forms of recurrences.
+<p>The statement above still holds if instead of <span class="math inline">\frac{n}{c}</span> in the recurrence, there is any function in <span class="math inline">\frac{n}{c}+O(1)</span>, for instance <span class="math inline">\lceil \frac{n}{c}\rceil</span> or <span class="math inline">\lfloor \frac{n}{c}\rfloor</span>. An example of the second case is binary search (<span class="alert">check!</span>). <!--This is a consequence of the [Akra-Bazzi Theorem](https://en.wikipedia.org/wiki/Akra-Bazzi_method), a generalization of the Master Theorem used to handle much more general forms of recurrences.
 --></p>
 </div>
 </section>
