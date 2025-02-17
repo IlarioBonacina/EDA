@@ -883,7 +883,7 @@ T(n)&amp;=\Theta(n^{\ln(a)/\ln(c)})+n^k\Theta\left(\frac{1-(a/c^k)^{j}}{1-(a/c^k
   &amp;=\Theta(n^k)\ .
 \end{align*}
 </span></p></li>
-<li><p>If <span class="math inline">\frac{a}{c^k}&lt;1</span>, then <span class="math display">
+<li><p>If <span class="math inline">\frac{a}{c^k}&gt;1</span>, then <span class="math display">
 \begin{align*}
 T(n)&amp;=\Theta(n^{\ln(a)/\ln(c)})+n^k\Theta\left(\frac{1-(a/c^k)^{j}}{1-(a/c^k)}\right)\\
   &amp;= \Theta(n^{\ln(a)/\ln(c)})+n^k\Theta((a/c^k)^j)\\
@@ -896,7 +896,7 @@ T(n)&amp;=\Theta(n^{\ln(a)/\ln(c)})+n^k\Theta\left(\frac{1-(a/c^k)^{j}}{1-(a/c^k
 </details>
 </div>
 <div class="smaller">
-<p>The statement above still holds if instead of <span class="math inline">\frac{n}{b}</span> in the recurrence, there is any function in <span class="math inline">\frac{n}{b}+O(1)</span>, for instance <span class="math inline">\lceil \frac{n}{b}\rceil</span> or <span class="math inline">\lfloor \frac{n}{b}\rfloor</span>. An example of the second case is binary search (<span class="alert">check!</span>). <!--This is a consequence of the [Akra-Bazzi Theorem](https://en.wikipedia.org/wiki/Akra–Bazzi_method), a generalization of the Master Theorem used to handle much more general forms of recurrences.
+<p>The statement above still holds if instead of <span class="math inline">\frac{n}{c}</span> in the recurrence, there is any function in <span class="math inline">\frac{n}{c}+O(1)</span>, for instance <span class="math inline">\lceil \frac{n}{c}\rceil</span> or <span class="math inline">\lfloor \frac{n}{c}\rfloor</span>. An example of the second case is binary search (<span class="alert">check!</span>). <!--This is a consequence of the [Akra-Bazzi Theorem](https://en.wikipedia.org/wiki/Akra–Bazzi_method), a generalization of the Master Theorem used to handle much more general forms of recurrences.
 --></p>
 </div>
 </section>
