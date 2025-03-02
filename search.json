@@ -143,9 +143,20 @@
   {
     "objectID": "theory/T4.html",
     "href": "theory/T4.html",
-    "title": "EDA",
+    "title": "Divide and Conquer",
     "section": "",
-    "text": "Warning\n\n\n\nThis page is a draft. It will be updated closer to the class.",
+    "text": "View slides in full screen",
+    "crumbs": [
+      "*Divide and Conquer*",
+      "T4"
+    ]
+  },
+  {
+    "objectID": "theory/T4.html#exercises",
+    "href": "theory/T4.html#exercises",
+    "title": "Divide and Conquer",
+    "section": "Exercises",
+    "text": "Exercises\nOnce you have revised the material from this class, you can try to do the problems from the EDA ProblemSet, section 2 Divide and Conquer. In particular Exercises 2.9, 2.10, 2.11, 2.12. Those exercises will be solved in class in the Problem class P3.\nAfter this class and/or the Problem class P3 you should also be able to solve the MidTerm EDA Exams from the Collection of Solved Exams where there is some C++ code to complete. As always, the solutions are in the very same pdf.\n\n\n\n\n\n\nImportant\n\n\n\nIf you have doubts while solving the above exercises (after studying the material and the Problem class P3) please write me an email as soon as possible (and/or write an email to your instructor of the problem class P3).",
     "crumbs": [
       "*Divide and Conquer*",
       "T4"
@@ -279,7 +290,7 @@
     "href": "theory/T3.html#exercises",
     "title": "Divide and Conquer",
     "section": "Exercises",
-    "text": "Exercises\nOnce you have revised the material from this class, you can try to do the problems from the EDA ProblemSet, section 2 Divide and Conquer.. In particular Exercises 2.9, 2.10, 2.11, 2.12. Those exercises will be solved in class in the Problem class P3.\nAfter this class and/or the Problem class P3 you should also be able to solve the MidTerm EDA Exams from the Collection of Solved Exams where there is some C++ code to complete. As always, the solutions are in the very same pdf.\n\n\n\n\n\n\nImportant\n\n\n\nIf you have doubts while solving the above exercises (after studying the material and the Problem class P3) please write me an email as soon as possible (and/or write an email to your instructor of the problem class P3).",
+    "text": "Exercises\nOnce you have revised the material from this class, you can try to do the problems from the EDA ProblemSet, section 2 Divide and Conquer. In particular Exercises 2.9, 2.10, 2.11, 2.12. Those exercises will be solved in class in the Problem class P3.\nAfter this class and/or the Problem class P3 you should also be able to solve the MidTerm EDA Exams from the Collection of Solved Exams where there is some C++ code to complete. As always, the solutions are in the very same pdf.\n\n\n\n\n\n\nImportant\n\n\n\nIf you have doubts while solving the above exercises (after studying the material and the Problem class P3) please write me an email as soon as possible (and/or write an email to your instructor of the problem class P3).",
     "crumbs": [
       "*Divide and Conquer*",
       "T3"
