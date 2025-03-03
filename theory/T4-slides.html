@@ -748,8 +748,8 @@ A_{21}B_{11}+A_{22}B_{21} &amp; A_{21}B_{12}+A_{22}B_{22}
 </div></div>
 </div>
 </section>
-<section id="multiply-2-by-2-with-7-multiplications" class="slide level2">
-<h2>Multiply <span class="math inline">2</span> by <span class="math inline">2</span> with <span class="math inline">7</span> multiplications</h2>
+<section id="multiply-2-by-2-matrices-with-7-multiplications" class="slide level2">
+<h2>Multiply <span class="math inline">2</span> by <span class="math inline">2</span> matrices with <span class="math inline">7</span> multiplications</h2>
 <div class="smaller">
 <p><span class="math display">
 \begin{aligned}
@@ -785,10 +785,198 @@ M_{2}+M_{4} &amp; M_{1}-M_{2}+M_{3}+M_{6}
 \end{pmatrix}
 </span></p>
 </div>
-
-<aside><div>
-<p>Brassard &amp; Bratley’s <em>Fundamentals of Algorithmics</em> give a detailed description of how to find the set of formulas behind Strassen’s algorithm. Or, also see this <a href="https://cs.stackexchange.com/questions/130022/what-is-the-intuition-behind-strassens-algorithm">cs.stackexchange post</a>.</p>
-</div></aside></section>
+<div class="fragment">
+<p><span class="alert">Wait what? How could someone come-up with this?? 🤯</span></p>
+<details>
+<summary>
+A possible way…
+</summary>
+<div class="smaller">
+<p>There are several articles/books giving possible explanations of how one could come-up with Strassen’s <span class="math inline">7</span> multiplication algorithm (or to something equivalent). I’ll try to do this adaptating of <a href="https://doi.org/10.1016/0020-0190(78)90018-2">A simple proof of Strassen’s result</a> by Gideon Yuval and the <a href="https://cs.stackexchange.com/questions/130022/what-is-the-intuition-behind-strassens-algorithm">cs.stackexchange post</a> by Yuval Filmus.</p>
+<p>The core of Strassen’s algorithm is to show how to compute <span id="eq-prod"><span class="math display">
+\begin{pmatrix}
+a &amp;b \\
+c &amp; d
+\end{pmatrix}
+\cdot
+\begin{pmatrix}
+e &amp; f\\
+g &amp; h
+\end{pmatrix}
+\tag{1}</span></span> using <span class="math inline">7</span> multiplications instead of <span class="math inline">8</span> as the definition of matrix product would give.</p>
+<p>This problem is equivalent to computing the entries of the vector given by</p>
+<p><span class="math display">
+\begin{pmatrix}
+a  &amp; 0 &amp; b &amp; 0\\
+0 &amp; a &amp; 0 &amp; b \\
+c &amp; 0 &amp; d &amp; 0\\
+0 &amp; c &amp; 0 &amp; d
+\end{pmatrix}
+\cdot
+\begin{pmatrix}
+e \\
+f \\
+g \\
+h
+\end{pmatrix}
+</span></p>
+<p>Let <span class="math inline">M=\begin{pmatrix}
+a  &amp; 0 &amp; b &amp; 0\\
+0 &amp; a &amp; 0 &amp; b \\
+c &amp; 0 &amp; d &amp; 0\\
+0 &amp; c &amp; 0 &amp; d
+\end{pmatrix}</span>, to prove <a href="#/eq-prod" class="quarto-xref">Equation&nbsp;1</a> it is enough to show that</p>
+<p><span id="eq-decomposition"><span class="math display">
+M=\ell_1M_1+\ell_2 M_2+ \ell_3 M_3 +\ell_4 M_4+\ell_5 M_5 +\ell_6 M_6 +\ell_7 M_7
+\tag{2}</span></span> where each <span class="math inline">\ell_i</span> is a linear combination of <span class="math inline">a,b,c,d</span> and each <span class="math inline">M_i</span> is a rank <span class="math inline">1</span> matrix. Since each <span class="math inline">M_i</span> is rank <span class="math inline">1</span> this means there exist vectors <span class="math inline">x_i,y_i</span> such that <span class="math inline">M_i=x_iy_i^T</span>.</p>
+<p>Before showing how to construct the <span class="math inline">M_i</span>s let’s see first how a decomposition as the one in <a href="#/eq-decomposition" class="quarto-xref">Equation&nbsp;2</a> implies that <a href="#/eq-prod" class="quarto-xref">Equation&nbsp;1</a> can be computed using <span class="math inline">7</span> multiplications:</p>
+<p><span class="math display">
+\begin{align*}
+M\cdot
+\begin{pmatrix}
+e \\
+f \\
+g \\
+h
+\end{pmatrix}
+&amp; = \sum_{i=1}^ 7 \ell_i M_i\cdot \begin{pmatrix}
+e \\
+f \\
+g \\
+h
+\end{pmatrix}
+\\
+&amp; = \sum_{i=1}^7\ell_i x_iy_i^T\cdot
+\begin{pmatrix}
+e \\
+f \\
+g \\
+h
+\end{pmatrix}
+\\
+&amp; = \sum_{i=1}^7\ell_i r_i x_i\ ,
+\end{align*}
+</span> where <span class="math inline">r_i=y_i^T\cdot
+\begin{pmatrix}
+e \\
+f \\
+g \\
+h
+\end{pmatrix}</span>, that is <span class="math inline">r_i</span> is a linear combination of <span class="math inline">e,f,g,h</span>. This shows that each entry of <a href="#/eq-prod" class="quarto-xref">Equation&nbsp;1</a> is some linear combination of the products <span class="math inline">\ell_i r_i</span>.</p>
+<p>To conclude it is enough then to come up with a decomposition of <span class="math inline">M</span> of the form given in <a href="#/eq-decomposition" class="quarto-xref">Equation&nbsp;2</a>.</p>
+<p>We could start by cancelling the top left and bottom right entries, in a way which avoids hitting zero entries: <span class="math display">
+\begin{pmatrix}
+a  &amp; 0 &amp; b &amp; 0\\
+0 &amp; a &amp; 0 &amp; b \\
+c &amp; 0 &amp; d &amp; 0\\
+0 &amp; c &amp; 0 &amp; d
+\end{pmatrix}
+=
+\begin{pmatrix}
+a  &amp; 0 &amp; a &amp; 0\\
+0 &amp; 0 &amp; 0 &amp; 0 \\
+a &amp; 0 &amp; a &amp; 0\\
+0 &amp; 0 &amp; 0 &amp; 0
+\end{pmatrix}
++
+\begin{pmatrix}
+0  &amp; 0 &amp; 0 &amp; 0\\
+0 &amp; d &amp; 0 &amp; d \\
+0 &amp; 0 &amp; 0 &amp; 0\\
+0 &amp; d &amp; 0 &amp; d
+\end{pmatrix}
++
+\begin{pmatrix}
+0  &amp; 0 &amp; b -a &amp; 0\\
+0 &amp; a -d &amp; 0 &amp; b -d \\
+c -a &amp; 0 &amp; d-a &amp; 0\\
+0 &amp; c -d &amp; 0 &amp; 0
+\end{pmatrix}
+</span> The first two matrices are rank <span class="math inline">1</span>, so to conclude we need to show how to decompose the matrix <span class="math display">
+\begin{pmatrix}
+0  &amp; 0 &amp; b -a &amp; 0\\
+0 &amp; a -d &amp; 0 &amp; b -d \\
+c -a &amp; 0 &amp; d-a &amp; 0\\
+0 &amp; c -d &amp; 0 &amp; 0
+\end{pmatrix}
+</span> as a sum of <span class="math inline">5</span> matrices of rank <span class="math inline">1</span>. This matrix is a bit messy. We could try to fix this by “flipping” the inner square:</p>
+<div class="smaller">
+<p><span class="math display">
+\begin{pmatrix}
+0  &amp; 0 &amp; b -a &amp; 0\\
+0 &amp; a -d &amp; 0 &amp; b -d \\
+c -a &amp; 0 &amp; d-a &amp; 0\\
+0 &amp; c -d &amp; 0 &amp; 0
+\end{pmatrix}
+=
+\begin{pmatrix}
+0  &amp; 0 &amp; 0 &amp; 0\\
+0 &amp; a -d &amp; a- d &amp; 0 \\
+0 &amp; d-a &amp; d-a &amp; 0\\
+0 &amp; 0 &amp; 0 &amp; 0
+\end{pmatrix}
++
+\begin{pmatrix}
+0  &amp; 0 &amp; b -a &amp; 0\\
+0 &amp; 0 &amp; d-a &amp; b -d \\
+c -a &amp; a-d &amp; 0 &amp; 0\\
+0 &amp; c -d &amp; 0 &amp; 0
+\end{pmatrix}
+</span></p>
+</div>
+<p>The first matrix is rank <span class="math inline">1</span>, so to conclude we need to decompose <span class="math display">
+\begin{pmatrix}
+0  &amp; 0 &amp; b -a &amp; 0\\
+0 &amp; 0 &amp; d-a &amp; b -d \\
+c -a &amp; a-d &amp; 0 &amp; 0\\
+0 &amp; c -d &amp; 0 &amp; 0
+\end{pmatrix}
+</span> as a linear combination of <span class="math inline">4</span> rank <span class="math inline">1</span> matrices. This can be done as follows:</p>
+<div class="smaller">
+<p><span class="math display">
+\begin{align*}
+\begin{pmatrix}
+0  &amp; 0 &amp; b -a &amp; 0\\
+0 &amp; 0 &amp; d-a &amp; b -d \\
+c -a &amp; a-d &amp; 0 &amp; 0\\
+0 &amp; c -d &amp; 0 &amp; 0
+\end{pmatrix}
+&amp; =
+\begin{pmatrix}
+0  &amp; 0 &amp; b -a &amp; 0\\
+0 &amp; 0 &amp; b -a &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 0\\
+0 &amp; 0 &amp; 0 &amp; 0
+\end{pmatrix}
++
+\begin{pmatrix}
+0  &amp; 0 &amp; 0 &amp; 0\\
+0 &amp; 0 &amp; d-b &amp; b -d \\
+0 &amp; 0 &amp; 0 &amp; 0\\
+0 &amp; 0 &amp; 0 &amp; 0
+\end{pmatrix}
+\\
+&amp;+
+\begin{pmatrix}
+0  &amp; 0 &amp; 0 &amp; 0\\
+0 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; c-d &amp; 0 &amp; 0\\
+0 &amp; c -d &amp; 0 &amp; 0
+\end{pmatrix}
++
+\begin{pmatrix}
+0  &amp; 0 &amp; 0 &amp; 0\\
+0 &amp; 0 &amp; 0 &amp; 0 \\
+c -a &amp; a-c &amp; 0 &amp; 0\\
+0 &amp; 0 &amp; 0 &amp; 0
+\end{pmatrix}
+\end{align*}
+</span></p>
+</div>
+</div>
+</details>
+</div>
+</section>
 <section id="strassens-algorithm-for-matrix-multiplication" class="slide level2">
 <h2>Strassen’s algorithm for matrix multiplication</h2>
 <p>Now, using Strassen decomposition the cost <span class="math inline">S(n)</span> of multiplying two <span class="math inline">n\times n</span> matrices would be the cost of computing <span class="math inline">7</span> product of matrices <span class="math inline">\frac{n}{2}\times \frac{n}{2}</span> and doing <span class="math inline">18</span> additions of <span class="math inline">\frac{n}{2}\times \frac{n}{2}</span> matrices.</p>
