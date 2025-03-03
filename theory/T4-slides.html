@@ -395,7 +395,7 @@ If you don’t remember why, revise the slides from <a href="./theory/T2.qmd">cl
 <section id="a-divide-and-conquer-strategy" class="slide level2 scrollable">
 <h2>A divide-and-conquer strategy</h2>
 <p>Let <span class="math inline">x</span> and <span class="math inline">y</span> be two as <span class="math inline">n</span>-digits numbers in base <span class="math inline">2</span>. Assume for simplicity <span class="math inline">n=2^k</span> for some <span class="math inline">k</span>.<sup>1</sup></p>
-<p>Let <span class="math inline">x=x_1 2^{n/2}+x_2</span> and <span class="math inline">y=x_1 2^{n/2}+x_2</span>.</p>
+<p>Let <span class="math inline">x=x_1 2^{n/2}+x_2</span> and <span class="math inline">y=y_1 2^{n/2}+y_2</span>.</p>
 <p><span class="math display">
 \begin{align*}
 xy &amp;=(x_1 2^{n/2}+x_2)(y_1 2^{n/2}+y_2)\\
@@ -1125,7 +1125,7 @@ While the average case (assuming the uniform distribution) is <span class="math 
 <li>to pick such a pivot with cost <span class="math inline">\mathcal O(n)</span>.</li>
 </ul>
 <div class="fragment">
-<p>The idea is to use <code>quickselect</code> recusrively to choose the pivot too!</p>
+<p>The idea is to use <code>quickselect</code> recursively to choose the pivot too!</p>
 </div>
 </section>
 <section id="median-of-medians" class="slide level2">
