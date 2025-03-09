@@ -207,7 +207,7 @@ Example
 </div>
 </div>
 <p>Assuming a good hash function, i.e.&nbsp;one that spreads the elements approximately evenly, the expected time to look up for an element in a hash table is <span class="math inline">O(1 + \frac{|\mathcal D|}{M})=O(1+\alpha)</span>. So, if <span class="math inline">\alpha</span> is a constant this is <span class="math inline">O(1)</span>.</p>
-<p>For <strong>insertions</strong> in a hash table with separate chaining, we access the apropriate linked list using the hash function, and scan the list to find out whether the key was already present or not. If present, we modify the associated value; if not, a new node with the pair ⟨key,value⟩ is added to the list. Since the lists contain very few elements each, the simplest and more efficient solution is to add elements to the front.</p>
+<p>For <strong>insertions</strong> in a hash table with separate chaining, we access the appropriate linked list using the hash function, and scan the list to find out whether the key was already present or not. If present, we modify the associated value; if not, a new node with the pair ⟨key,value⟩ is added to the list. Since the lists contain very few elements each, the simplest and more efficient solution is to add elements to the front.</p>
 <p>There is no need for double links, sentinels, etc. Sorting the lists or using some other sophisticated data structure instead of linked lists does not report real practical benefits.</p>
 <p><a href="javascript:history.back()"><iconify-icon role="img" inline="" icon="twemoji:back-arrow" style="font-size: 2em;" aria-label="Icon back-arrow from twemoji Iconify.design set." title="Icon back-arrow from twemoji Iconify.design set."></iconify-icon></a></p>
 
