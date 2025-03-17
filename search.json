@@ -132,11 +132,22 @@
   {
     "objectID": "theory/T6.html",
     "href": "theory/T6.html",
-    "title": "EDA",
+    "title": "AVL trees and Priority queues",
     "section": "",
-    "text": "Warning\n\n\n\nThis page is a draft. It will be updated closer to the class.",
+    "text": "View slides in full screen",
     "crumbs": [
-      "*Priority Queues*",
+      "*Dictionaries*",
+      "T6"
+    ]
+  },
+  {
+    "objectID": "theory/T6.html#exercises",
+    "href": "theory/T6.html#exercises",
+    "title": "AVL trees and Priority queues",
+    "section": "Exercises",
+    "text": "Exercises\nOnce you have revised the material from this class, you can try to do the problems from the EDA ProblemSet, section 3 Dictionaries. In particular Exercises 3.1, 3.2, 3.3, …, 3.10, 3.23, 3.24 (no esborrat) and 4.1, 4.2, 4.3, 4.5, 4.9 (no (d)), 4.10, 4.11 . Those exercises will be solved in class in the Problem class P4 and P5.\nAfter this class and/or the Problem class P4/P5 you should also be able to solve the following MidTerm EDA Exams from the Collection of Solved Exams where there is some C++ code to complete. As always, the solutions are in the very same pdf.\n\n15/04/2021 Midterm EDA Exam Problem 1.d\n02/11/2023 Midterm EDA Exam Problem 1.c\n\n\n\n\n\n\n\nImportant\n\n\n\nIf you have doubts while solving the above exercises (after studying the material and the Problem class P4) please write me an email as soon as possible (and/or write an email to your instructor of the problem class P4).",
+    "crumbs": [
+      "*Dictionaries*",
       "T6"
     ]
   },
