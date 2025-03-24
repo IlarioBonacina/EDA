@@ -332,9 +332,42 @@
   {
     "objectID": "theory/T7.html",
     "href": "theory/T7.html",
-    "title": "EDA",
+    "title": "Graphs I",
     "section": "",
-    "text": "Warning\n\n\n\nThis page is a draft. It will be updated closer to the class.",
+    "text": "View slides in full screen",
+    "crumbs": [
+      "*Graphs*",
+      "T7"
+    ]
+  },
+  {
+    "objectID": "theory/T7.html#jutge-exercises-on-dfs",
+    "href": "theory/T7.html#jutge-exercises-on-dfs",
+    "title": "Graphs I",
+    "section": "Jutge exercises on DFS",
+    "text": "Jutge exercises on DFS\nThe exercises that can be thought as variations on Depth-First Search (DFS) are the following:\n\nP70690 Treasures in a map (1)\nP90766 Treasures in a map (3)\nX41530 Forest\nP29033 Two colors\nP53547 Tiny bishops\nP40479 Painting a board",
+    "crumbs": [
+      "*Graphs*",
+      "T7"
+    ]
+  },
+  {
+    "objectID": "theory/T7.html#jutge-exercises-on-topological-sort",
+    "href": "theory/T7.html#jutge-exercises-on-topological-sort",
+    "title": "Graphs I",
+    "section": "Jutge exercises on Topological Sort",
+    "text": "Jutge exercises on Topological Sort\nThe exercises that can be thought as variations on Topological Sort are the following:\n\nP14952 Topological sort\nP16249 Task ordering\nX21319 Circuit Value Problem ❗",
+    "crumbs": [
+      "*Graphs*",
+      "T7"
+    ]
+  },
+  {
+    "objectID": "theory/T7.html#exercises",
+    "href": "theory/T7.html#exercises",
+    "title": "Graphs I",
+    "section": "Exercises",
+    "text": "Exercises\nOnce you have revised the material from this class, you can try to do the problems from the EDA ProblemSet, section 5 Graphs. In particular 5.5, 5.6, 5.12, 5.13, 5.14, 5.17, 5.18, 5.23, 5.24 . Those exercises will be solved in class in the Problem class P6.\n\n\n\n\n\n\nImportant\n\n\n\nIf you have doubts while solving the above exercises (after studying the material and the Problem class P6) please write me an email as soon as possible (and/or write an email to your instructor of the problem class P6).",
     "crumbs": [
       "*Graphs*",
       "T7"
