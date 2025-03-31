@@ -121,9 +121,9 @@
   {
     "objectID": "theory/T8.html",
     "href": "theory/T8.html",
-    "title": "EDA",
+    "title": "Graphs II",
     "section": "",
-    "text": "Warning\n\n\n\nThis page is a draft. It will be updated closer to the class.",
+    "text": "View slides in full screen",
     "crumbs": [
       "*Graphs*",
       "T8"
@@ -537,5 +537,16 @@
     "title": "The Master Theorem(s)",
     "section": "Footnotes",
     "text": "Footnotes\n\n\nThis is a consequence of the Akra-Bazzi Theorem, a generalization of the Master Theorem used to handle much more general forms of recurrences.↩︎"
+  },
+  {
+    "objectID": "theory/T8.html#jutge-exercises",
+    "href": "theory/T8.html#jutge-exercises",
+    "title": "Graphs II",
+    "section": "Jutge exercises",
+    "text": "Jutge exercises\nThe exercises that can be thought as variations on Breadth-First Search (BFS) are the following:\n\nP60796 Treasures in a map (2)\nP39846 Treasures in a map (4)\nP88760 Zamburguesas\n\nThe Jutge exercises that can be thought as variations on Dijkstra’s algorithm are the following:\n\nP43859 Weighted shortest path (1) 🔶\nP13994 Weighted shortest path (2)\nP25235 Weighted shortest path (3)\nP39586 Weighted shortest path (4)\n\nThe Jutge exercises that can be thought as variations on Jarník-Prim’s algorithm are the following:\n\nP12887 Minimum spanning trees\n\n\n\n\n\n\n\nImportant\n\n\n\nIf you have doubts while solving the above exercises please write me an email as soon as possible (and/or write an email to your instructor of the problem class).",
+    "crumbs": [
+      "*Graphs*",
+      "T8"
+    ]
   }
 ]

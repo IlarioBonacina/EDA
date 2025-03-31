@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>t8 – EDA</title>
+<title>Graphs II – EDA</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -72,6 +72,14 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
+ 
+  <style>
+  .slide-deck {
+      border: 3px solid #dee2e6;
+      width: 100%;
+  }
+  </style>
+  
 
 
 </head>
@@ -114,7 +122,7 @@ ul.task-list li input[type="checkbox"] {
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
- <span class="menu-text">Last update: March 24<br><br></span>
+ <span class="menu-text">Last update: March 31<br><br></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
@@ -290,14 +298,41 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="https://www.cs.upc.edu/eda/"><i class="bi bi-link-45deg"></i>EDA Main Page</a></li><li><a href="https://jutge.org"><i class="bi bi-link-45deg"></i>Jutge.org</a></li><li><a href="https://en.cppreference.com/w/"><i class="bi bi-code-slash"></i>cppreference.com</a></li><li><a href="https://www.fib.upc.edu/en/studies/bachelors-degrees/bachelor-degree-informatics-engineering/curriculum/syllabus/EDA"><i class="bi bi-link-45deg"></i>Official Syllabus</a></li><li><a href="https://www.cs.upc.edu/eda/data/uploads/eda-problem-set.cat.pdf"><i class="bi bi-book"></i>EDA Problem Set</a></li><li><a href="https://www.cs.upc.edu/~oliveras/examens.cat.pdf"><i class="bi bi-book"></i>Collection of Solved Exams</a></li><li><a href="https://www.cs.upc.edu/eda/data/uploads/eda-codis.pdf"><i class="bi bi-book"></i>Algorithms in C++</a></li></ul></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#jutge-exercises" id="toc-jutge-exercises" class="nav-link active" data-scroll-target="#jutge-exercises">Jutge exercises</a></li>
+  </ul>
+<div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="https://www.cs.upc.edu/eda/"><i class="bi bi-link-45deg"></i>EDA Main Page</a></li><li><a href="https://jutge.org"><i class="bi bi-link-45deg"></i>Jutge.org</a></li><li><a href="https://en.cppreference.com/w/"><i class="bi bi-code-slash"></i>cppreference.com</a></li><li><a href="https://www.fib.upc.edu/en/studies/bachelors-degrees/bachelor-degree-informatics-engineering/curriculum/syllabus/EDA"><i class="bi bi-link-45deg"></i>Official Syllabus</a></li><li><a href="https://www.cs.upc.edu/eda/data/uploads/eda-problem-set.cat.pdf"><i class="bi bi-book"></i>EDA Problem Set</a></li><li><a href="https://www.cs.upc.edu/~oliveras/examens.cat.pdf"><i class="bi bi-book"></i>Collection of Solved Exams</a></li><li><a href="https://www.cs.upc.edu/eda/data/uploads/eda-codis.pdf"><i class="bi bi-book"></i>Algorithms in C++</a></li></ul></div></nav>
+    </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../theory/T7.html"><em>Graphs</em></a></li><li class="breadcrumb-item"><a href="../theory/T8.html">T8</a></li></ol></nav></header>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../theory/T7.html"><em>Graphs</em></a></li><li class="breadcrumb-item"><a href="../theory/T8.html">T8</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Graphs II</h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
 
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+    <p><a href="T8-slides.html" target="_blank">View slides in full screen</a></p>
+       <div>
+      <iframe class="slide-deck" src="T8-slides.html" height="475px"></iframe>
+    </div>
+  
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -308,11 +343,44 @@ Warning
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This page is a draft. It will be updated closer to the class.</p>
+<p>The previous slides are provided as a reminder of the material seen in class. They are intended to be complemented with the vocal part and the blackboard, therefore <strong>they are not in any way a substitute of a book, nor some lecture notes</strong>. Please use the books provided in the references for the self-study.</p>
+</div>
+</div>
+<section id="jutge-exercises" class="level2">
+<h2 class="anchored" data-anchor-id="jutge-exercises">Jutge exercises</h2>
+<p>The exercises that can be thought as <em>variations on Breadth-First Search (BFS)</em> are the following:</p>
+<ul>
+<li><a href="https://jutge.org/problems/P60796_en">P60796 Treasures in a map (2)</a></li>
+<li><a href="https://jutge.org/problems/P39846_en">P39846 Treasures in a map (4)</a></li>
+<li><a href="https://jutge.org/problems/P88760_en">P88760 Zamburguesas</a></li>
+</ul>
+<p>The Jutge exercises that can be thought as <em>variations on Dijkstra’s algorithm</em> are the following:</p>
+<ul>
+<li><a href="https://jutge.org/problems/P43859_en">P43859 Weighted shortest path (1)</a> <span class="emoji" data-emoji="large_orange_diamond">🔶</span></li>
+<li><a href="https://jutge.org/problems/P13994_en">P13994 Weighted shortest path (2)</a></li>
+<li><a href="https://jutge.org/problems/P25235_en">P25235 Weighted shortest path (3)</a></li>
+<li><a href="https://jutge.org/problems/P39586_en">P39586 Weighted shortest path (4)</a></li>
+</ul>
+<p>The Jutge exercises that can be thought as <em>variations on Jarník-Prim’s algorithm</em> are the following:</p>
+<ul>
+<li><a href="https://jutge.org/problems/P12887_en">P12887 Minimum spanning trees</a></li>
+</ul>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you have doubts while solving the above exercises please write me an email <strong>as soon as possible</strong> (and/or write an email to your instructor of the problem class).</p>
 </div>
 </div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
