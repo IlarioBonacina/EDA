@@ -266,9 +266,20 @@
   {
     "objectID": "theory/T11.html",
     "href": "theory/T11.html",
-    "title": "EDA",
+    "title": "Notions of Intractability I",
     "section": "",
-    "text": "Warning\n\n\n\nThis page is a draft. It will be updated closer to the class.",
+    "text": "View slides in full screen",
+    "crumbs": [
+      "*Notions of Intractability*",
+      "T11"
+    ]
+  },
+  {
+    "objectID": "theory/T11.html#exercises",
+    "href": "theory/T11.html#exercises",
+    "title": "Notions of Intractability I",
+    "section": "Exercises",
+    "text": "Exercises\nOnce you have revised the material from this class, you can try to do the problems from the EDA ProblemSet, section 7 Intractabilitat. In particular 7.1, 7.2, 7.3, 7.4 . Those exercises will be solved in class in the Problem class P7.\nAfter this class and/or the Problem class P7 you should also be able to solve the following MidTerm EDA Exams from the Collection of Solved Exams, for instance:\n\n13/01/2020 Final EDA Exam Problem 4\n09/06/2020 Final EDA Exam Problem 4A-4B\n08/01/2021 Final EDA Exam Problem 3\n07/06/2021 Final EDA Exam Problem 1.b\n16/01/2023 Final EDA Exam Problem 4\n08/01/2024 Final EDA Exam Problem 4\n\nAs always, the solutions are in the very same pdf.",
     "crumbs": [
       "*Notions of Intractability*",
       "T11"

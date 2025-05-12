@@ -1,0 +1,340 @@
+---
+title: EDA T11 --- Notions of Intractability
+
+format:
+  clean-revealjs: 
+    code-block-height: 550px
+---
+
+## Agenda 
+
+\newcommand{\Oh}{\mathcal O}
+\newcommand{\R}{\mathbb R}
+\newcommand{\tand}{\text{\ and\ }}
+\newcommand{\Pos}{\mathsf{P}}
+\newcommand{\TIME}{\mathsf{TIME}}
+\newcommand{\PTIME}{\mathsf{P}}
+\newcommand{\NP}{\mathsf{NP}}
+\newcommand{\EXP}{\mathsf{EXPTIME}}
+\newcommand{\TWOEXP}{\mathsf{2\text{-}EXPTIME}}
+\newcommand{\KCOL}{k\mathsf{\text{-}COLORABILITY}}
+
+::::{.columns}
+:::{.column width=50%}
+### Last theory class
+- Exhaustive Search and Generation
+  - Pruning
+  - Branch & Bound
+  - Several examples
+
+:::
+:::{.column width=50%}
+:::{.fragment}
+### Today 
+
+- Intractability
+  - Time complexity
+  - P vs NP
+
+:::
+:::
+::::
+:::{.fragment}
+Before we start: [**Questions on previous material?**]{.green}
+:::
+
+## Complexity theory and Analysis of Algorithms
+
+:::{.column width=50%}
+[Analysis of Algorithms]{.def} studies the amount of resources that an algorithm needs to solve a problem.
+
+- "The cost of Mergesort to sort $n$ items is $\Oh(n\log n)$"
+:::
+
+:::{.column width=50%}
+[Complexity Theory]{.def} classifies problems according to the resources needed to solve them (with the best of the available algorithms)
+
+- "The cost of *any sorting algorithm*^[Any sorting algorithm which is only allowed to compare elements.] to sort $n$ items in
+the worst-case is $\Omega(n \log n)$"
+
+- "Deciding whether a graph is
+$k$-colorable has the same difficulty (modulo a polynomial factor) of deciding whether it has a Hamiltonian cycle."
+:::
+
+## Decision problems
+
+:::{#def-}
+## Decision Problem
+
+A [decision problem]{.def} is a computational problem with output YES/NO (or $0/1$).
+:::
+
+. . . 
+
+Equivalently, a decision problem is one where one has to determine whether
+the input satisfies (or not) a certain property.
+
+. . . 
+
+- Given $I$ the input set of a decision problem $A$, the [set of positive instances]{.def} is the set of all inputs that are YES instances, i.e. satisfy the property $A$.
+
+. . . 
+
+- A set of decision problems give rise to a [computational class]{.def}. 
+
+[We will only consider classes of problems that can be solved **with a certain amount of resources**.]{.alert}
+
+## 
+
+:::{#exm-}
+The following are decision problems:
+
+- Given a graph $G$, is $G$ Hamiltonian?
+- Given a graph $G$, is $G$ $3$-colorable?
+- Given a graph $G$ and an integer $k$, is $G$ $k$-colorable?
+- Given a graph $G$ and an integer $k$, does $G$ contain a $k$-clique?
+- Given a number $n$,  is $n$ prime?    
+:::
+
+[What could be an example of a computational problem which is not a decision problem?]{.question}
+
+
+## On the input
+
+:::{.column width=50%}
+The instances of the problem will belong to some set $I$ of inputs:
+
+- natural numbers
+- strings of symbols
+- tuples of numbers
+- graphs
+- trees
+- sequences of finite sets of numbers
+- weighted DAGs
+- ...
+:::
+
+:::{.column width=50%}
+:::{#def-}
+## Size of the input
+Given $x\in I$, the [size of $x$]{.def}, denoted $|x|$ is the number of symbols (e.g., bits) of a standard (binary) encoding of $x$.
+:::
+:::
+
+## Decidability
+
+Let $f: \mathbb N \to \mathbb N$ be a function
+
+:::{#def-}
+
+A decision problem $B$ with input set $I$ is [decidable in time $f$]{.def} if there exists an algorithm $A:I\to\{0,1\}$ such that 
+
+- the worst-case cost of $A$ is $\Oh(f)$, and
+- for all $x\in I$, 
+
+$A(x)=1$ if and only if $x$ is a positive instance of $B$.
+:::
+
+## Polynomial time $\PTIME$
+
+The complexity class $\PTIME$ is [polynomial time]{.def}: a decision problem $A$ is in $\PTIME$ if there exists a constant $k$ such that $A$ is decidable in time $n^k$. More formally,
+
+$$
+\PTIME=\bigcup_{k\in \mathbb N}\TIME(n^k)\ ,
+$$
+where 
+$$
+\TIME(f):= \text{all the decision problems decidable in time $f$}
+$$
+
+## Some examples of decision problems in $\PTIME$
+
+- Given a DAG $G$ and two vertices $s$ and $t$ in $G$, is $t$ reachable from $s$?
+- Given a number $n$, is $n$ prime?^[This was proved by [Agrawal, Kayal, and Saxena in 2004](https://annals.math.princeton.edu/wp-content/uploads/annals-v160-n2-p12.pdf).]
+- Given a graph $G$ and an integer $k$, is there a matching of size $k$ in $G$?
+- Given a graph $G$, is $G$ connected?
+- Given a graph $G$, is $G$ $2$-colorable? 
+
+## Exponential time $\EXP$
+
+The complexity class $\EXP$ is [exponential time]{.def}: a decision problem $A$ is in $\EXP$ if there exists a constant $k$ such that $A$ is decidable in time $2^{n^k}$. More formally,
+
+$$
+\EXP=\bigcup_{k\in \mathbb N}\TIME(2^{n^k})
+$$
+
+## Some examples of decision problems in $\EXP$
+
+- $3\text{-}\mathsf{COLORABILITY}$: Given a graph $G$, is it $3$-colorable?  
+[Open Problem: Is this problem in $\PTIME$?]{.alert}
+- $\mathsf{FACTORING}$: Given integers $n$ and $k$, is there a number $j$ with $1 < j < k$ and $j$ dividing $n$?  
+[Open Problem: Is this problem in $\PTIME$?]{.alert}
+- $\mathsf{Travelling Salesman Problem}$ (TSP): Given an input matrix of distances between $n$ cities and an integer $k$, is there a route visiting all cities with total distance less than $k$?  
+[Open Problem: Is this problem in $\PTIME$?]{.alert}
+- ...
+
+## Double exponential time $\TWOEXP$
+
+The complexity class $\TWOEXP$ is [double-exponential time]{.def}: a decision problem $A$ is in $\TWOEXP$ if there exists a constant $k$ such that $A$ is decidable in time $2^{2^{n^k}}$. More formally,
+
+$$
+\TWOEXP=\bigcup_{k\in \mathbb N}\TIME(2^{2^{n^k}})
+$$
+
+## Some examples of decision problems in $\TWOEXP$
+
+- Given polynomials $p_1,\dots,p_m$ and $q$, is $q(x)=0$ on all $x$s such that $p_1(x)=\cdots=p_m(x)=0$?  
+[Open Problem: Is this problem in $\EXP$?]{.alert}
+- A lot of problems from algebraic geometry...
+
+## Inclusions
+
+$$
+\PTIME\subsetneq \EXP \subsetneq \TWOEXP
+$$
+
+Seeing that $\PTIME\subseteq \EXP\subseteq \TWOEXP$ is easy, what is difficult is to show that 
+
+$$
+\PTIME\neq \EXP
+$$
+
+and that 
+
+$$
+\EXP\neq \TWOEXP
+$$
+
+This is done by *diagonalization* ([beyond the scope of this course]{.alert}).^[This technique is inspired by [Cantor's proof](https://en.wikipedia.org/wiki/Cantor%27s_diagonal_argument) that the cardinality of $\mathbb R$ is *strictly* larger than the cardinality of $\mathbb N$.]
+
+## Determinism
+
+In [deterministic]{.def} algorithms the computation path from the input to the output is unique. [*All* algorithms seen so far are deterministic.]{.alert}
+
+. . . 
+
+The execution of a deterministic algorithm $A$ on a given input $x$ starts at some state and is described by a finite path in the “graph of states” leading to some state where the output is either $0$ or $1$ and the computation ends.
+
+. . . 
+
+That path is uniquely determined by $x$.
+
+## Non-determinism
+
+In a [non-deterministic algorithm]{.def} many distinct computational paths,
+forming a tree, **are considered at once**: 
+
+- if there is one computation path
+that “proves” that $x\in A$ then that is the result; 
+- the algorithm will say
+$x\notin A$ only when no proof that $x\in A$ is to be found in any of the
+computational paths.
+
+. . . 
+
+Non-deterministic algorithms are just like ordinary algorithms, but, given
+input $x$, they also can use the operation
+`CHOOSE(y)` which returns a value between $0$ and $y$, as long as $y\leq x$.
+
+On each invocation to `CHOOSE` the current computation path “forks” into
+$y+ 1$ branches, each one corresponding to one possible value returned
+by `CHOOSE`.
+
+## Example: $\mathsf{FACTORING}$
+
+Given a number $n$, is $n$ composite? That is, is there a number $j$ with $1 < j < n$ such that $j$ divides $n$?
+
+:::{.column width=40%}
+```{default}
+input n
+
+for j=2 to n-1
+  if j divides n
+    return 1
+return 0    
+```
+exponential in the bitsize of the input
+:::
+
+:::{.column width=10%}
+:::
+
+:::{.column width=40%}
+```{default}
+input n
+
+j = CHOOSE(n-1)
+  if j>1 and j divides n
+    return 1
+return 0    
+```
+polynomial in the bitsize of the input **but non-deterministic**
+:::
+
+[Open question: Is $\mathsf{FACTORING}\in \PTIME$?]{.alert}
+
+## Example: $\KCOL$
+
+Given a graph $G$ and an integer $k$, is $G$ $k$-colorable?
+
+:::{.column width=40%}
+```{default}
+input G=(V,E), k
+
+for v=1 to |V|
+  c[v]=CHOOSE(k)
+
+for every edge {u,v} in E
+  if c[u]==c[v]
+    return 0
+return 1
+```  
+:::
+
+## Non-deterministic polynomial time $\NP$
+
+A decisional problem $A$ with input set $I$ is decidable in [nondeterministic
+polynomial time]{.def} iff there exist
+
+:::{.smaller}
+- a set $O$
+- a (deterministic) polynomial time algorithm $V : I×O \to \{0,1\}$ ([verifier]{.def}) and
+- a polynomial $p$ such that, 
+:::
+
+for all $x\in I$, $x$ is a positive case of $A$ if and only if there exists a [witness/certificate]{.def} $y\in O$ such that $|y|\leq p(|x|)$ and $V(x,y) = 1$.
+
+:::{#def-}
+The set of all decision problems that can be decided in non-deterministic polynomial time is [$\NP$]{.def}.
+:::
+
+## Inclusions
+
+$$
+\PTIME\subseteq \NP\subseteq \EXP
+$$
+
+But we know $\PTIME\neq \EXP$, so for sure either $\PTIME\neq\NP$ or $\NP\neq \EXP$ (or both).
+
+[So what is the case? Is $\PTIME=\NP$ or $\PTIME\neq \NP$?]{.question}^[There is also a third option, that **both could be coherent with the usually assumed axioms of mathematics**.] 
+
+. . . 
+
+This is known as the [$\PTIME$ vs $\NP$ open problem]{.def} and it is believed to be a **very difficult** mathematical open problem.^[It is one of the seven [Millennium Prize Problems](https://en.wikipedia.org/wiki/Millennium_Prize_Problems) selected by the Clay Mathematics Institute, each of which carries a 1.000.000 USD$ prize for the first correct solution.]
+
+<br>
+<br>
+
+ 
+## Upcoming classes
+
+Wednesday
+: Problem class L6 on exhaustive search ([do the exercises before class]{.alert}).
+
+Next Monday
+: Theory class T12 again on [Intractability]{.def}: more on $\NP$ ($\NP$-completeness and reductions)
+
+<br>
+<br>
+<br>
+[**Questions?**]{.green}
