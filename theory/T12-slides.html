@@ -489,7 +489,7 @@ A propositional formula is in <span class="def">Conjunctive Normal Form</span> (
 </div><div class="column" style="width:50%;">
 <div class="smaller">
 <div class="panel-tabset">
-<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1"><span class="math inline">\mathtt{SAT}</span></a></li><li><a href="#tabset-2-2"><span class="math inline">\mathtt{CNF\text{-}SAT}</span></a></li><li><a href="#tabset-2-3"><span class="math inline">\mathtt{3\text{-}SAT}</span></a></li><li><a href="#tabset-2-4"><span class="math inline">\mathtt{CLIQUE}</span></a></li><li><a href="#tabset-2-5"><span class="math inline">\mathtt{INDIPENDENT\text{-}SET}</span></a></li><li><a href="#tabset-2-6"><span class="math inline">\mathtt{VERTEX\text{-}COVER}</span></a></li><li><a href="#tabset-2-7"><span class="math inline">\mathtt{3\text{-}COLORABILITY}</span></a></li><li><a href="#tabset-2-8"><span class="math inline">\mathtt{k\text{-}COLORABILITY}</span> (<span class="math inline">k\geq 3</span>)</a></li><li><a href="#tabset-2-9"><span class="math inline">\mathtt{HAMILTONIAN}</span>-<span class="math inline">\mathtt{CYCLE}</span></a></li><li><a href="#tabset-2-10"><span class="math inline">\mathtt{SUBSET}</span>-<span class="math inline">\mathtt{SUM}</span></a></li><li><a href="#tabset-2-11"><span class="math inline">\mathtt{KNAPSACK}</span></a></li></ul>
+<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1"><span class="math inline">\mathtt{SAT}</span></a></li><li><a href="#tabset-2-2"><span class="math inline">\mathtt{CNF\text{-}SAT}</span></a></li><li><a href="#tabset-2-3"><span class="math inline">\mathtt{3\text{-}SAT}</span></a></li><li><a href="#tabset-2-4"><span class="math inline">\mathtt{CLIQUE}</span></a></li><li><a href="#tabset-2-5"><span class="math inline">\mathtt{INDIPENDENT\text{-}SET}</span></a></li><li><a href="#tabset-2-6"><span class="math inline">\mathtt{VERTEX\text{-}COVER}</span></a></li><li><a href="#tabset-2-7"><span class="math inline">\mathtt{k\text{-}COLORABILITY}</span> (<span class="math inline">k\geq 3</span>)</a></li><li><a href="#tabset-2-8"><span class="math inline">\mathtt{HAMILTONIAN}</span>-<span class="math inline">\mathtt{CYCLE}</span> / <span class="math inline">\mathtt{PATH}</span></a></li><li><a href="#tabset-2-9"><span class="math inline">\mathtt{SUBSET}</span>-<span class="math inline">\mathtt{SUM}</span></a></li><li><a href="#tabset-2-10"><span class="math inline">\mathtt{KNAPSACK}</span></a></li><li><a href="#tabset-2-11"><span class="math inline">\mathtt{TSP}</span></a></li></ul>
 <div class="tab-content">
 <div id="tabset-2-1">
 <p><span class="math inline">\mathtt{SAT}</span>: given as input propositional formula <span class="math inline">F</span>, is it satisfiable?</p>
@@ -512,18 +512,20 @@ A propositional formula is in <span class="def">Conjunctive Normal Form</span> (
 </div>
 <div id="tabset-2-7">
 <p><span class="math inline">\mathtt{3\text{-}COLORABILITY}</span>: given a graph <span class="math inline">G</span>, is it <span class="math inline">3</span>-colorable?</p>
-</div>
-<div id="tabset-2-8">
 <p><span class="math inline">\mathtt{k\text{-}COLORABILITY}</span> (<span class="math inline">k\geq 3</span>): given a graph <span class="math inline">G</span>, is it <span class="math inline">k</span>-colorable?</p>
 </div>
-<div id="tabset-2-9">
-<p><span class="math inline">\mathtt{HAMILTON}</span>: given as input a graph <span class="math inline">G</span>, does it contain a Hamiltonian cycle?</p>
+<div id="tabset-2-8">
+<p><span class="math inline">\mathtt{HAMILTONIAN}</span>-<span class="math inline">\mathtt{CYCLE}</span>: given as input a graph <span class="math inline">G</span>, does it contain a Hamiltonian cycle?</p>
+<p><span class="math inline">\mathtt{HAMILTONIAN}</span>-<span class="math inline">\mathtt{PATH}</span>: given as input a graph <span class="math inline">G</span>, does it contain a Hamiltonian path?</p>
 </div>
-<div id="tabset-2-10">
+<div id="tabset-2-9">
 <p><span class="math inline">\mathtt{SUBSET}</span>-<span class="math inline">\mathtt{SUM}</span>: given <span class="math inline">a_1, \dots, a_n, k\in \mathbb N</span>, is there a subset <span class="math inline">S\subseteq \{1,2,\dots,n\}</span> such that <span class="math inline">\sum_{i\in S}a_i=k</span>?</p>
 </div>
-<div id="tabset-2-11">
+<div id="tabset-2-10">
 <p><span class="math inline">\mathtt{KNAPSACK}</span>: given <span class="math inline">n</span> items with sizes <span class="math inline">s_1, s_2, \dots, s_n</span>, values <span class="math inline">v_1, v_2, \dots, v_n</span>, capacity <span class="math inline">B</span> and value <span class="math inline">V</span>, is there a subset <span class="math inline">S \subseteq\{1, 2, \dots, n\}</span> such that <span class="math inline">\sum_{i\in S} s_i \leq B</span> and <span class="math inline">\sum_{i\in S} v_i \geq V</span>?</p>
+</div>
+<div id="tabset-2-11">
+<p><span class="math inline">\mathtt{TSP}</span> (Traveling Salesman Problem): given <span class="math inline">n</span> cities, and distances <span class="math inline">d(i, j)</span> between each pair of cities and <span class="math inline">k\in \mathbb N</span>, does there exist a cycle of length <span class="math inline">\leq k</span> that visits each city?</p>
 </div>
 </div>
 </div>
