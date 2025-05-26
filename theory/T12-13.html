@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>AVL trees and Priority queues – EDA</title>
+<title>Notions of Intractability II – EDA</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../theory/T7.html" rel="next">
-<link href="../theory/T5.html" rel="prev">
+<link href="../theory/T11.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -94,7 +93,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../theory/T5.html"><em>Dictionaries</em></a></li><li class="breadcrumb-item"><a href="../theory/T6.html">T6</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../theory/T11.html"><em>Notions of Intractability</em></a></li><li class="breadcrumb-item"><a href="../theory/T12-13.html">T12/T13</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -180,13 +179,13 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
  <span class="menu-text"><em>Dictionaries</em></span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../theory/T5.html" class="sidebar-item-text sidebar-link">
@@ -195,7 +194,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../theory/T6.html" class="sidebar-item-text sidebar-link active">
+  <a href="../theory/T6.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">T6</span></a>
   </div>
 </li>
@@ -260,13 +259,13 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
  <span class="menu-text"><em>Notions of Intractability</em></span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../theory/T11.html" class="sidebar-item-text sidebar-link">
@@ -275,7 +274,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../theory/T12-13.html" class="sidebar-item-text sidebar-link">
+  <a href="../theory/T12-13.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">T12/T13</span></a>
   </div>
 </li>
@@ -298,9 +297,9 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../theory/T5.html"><em>Dictionaries</em></a></li><li class="breadcrumb-item"><a href="../theory/T6.html">T6</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../theory/T11.html"><em>Notions of Intractability</em></a></li><li class="breadcrumb-item"><a href="../theory/T12-13.html">T12/T13</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">AVL trees and Priority queues</h1>
+<h1 class="title">Notions of Intractability II</h1>
 </div>
 
 
@@ -317,9 +316,9 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-    <p><a href="T6-slides.html" target="_blank">View slides in full screen</a></p>
+    <p><a href="T12-slides.html" target="_blank">View slides in full screen</a></p>
        <div>
-      <iframe class="slide-deck" src="T6-slides.html" height="475px"></iframe>
+      <iframe class="slide-deck" src="T12-slides.html" height="475px"></iframe>
     </div>
   
 <div class="callout callout-style-default callout-warning callout-titled">
@@ -337,25 +336,17 @@ Warning
 </div>
 <section id="exercises" class="level2">
 <h2 class="anchored" data-anchor-id="exercises">Exercises</h2>
-<p>Once you have revised the material from this class, you can try to do the problems from the <a href="https://www.cs.upc.edu/eda/data/uploads/eda-problem-set.cat.pdf#page=21">EDA ProblemSet</a>, section 3 <em>Dictionaries</em>. In particular <a href="https://www.cs.upc.edu/eda/data/uploads/eda-problem-set.cat.pdf#page=21"><strong>Exercises 3.1, 3.2, 3.3, …, 3.10, 3.23, 3.24 (no esborrat)</strong></a> and <a href="https://www.cs.upc.edu/eda/data/uploads/eda-problem-set.cat.pdf#page=27"><strong>4.1, 4.2, 4.3, 4.5, 4.9 (no (d)), 4.10, 4.11 </strong></a>. Those exercises will be solved in class in the Problem class P4 and P5.</p>
-<p>After this class and/or the Problem class P4/P5 you should also be able to solve the following <strong>MidTerm</strong> EDA Exams from the <a href="https://www.cs.upc.edu/~oliveras/examens.eng.pdf">Collection of Solved Exams</a> where there is some C++ code to complete. As always, the solutions are in the very same pdf.</p>
+<p>Once you have revised the material from this class, you can try to do the problems from the <a href="https://www.cs.upc.edu/eda/data/uploads/eda-problem-set.cat.pdf#page=21">EDA ProblemSet</a>, section 7 <em>Intractabilitat</em>. In particular <a href="https://www.cs.upc.edu/eda/data/uploads/eda-problem-set.cat.pdf#page=39"><strong>7.1, 7.2, 7.3, 7.4 </strong></a>. Those exercises will be solved in class in the Problem class P7.</p>
+<p>After this class and/or the Problem class P7 you should also be able to solve the following <strong>MidTerm</strong> EDA Exams from the <a href="https://www.cs.upc.edu/~oliveras/examens.eng.pdf">Collection of Solved Exams</a>, for instance:</p>
 <ul>
-<li><a href="https://www.cs.upc.edu/~oliveras/examens.eng.pdf#page=99">15/04/2021 Midterm EDA Exam Problem 1.d</a></li>
-<li><a href="https://www.cs.upc.edu/~oliveras/examens.eng.pdf#page=117">02/11/2023 Midterm EDA Exam Problem 1.c</a></li>
+<li><a href="https://www.cs.upc.edu/~oliveras/examens.eng.pdf#page=221">13/01/2020 Final EDA Exam Problem 4</a></li>
+<li><a href="https://www.cs.upc.edu/~oliveras/examens.eng.pdf#page=240">09/06/2020 Final EDA Exam Problem 4A-4B</a></li>
+<li><a href="https://www.cs.upc.edu/~oliveras/examens.eng.pdf#page=248">08/01/2021 Final EDA Exam Problem 3</a></li>
+<li><a href="https://www.cs.upc.edu/~oliveras/examens.eng.pdf#page=254">07/06/2021 Final EDA Exam Problem 1.b</a></li>
+<li><a href="https://www.cs.upc.edu/~oliveras/examens.eng.pdf#page=273">16/01/2023 Final EDA Exam Problem 4</a></li>
+<li><a href="https://www.cs.upc.edu/~oliveras/examens.eng.pdf#page=279">08/01/2024 Final EDA Exam Problem 4</a></li>
 </ul>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Important
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>If you have doubts while solving the above exercises (after studying the material and the Problem class P4) please write me an email <strong>as soon as possible</strong> (and/or write an email to your instructor of the problem class P4).</p>
-</div>
-</div>
+<p>As always, the solutions are in the very same pdf.</p>
 
 
 </section>
@@ -762,14 +753,11 @@ Important
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../theory/T5.html" class="pagination-link" aria-label="T5">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">T5</span>
+      <a href="../theory/T11.html" class="pagination-link" aria-label="T11">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">T11</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../theory/T7.html" class="pagination-link" aria-label="T7">
-        <span class="nav-page-text">T7</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
